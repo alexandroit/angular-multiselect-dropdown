@@ -4,59 +4,45 @@
       <span class="badge">{{ docsMeta.badge }}</span>
       <h1>&#64;stackline/angular-multiselect-dropdown</h1>
       <p>
-        A maintained Angular multiselect dropdown with classic template support, search,
-        grouping, custom templates, lazy loading, and both template-driven and reactive
-        forms workflows.
+        Angular 2 documentation now follows the same verified test application used before
+        publication: Angular <code>{{ docsMeta.testedAngularVersion }}</code> with package
+        <code>{{ docsMeta.packageVersion }}</code>.
       </p>
       <p>
-        Compatible with Angular <code>{{ docsMeta.angularVersion }}</code>. Tested in Angular
-        <code>{{ docsMeta.testedAngularVersion }}</code> with package
-        <code>{{ docsMeta.packageVersion }}</code>.
+        The official test matrix runs the same twelve dropdown cases in both skins:
+        <code>classic</code> and <code>material</code>. The Angular 2 test keeps the legacy
+        <code>&lt;angular2-multiselect&gt;</code> selector active while the maintained package also
+        supports <code>&lt;angular-multiselect&gt;</code>.
       </p>
 
       <div class="feature-grid">
         <div class="feature">
-          <strong>Classic API preserved</strong>
-          Use <code>&lt;angular-multiselect&gt;</code> as the primary selector, with the legacy
-          <code>&lt;angular2-multiselect&gt;</code> alias still accepted, plus <code>ngModel</code> and the
-          familiar callback outputs across the maintained release line.
+          <strong>Published package</strong>
+          Install <code>{{ docsMeta.packageVersion }}</code> for Angular <code>{{ docsMeta.angularVersion }}</code>.
         </div>
         <div class="feature">
-          <strong>Built for forms</strong>
-          Works with standalone templates, <code>ngModel</code>, and
-          <code>formControlName</code> without adapters.
+          <strong>Peer range</strong>
+          Uses <code>{{ docsMeta.peerRange }}</code>, so it stays inside Angular 2.x.
         </div>
         <div class="feature">
-          <strong>Rich dropdown behavior</strong>
-          Search, grouping, custom placeholders, badge limits, lazy loading, and remote data
-          hooks are available out of the box.
+          <strong>Theme option</strong>
+          Switch skins with <code>theme: 'classic'</code> or <code>theme: 'material'</code>.
         </div>
         <div class="feature">
-          <strong>Versioned docs</strong>
-          Each Angular release line gets its own docs build so the published package and demo stay
-          aligned.
+          <strong>Verified cases</strong>
+          Multi, search, single, no checkbox, limit, overflow, grouping, disabled, empty, scroll,
+          lazy loading, and custom templates.
         </div>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn" href="#demos">See demos</a>
-        <a
-          class="btn secondary"
-          href="https://github.com/alexandroit/angular-multiselect-dropdown#readme"
-          target="_blank"
-          rel="noreferrer">
-          README
-        </a>
       </div>
     </div>
 
     <div class="hero-card hero-setup">
-      <h2>Setup in 3 steps</h2>
+      <h2>Setup used by the test</h2>
 
       <div class="step">
         <span class="step-num">1</span>
         <div>
-          <strong>Install</strong>
+          <strong>Install the tested release</strong>
           <pre>{{ installCode }}</pre>
         </div>
       </div>
@@ -72,92 +58,73 @@
       <div class="step">
         <span class="step-num">3</span>
         <div>
-          <strong>Render the dropdown</strong>
+          <strong>Render the Angular 2 selector</strong>
           <pre>{{ templateCode }}</pre>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="layout" id="demos">
+  <section class="layout" id="official-examples">
     <div class="panels">
       <article class="panel">
         <div class="panel-header">
-          <h2>Example gallery</h2>
+          <h2>Official Angular 2 test matrix</h2>
           <p>
-            Browse the maintained examples to validate how the dropdown behaves with forms,
-            templating, grouping, lazy loading, and remote data.
-          </p>
-        </div>
-
-        <div class="example-shell">
-          <nav class="example-nav" aria-label="Multiselect examples">
-            <a
-              *ngFor="let link of links"
-              class="example-link"
-              [routerLink]="[link.path]"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }">
-              {{ link.data?.label }}
-            </a>
-          </nav>
-
-          <div class="example-stage">
-            <div class="example-stage-header">
-              <div>
-                <h3>{{ currentLabel }}</h3>
-                <p>
-                  Live demo rendered against package <code>{{ docsMeta.packageVersion }}</code>
-                  for Angular <code>{{ docsMeta.angularVersion }}</code>, tested on
-                  <code>{{ docsMeta.testedAngularVersion }}</code>.
-                </p>
-              </div>
-              <span class="stage-pill">{{ docsMeta.testedAngularVersion }}</span>
-            </div>
-
-            <div class="example-preview">
-              <router-outlet></router-outlet>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="panel ref-panel">
-        <div class="panel-header">
-          <h2>Quick API reference</h2>
-          <p>
-            The maintained line keeps the familiar API while documenting the most commonly used
-            inputs and outputs in one place.
+            These are the examples from the final local test app for
+            <code>&#64;stackline/angular-multiselect-dropdown@{{ docsMeta.packageVersion }}</code>.
+            The same scenarios are documented for both skins so CSS changes can be validated
+            without changing behavior.
           </p>
         </div>
 
         <div class="ref-grid">
           <div class="ref-card">
-            <h4>Core inputs</h4>
-            <table class="api-table">
-              <tr><td><code>[data]</code></td><td>Array of available dropdown items.</td></tr>
-              <tr><td><code>[(ngModel)]</code></td><td>Two-way bind the selected items list.</td></tr>
-              <tr><td><code>[settings]</code></td><td>Pass text, search, grouping, and lazy loading configuration.</td></tr>
-              <tr><td><code>disabled</code></td><td>Disable interaction when the parent form requires it.</td></tr>
-            </table>
+            <h4>Base data</h4>
+            <pre>{{ dataCode }}</pre>
           </div>
 
           <div class="ref-card">
-            <h4>Templates</h4>
-            <table class="api-table">
-              <tr><td><code>&lt;c-item&gt;</code></td><td>Provide a custom item template for the dropdown list.</td></tr>
-              <tr><td><code>&lt;c-badge&gt;</code></td><td>Customize the selected badge rendering.</td></tr>
-              <tr><td><code>tagToBody</code></td><td>Keep it <code>false</code> in card or sticky layouts so the menu stays anchored to the field.</td></tr>
-            </table>
+            <h4>Shared settings factory</h4>
+            <pre>{{ settingsCode }}</pre>
           </div>
 
           <div class="ref-card">
-            <h4>Outputs</h4>
+            <h4>Template case</h4>
+            <pre>{{ templateExampleCode }}</pre>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" *ngFor="let skin of officialSkins">
+        <div class="panel-header">
+          <h2>{{ skin.label }} skin</h2>
+          <p>
+            Every example below passes <code>theme: '{{ skin.theme }}'</code> through the same
+            <code>makeSettings</code> helper used by the tested Angular 2.4.10 app.
+          </p>
+        </div>
+
+        <div class="ref-grid">
+          <div class="ref-card" *ngFor="let example of skin.examples">
+            <h4>{{ example.number }}. {{ example.title }}</h4>
             <table class="api-table">
-              <tr><td><code>(onSelect)</code></td><td>Emits the selected item.</td></tr>
-              <tr><td><code>(onDeSelect)</code></td><td>Emits when a selected item is removed.</td></tr>
-              <tr><td><code>(onSelectAll)</code></td><td>Emits when all visible items are selected.</td></tr>
-              <tr><td><code>(onDeSelectAll)</code></td><td>Emits when all selections are cleared.</td></tr>
+              <tr>
+                <td>Data</td>
+                <td><code>{{ example.data }}</code></td>
+              </tr>
+              <tr>
+                <td>Model</td>
+                <td><code>{{ example.model }}</code></td>
+              </tr>
+              <tr>
+                <td>Settings</td>
+                <td><code>{{ example.settings }}</code></td>
+              </tr>
+              <tr>
+                <td>Covers</td>
+                <td>{{ example.covers }}</td>
+              </tr>
             </table>
           </div>
         </div>
@@ -165,28 +132,27 @@
     </div>
 
     <aside class="log-panel">
-      <h2>Release line</h2>
+      <h2>Release proof</h2>
       <p>
-        This demo line is aligned with the published package and keeps the classic dropdown API
-        available for maintained Angular applications.
+        The public documentation is aligned with the official local test app and the npm release.
       </p>
 
       <div class="log-list">
-        <div class="log-entry">Package line: {{ docsMeta.packageVersion }}</div>
-        <div class="log-entry">Angular compatibility: {{ docsMeta.angularVersion }}</div>
+        <div class="log-entry">Package: &#64;stackline/angular-multiselect-dropdown@{{ docsMeta.packageVersion }}</div>
+        <div class="log-entry">Angular runtime tested: {{ docsMeta.testedAngularVersion }}</div>
+        <div class="log-entry">Angular family: {{ docsMeta.angularVersion }}</div>
         <div class="log-entry">Peer range: {{ docsMeta.peerRange }}</div>
-        <div class="log-entry">Tested on Angular: {{ docsMeta.testedAngularVersion }}</div>
-        <div class="log-entry">Docs path: /{{ docsMeta.docsPath }}/</div>
-        <div class="log-entry">Pattern: versioned docs-src + compiled docs history</div>
-        <div class="log-entry">Key workflows: ngModel, reactive forms, templates, grouping, lazy loading</div>
+        <div class="log-entry">Selectors tested: angular2-multiselect and maintained angular-multiselect support</div>
+        <div class="log-entry">Skins tested: classic and material</div>
+        <div class="log-entry">Examples per skin: 12</div>
       </div>
     </aside>
   </section>
 
   <footer class="footer">
     <p>
-      Original upstream copyright is preserved in the license. Maintained publication, Angular upgrades, docs curation,
-      and release stewardship by Stackline.
+      Original upstream copyright is preserved in the license. Maintained publication, Angular
+      line stewardship, docs curation, and release validation by Stackline.
     </p>
   </footer>
 </div>

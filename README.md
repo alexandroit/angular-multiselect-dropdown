@@ -54,12 +54,13 @@ The Angular 2 package is compatible with Angular 2.x and was tested in a real An
 4. [Setup](#setup)
 5. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
 6. [Basic Usage](#basic-usage)
-7. [Custom Templates](#custom-templates)
-8. [Forms Integration](#forms-integration)
-9. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-10. [Events](#events)
-11. [Run Locally](#run-locally)
-12. [License](#license)
+7. [Official Angular 2 Test Matrix](#official-angular-2-test-matrix)
+8. [Custom Templates](#custom-templates)
+9. [Forms Integration](#forms-integration)
+10. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
+11. [Events](#events)
+12. [Run Locally](#run-locally)
+13. [License](#license)
 
 ## Rename Note
 
@@ -155,20 +156,30 @@ Use the `css` file when you want a plain compiled starter that can be copied and
 
 ```ts
 dropdownList = [
-  { id: 1, itemName: 'India' },
-  { id: 2, itemName: 'Singapore' },
-  { id: 3, itemName: 'Australia' },
-  { id: 4, itemName: 'Canada' }
+  { id: 1, itemName: 'Brasil' },
+  { id: 2, itemName: 'Canada' },
+  { id: 3, itemName: 'Portugal' },
+  { id: 4, itemName: 'Estados Unidos' },
+  { id: 5, itemName: 'Argentina' },
+  { id: 6, itemName: 'Alemanha' },
+  { id: 7, itemName: 'Japao' },
+  { id: 8, itemName: 'Africa do Sul' }
 ];
 
-selectedItems = [{ id: 2, itemName: 'Singapore' }];
+selectedItems = [{ id: 2, itemName: 'Canada' }];
 
 dropdownSettings = {
   singleSelection: false,
-  text: 'Select Countries',
-  selectAllText: 'Select All',
-  unSelectAllText: 'UnSelect All',
+  text: 'Classic basico',
+  selectAllText: 'Selecionar todos',
+  unSelectAllText: 'Limpar todos',
   enableSearchFilter: true,
+  searchPlaceholderText: 'Buscar',
+  badgeShowLimit: 4,
+  maxHeight: 260,
+  showCheckbox: true,
+  noDataLabel: 'Sem dados',
+  theme: 'classic',
   tagToBody: false
 };
 ```
@@ -184,6 +195,41 @@ dropdownSettings = {
   (onDeSelectAll)="onDeSelectAll($event)">
 </angular-multiselect>
 ```
+
+## Official Angular 2 Test Matrix
+
+The published Angular 2 release was tested in a real Angular `2.4.10` application with `@stackline/angular-multiselect-dropdown@2.0.3`. The docs now use the same examples from that test app.
+
+Switch between skins through the settings object:
+
+```ts
+settings = {
+  text: 'Classic basico',
+  theme: 'classic'
+};
+
+materialSettings = {
+  text: 'Material basico',
+  theme: 'material'
+};
+```
+
+The same twelve scenarios are validated for both `classic` and `material`:
+
+| # | Scenario | Main settings tested |
+| :---: | :--- | :--- |
+| 01 | Basico multi | `{ enableSearchFilter: false }` |
+| 02 | Busca + selecionar todos | Search, select all, clear all, events |
+| 03 | Single sem checkbox | `{ singleSelection: true, showCheckbox: false, enableCheckAll: false }` |
+| 04 | Multi sem checkbox | `{ showCheckbox: false, enableCheckAll: false }` |
+| 05 | Limite de selecao | `{ limitSelection: 2, badgeShowLimit: 2 }` |
+| 06 | Badge overflow | `{ badgeShowLimit: 2, maxHeight: 220 }` |
+| 07 | Agrupado por regiao | `{ groupBy: 'region', maxHeight: 220 }` |
+| 08 | Disabled com valor | `{ disabled: true }` |
+| 09 | Sem dados | `{ noDataLabel: 'Nenhum registro encontrado' }` |
+| 10 | Lista longa com scroll | `{ maxHeight: 120, badgeShowLimit: 3 }` |
+| 11 | Lazy loading local | `{ lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 }` |
+| 12 | Template de item + chip | `<c-badge>` and `<c-item>` custom templates |
 
 ## Custom Templates
 

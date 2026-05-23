@@ -2,94 +2,588 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>@stackline/angular-multiselect-dropdown — Angular 2 docs</title>
+  <title>@stackline/angular-multiselect-dropdown - Angular 2 docs</title>
   <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Official Angular 2.4.10 examples for @stackline/angular-multiselect-dropdown 2.0.3.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23102033%27/%3E%3Cpath d=%27M14 18h36v8H14zm0 14h36v8H14zm0 14h24v8H14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6353624842390947"
-     crossorigin="anonymous"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --ink: #17324d;
+      --muted: #59708a;
+      --line: #d9e2ec;
+      --blue: #2357a6;
+      --green: #1e7a52;
+      --amber: #a56114;
+      --shadow: 0 20px 54px rgba(23, 50, 77, 0.12);
+    }
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KQ9KECXR9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    * {
+      box-sizing: border-box;
+    }
 
-  gtag('config', 'G-3KQ9KECXR9');
-</script>
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(35, 87, 166, 0.15), transparent 30%),
+        radial-gradient(circle at 100% 8%, rgba(30, 122, 82, 0.13), transparent 28%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    code,
+    pre {
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    }
+
+    pre {
+      background: #13263a;
+      border-radius: 12px;
+      color: #edf4fb;
+      font-size: 0.84rem;
+      line-height: 1.65;
+      margin: 0.65rem 0 0;
+      overflow: auto;
+      padding: 1rem;
+      white-space: pre-wrap;
+    }
+
+    .shell {
+      margin: 0 auto;
+      max-width: 1460px;
+      padding: 2rem;
+    }
+
+    .hero,
+    .layout,
+    .grid,
+    .case-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.9fr);
+      margin-bottom: 1.25rem;
+    }
+
+    .layout {
+      grid-template-columns: minmax(0, 1fr) 310px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .case-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel,
+    .side {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+      padding: 1.35rem;
+    }
+
+    .side {
+      align-self: start;
+      position: sticky;
+      top: 1rem;
+    }
+
+    .badge {
+      background: #e8f0fe;
+      border-radius: 999px;
+      color: var(--blue);
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.9rem;
+      padding: 0.35rem 0.7rem;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.35rem, 4vw, 3.45rem);
+      max-width: 860px;
+    }
+
+    h2 {
+      font-size: clamp(1.65rem, 2.4vw, 2.15rem);
+      margin-bottom: 0.45rem;
+    }
+
+    h3 {
+      font-size: 1.22rem;
+      margin-bottom: 0.7rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.62;
+      margin: 0.75rem 0 0;
+    }
+
+    .features {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 1.25rem;
+    }
+
+    .feature,
+    .card,
+    .case,
+    .log-entry {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      min-width: 0;
+      padding: 0.95rem;
+    }
+
+    .feature strong,
+    .card strong,
+    .case strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .case {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .case-num {
+      align-items: center;
+      background: #e8f0fe;
+      border-radius: 999px;
+      color: var(--blue);
+      display: inline-flex;
+      font-size: 0.74rem;
+      font-weight: 800;
+      height: 1.65rem;
+      justify-content: center;
+      width: 1.65rem;
+    }
+
+    .meta-table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .meta-table td {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      padding: 0.55rem 0;
+      vertical-align: top;
+    }
+
+    .meta-table td:first-child {
+      color: var(--ink);
+      font-weight: 700;
+      padding-right: 0.8rem;
+      white-space: nowrap;
+      width: 1%;
+    }
+
+    .stack {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .log {
+      display: grid;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .log-entry {
+      color: #41566f;
+      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .theme-classic {
+      border-top: 5px solid var(--blue);
+    }
+
+    .theme-material {
+      border-top: 5px solid var(--green);
+    }
+
+    .footer {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 1.25rem;
+      padding: 0 0.35rem;
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .layout,
+      .grid,
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        padding: 1rem;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .panel,
+      .side {
+        border-radius: 14px;
+        padding: 1rem;
+      }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6353624842390947" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KQ9KECXR9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KQ9KECXR9');
+  </script>
 </head>
 <body>
-  <app-root>Loading demo…</app-root>
-<script src="polyfills.js" type="module"></script><script src="scripts.js" defer></script><script src="main.js" type="module"></script>  <script>
-  (function () {
-    function closeModal(modal) {
-      if (!modal) return;
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      modal.removeAttribute('aria-modal');
-      document.body.classList.remove('modal-open');
-      document.querySelectorAll('.docs-modal-backdrop').forEach(function (node) { node.remove(); });
-      var content = modal.querySelector('.modal-content');
-      var body = modal.querySelector('.modal-body');
-      if (content) {
-        content.style.paddingBottom = '';
-        content.style.overflow = '';
-      }
-      if (body) {
-        body.style.paddingBottom = '';
-        body.style.overflow = '';
-      }
+  <main class="shell">
+    <section class="hero">
+      <article class="panel">
+        <span class="badge">Angular 2 family</span>
+        <h1>@stackline/angular-multiselect-dropdown</h1>
+        <p>
+          This Angular 2 documentation uses the exact examples from the final local test app:
+          Angular <code>2.4.10</code> with <code>@stackline/angular-multiselect-dropdown@2.0.3</code>.
+        </p>
+        <p>
+          The matrix runs the same twelve scenarios in <code>classic</code> and <code>material</code>.
+          The Angular 2 test validates the legacy <code>&lt;angular2-multiselect&gt;</code> selector while
+          the maintained package also supports <code>&lt;angular-multiselect&gt;</code>.
+        </p>
+
+        <div class="features">
+          <div class="feature">
+            <strong>Published package</strong>
+            <code>2.0.3</code> for Angular <code>2.x</code>
+          </div>
+          <div class="feature">
+            <strong>Peer range</strong>
+            <code>&gt;=2.0.0 &lt;3.0.0</code>
+          </div>
+          <div class="feature">
+            <strong>Skins</strong>
+            <code>theme: 'classic'</code> and <code>theme: 'material'</code>
+          </div>
+          <div class="feature">
+            <strong>Examples</strong>
+            12 scenarios per skin, 24 documented cases total.
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>Setup used by the test</h2>
+        <div class="stack">
+          <div>
+            <strong>Install</strong>
+            <pre>npm install @stackline/angular-multiselect-dropdown@2.0.3</pre>
+          </div>
+          <div>
+            <strong>Register the module</strong>
+            <pre>import { FormsModule } from '@angular/forms';
+import { AngularMultiSelectModule } from '@stackline/angular-multiselect-dropdown';
+
+@NgModule({
+  imports: [BrowserModule, FormsModule, AngularMultiSelectModule]
+})
+export class AppModule {}</pre>
+          </div>
+          <div>
+            <strong>Render the Angular 2 selector</strong>
+            <pre>&lt;angular2-multiselect
+  [data]="countries"
+  [(ngModel)]="classicBasic"
+  [settings]="classicBasicSettings"
+  (onSelect)="record('classic basic select', $event)"
+  (onDeSelect)="record('classic basic deselect', $event)"
+  (onSelectAll)="record('classic basic selectAll', $event)"
+  (onDeSelectAll)="record('classic basic deselectAll', $event)"&gt;
+&lt;/angular2-multiselect&gt;</pre>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="layout">
+      <div class="stack">
+        <article class="panel">
+          <h2>Official Angular 2 test matrix</h2>
+          <p>
+            These are the examples from the verified test application. CSS and behavior can be
+            compared by keeping the same scenario and switching only <code>theme</code>.
+          </p>
+
+          <div class="grid" style="margin-top: 1rem;">
+            <div class="card">
+              <strong>Base data</strong>
+              <pre>countries = [
+  { id: 1, itemName: 'Brasil' },
+  { id: 2, itemName: 'Canada' },
+  { id: 3, itemName: 'Portugal' },
+  { id: 4, itemName: 'Estados Unidos' },
+  { id: 5, itemName: 'Argentina' },
+  { id: 6, itemName: 'Alemanha' },
+  { id: 7, itemName: 'Japao' },
+  { id: 8, itemName: 'Africa do Sul' }
+];</pre>
+            </div>
+
+            <div class="card">
+              <strong>Shared settings factory</strong>
+              <pre>makeSettings(theme: string, text: string, options: any) {
+  var settings: any = {
+    singleSelection: false,
+    text: text,
+    selectAllText: 'Selecionar todos',
+    unSelectAllText: 'Limpar todos',
+    enableCheckAll: true,
+    enableSearchFilter: true,
+    searchPlaceholderText: 'Buscar',
+    badgeShowLimit: 4,
+    maxHeight: 260,
+    showCheckbox: true,
+    noDataLabel: 'Sem dados',
+    theme: theme
+  };
+
+  for (var key in options) {
+    if (options.hasOwnProperty(key)) {
+      settings[key] = options[key];
     }
+  }
 
-    function openModal(modal) {
-      if (!modal) return;
-      modal.style.display = 'block';
-      modal.classList.add('show');
-      modal.removeAttribute('aria-hidden');
-      modal.setAttribute('aria-modal', 'true');
-      document.body.classList.add('modal-open');
-      var content = modal.querySelector('.modal-content');
-      var body = modal.querySelector('.modal-body');
-      if (content) {
-        content.style.paddingBottom = '13rem';
-        content.style.overflow = 'visible';
-      }
-      if (body) {
-        body.style.paddingBottom = '13rem';
-        body.style.overflow = 'visible';
-      }
+  return settings;
+}</pre>
+            </div>
 
-      if (!document.querySelector('.docs-modal-backdrop')) {
-        var backdrop = document.createElement('div');
-        backdrop.className = 'modal-backdrop fade show docs-modal-backdrop';
-        backdrop.addEventListener('click', function () { closeModal(modal); });
-        document.body.appendChild(backdrop);
-      }
-    }
+            <div class="card">
+              <strong>Template case</strong>
+              <pre>&lt;angular2-multiselect [data]="templateItems" [(ngModel)]="classicTemplate" [settings]="classicTemplateSettings"&gt;
+  &lt;c-badge&gt;
+    &lt;template let-item="item"&gt;
+      &lt;span class="swatch-chip"&gt;&lt;span class="swatch" [style.background]="item.color"&gt;&lt;/span&gt;{{ item.itemName }}&lt;/span&gt;
+    &lt;/template&gt;
+  &lt;/c-badge&gt;
+  &lt;c-item&gt;
+    &lt;template let-item="item"&gt;
+      &lt;span class="option-row"&gt;
+        &lt;span class="swatch" [style.background]="item.color"&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;strong&gt;{{ item.itemName }}&lt;/strong&gt;&lt;small&gt;{{ item.detail }}&lt;/small&gt;&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/template&gt;
+  &lt;/c-item&gt;
+&lt;/angular2-multiselect&gt;</pre>
+            </div>
+          </div>
+        </article>
 
-    document.addEventListener('click', function (event) {
-      var openTrigger = event.target.closest('[data-bs-toggle="modal"]');
-      if (openTrigger) {
-        event.preventDefault();
-        openModal(document.querySelector(openTrigger.getAttribute('data-bs-target')));
-        return;
-      }
+        <article class="panel theme-classic">
+          <h2>Classic skin</h2>
+          <p>Every case below passes <code>theme: 'classic'</code> through the shared settings factory.</p>
+          <div class="case-grid" style="margin-top: 1rem;">
+            <div class="case">
+              <span class="case-num">01</span>
+              <h3>Basico multi</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicBasic = [{ id: 2, itemName: 'Canada' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic basico', { enableSearchFilter: false })</code></td></tr><tr><td>Covers</td><td>Default multi-select and select/clear all events.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">02</span>
+              <h3>Busca + selecionar todos</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicSearch = [{ id: 4, itemName: 'Estados Unidos' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic busca', {})</code></td></tr><tr><td>Covers</td><td>Search, select all, clear all, and event logging.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">03</span>
+              <h3>Single sem checkbox</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicSingle = [{ id: 1, itemName: 'Brasil' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Single-selection mode without checkboxes.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">04</span>
+              <h3>Multi sem checkbox</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicNoCheckbox = [Portugal, Alemanha]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic sem checkbox', { showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Multiple selected values with the checkbox UI hidden.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">05</span>
+              <h3>Limite de selecao</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>classicLimit = [Brasil, Estados Unidos]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic limite 2', { limitSelection: 2, badgeShowLimit: 2 })</code></td></tr><tr><td>Covers</td><td>Selection limit and compact selected badges.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">06</span>
+              <h3>Badge overflow</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>classicBadge = four selected long country names</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic badge limit', { badgeShowLimit: 2, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Overflow counter placement for selected badges.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">07</span>
+              <h3>Agrupado por regiao</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>groupedCountries</code></td></tr><tr><td>Model</td><td><code>classicGrouped = [{ id: 21, itemName: 'Brasil', region: 'America' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic agrupado', { groupBy: 'region', maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Grouping by the region field.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">08</span>
+              <h3>Disabled com valor</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicDisabled = [{ id: 6, itemName: 'Alemanha' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic disabled', { disabled: true })</code></td></tr><tr><td>Covers</td><td>Disabled state while preserving selected value.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">09</span>
+              <h3>Sem dados</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>emptyItems</code></td></tr><tr><td>Model</td><td><code>classicEmpty = []</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic vazio', { noDataLabel: 'Nenhum registro encontrado' })</code></td></tr><tr><td>Covers</td><td>Empty data messaging.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">10</span>
+              <h3>Lista longa com scroll</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>classicScroll = [{ id: 104, itemName: 'Item 04' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic scroll', { maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Constrained menu height and internal scrolling.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">11</span>
+              <h3>Lazy loading local</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>classicLazy = [{ id: 106, itemName: 'Item 06' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Local lazy-loading path with long lists.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">12</span>
+              <h3>Template de item + chip</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>templateItems</code></td></tr><tr><td>Model</td><td><code>classicTemplate = [Primary, Warning]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic template', { badgeShowLimit: 3, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Custom c-badge and c-item templates with swatches.</td></tr></table>
+            </div>
+          </div>
+        </article>
 
-      var closeTrigger = event.target.closest('[data-bs-dismiss="modal"]');
-      if (closeTrigger) {
-        event.preventDefault();
-        closeModal(closeTrigger.closest('.modal'));
-      }
-    });
+        <article class="panel theme-material">
+          <h2>Material skin</h2>
+          <p>Every case below passes <code>theme: 'material'</code> through the shared settings factory.</p>
+          <div class="case-grid" style="margin-top: 1rem;">
+            <div class="case">
+              <span class="case-num">01</span>
+              <h3>Basico multi</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialBasic = [{ id: 2, itemName: 'Canada' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material basico', { enableSearchFilter: false })</code></td></tr><tr><td>Covers</td><td>Default multi-select in the Material skin.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">02</span>
+              <h3>Busca + selecionar todos</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialSearch = [{ id: 4, itemName: 'Estados Unidos' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material busca', {})</code></td></tr><tr><td>Covers</td><td>Search, select all, clear all, and Material menu spacing.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">03</span>
+              <h3>Single sem checkbox</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialSingle = [{ id: 3, itemName: 'Portugal' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Single-selection mode without checkboxes.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">04</span>
+              <h3>Multi sem checkbox</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialNoCheckbox = [Argentina, Japao]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material sem checkbox', { showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Multiple selected values with Material rows and no checkbox.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">05</span>
+              <h3>Limite de selecao</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>materialLimit = [Brasil, Estados Unidos]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material limite 2', { limitSelection: 2, badgeShowLimit: 2 })</code></td></tr><tr><td>Covers</td><td>Selection limit and compact badge display.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">06</span>
+              <h3>Badge overflow</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>materialBadge = four selected long country names</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material badge limit', { badgeShowLimit: 2, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Centered overflow counter beside the selected item area.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">07</span>
+              <h3>Agrupado por regiao</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>groupedCountries</code></td></tr><tr><td>Model</td><td><code>materialGrouped = [{ id: 23, itemName: 'Portugal', region: 'Europa' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material agrupado', { groupBy: 'region', maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Grouped Material rows by region.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">08</span>
+              <h3>Disabled com valor</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialDisabled = [{ id: 8, itemName: 'Africa do Sul' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material disabled', { disabled: true })</code></td></tr><tr><td>Covers</td><td>Disabled Material field with a preserved selected value.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">09</span>
+              <h3>Sem dados</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>emptyItems</code></td></tr><tr><td>Model</td><td><code>materialEmpty = []</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material vazio', { noDataLabel: 'Nenhum registro encontrado' })</code></td></tr><tr><td>Covers</td><td>Empty data state in the Material skin.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">10</span>
+              <h3>Lista longa com scroll</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>materialScroll = [{ id: 105, itemName: 'Item 05' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material scroll', { maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Material long-list menu with constrained scroll.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">11</span>
+              <h3>Lazy loading local</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>materialLazy = [{ id: 107, itemName: 'Item 07' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Local lazy-loading path in the Material skin.</td></tr></table>
+            </div>
+            <div class="case">
+              <span class="case-num">12</span>
+              <h3>Template de item + chip</h3>
+              <table class="meta-table"><tr><td>Data</td><td><code>templateItems</code></td></tr><tr><td>Model</td><td><code>materialTemplate = [Success, Danger]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material template', { badgeShowLimit: 3, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Custom c-badge and c-item templates in Material.</td></tr></table>
+            </div>
+          </div>
+        </article>
+      </div>
 
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeModal(document.querySelector('.modal.show'));
-      }
-    });
-  })();
-</script>
+      <aside class="side">
+        <h2>Release proof</h2>
+        <p>The public docs are aligned with the official local test app and npm release.</p>
+        <div class="log">
+          <div class="log-entry">Package: @stackline/angular-multiselect-dropdown@2.0.3</div>
+          <div class="log-entry">Angular runtime tested: 2.4.10</div>
+          <div class="log-entry">Angular family: 2.x</div>
+          <div class="log-entry">Peer range: &gt;=2.0.0 &lt;3.0.0</div>
+          <div class="log-entry">Selectors tested: angular2-multiselect and maintained angular-multiselect support</div>
+          <div class="log-entry">Skins tested: classic and material</div>
+          <div class="log-entry">Examples per skin: 12</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      Original upstream copyright is preserved in the license. Maintained publication, Angular line
+      stewardship, docs curation, and release validation by Stackline.
+    </footer>
+  </main>
 </body>
 </html>
