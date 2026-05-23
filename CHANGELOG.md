@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.3] - 2026-05-23
+
+### Added
+- Documented the Angular 2 release as compatible with Angular 2.x and tested on Angular 2.4.10.
+- Added the `theme` option for `classic` and `material` skins in the Angular 2 package.
+
+### Changed
+- Published only the tested Angular 2 package version, `@stackline/angular-multiselect-dropdown@2.0.3`.
+- Locked Angular peer dependencies for the package to `>=2.0.0 <3.0.0`.
+
+### Fixed
+- Removed the high `z-index` from selected item remove icons.
+- Centered the overflow counter beside selected items.
+
 ## [13.0.4] - 2026-04-03
 
 ### Added

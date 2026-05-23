@@ -134,7 +134,11 @@ This repository follows a line-per-Angular-major strategy:
 - **4.x.x** through **13.x.x** for the classic compatibility lines
 - **14.x.x** through **21.x.x** for the Material-refined lines
 
-Use patch releases for fixes within a maintained Angular line. Keep `latest` on the active Angular 21 line unless there is a deliberate reason to move it.
+Use patch releases for fixes within a maintained Angular line.
+
+Current tested public release: `@stackline/angular-multiselect-dropdown@2.0.3` for Angular 2.x. It is compatible with Angular `>=2.0.0 <3.0.0` and was tested in Angular `2.4.10`.
+
+Only publish the version that has passed its real framework test app. For the Angular 2 line, publish `2.0.3` only.
 
 ## Release Safety
 
@@ -164,7 +168,7 @@ Use patch releases for fixes within a maintained Angular line. Keep `latest` on 
 | 6.x.x | 6 |
 | 5.x.x | 5 |
 | 4.x.x | 4 |
-| 2.x.x | 2 |
+| 2.x.x | 2.x, tested on 2.4.10 |
 
 ---
 

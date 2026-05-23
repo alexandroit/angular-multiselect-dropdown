@@ -8,6 +8,11 @@
         grouping, custom templates, lazy loading, and both template-driven and reactive
         forms workflows.
       </p>
+      <p>
+        Compatible with Angular <code>{{ docsMeta.angularVersion }}</code>. Tested in Angular
+        <code>{{ docsMeta.testedAngularVersion }}</code> with package
+        <code>{{ docsMeta.packageVersion }}</code>.
+      </p>
 
       <div class="feature-grid">
         <div class="feature">
@@ -103,10 +108,11 @@
                 <h3>{{ currentLabel }}</h3>
                 <p>
                   Live demo rendered against package <code>{{ docsMeta.packageVersion }}</code>
-                  for Angular <code>{{ docsMeta.angularVersion }}</code>.
+                  for Angular <code>{{ docsMeta.angularVersion }}</code>, tested on
+                  <code>{{ docsMeta.testedAngularVersion }}</code>.
                 </p>
               </div>
-              <span class="stage-pill">{{ docsMeta.angularVersion }}</span>
+              <span class="stage-pill">{{ docsMeta.testedAngularVersion }}</span>
             </div>
 
             <div class="example-preview">
@@ -168,6 +174,8 @@
       <div class="log-list">
         <div class="log-entry">Package line: {{ docsMeta.packageVersion }}</div>
         <div class="log-entry">Angular compatibility: {{ docsMeta.angularVersion }}</div>
+        <div class="log-entry">Peer range: {{ docsMeta.peerRange }}</div>
+        <div class="log-entry">Tested on Angular: {{ docsMeta.testedAngularVersion }}</div>
         <div class="log-entry">Docs path: /{{ docsMeta.docsPath }}/</div>
         <div class="log-entry">Pattern: versioned docs-src + compiled docs history</div>
         <div class="log-entry">Key workflows: ngModel, reactive forms, templates, grouping, lazy loading</div>
@@ -177,7 +185,7 @@
 
   <footer class="footer">
     <p>
-      Original library by Cuppa Labs. Maintained publication, Angular upgrades, docs curation,
+      Original upstream copyright is preserved in the license. Maintained publication, Angular upgrades, docs curation,
       and release stewardship by Stackline.
     </p>
   </footer>

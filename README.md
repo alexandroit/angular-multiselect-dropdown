@@ -6,17 +6,17 @@
 [![npm downloads](https://img.shields.io/npm/dt/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
 [![npm monthly](https://img.shields.io/npm/dm/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
 [![license](https://img.shields.io/npm/l/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/LICENSE)
-[![Angular 21](https://img.shields.io/badge/Angular-21.x-red?style=flat-square&logo=angular)](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-21/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Angular 2](https://img.shields.io/badge/Angular-2.x-red?style=flat-square&logo=angular)](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-2/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-2.4-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![GitHub stars](https://img.shields.io/github/stars/alexandroit/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/stargazers)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/angular-multiselect-dropdown/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
+**[Documentation & Live Demos](https://alexandro.net/docs/angular/angular-multiselect-dropdown/)** | **[Angular 2 Demo](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-2/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest version:** `21.0.1`
+**Latest tested npm release:** `2.0.3` for Angular `2.x`
 
 ---
 
-> **Credits:** Original library by [Cuppa Labs](https://github.com/CuppaLabs/angular2-multiselect-dropdown). Current maintenance, Angular line stewardship, publishing, and documentation by [Alexandro Paixao Marques](https://github.com/alexandroit/angular-multiselect-dropdown).
+> **Credits:** Original upstream copyright is preserved in the license. Current maintenance, Angular line stewardship, publishing, and documentation by [Alexandro Paixao Marques](https://github.com/alexandroit/angular-multiselect-dropdown).
 
 ---
 
@@ -24,13 +24,15 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The npm rollout is complete line by line, and `21.0.1` is the current latest published line for Angular 21 applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `2.0.3` for Angular 2.x applications.
+
+The Angular 2 package is compatible with Angular 2.x and was tested in a real Angular 2.4.10 application before publication.
 
 ## Features
 
 | Feature | Supported |
 | :--- | :---: |
-| Angular 21 latest published release line | ✅ |
+| Angular 2 tested published release line | ✅ |
 | Multi-select and single-select modes | ✅ |
 | Search and filter | ✅ |
 | Group by field | ✅ |
@@ -90,16 +92,16 @@ Each package family only installs on its matching Angular family. Framework majo
 | **6.x** | **Angular 6 only** | **`>=6.0.0 <7.0.0`** | **6.0.0 -> 6.1.10** | [Angular 6 family docs](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-6/) |
 | **5.x** | **Angular 5 only** | **`>=5.0.0 <6.0.0`** | **5.0.0 -> 5.2.11** | [Angular 5 family docs](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-5/) |
 | **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.0 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-4/) |
-| **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **2.0.0 -> 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-2/) |
+| **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/angular-multiselect-dropdown/angular-2/) |
 
 
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown
+npm install @stackline/angular-multiselect-dropdown@2.0.3
 ```
 
-Choose the package family from the compatibility table above. Each published family is locked to one framework major only.
+Install `2.0.3` for Angular 2.x applications. This is the only package version published for the tested Angular 2 line in this release.
 
 ## Setup
 
