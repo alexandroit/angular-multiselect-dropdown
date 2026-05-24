@@ -165,8 +165,8 @@
     {
       "angular": 2,
       "base": "classic",
-      "packageVersion": "2.0.2",
-      "packageRange": "^2.0.2",
+      "packageVersion": "2.0.4",
+      "packageRange": "^2.0.4",
       "angularVersion": "2.x",
       "badge": "ANGULAR 2 · CLASSIC LINE",
       "theme": "classic"

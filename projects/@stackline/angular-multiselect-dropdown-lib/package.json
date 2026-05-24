@@ -55,7 +55,7 @@
     "ngx-multiselect",
     "virtual-scroll"
   ],
-  "homepage": "https://github.com/alexandroit/angular-multiselect-dropdown",
+  "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
     "@angular/core": ">=21.0.0 <22.0.0",
     "@angular/forms": ">=21.0.0 <22.0.0",

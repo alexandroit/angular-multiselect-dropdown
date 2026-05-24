@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.4] - 2026-05-23
+
+### Changed
+- Updated the npm README to the maintained Stackline documentation standard.
+- Updated the package homepage to `https://alexandro.net/docs/angular/multiselect/`.
+- Added the short documentation URL for the Angular multiselect docs.
+
 ## [2.0.3] - 2026-05-23
 
 ### Added

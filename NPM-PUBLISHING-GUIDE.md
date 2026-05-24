@@ -136,9 +136,9 @@ This repository follows a line-per-Angular-major strategy:
 
 Use patch releases for fixes within a maintained Angular line.
 
-Current tested public release: `@stackline/angular-multiselect-dropdown@2.0.3` for Angular 2.x. It is compatible with Angular `>=2.0.0 <3.0.0` and was tested in Angular `2.4.10`.
+Current tested public release: `@stackline/angular-multiselect-dropdown@2.0.4` for Angular 2.x. It is compatible with Angular `>=2.0.0 <3.0.0` and was tested in Angular `2.4.10`.
 
-Only publish the version that has passed its real framework test app. For the Angular 2 line, publish `2.0.3` only.
+Only publish the version that has passed its real framework test app. For the Angular 2 line, `2.0.4` keeps the tested `2.0.3` code and only corrects README/homepage documentation metadata.
 
 ## Release Safety
 

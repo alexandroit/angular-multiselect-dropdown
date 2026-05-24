@@ -61,8 +61,8 @@
     "sass": "^1.83.0",
     "typescript": "~5.9.3"
   },
-  "description": "",
-  "homepage": "",
+  "description": "Angular multiselect dropdown with maintained release lines from Angular 2 through Angular 21.",
+  "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
     "@angular/core": ">=21.0.0 <22.0.0"
   }
