@@ -1403,3 +1403,33 @@ Documentation update:
   - `@stackline/angular-multiselect-dropdown 21.0.0`
   - `Skin switcher`
   - `01. Basic multi`
+
+## 2026-05-24 - Docs shell fix for Angular 13 through Angular 21
+
+Issue:
+- Public docs from Angular 13 onward were still serving the older Angular docs shell at hash routes such as:
+  - `https://alexandro.net/docs/angular/multiselect/angular-13/#/basic`
+- Angular 12 already used the newer functional static documentation layout.
+
+Fix:
+- Replaced `docs/angular-13/index.html` through `docs/angular-21/index.html` with the same functional documentation layout used by Angular 12.
+- Kept each version pointed at its real published package line and real embedded `live/` app:
+  - Angular 13: `13.0.0`, runtime `13.4.0`
+  - Angular 14: `14.0.0`, runtime `14.3.0`
+  - Angular 15: `15.0.0`, runtime `15.2.10`
+  - Angular 16: `16.0.0`, runtime `16.2.12`
+  - Angular 17: `17.0.0`, runtime `17.3.12`
+  - Angular 18: `18.0.0`, runtime `18.2.14`
+  - Angular 19: `19.0.0`, runtime `19.2.22`
+  - Angular 20: `20.0.0`, runtime `20.3.21`
+  - Angular 21: `21.0.0`, runtime `21.2.14`
+
+Validation:
+- Local static docs validation passed for Angular 13 through Angular 21 at `/angular-X/#/basic`.
+- Public validation passed for Angular 13 through Angular 21 at:
+  - `https://alexandro.net/docs/angular/multiselect/angular-X/#/basic`
+- Each public page rendered:
+  - `Angular X functional docs`
+  - `Real Angular runtime test application`
+  - the correct npm install command
+  - the embedded `live/` iframe with `Skin switcher`
