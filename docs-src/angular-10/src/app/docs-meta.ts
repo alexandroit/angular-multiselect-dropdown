@@ -1,7 +1,7 @@
 export const DOCS_META = {
-  badge: 'ANGULAR 10 FAMILY',
-  angularVersion: '10.0.0 -> 10.2.5',
-  packageVersion: '10.0.0',
-  packageRange: '^10.0.0',
+  badge: 'ANGULAR 10 · CLASSIC LINE',
+  angularVersion: '10.x',
+  packageVersion: '10.0.1',
+  packageRange: '^10.0.1',
   docsPath: 'angular-10'
 };

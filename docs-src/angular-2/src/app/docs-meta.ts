@@ -1,9 +1,7 @@
 export const DOCS_META = {
-  badge: 'ANGULAR 2 FAMILY',
+  badge: 'ANGULAR 2 · CLASSIC LINE',
   angularVersion: '2.x',
-  testedAngularVersion: '2.4.10',
-  peerRange: '>=2.0.0 <3.0.0',
-  packageVersion: '2.0.3',
-  packageRange: '2.0.3',
+  packageVersion: '2.0.6',
+  packageRange: '^2.0.6',
   docsPath: 'angular-2'
 };

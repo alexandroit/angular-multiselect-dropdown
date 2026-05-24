@@ -1,33 +1,33 @@
 {
-  "name": "@stackline/angular2-multiselect-dropdown-docs-angular20",
+  "name": "@stackline/angular-multiselect-dropdown-docs-angular20",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --configuration development --output-path ../../docs/angular-20 --base-href ./ && node ../../scripts/flatten-browser-docs.mjs angular-20"
+    "start": "ng serve --port 4220 --host 0.0.0.0",
+    "build": "ng build --configuration development --base-href ./"
   },
   "dependencies": {
-    "@angular/common": "~20.3.21",
-    "@angular/compiler": "~20.3.21",
-    "@angular/core": "~20.3.21",
-    "@angular/forms": "~20.3.21",
-    "@angular/localize": "~20.3.21",
-    "@angular/platform-browser": "~20.3.21",
-    "@angular/platform-browser-dynamic": "~20.3.21",
-    "@angular/router": "~20.3.21",
+    "@angular/common": "~21.2.7",
+    "@angular/compiler": "~21.2.7",
+    "@angular/core": "~21.2.7",
+    "@angular/forms": "~21.2.7",
+    "@angular/localize": "~21.2.7",
+    "@angular/platform-browser": "~21.2.7",
+    "@angular/platform-browser-dynamic": "~21.2.7",
+    "@angular/router": "~21.2.7",
     "@popperjs/core": "^2.11.8",
-    "@stackline/angular2-multiselect-dropdown": "file:../..",
+    "@stackline/angular-multiselect-dropdown": "^20.0.1",
     "bootstrap": "^5.3.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.16.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~20.3.22",
-    "@angular/cli": "~20.3.22",
-    "@angular/compiler-cli": "~20.3.21",
+    "@angular-devkit/build-angular": "~21.2.6",
+    "@angular/cli": "~21.2.6",
+    "@angular/compiler-cli": "~21.2.7",
     "sass": "^1.83.0",
-    "typescript": "~5.8.0"
+    "typescript": "~5.9.3"
   }
 }

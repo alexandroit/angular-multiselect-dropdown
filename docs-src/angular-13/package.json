@@ -17,7 +17,7 @@
     "@angular/platform-browser-dynamic": "~20.3.18",
     "@angular/router": "~20.3.18",
     "@popperjs/core": "^2.11.8",
-    "@stackline/angular-multiselect-dropdown": "file:../..",
+    "@stackline/angular-multiselect-dropdown": "^13.0.1",
     "bootstrap": "^5.3.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",

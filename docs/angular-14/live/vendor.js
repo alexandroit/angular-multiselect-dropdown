@@ -59189,17 +59189,17 @@ function AngularMultiSelect_span_4_span_1_Template(rf, ctx) {
   }
 
   if (rf & 2) {
-    const item_r11 = ctx.$implicit;
-    const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const item_r12 = ctx.$implicit;
+    const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r11[ctx_r10.settings.labelKey], " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r12[ctx_r11.settings.labelKey], " ");
   }
 }
 
 function AngularMultiSelect_span_4_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_span_4_span_1_Template, 2, 1, "span", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_span_4_span_1_Template, 2, 1, "span", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
@@ -59212,67 +59212,67 @@ function AngularMultiSelect_span_4_Template(rf, ctx) {
 
 function AngularMultiSelect_div_5_div_1_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
   if (rf & 2) {
-    const item_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const item_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r13[ctx_r15.settings.labelKey]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r14[ctx_r16.settings.labelKey]);
   }
 }
 
 function AngularMultiSelect_div_5_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "c-templateRenderer", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "c-templateRenderer", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
   if (rf & 2) {
-    const item_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const item_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r16.badgeTempl)("item", item_r13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r17.badgeTempl)("item", item_r14);
   }
 }
 
 function AngularMultiSelect_div_5_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_5_div_1_span_1_Template, 2, 1, "span", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_div_5_div_1_span_2_Template, 2, 2, "span", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_5_div_1_span_1_Template, 2, 1, "span", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_div_5_div_1_span_2_Template, 2, 2, "span", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 22);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_5_div_1_Template_span_click_3_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r20);
-      const item_r13 = restoredCtx.$implicit;
-      const k_r14 = restoredCtx.index;
-      const ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r19.onItemClick(item_r13, k_r14, $event));
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21);
+      const item_r14 = restoredCtx.$implicit;
+      const k_r15 = restoredCtx.index;
+      const ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r20.onItemClick(item_r14, k_r15, $event));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
   }
 
   if (rf & 2) {
-    const k_r14 = ctx.index;
-    const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", k_r14 > ctx_r12.settings.badgeShowLimit - 1);
+    const k_r15 = ctx.index;
+    const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", k_r15 > ctx_r13.settings.badgeShowLimit - 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r12.badgeTempl);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r13.badgeTempl);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r12.badgeTempl);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r13.badgeTempl);
   }
 }
 
 function AngularMultiSelect_div_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_5_div_1_Template, 4, 3, "div", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_5_div_1_Template, 4, 3, "div", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
@@ -59285,7 +59285,7 @@ function AngularMultiSelect_div_5_Template(rf, ctx) {
 
 function AngularMultiSelect_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
@@ -59297,48 +59297,29 @@ function AngularMultiSelect_span_6_Template(rf, ctx) {
   }
 }
 
-function AngularMultiSelect_div_12_input_1_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
-  }
-
-  if (rf & 2) {
-    const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r21.isSelectAll)("disabled", ctx_r21.settings.limitSelection == (ctx_r21.selectedItems == null ? null : ctx_r21.selectedItems.length));
-  }
-}
-
-function AngularMultiSelect_div_12_Template(rf, ctx) {
+function AngularMultiSelect_span_7_Template(rf, ctx) {
   if (rf & 1) {
     const _r23 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_12_Template_div_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_span_7_Template_span_click_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r23);
       const ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r22.toggleSelectAll());
+      ctx_r22.clearSelection($event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"]($event.stopPropagation());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_12_input_1_Template, 1, 2, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label")(3, "span", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "span", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
+  }
+}
+
+function AngularMultiSelect_div_13_input_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
   }
 
   if (rf & 2) {
-    const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r4.settings.showCheckbox);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", ctx_r4.isSelectAll);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.settings.selectAllText);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", !ctx_r4.isSelectAll);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r4.settings.unSelectAllText);
+    const ctx_r24 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r24.isSelectAll)("disabled", ctx_r24.settings.limitSelection == (ctx_r24.selectedItems == null ? null : ctx_r24.selectedItems.length));
   }
 }
 
@@ -59346,21 +59327,33 @@ function AngularMultiSelect_div_13_Template(rf, ctx) {
   if (rf & 1) {
     const _r26 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 31, 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AngularMultiSelect_div_13_Template_input_ngModelChange_2_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_13_Template_div_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r26);
       const ctx_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r25.filter = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r25.toggleSelectAll());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_13_input_1_Template, 1, 2, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label")(3, "span", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "span", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
   }
 
   if (rf & 2) {
     const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r5.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("placeholder", ctx_r5.settings.searchPlaceholderText)("ngModel", ctx_r5.filter);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", ctx_r5.isSelectAll);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r5.settings.selectAllText);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", !ctx_r5.isSelectAll);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r5.settings.unSelectAllText);
   }
 }
 
@@ -59368,13 +59361,13 @@ function AngularMultiSelect_div_14_Template(rf, ctx) {
   if (rf & 1) {
     const _r29 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 33, 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function AngularMultiSelect_div_14_Template_input_keyup_2_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 33, 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AngularMultiSelect_div_14_Template_input_ngModelChange_2_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r29);
       const ctx_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r28.filterInfiniteList($event));
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r28.filter = $event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
   }
@@ -59382,158 +59375,180 @@ function AngularMultiSelect_div_14_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("placeholder", ctx_r6.settings.searchPlaceholderText);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("placeholder", ctx_r6.settings.searchPlaceholderText)("ngModel", ctx_r6.filter);
   }
 }
 
-function AngularMultiSelect_ul_15_span_1_li_1_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_15_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
+    const _r32 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "span", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "input", 35, 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function AngularMultiSelect_div_15_Template_input_keyup_2_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r32);
+      const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r31.filterInfiniteList($event));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
   }
 
   if (rf & 2) {
-    const item_r34 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("placeholder", ctx_r7.settings.searchPlaceholderText);
+  }
+}
+
+function AngularMultiSelect_ul_16_span_1_li_1_input_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
+  }
+
+  if (rf & 2) {
+    const item_r37 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r39 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r39.isSelected(item_r37))("disabled", ctx_r39.settings.limitSelection == (ctx_r39.selectedItems == null ? null : ctx_r39.selectedItems.length) && !ctx_r39.isSelected(item_r37));
+  }
+}
+
+function AngularMultiSelect_ul_16_span_1_li_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r42 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_16_span_1_li_1_Template_li_click_0_listener($event) {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r42);
+      const item_r37 = restoredCtx.$implicit;
+      const i_r38 = restoredCtx.index;
+      const ctx_r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r41.onItemClick(item_r37, i_r38, $event));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_1_li_1_input_1_Template, 1, 2, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label")(3, "c-templateRenderer", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const item_r37 = ctx.$implicit;
     const ctx_r36 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r36.isSelected(item_r34))("disabled", ctx_r36.settings.limitSelection == (ctx_r36.selectedItems == null ? null : ctx_r36.selectedItems.length) && !ctx_r36.isSelected(item_r34));
-  }
-}
-
-function AngularMultiSelect_ul_15_span_1_li_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r39 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_15_span_1_li_1_Template_li_click_0_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r39);
-      const item_r34 = restoredCtx.$implicit;
-      const i_r35 = restoredCtx.index;
-      const ctx_r38 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r38.onItemClick(item_r34, i_r35, $event));
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_1_li_1_input_1_Template, 1, 2, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label")(3, "c-templateRenderer", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const item_r34 = ctx.$implicit;
-    const ctx_r33 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r33.settings.showCheckbox);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r36.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r33.itemTempl)("item", item_r34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r36.itemTempl)("item", item_r37);
   }
 }
 
-function AngularMultiSelect_ul_15_span_1_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_1_li_1_Template, 4, 3, "li", 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_1_li_1_Template, 4, 3, "li", 37);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
   if (rf & 2) {
-    const ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const ctx_r33 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, ctx_r30.data, ctx_r30.filter));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, ctx_r33.data, ctx_r33.filter));
   }
 }
 
-function AngularMultiSelect_ul_15_span_2_li_1_input_1_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_2_li_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
   }
 
   if (rf & 2) {
-    const item_r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const item_r44 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r46 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r46.isSelected(item_r44))("disabled", ctx_r46.settings.limitSelection == (ctx_r46.selectedItems == null ? null : ctx_r46.selectedItems.length) && !ctx_r46.isSelected(item_r44));
+  }
+}
+
+function AngularMultiSelect_ul_16_span_2_li_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r49 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_16_span_2_li_1_Template_li_click_0_listener($event) {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r49);
+      const item_r44 = restoredCtx.$implicit;
+      const i_r45 = restoredCtx.index;
+      const ctx_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r48.onItemClick(item_r44, i_r45, $event));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_2_li_1_input_1_Template, 1, 2, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+  }
+
+  if (rf & 2) {
+    const item_r44 = ctx.$implicit;
     const ctx_r43 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r43.isSelected(item_r41))("disabled", ctx_r43.settings.limitSelection == (ctx_r43.selectedItems == null ? null : ctx_r43.selectedItems.length) && !ctx_r43.isSelected(item_r41));
-  }
-}
-
-function AngularMultiSelect_ul_15_span_2_li_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r46 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_15_span_2_li_1_Template_li_click_0_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r46);
-      const item_r41 = restoredCtx.$implicit;
-      const i_r42 = restoredCtx.index;
-      const ctx_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r45.onItemClick(item_r41, i_r42, $event));
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_2_li_1_input_1_Template, 1, 2, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-  }
-
-  if (rf & 2) {
-    const item_r41 = ctx.$implicit;
-    const ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r40.settings.showCheckbox);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r43.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r41[ctx_r40.settings.labelKey]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r44[ctx_r43.settings.labelKey]);
   }
 }
 
-function AngularMultiSelect_ul_15_span_2_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_2_li_1_Template, 4, 2, "li", 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_2_li_1_Template, 4, 2, "li", 37);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
   if (rf & 2) {
-    const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const ctx_r34 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, ctx_r31.data, ctx_r31.filter));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, ctx_r34.data, ctx_r34.filter));
   }
 }
 
-function AngularMultiSelect_ul_15_span_3_li_2_input_1_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_3_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
   }
 
   if (rf & 2) {
-    const item_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r50 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r50.isSelected(item_r48))("disabled", ctx_r50.settings.limitSelection == (ctx_r50.selectedItems == null ? null : ctx_r50.selectedItems.length) && !ctx_r50.isSelected(item_r48));
+    const item_r51 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r53.isSelected(item_r51))("disabled", ctx_r53.settings.limitSelection == (ctx_r53.selectedItems == null ? null : ctx_r53.selectedItems.length) && !ctx_r53.isSelected(item_r51));
   }
 }
 
-function AngularMultiSelect_ul_15_span_3_li_2_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_3_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 39);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_15_span_3_li_2_Template_li_click_0_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r53);
-      const item_r48 = restoredCtx.$implicit;
-      const i_r49 = restoredCtx.index;
-      const ctx_r52 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r52.onItemClick(item_r48, i_r49, $event));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_ul_16_span_3_li_2_Template_li_click_0_listener($event) {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r56);
+      const item_r51 = restoredCtx.$implicit;
+      const i_r52 = restoredCtx.index;
+      const ctx_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r55.onItemClick(item_r51, i_r52, $event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_3_li_2_input_1_Template, 1, 2, "input", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_3_li_2_input_1_Template, 1, 2, "input", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
   }
 
   if (rf & 2) {
-    const item_r48 = ctx.$implicit;
-    const i_r49 = ctx.index;
-    const ctx_r47 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("styleProp", ctx_r47.chunkIndex[i_r49]);
+    const item_r51 = ctx.$implicit;
+    const i_r52 = ctx.index;
+    const ctx_r50 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("styleProp", ctx_r50.chunkIndex[i_r52]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r47.settings.showCheckbox);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r50.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r48[ctx_r47.settings.labelKey]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r51[ctx_r50.settings.labelKey]);
   }
 }
 
@@ -59543,195 +59558,29 @@ const _c1 = function (a0) {
   };
 };
 
-function AngularMultiSelect_ul_15_span_3_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_span_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span")(1, "div", 37);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_ul_15_span_3_li_2_Template, 4, 3, "li", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span")(1, "div", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_ul_16_span_3_li_2_Template, 4, 3, "li", 40);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "listFilter");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
   }
 
   if (rf & 2) {
-    const ctx_r32 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    const ctx_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](5, _c1, ctx_r32.totalHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](5, _c1, ctx_r35.totalHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 2, ctx_r32.chunkArray, ctx_r32.filter));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 2, ctx_r35.chunkArray, ctx_r35.filter));
   }
 }
 
-function AngularMultiSelect_ul_15_Template(rf, ctx) {
+function AngularMultiSelect_ul_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul", 34);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_15_span_1_Template, 3, 4, "span", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_ul_15_span_2_Template, 3, 4, "span", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AngularMultiSelect_ul_15_span_3_Template, 4, 7, "span", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("max-height", ctx_r7.settings.maxHeight + "px");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r7.itemTempl);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r7.itemTempl && !ctx_r7.settings.lazyLoading);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r7.itemTempl && ctx_r7.settings.lazyLoading);
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_h4_1_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h4");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const obj_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](obj_r55.key);
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_3_li_1_input_1_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
-  }
-
-  if (rf & 2) {
-    const item_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r64.isSelected(item_r62))("disabled", ctx_r64.settings.limitSelection == (ctx_r64.selectedItems == null ? null : ctx_r64.selectedItems.length) && !ctx_r64.isSelected(item_r62));
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_3_li_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_16_ul_1_span_3_li_1_Template_li_click_0_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r67);
-      const item_r62 = restoredCtx.$implicit;
-      const i_r63 = restoredCtx.index;
-      const ctx_r66 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r66.onItemClick(item_r62, i_r63, $event));
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_span_3_li_1_input_1_Template, 1, 2, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label")(3, "c-templateRenderer", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const item_r62 = ctx.$implicit;
-    const ctx_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r61.settings.showCheckbox);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r61.itemTempl)("item", item_r62);
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_3_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_span_3_li_1_Template, 4, 3, "li", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const obj_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, obj_r55.value, ctx_r58.filter));
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_4_li_1_input_1_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 28);
-  }
-
-  if (rf & 2) {
-    const item_r70 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r72.isSelected(item_r70))("disabled", ctx_r72.settings.limitSelection == (ctx_r72.selectedItems == null ? null : ctx_r72.selectedItems.length) && !ctx_r72.isSelected(item_r70));
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_4_li_1_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 36);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_16_ul_1_span_4_li_1_Template_li_click_0_listener($event) {
-      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r75);
-      const item_r70 = restoredCtx.$implicit;
-      const i_r71 = restoredCtx.index;
-      const ctx_r74 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r74.onItemClick(item_r70, i_r71, $event));
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_span_4_li_1_input_1_Template, 1, 2, "input", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-  }
-
-  if (rf & 2) {
-    const item_r70 = ctx.$implicit;
-    const ctx_r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r69.settings.showCheckbox);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r70[ctx_r69.settings.labelKey]);
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_span_4_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_span_4_li_1_Template, 4, 2, "li", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const obj_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, obj_r55.value, ctx_r59.filter));
-  }
-}
-
-function AngularMultiSelect_div_16_ul_1_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul", 42);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_h4_1_Template, 2, 1, "h4", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AngularMultiSelect_div_16_ul_1_span_3_Template, 3, 4, "span", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AngularMultiSelect_div_16_ul_1_span_4_Template, 3, 4, "span", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-  }
-
-  if (rf & 2) {
-    const obj_r55 = ctx.$implicit;
-    const ctx_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 3, obj_r55.value, ctx_r54.filter).length > 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r54.itemTempl);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r54.itemTempl);
-  }
-}
-
-function AngularMultiSelect_div_16_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 40);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_16_ul_1_Template, 5, 6, "ul", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_ul_16_span_1_Template, 3, 4, "span", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, AngularMultiSelect_ul_16_span_2_Template, 3, 4, "span", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AngularMultiSelect_ul_16_span_3_Template, 4, 7, "span", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
@@ -59739,21 +59588,187 @@ function AngularMultiSelect_div_16_Template(rf, ctx) {
     const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("max-height", ctx_r8.settings.maxHeight + "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r8.groupedData);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r8.itemTempl);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r8.itemTempl && !ctx_r8.settings.lazyLoading);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r8.itemTempl && ctx_r8.settings.lazyLoading);
   }
 }
 
-function AngularMultiSelect_h5_17_Template(rf, ctx) {
+function AngularMultiSelect_div_17_ul_1_h4_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h5", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h4");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
 
   if (rf & 2) {
-    const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    const obj_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r9.settings.noDataLabel);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](obj_r58.key);
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_3_li_1_input_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
+  }
+
+  if (rf & 2) {
+    const item_r65 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r67.isSelected(item_r65))("disabled", ctx_r67.settings.limitSelection == (ctx_r67.selectedItems == null ? null : ctx_r67.selectedItems.length) && !ctx_r67.isSelected(item_r65));
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_3_li_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r70 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_17_ul_1_span_3_li_1_Template_li_click_0_listener($event) {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r70);
+      const item_r65 = restoredCtx.$implicit;
+      const i_r66 = restoredCtx.index;
+      const ctx_r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r69.onItemClick(item_r65, i_r66, $event));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_span_3_li_1_input_1_Template, 1, 2, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label")(3, "c-templateRenderer", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const item_r65 = ctx.$implicit;
+    const ctx_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r64.settings.showCheckbox);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx_r64.itemTempl)("item", item_r65);
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_3_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_span_3_li_1_Template, 4, 3, "li", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const obj_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, obj_r58.value, ctx_r61.filter));
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_4_li_1_input_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "input", 30);
+  }
+
+  if (rf & 2) {
+    const item_r73 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r75.isSelected(item_r73))("disabled", ctx_r75.settings.limitSelection == (ctx_r75.selectedItems == null ? null : ctx_r75.selectedItems.length) && !ctx_r75.isSelected(item_r73));
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_4_li_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AngularMultiSelect_div_17_ul_1_span_4_li_1_Template_li_click_0_listener($event) {
+      const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
+      const item_r73 = restoredCtx.$implicit;
+      const i_r74 = restoredCtx.index;
+      const ctx_r77 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r77.onItemClick(item_r73, i_r74, $event));
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_span_4_li_1_input_1_Template, 1, 2, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
+  }
+
+  if (rf & 2) {
+    const item_r73 = ctx.$implicit;
+    const ctx_r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r72.settings.showCheckbox);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r73[ctx_r72.settings.labelKey]);
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_span_4_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_span_4_li_1_Template, 4, 2, "li", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const obj_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+    const ctx_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 1, obj_r58.value, ctx_r62.filter));
+  }
+}
+
+function AngularMultiSelect_div_17_ul_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul", 44);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_h4_1_Template, 2, 1, "h4", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "listFilter");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, AngularMultiSelect_div_17_ul_1_span_3_Template, 3, 4, "span", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AngularMultiSelect_div_17_ul_1_span_4_Template, 3, 4, "span", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const obj_r58 = ctx.$implicit;
+    const ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](2, 3, obj_r58.value, ctx_r57.filter).length > 0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r57.itemTempl);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx_r57.itemTempl);
+  }
+}
+
+function AngularMultiSelect_div_17_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 42);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, AngularMultiSelect_div_17_ul_1_Template, 5, 6, "ul", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("max-height", ctx_r9.settings.maxHeight + "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r9.groupedData);
+  }
+}
+
+function AngularMultiSelect_h5_18_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h5", 45);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+
+  if (rf & 2) {
+    const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r10.settings.noDataLabel);
   }
 }
 
@@ -60185,7 +60200,8 @@ class AngularMultiSelect {
       lazyLoading: false,
       labelKey: 'itemName',
       theme: 'classic',
-      skin: 'classic'
+      skin: 'classic',
+      clearAll: true
     };
     this.onTouchedCallback = noop;
     this.onChangeCallback = noop;
@@ -60381,6 +60397,14 @@ class AngularMultiSelect {
     this.onTouchedCallback(this.selectedItems);
   }
 
+  clearSelection(e) {
+    this.selectedItems = [];
+    this.isSelectAll = false;
+    this.onChangeCallback(this.selectedItems);
+    this.onTouchedCallback(this.selectedItems);
+    this.onDeSelectAll.emit(this.selectedItems);
+  }
+
   toggleDropdown(evt) {
     if (this.settings.disabled) {
       return false;
@@ -60561,9 +60585,9 @@ AngularMultiSelect.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
     onClose: "onClose"
   },
   features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]],
-  decls: 18,
-  vars: 19,
-  consts: [[1, "stackline-dropdown", 3, "ngClass", "clickOutside"], [1, "selected-list"], [1, "c-btn", 3, "ngClass", "click"], [4, "ngIf"], ["class", "c-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], [1, "fa", 3, "ngClass"], [1, "dropdown-list", 3, "hidden"], [1, "arrow-up", "arrow-2"], [1, "arrow-up"], [1, "list-area"], ["class", "pure-checkbox select-all", 3, "click", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "lazyContainer", 3, "maxHeight", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list"], ["class", "c-token", 3, "hidden", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token", 3, "hidden"], ["class", "c-label", 4, "ngIf"], [1, "fa", "fa-remove", 3, "click"], [1, "c-label"], [3, "data", "item"], [1, "countplaceholder"], [1, "pure-checkbox", "select-all", 3, "click"], ["type", "checkbox", 3, "checked", "disabled", 4, "ngIf"], [3, "hidden"], ["type", "checkbox", 3, "checked", "disabled"], [1, "list-filter"], [1, "fa", "fa-search"], ["type", "text", 3, "placeholder", "ngModel", "ngModelChange"], ["searchInput", ""], ["type", "text", 3, "placeholder", "keyup"], [1, "lazyContainer"], ["class", "pure-checkbox", 3, "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 3, "click"], [2, "position", "relative", 3, "ngStyle"], ["style", "position: absolute;width: 100%;", "class", "pure-checkbox", 3, "styleProp", "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 2, "position", "absolute", "width", "100%", 3, "styleProp", "click"], [2, "overflow", "auto"], ["class", "list-grp", 4, "ngFor", "ngForOf"], [1, "list-grp"], [1, "list-message"]],
+  decls: 19,
+  vars: 20,
+  consts: [[1, "stackline-dropdown", 3, "ngClass", "clickOutside"], [1, "selected-list"], [1, "c-btn", 3, "ngClass", "click"], [4, "ngIf"], ["class", "c-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["class", "fa fa-remove clear-all", 3, "click", 4, "ngIf"], [1, "fa", 3, "ngClass"], [1, "dropdown-list", 3, "hidden"], [1, "arrow-up", "arrow-2"], [1, "arrow-up"], [1, "list-area"], ["class", "pure-checkbox select-all", 3, "click", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "lazyContainer", 3, "maxHeight", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list"], ["class", "c-token", 3, "hidden", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token", 3, "hidden"], ["class", "c-label", 4, "ngIf"], [1, "fa", "fa-remove", 3, "click"], [1, "c-label"], [3, "data", "item"], [1, "countplaceholder"], [1, "fa", "fa-remove", "clear-all", 3, "click"], [1, "pure-checkbox", "select-all", 3, "click"], ["type", "checkbox", 3, "checked", "disabled", 4, "ngIf"], [3, "hidden"], ["type", "checkbox", 3, "checked", "disabled"], [1, "list-filter"], [1, "fa", "fa-search"], ["type", "text", 3, "placeholder", "ngModel", "ngModelChange"], ["searchInput", ""], ["type", "text", 3, "placeholder", "keyup"], [1, "lazyContainer"], ["class", "pure-checkbox", 3, "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 3, "click"], [2, "position", "relative", 3, "ngStyle"], ["style", "position: absolute;width: 100%;", "class", "pure-checkbox", 3, "styleProp", "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 2, "position", "absolute", "width", "100%", 3, "styleProp", "click"], [2, "overflow", "auto"], ["class", "list-grp", 4, "ngFor", "ngForOf"], [1, "list-grp"], [1, "list-message"]],
   template: function AngularMultiSelect_Template(rf, ctx) {
     if (rf & 1) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -60578,24 +60602,25 @@ AngularMultiSelect.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, AngularMultiSelect_span_4_Template, 2, 2, "span", 3);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, AngularMultiSelect_div_5_Template, 2, 2, "div", 4);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, AngularMultiSelect_span_6_Template, 2, 1, "span", 5);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "span", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, AngularMultiSelect_span_7_Template, 1, 0, "span", 6);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "span", 7);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 7);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](9, "div", 8)(10, "div", 9);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 10);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, AngularMultiSelect_div_12_Template, 7, 5, "div", 11);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, AngularMultiSelect_div_13_Template, 4, 2, "div", 12);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, AngularMultiSelect_div_14_Template, 4, 1, "div", 12);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, AngularMultiSelect_ul_15_Template, 4, 5, "ul", 13);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, AngularMultiSelect_div_16_Template, 2, 3, "div", 14);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, AngularMultiSelect_h5_17_Template, 2, 1, "h5", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 8);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "div", 9)(11, "div", 10);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 11);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, AngularMultiSelect_div_13_Template, 7, 5, "div", 12);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, AngularMultiSelect_div_14_Template, 4, 2, "div", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, AngularMultiSelect_div_15_Template, 4, 1, "div", 13);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, AngularMultiSelect_ul_16_Template, 4, 5, "ul", 14);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, AngularMultiSelect_div_17_Template, 2, 3, "div", 15);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, AngularMultiSelect_h5_18_Template, 2, 1, "h5", 16);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
     }
 
     if (rf & 2) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", ctx.getDropdownClasses());
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](14, _c2, ctx.settings.disabled));
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](15, _c2, ctx.settings.disabled));
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) == 0);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -60605,7 +60630,9 @@ AngularMultiSelect.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) > ctx.settings.badgeShowLimit);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](16, _c3, !ctx.isActive, ctx.isActive));
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.settings.clearAll && (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0 && !ctx.settings.disabled);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](17, _c3, !ctx.isActive, ctx.isActive));
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("hidden", !ctx.isActive);
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
@@ -60625,7 +60652,7 @@ AngularMultiSelect.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
   dependencies: function () {
     return [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_1__.NgModel, ClickOutsideDirective, styleDirective, TemplateRenderer, ListFilterPipe];
   },
-  styles: [".stackline-dropdown[_ngcontent-%COMP%]{position:relative}.c-btn[_ngcontent-%COMP%]{display:inline-block;background:#fff;border:1px solid #ccc;border-radius:3px;font-size:14px;color:#333}.c-btn.disabled[_ngcontent-%COMP%]{background:#ccc}.c-btn[_ngcontent-%COMP%]:focus{outline:none}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;min-width:0;float:none;padding:0;margin:0;width:auto}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]{list-style:none;padding:0 5px;background:#0079FE;color:#fff;border-radius:2px;margin-right:4px;margin-top:2px;float:left}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%]{display:block;float:left}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%]{margin-left:1px;font-size:12px}.selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%]{font-size:15pt;position:absolute;right:10px;top:50%;transform:translateY(-50%)}.selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%]{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0 0 0 6px;line-height:1}.selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]{box-sizing:border-box;width:100%;box-shadow:0 1px 5px #959595;padding:10px 36px 10px 10px;cursor:pointer;display:flex;align-items:center;flex-wrap:nowrap;position:relative}.dropdown-list[_ngcontent-%COMP%]{position:absolute;padding-top:14px;width:100%;z-index:9999}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]{padding:0;list-style:none;overflow:auto;margin:0}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{padding:10px;cursor:pointer;text-align:left}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child{padding-top:10px}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child{padding-bottom:10px}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{background:#f5f5f5}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar{width:8px}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar-thumb{background:#cccccc;border-radius:5px}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar-track{background:#f2f2f2}.arrow-up[_ngcontent-%COMP%]{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:15px solid #fff;margin-left:15px;position:absolute;top:0}.arrow-2[_ngcontent-%COMP%]{border-bottom:15px solid #ccc;top:-1px}.list-area[_ngcontent-%COMP%]{border:1px solid #ccc;border-radius:3px;background:#fff;margin:0;box-shadow:0 1px 5px #959595}.select-all[_ngcontent-%COMP%]{padding:10px;border-bottom:1px solid #ccc;text-align:left}.list-filter[_ngcontent-%COMP%]{border-bottom:1px solid #ccc;position:relative}.list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{border:0px;width:100%;height:35px;padding:0 0 0 35px}.list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{outline:none}.list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%]{position:absolute;top:10px;left:13px;color:#888}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before{border-color:#0079fe;background-color:#f2f2f2}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:active + label[_ngcontent-%COMP%]:before{transition-duration:0s}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]{position:relative;padding-left:2em;vertical-align:middle;-webkit-user-select:none;user-select:none;cursor:pointer;margin:0;color:#000;font-weight:300}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{box-sizing:content-box;content:\"\";color:#0079fe;position:absolute;top:50%;left:0;width:14px;height:14px;margin-top:-9px;border:2px solid #0079FE;text-align:center;transition:all .4s ease}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{box-sizing:content-box;content:\"\";background-color:#0079fe;position:absolute;top:50%;left:4px;width:10px;height:10px;margin-top:-5px;transform:scale(0);transform-origin:50%;transition:transform .2s ease-out}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled + label[_ngcontent-%COMP%]:before{border-color:#ccc}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:focus + label[_ngcontent-%COMP%]:before   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:hover + label[_ngcontent-%COMP%]:before{background-color:inherit}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:checked + label[_ngcontent-%COMP%]:before{background-color:#ccc}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{background-color:transparent;top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;transform:rotate(-45deg) scale(0)}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{content:\"\";transform:rotate(-45deg) scale(1);transition:transform .2s ease-out}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{background-color:#fff}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:scale(1)}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{border-radius:50%}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{background:#0079FE}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:rotate(-45deg) scale(1)}.list-message[_ngcontent-%COMP%]{text-align:center}.list-grp[_ngcontent-%COMP%]{padding:0 15px!important}.list-grp[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%]{text-transform:capitalize;margin:15px 0 0;font-size:14px;font-weight:700}.list-grp[_ngcontent-%COMP%] > li[_ngcontent-%COMP%]{padding-left:15px!important}.stackline-dropdown.theme-material[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-divider: rgba(125, 119, 134, .16);--ms-section-bg: rgba(247, 242, 250, .76);--ms-selected-text: var(--ms-primary);--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);display:block;width:100%;color:var(--ms-on-surface);font:inherit}.stackline-dropdown.theme-dark[_ngcontent-%COMP%]{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-divider: rgba(170, 182, 197, .18);--ms-section-bg: #101620;--ms-selected-text: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom[_ngcontent-%COMP%]{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-divider: var(--stackline-ms-divider, rgba(15, 118, 110, .16));--ms-section-bg: var(--stackline-ms-section-bg, #f0fdfa);--ms-selected-text: var(--stackline-ms-selected-text, var(--ms-primary));--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]{width:100%}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]{position:relative;display:flex;align-items:center;flex-wrap:nowrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);color:var(--ms-on-surface);cursor:pointer;font-size:inherit;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover{border-color:var(--ms-outline-strong)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%]{background:var(--ms-surface);cursor:not-allowed;opacity:.72}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;width:auto;min-width:0;margin:0;padding:0;float:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;background:var(--ms-chip-bg);color:var(--ms-chip-text);border-radius:999px;box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere;margin:0;float:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%]{display:inline-flex;align-items:center;float:none;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%]{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:0;transform:translateY(-50%);color:var(--ms-chip-remove);cursor:pointer}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%]{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0;line-height:1;color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%]{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:15pt;pointer-events:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]{position:absolute;width:100%;padding-top:8px;z-index:99999}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%]{display:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%]{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow);margin:0}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%]{padding:10px 14px;border-bottom:1px solid var(--ms-divider);background:var(--ms-section-bg);text-align:left}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid var(--ms-divider);background:var(--ms-surface)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit;padding:0}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder{color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{outline:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%]{position:absolute;top:50%;left:16px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]{list-style:none;margin:0;padding:8px;overflow:auto}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child{padding-top:12px}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child{padding-bottom:12px}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{background:var(--ms-surface-soft)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]{position:relative}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:16px;height:16px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:5px;background:var(--ms-surface);transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;background:transparent;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before{border-color:var(--ms-primary);background:var(--ms-surface-soft)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{border-color:var(--ms-primary);background:var(--ms-primary)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:rotate(-45deg) scale(1)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%]{margin:0;padding:20px 14px;color:var(--ms-on-surface-muted);text-align:center}"]
+  styles: [".stackline-dropdown[_ngcontent-%COMP%]{position:relative}.c-btn[_ngcontent-%COMP%]{display:inline-block;background:#fff;border:1px solid #ccc;border-radius:3px;font-size:14px;color:#333}.c-btn.disabled[_ngcontent-%COMP%]{background:#ccc}.c-btn[_ngcontent-%COMP%]:focus{outline:none}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;min-width:0;float:none;padding:0;margin:0;width:auto}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]{list-style:none;padding:0 5px;background:#0079FE;color:#fff;border-radius:2px;margin-right:4px;margin-top:2px;float:left}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%]{display:block;float:left}.selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%]{margin-left:1px;font-size:12px}.selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%]{font-size:15pt;position:absolute;right:10px;top:50%;transform:translateY(-50%)}.selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%]{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0 0 0 6px;line-height:1}.selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]{box-sizing:border-box;width:100%;box-shadow:0 1px 5px #959595;padding: 10px 68px 10px 10px;cursor:pointer;display:flex;align-items:center;flex-wrap:nowrap;position:relative}.dropdown-list[_ngcontent-%COMP%]{position:absolute;padding-top:14px;width:100%;z-index:9999}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]{padding:0;list-style:none;overflow:auto;margin:0}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{padding:10px;cursor:pointer;text-align:left}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child{padding-top:10px}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child{padding-bottom:10px}.dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{background:#f5f5f5}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar{width:8px}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar-thumb{background:#cccccc;border-radius:5px}.dropdown-list[_ngcontent-%COMP%]   [_ngcontent-%COMP%]::-webkit-scrollbar-track{background:#f2f2f2}.arrow-up[_ngcontent-%COMP%]{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:15px solid #fff;margin-left:15px;position:absolute;top:0}.arrow-2[_ngcontent-%COMP%]{border-bottom:15px solid #ccc;top:-1px}.list-area[_ngcontent-%COMP%]{border:1px solid #ccc;border-radius:3px;background:#fff;margin:0;box-shadow:0 1px 5px #959595}.select-all[_ngcontent-%COMP%]{padding:10px;border-bottom:1px solid #ccc;text-align:left}.list-filter[_ngcontent-%COMP%]{border-bottom:1px solid #ccc;position:relative}.list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{border:0px;width:100%;height:35px;padding:0 0 0 35px}.list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{outline:none}.list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%]{position:absolute;top:10px;left:13px;color:#888}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before{border-color:#0079fe;background-color:#f2f2f2}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:active + label[_ngcontent-%COMP%]:before{transition-duration:0s}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]{position:relative;padding-left:2em;vertical-align:middle;-webkit-user-select:none;user-select:none;cursor:pointer;margin:0;color:#000;font-weight:300}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{box-sizing:content-box;content:\"\";color:#0079fe;position:absolute;top:50%;left:0;width:14px;height:14px;margin-top:-9px;border:2px solid #0079FE;text-align:center;transition:all .4s ease}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{box-sizing:content-box;content:\"\";background-color:#0079fe;position:absolute;top:50%;left:4px;width:10px;height:10px;margin-top:-5px;transform:scale(0);transform-origin:50%;transition:transform .2s ease-out}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled + label[_ngcontent-%COMP%]:before{border-color:#ccc}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:focus + label[_ngcontent-%COMP%]:before   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:hover + label[_ngcontent-%COMP%]:before{background-color:inherit}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:disabled:checked + label[_ngcontent-%COMP%]:before{background-color:#ccc}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{background-color:transparent;top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;transform:rotate(-45deg) scale(0)}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{content:\"\";transform:rotate(-45deg) scale(1);transition:transform .2s ease-out}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{background-color:#fff}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:scale(1)}.pure-checkbox[_ngcontent-%COMP%]   input[type=radio][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{border-radius:50%}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{background:#0079FE}.pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:rotate(-45deg) scale(1)}.list-message[_ngcontent-%COMP%]{text-align:center}.list-grp[_ngcontent-%COMP%]{padding:0 15px!important}.list-grp[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%]{text-transform:capitalize;margin:15px 0 0;font-size:14px;font-weight:700}.list-grp[_ngcontent-%COMP%] > li[_ngcontent-%COMP%]{padding-left:15px!important}.stackline-dropdown.theme-material[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-divider: rgba(125, 119, 134, .16);--ms-section-bg: rgba(247, 242, 250, .76);--ms-selected-text: var(--ms-primary);--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);display:block;width:100%;color:var(--ms-on-surface);font:inherit}.stackline-dropdown.theme-dark[_ngcontent-%COMP%]{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-divider: rgba(170, 182, 197, .18);--ms-section-bg: #101620;--ms-selected-text: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom[_ngcontent-%COMP%]{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-divider: var(--stackline-ms-divider, rgba(15, 118, 110, .16));--ms-section-bg: var(--stackline-ms-section-bg, #f0fdfa);--ms-selected-text: var(--stackline-ms-selected-text, var(--ms-primary));--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]{width:100%}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]{position:relative;display:flex;align-items:center;flex-wrap:nowrap;gap:8px;width:100%;min-height:56px;padding: 11px 84px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);color:var(--ms-on-surface);cursor:pointer;font-size:inherit;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn[_ngcontent-%COMP%]:hover{border-color:var(--ms-outline-strong)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-btn.disabled[_ngcontent-%COMP%]{background:var(--ms-surface);cursor:not-allowed;opacity:.72}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;width:auto;min-width:0;margin:0;padding:0;float:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;background:var(--ms-chip-bg);color:var(--ms-chip-text);border-radius:999px;box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere;margin:0;float:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .c-label[_ngcontent-%COMP%]{display:inline-flex;align-items:center;float:none;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .c-list[_ngcontent-%COMP%]   .c-token[_ngcontent-%COMP%]   .fa-remove[_ngcontent-%COMP%]{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:0;transform:translateY(-50%);color:var(--ms-chip-remove);cursor:pointer}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .countplaceholder[_ngcontent-%COMP%]{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0;line-height:1;color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-down[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .selected-list[_ngcontent-%COMP%]   .fa-angle-up[_ngcontent-%COMP%]{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:15pt;pointer-events:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]{position:absolute;width:100%;padding-top:8px;z-index:99999}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-up[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-down[_ngcontent-%COMP%], .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .arrow-2[_ngcontent-%COMP%]{display:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-area[_ngcontent-%COMP%]{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow);margin:0}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .select-all[_ngcontent-%COMP%]{padding:10px 14px;border-bottom:1px solid var(--ms-divider);background:var(--ms-section-bg);text-align:left}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid var(--ms-divider);background:var(--ms-surface)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit;padding:0}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]::placeholder{color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{outline:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-filter[_ngcontent-%COMP%]   .fa[_ngcontent-%COMP%]{position:absolute;top:50%;left:16px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]{list-style:none;margin:0;padding:8px;overflow:auto}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:first-child{padding-top:12px}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:last-child{padding-bottom:12px}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .dropdown-list[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover{background:var(--ms-surface-soft)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]{position:relative}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:16px;height:16px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:5px;background:var(--ms-surface);transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%] + label[_ngcontent-%COMP%]:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;background:transparent;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:focus + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:hover + label[_ngcontent-%COMP%]:before{border-color:var(--ms-primary);background:var(--ms-surface-soft)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:before{border-color:var(--ms-primary);background:var(--ms-primary)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after, .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .pure-checkbox[_ngcontent-%COMP%]   input[type=checkbox][_ngcontent-%COMP%]:checked + label[_ngcontent-%COMP%]:after{transform:rotate(-45deg) scale(1)}.stackline-dropdown.theme-material[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%], .stackline-dropdown.theme-dark[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%], .stackline-dropdown.theme-custom[_ngcontent-%COMP%]   .list-message[_ngcontent-%COMP%]{margin:0;padding:20px 14px;color:var(--ms-on-surface-muted);text-align:center}"]
 });
 
 (function () {
@@ -60633,12 +60660,12 @@ AngularMultiSelect.ɵcmp = /* @__PURE__ */_angular_core__WEBPACK_IMPORTED_MODULE
     type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Component,
     args: [{
       selector: 'angular-multiselect, angular2-multiselect',
-      template: "<div class=\"stackline-dropdown\" [ngClass]=\"getDropdownClasses()\" (clickOutside)=\"closeDropdown()\">\n    <div class=\"selected-list\">\n        <div class=\"c-btn\" (click)=\"toggleDropdown($event)\" [ngClass]=\"{'disabled': settings.disabled}\">\n            <span *ngIf=\"selectedItems?.length == 0\">{{settings.text}}</span>\n            <span *ngIf=\"settings.singleSelection\">\n                <span *ngFor=\"let item of selectedItems;trackBy: trackByFn;\">\n                    {{item[settings.labelKey]}}\n                </span>\n            </span>\n            <div class=\"c-list\" *ngIf=\"selectedItems?.length > 0 && !settings.singleSelection\">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn;let k = index\" [hidden]=\"k > settings.badgeShowLimit-1\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"fa fa-remove\" (click)=\"onItemClick(item,k,$event)\"></span>\n                </div>\n            </div> \n            <span class=\"countplaceholder\" *ngIf=\"selectedItems?.length > settings.badgeShowLimit\">+{{selectedItems?.length - settings.badgeShowLimit }}</span>\n            <span class=\"fa\" [ngClass]=\"{'fa-angle-down': !isActive,'fa-angle-up':isActive}\"></span>\n        </div>      \n    </div>\n    <div class=\"dropdown-list\" [hidden]=\"!isActive\">\n    <div class=\"arrow-up arrow-2\"></div>\n    <div class=\"arrow-up\"></div>\n    <div class=\"list-area\">\n        <div class=\"pure-checkbox select-all\" *ngIf=\"settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection\" (click)=\"toggleSelectAll()\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"/>\n            <label>\n                <span [hidden]=\"isSelectAll\">{{settings.selectAllText}}</span>\n                <span [hidden]=\"!isSelectAll\">{{settings.unSelectAllText}}</span>\n            </label>\n        </div>   \n        <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter && !settings.lazyLoading\">\n            <span class=\"fa fa-search\"></span>\n            <input #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\" [(ngModel)]=\"filter\">\n        </div> \n        <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter && settings.lazyLoading\">\n            <span class=\"fa fa-search\"></span>\n            <input #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\" (keyup)=\"filterInfiniteList($event)\">\n        </div>\n    <ul *ngIf=\"!settings.groupBy\" [style.maxHeight] = \"settings.maxHeight+'px'\" class=\"lazyContainer\" >\n        <span *ngIf=\"itemTempl\">\n            <li *ngFor=\"let item of data | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label></label>\n            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl && !settings.lazyLoading\" >\n        <li *ngFor=\"let item of data | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl && settings.lazyLoading\" >\n            <div [ngStyle]=\"{'height':totalHeight+'px'}\" style=\"position: relative;\">\n\n            \n        <li *ngFor=\"let item of chunkArray | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" style=\"position: absolute;width: 100%;\" class=\"pure-checkbox\" [styleProp]=\"chunkIndex[i]\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </div>\n        </span>\n    </ul>\n    <div *ngIf=\"settings.groupBy\" [style.maxHeight] = \"settings.maxHeight+'px'\" style=\"overflow: auto;\">\n    <ul *ngFor=\"let obj of groupedData ; let i = index;\" class=\"list-grp\">\n        <h4 *ngIf=\"(obj.value | listFilter:filter ).length > 0\">{{obj.key}}</h4>\n        <span *ngIf=\"itemTempl\" >\n        <li *ngFor=\"let item of obj.value | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label></label>\n            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl\" >\n        <li *ngFor=\"let item of obj.value | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </span>\n    </ul>\n    </div>\n    <h5 class=\"list-message\" *ngIf=\"data?.length == 0\">{{settings.noDataLabel}}</h5>\n    </div>\n    </div>\n</div>\n",
+      template: "<div class=\"stackline-dropdown\" [ngClass]=\"getDropdownClasses()\" (clickOutside)=\"closeDropdown()\">\n    <div class=\"selected-list\">\n        <div class=\"c-btn\" (click)=\"toggleDropdown($event)\" [ngClass]=\"{'disabled': settings.disabled}\">\n            <span *ngIf=\"selectedItems?.length == 0\">{{settings.text}}</span>\n            <span *ngIf=\"settings.singleSelection\">\n                <span *ngFor=\"let item of selectedItems;trackBy: trackByFn;\">\n                    {{item[settings.labelKey]}}\n                </span>\n            </span>\n            <div class=\"c-list\" *ngIf=\"selectedItems?.length > 0 && !settings.singleSelection\">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn;let k = index\" [hidden]=\"k > settings.badgeShowLimit-1\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"fa fa-remove\" (click)=\"onItemClick(item,k,$event)\"></span>\n                </div>\n            </div> \n            <span class=\"countplaceholder\" *ngIf=\"selectedItems?.length > settings.badgeShowLimit\">+{{selectedItems?.length - settings.badgeShowLimit }}</span>\n            <span class=\"fa fa-remove clear-all\" *ngIf=\"settings.clearAll && selectedItems?.length > 0 && !settings.disabled\" (click)=\"clearSelection($event);$event.stopPropagation()\"></span>\n            <span class=\"fa\" [ngClass]=\"{'fa-angle-down': !isActive,'fa-angle-up':isActive}\"></span>\n        </div>      \n    </div>\n    <div class=\"dropdown-list\" [hidden]=\"!isActive\">\n    <div class=\"arrow-up arrow-2\"></div>\n    <div class=\"arrow-up\"></div>\n    <div class=\"list-area\">\n        <div class=\"pure-checkbox select-all\" *ngIf=\"settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection\" (click)=\"toggleSelectAll()\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"/>\n            <label>\n                <span [hidden]=\"isSelectAll\">{{settings.selectAllText}}</span>\n                <span [hidden]=\"!isSelectAll\">{{settings.unSelectAllText}}</span>\n            </label>\n        </div>   \n        <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter && !settings.lazyLoading\">\n            <span class=\"fa fa-search\"></span>\n            <input #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\" [(ngModel)]=\"filter\">\n        </div> \n        <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter && settings.lazyLoading\">\n            <span class=\"fa fa-search\"></span>\n            <input #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\" (keyup)=\"filterInfiniteList($event)\">\n        </div>\n    <ul *ngIf=\"!settings.groupBy\" [style.maxHeight] = \"settings.maxHeight+'px'\" class=\"lazyContainer\" >\n        <span *ngIf=\"itemTempl\">\n            <li *ngFor=\"let item of data | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label></label>\n            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl && !settings.lazyLoading\" >\n        <li *ngFor=\"let item of data | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl && settings.lazyLoading\" >\n            <div [ngStyle]=\"{'height':totalHeight+'px'}\" style=\"position: relative;\">\n\n            \n        <li *ngFor=\"let item of chunkArray | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" style=\"position: absolute;width: 100%;\" class=\"pure-checkbox\" [styleProp]=\"chunkIndex[i]\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </div>\n        </span>\n    </ul>\n    <div *ngIf=\"settings.groupBy\" [style.maxHeight] = \"settings.maxHeight+'px'\" style=\"overflow: auto;\">\n    <ul *ngFor=\"let obj of groupedData ; let i = index;\" class=\"list-grp\">\n        <h4 *ngIf=\"(obj.value | listFilter:filter ).length > 0\">{{obj.key}}</h4>\n        <span *ngIf=\"itemTempl\" >\n        <li *ngFor=\"let item of obj.value | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label></label>\n            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n        </li>\n        </span>\n        <span *ngIf=\"!itemTempl\" >\n        <li *ngFor=\"let item of obj.value | listFilter:filter; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\">\n            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"/>\n            <label>{{item[settings.labelKey]}}</label>\n        </li>\n        </span>\n    </ul>\n    </div>\n    <h5 class=\"list-message\" *ngIf=\"data?.length == 0\">{{settings.noDataLabel}}</h5>\n    </div>\n    </div>\n</div>\n",
       host: {
         '[class]': 'defaultSettings.classes'
       },
       providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION],
-      styles: [".stackline-dropdown{position:relative}.c-btn{display:inline-block;background:#fff;border:1px solid #ccc;border-radius:3px;font-size:14px;color:#333}.c-btn.disabled{background:#ccc}.c-btn:focus{outline:none}.selected-list .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;min-width:0;float:none;padding:0;margin:0;width:auto}.selected-list .c-list .c-token{list-style:none;padding:0 5px;background:#0079FE;color:#fff;border-radius:2px;margin-right:4px;margin-top:2px;float:left}.selected-list .c-list .c-token .c-label{display:block;float:left}.selected-list .c-list .c-token .fa-remove{margin-left:1px;font-size:12px}.selected-list .fa-angle-down,.selected-list .fa-angle-up{font-size:15pt;position:absolute;right:10px;top:50%;transform:translateY(-50%)}.selected-list .countplaceholder{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0 0 0 6px;line-height:1}.selected-list .c-btn{box-sizing:border-box;width:100%;box-shadow:0 1px 5px #959595;padding:10px 36px 10px 10px;cursor:pointer;display:flex;align-items:center;flex-wrap:nowrap;position:relative}.dropdown-list{position:absolute;padding-top:14px;width:100%;z-index:9999}.dropdown-list ul{padding:0;list-style:none;overflow:auto;margin:0}.dropdown-list ul li{padding:10px;cursor:pointer;text-align:left}.dropdown-list ul li:first-child{padding-top:10px}.dropdown-list ul li:last-child{padding-bottom:10px}.dropdown-list ul li:hover{background:#f5f5f5}.dropdown-list ::-webkit-scrollbar{width:8px}.dropdown-list ::-webkit-scrollbar-thumb{background:#cccccc;border-radius:5px}.dropdown-list ::-webkit-scrollbar-track{background:#f2f2f2}.arrow-up{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:15px solid #fff;margin-left:15px;position:absolute;top:0}.arrow-2{border-bottom:15px solid #ccc;top:-1px}.list-area{border:1px solid #ccc;border-radius:3px;background:#fff;margin:0;box-shadow:0 1px 5px #959595}.select-all{padding:10px;border-bottom:1px solid #ccc;text-align:left}.list-filter{border-bottom:1px solid #ccc;position:relative}.list-filter input{border:0px;width:100%;height:35px;padding:0 0 0 35px}.list-filter input:focus{outline:none}.list-filter .fa{position:absolute;top:10px;left:13px;color:#888}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2}.pure-checkbox input[type=checkbox]:active+label:before{transition-duration:0s}.pure-checkbox input[type=checkbox]+label{position:relative;padding-left:2em;vertical-align:middle;-webkit-user-select:none;user-select:none;cursor:pointer;margin:0;color:#000;font-weight:300}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";color:#0079fe;position:absolute;top:50%;left:0;width:14px;height:14px;margin-top:-9px;border:2px solid #0079FE;text-align:center;transition:all .4s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";background-color:#0079fe;position:absolute;top:50%;left:4px;width:10px;height:10px;margin-top:-5px;transform:scale(0);transform-origin:50%;transition:transform .2s ease-out}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#ccc}.pure-checkbox input[type=checkbox]:disabled:focus+label:before .pure-checkbox input[type=checkbox]:disabled:hover+label:before{background-color:inherit}.pure-checkbox input[type=checkbox]:disabled:checked+label:before{background-color:#ccc}.pure-checkbox input[type=checkbox]+label:after{background-color:transparent;top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;transform:rotate(-45deg) scale(0)}.pure-checkbox input[type=checkbox]:checked+label:after{content:\"\";transform:rotate(-45deg) scale(1);transition:transform .2s ease-out}.pure-checkbox input[type=radio]:checked+label:before{background-color:#fff}.pure-checkbox input[type=radio]:checked+label:after{transform:scale(1)}.pure-checkbox input[type=radio]+label:before{border-radius:50%}.pure-checkbox input[type=checkbox]:checked+label:before{background:#0079FE}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.list-message{text-align:center}.list-grp{padding:0 15px!important}.list-grp h4{text-transform:capitalize;margin:15px 0 0;font-size:14px;font-weight:700}.list-grp>li{padding-left:15px!important}.stackline-dropdown.theme-material,.stackline-dropdown.theme-dark,.stackline-dropdown.theme-custom{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-divider: rgba(125, 119, 134, .16);--ms-section-bg: rgba(247, 242, 250, .76);--ms-selected-text: var(--ms-primary);--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);display:block;width:100%;color:var(--ms-on-surface);font:inherit}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-divider: rgba(170, 182, 197, .18);--ms-section-bg: #101620;--ms-selected-text: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-divider: var(--stackline-ms-divider, rgba(15, 118, 110, .16));--ms-section-bg: var(--stackline-ms-section-bg, #f0fdfa);--ms-selected-text: var(--stackline-ms-selected-text, var(--ms-primary));--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-material .selected-list,.stackline-dropdown.theme-dark .selected-list,.stackline-dropdown.theme-custom .selected-list{width:100%}.stackline-dropdown.theme-material .selected-list .c-btn,.stackline-dropdown.theme-dark .selected-list .c-btn,.stackline-dropdown.theme-custom .selected-list .c-btn{position:relative;display:flex;align-items:center;flex-wrap:nowrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);color:var(--ms-on-surface);cursor:pointer;font-size:inherit;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.stackline-dropdown.theme-material .selected-list .c-btn:hover,.stackline-dropdown.theme-dark .selected-list .c-btn:hover,.stackline-dropdown.theme-custom .selected-list .c-btn:hover{border-color:var(--ms-outline-strong)}.stackline-dropdown.theme-material .selected-list .c-btn.disabled,.stackline-dropdown.theme-dark .selected-list .c-btn.disabled,.stackline-dropdown.theme-custom .selected-list .c-btn.disabled{background:var(--ms-surface);cursor:not-allowed;opacity:.72}.stackline-dropdown.theme-material .selected-list .c-list,.stackline-dropdown.theme-dark .selected-list .c-list,.stackline-dropdown.theme-custom .selected-list .c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;width:auto;min-width:0;margin:0;padding:0;float:none}.stackline-dropdown.theme-material .selected-list .c-list .c-token,.stackline-dropdown.theme-dark .selected-list .c-list .c-token,.stackline-dropdown.theme-custom .selected-list .c-list .c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;background:var(--ms-chip-bg);color:var(--ms-chip-text);border-radius:999px;box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere;margin:0;float:none}.stackline-dropdown.theme-material .selected-list .c-list .c-token .c-label,.stackline-dropdown.theme-dark .selected-list .c-list .c-token .c-label,.stackline-dropdown.theme-custom .selected-list .c-list .c-token .c-label{display:inline-flex;align-items:center;float:none;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.stackline-dropdown.theme-material .selected-list .c-list .c-token .fa-remove,.stackline-dropdown.theme-dark .selected-list .c-list .c-token .fa-remove,.stackline-dropdown.theme-custom .selected-list .c-list .c-token .fa-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:0;transform:translateY(-50%);color:var(--ms-chip-remove);cursor:pointer}.stackline-dropdown.theme-material .selected-list .countplaceholder,.stackline-dropdown.theme-dark .selected-list .countplaceholder,.stackline-dropdown.theme-custom .selected-list .countplaceholder{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0;line-height:1;color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.stackline-dropdown.theme-material .selected-list .fa-angle-down,.stackline-dropdown.theme-dark .selected-list .fa-angle-down,.stackline-dropdown.theme-custom .selected-list .fa-angle-down,.stackline-dropdown.theme-material .selected-list .fa-angle-up,.stackline-dropdown.theme-dark .selected-list .fa-angle-up,.stackline-dropdown.theme-custom .selected-list .fa-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:15pt;pointer-events:none}.stackline-dropdown.theme-material .dropdown-list,.stackline-dropdown.theme-dark .dropdown-list,.stackline-dropdown.theme-custom .dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.stackline-dropdown.theme-material .arrow-up,.stackline-dropdown.theme-dark .arrow-up,.stackline-dropdown.theme-custom .arrow-up,.stackline-dropdown.theme-material .arrow-down,.stackline-dropdown.theme-dark .arrow-down,.stackline-dropdown.theme-custom .arrow-down,.stackline-dropdown.theme-material .arrow-2,.stackline-dropdown.theme-dark .arrow-2,.stackline-dropdown.theme-custom .arrow-2{display:none}.stackline-dropdown.theme-material .list-area,.stackline-dropdown.theme-dark .list-area,.stackline-dropdown.theme-custom .list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow);margin:0}.stackline-dropdown.theme-material .select-all,.stackline-dropdown.theme-dark .select-all,.stackline-dropdown.theme-custom .select-all{padding:10px 14px;border-bottom:1px solid var(--ms-divider);background:var(--ms-section-bg);text-align:left}.stackline-dropdown.theme-material .list-filter,.stackline-dropdown.theme-dark .list-filter,.stackline-dropdown.theme-custom .list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid var(--ms-divider);background:var(--ms-surface)}.stackline-dropdown.theme-material .list-filter input,.stackline-dropdown.theme-dark .list-filter input,.stackline-dropdown.theme-custom .list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit;padding:0}.stackline-dropdown.theme-material .list-filter input::placeholder,.stackline-dropdown.theme-dark .list-filter input::placeholder,.stackline-dropdown.theme-custom .list-filter input::placeholder{color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material .list-filter input:focus,.stackline-dropdown.theme-dark .list-filter input:focus,.stackline-dropdown.theme-custom .list-filter input:focus{outline:none}.stackline-dropdown.theme-material .list-filter .fa,.stackline-dropdown.theme-dark .list-filter .fa,.stackline-dropdown.theme-custom .list-filter .fa{position:absolute;top:50%;left:16px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material .dropdown-list ul,.stackline-dropdown.theme-dark .dropdown-list ul,.stackline-dropdown.theme-custom .dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.stackline-dropdown.theme-material .dropdown-list ul li,.stackline-dropdown.theme-dark .dropdown-list ul li,.stackline-dropdown.theme-custom .dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.stackline-dropdown.theme-material .dropdown-list ul li:first-child,.stackline-dropdown.theme-dark .dropdown-list ul li:first-child,.stackline-dropdown.theme-custom .dropdown-list ul li:first-child{padding-top:12px}.stackline-dropdown.theme-material .dropdown-list ul li:last-child,.stackline-dropdown.theme-dark .dropdown-list ul li:last-child,.stackline-dropdown.theme-custom .dropdown-list ul li:last-child{padding-bottom:12px}.stackline-dropdown.theme-material .dropdown-list ul li:hover,.stackline-dropdown.theme-dark .dropdown-list ul li:hover,.stackline-dropdown.theme-custom .dropdown-list ul li:hover{background:var(--ms-surface-soft)}.stackline-dropdown.theme-material .pure-checkbox,.stackline-dropdown.theme-dark .pure-checkbox,.stackline-dropdown.theme-custom .pure-checkbox{position:relative}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:16px;height:16px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:5px;background:var(--ms-surface);transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label:after,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label:after,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;background:transparent;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:hover+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:hover+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);background:var(--ms-surface-soft)}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:checked+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:checked+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:checked+label:after,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:checked+label:after,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.stackline-dropdown.theme-material .list-message,.stackline-dropdown.theme-dark .list-message,.stackline-dropdown.theme-custom .list-message{margin:0;padding:20px 14px;color:var(--ms-on-surface-muted);text-align:center}\n"]
+      styles: [".stackline-dropdown{position:relative}.c-btn{display:inline-block;background:#fff;border:1px solid #ccc;border-radius:3px;font-size:14px;color:#333}.c-btn.disabled{background:#ccc}.c-btn:focus{outline:none}.selected-list .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;min-width:0;float:none;padding:0;margin:0;width:auto}.selected-list .c-list .c-token{list-style:none;padding:0 5px;background:#0079FE;color:#fff;border-radius:2px;margin-right:4px;margin-top:2px;float:left}.selected-list .c-list .c-token .c-label{display:block;float:left}.selected-list .c-list .c-token .fa-remove{margin-left:1px;font-size:12px}.selected-list .fa-angle-down,.selected-list .fa-angle-up{font-size:15pt;position:absolute;right:10px;top:50%;transform:translateY(-50%)}.selected-list .countplaceholder{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0 0 0 6px;line-height:1}.selected-list .c-btn{box-sizing:border-box;width:100%;box-shadow:0 1px 5px #959595;padding: 10px 68px 10px 10px;cursor:pointer;display:flex;align-items:center;flex-wrap:nowrap;position:relative}.dropdown-list{position:absolute;padding-top:14px;width:100%;z-index:9999}.dropdown-list ul{padding:0;list-style:none;overflow:auto;margin:0}.dropdown-list ul li{padding:10px;cursor:pointer;text-align:left}.dropdown-list ul li:first-child{padding-top:10px}.dropdown-list ul li:last-child{padding-bottom:10px}.dropdown-list ul li:hover{background:#f5f5f5}.dropdown-list ::-webkit-scrollbar{width:8px}.dropdown-list ::-webkit-scrollbar-thumb{background:#cccccc;border-radius:5px}.dropdown-list ::-webkit-scrollbar-track{background:#f2f2f2}.arrow-up{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:15px solid #fff;margin-left:15px;position:absolute;top:0}.arrow-2{border-bottom:15px solid #ccc;top:-1px}.list-area{border:1px solid #ccc;border-radius:3px;background:#fff;margin:0;box-shadow:0 1px 5px #959595}.select-all{padding:10px;border-bottom:1px solid #ccc;text-align:left}.list-filter{border-bottom:1px solid #ccc;position:relative}.list-filter input{border:0px;width:100%;height:35px;padding:0 0 0 35px}.list-filter input:focus{outline:none}.list-filter .fa{position:absolute;top:10px;left:13px;color:#888}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2}.pure-checkbox input[type=checkbox]:active+label:before{transition-duration:0s}.pure-checkbox input[type=checkbox]+label{position:relative;padding-left:2em;vertical-align:middle;-webkit-user-select:none;user-select:none;cursor:pointer;margin:0;color:#000;font-weight:300}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";color:#0079fe;position:absolute;top:50%;left:0;width:14px;height:14px;margin-top:-9px;border:2px solid #0079FE;text-align:center;transition:all .4s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";background-color:#0079fe;position:absolute;top:50%;left:4px;width:10px;height:10px;margin-top:-5px;transform:scale(0);transform-origin:50%;transition:transform .2s ease-out}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#ccc}.pure-checkbox input[type=checkbox]:disabled:focus+label:before .pure-checkbox input[type=checkbox]:disabled:hover+label:before{background-color:inherit}.pure-checkbox input[type=checkbox]:disabled:checked+label:before{background-color:#ccc}.pure-checkbox input[type=checkbox]+label:after{background-color:transparent;top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;transform:rotate(-45deg) scale(0)}.pure-checkbox input[type=checkbox]:checked+label:after{content:\"\";transform:rotate(-45deg) scale(1);transition:transform .2s ease-out}.pure-checkbox input[type=radio]:checked+label:before{background-color:#fff}.pure-checkbox input[type=radio]:checked+label:after{transform:scale(1)}.pure-checkbox input[type=radio]+label:before{border-radius:50%}.pure-checkbox input[type=checkbox]:checked+label:before{background:#0079FE}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.list-message{text-align:center}.list-grp{padding:0 15px!important}.list-grp h4{text-transform:capitalize;margin:15px 0 0;font-size:14px;font-weight:700}.list-grp>li{padding-left:15px!important}.stackline-dropdown.theme-material,.stackline-dropdown.theme-dark,.stackline-dropdown.theme-custom{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-divider: rgba(125, 119, 134, .16);--ms-section-bg: rgba(247, 242, 250, .76);--ms-selected-text: var(--ms-primary);--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);display:block;width:100%;color:var(--ms-on-surface);font:inherit}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-divider: rgba(170, 182, 197, .18);--ms-section-bg: #101620;--ms-selected-text: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-divider: var(--stackline-ms-divider, rgba(15, 118, 110, .16));--ms-section-bg: var(--stackline-ms-section-bg, #f0fdfa);--ms-selected-text: var(--stackline-ms-selected-text, var(--ms-primary));--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-material .selected-list,.stackline-dropdown.theme-dark .selected-list,.stackline-dropdown.theme-custom .selected-list{width:100%}.stackline-dropdown.theme-material .selected-list .c-btn,.stackline-dropdown.theme-dark .selected-list .c-btn,.stackline-dropdown.theme-custom .selected-list .c-btn{position:relative;display:flex;align-items:center;flex-wrap:nowrap;gap:8px;width:100%;min-height:56px;padding: 11px 84px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);color:var(--ms-on-surface);cursor:pointer;font-size:inherit;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.stackline-dropdown.theme-material .selected-list .c-btn:hover,.stackline-dropdown.theme-dark .selected-list .c-btn:hover,.stackline-dropdown.theme-custom .selected-list .c-btn:hover{border-color:var(--ms-outline-strong)}.stackline-dropdown.theme-material .selected-list .c-btn.disabled,.stackline-dropdown.theme-dark .selected-list .c-btn.disabled,.stackline-dropdown.theme-custom .selected-list .c-btn.disabled{background:var(--ms-surface);cursor:not-allowed;opacity:.72}.stackline-dropdown.theme-material .selected-list .c-list,.stackline-dropdown.theme-dark .selected-list .c-list,.stackline-dropdown.theme-custom .selected-list .c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;width:auto;min-width:0;margin:0;padding:0;float:none}.stackline-dropdown.theme-material .selected-list .c-list .c-token,.stackline-dropdown.theme-dark .selected-list .c-list .c-token,.stackline-dropdown.theme-custom .selected-list .c-list .c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;background:var(--ms-chip-bg);color:var(--ms-chip-text);border-radius:999px;box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere;margin:0;float:none}.stackline-dropdown.theme-material .selected-list .c-list .c-token .c-label,.stackline-dropdown.theme-dark .selected-list .c-list .c-token .c-label,.stackline-dropdown.theme-custom .selected-list .c-list .c-token .c-label{display:inline-flex;align-items:center;float:none;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.stackline-dropdown.theme-material .selected-list .c-list .c-token .fa-remove,.stackline-dropdown.theme-dark .selected-list .c-list .c-token .fa-remove,.stackline-dropdown.theme-custom .selected-list .c-list .c-token .fa-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;margin-left:0;transform:translateY(-50%);color:var(--ms-chip-remove);cursor:pointer}.stackline-dropdown.theme-material .selected-list .countplaceholder,.stackline-dropdown.theme-dark .selected-list .countplaceholder,.stackline-dropdown.theme-custom .selected-list .countplaceholder{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;align-self:center;margin:0;line-height:1;color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.stackline-dropdown.theme-material .selected-list .fa-angle-down,.stackline-dropdown.theme-dark .selected-list .fa-angle-down,.stackline-dropdown.theme-custom .selected-list .fa-angle-down,.stackline-dropdown.theme-material .selected-list .fa-angle-up,.stackline-dropdown.theme-dark .selected-list .fa-angle-up,.stackline-dropdown.theme-custom .selected-list .fa-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:15pt;pointer-events:none}.stackline-dropdown.theme-material .dropdown-list,.stackline-dropdown.theme-dark .dropdown-list,.stackline-dropdown.theme-custom .dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.stackline-dropdown.theme-material .arrow-up,.stackline-dropdown.theme-dark .arrow-up,.stackline-dropdown.theme-custom .arrow-up,.stackline-dropdown.theme-material .arrow-down,.stackline-dropdown.theme-dark .arrow-down,.stackline-dropdown.theme-custom .arrow-down,.stackline-dropdown.theme-material .arrow-2,.stackline-dropdown.theme-dark .arrow-2,.stackline-dropdown.theme-custom .arrow-2{display:none}.stackline-dropdown.theme-material .list-area,.stackline-dropdown.theme-dark .list-area,.stackline-dropdown.theme-custom .list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow);margin:0}.stackline-dropdown.theme-material .select-all,.stackline-dropdown.theme-dark .select-all,.stackline-dropdown.theme-custom .select-all{padding:10px 14px;border-bottom:1px solid var(--ms-divider);background:var(--ms-section-bg);text-align:left}.stackline-dropdown.theme-material .list-filter,.stackline-dropdown.theme-dark .list-filter,.stackline-dropdown.theme-custom .list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid var(--ms-divider);background:var(--ms-surface)}.stackline-dropdown.theme-material .list-filter input,.stackline-dropdown.theme-dark .list-filter input,.stackline-dropdown.theme-custom .list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit;padding:0}.stackline-dropdown.theme-material .list-filter input::placeholder,.stackline-dropdown.theme-dark .list-filter input::placeholder,.stackline-dropdown.theme-custom .list-filter input::placeholder{color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material .list-filter input:focus,.stackline-dropdown.theme-dark .list-filter input:focus,.stackline-dropdown.theme-custom .list-filter input:focus{outline:none}.stackline-dropdown.theme-material .list-filter .fa,.stackline-dropdown.theme-dark .list-filter .fa,.stackline-dropdown.theme-custom .list-filter .fa{position:absolute;top:50%;left:16px;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.stackline-dropdown.theme-material .dropdown-list ul,.stackline-dropdown.theme-dark .dropdown-list ul,.stackline-dropdown.theme-custom .dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.stackline-dropdown.theme-material .dropdown-list ul li,.stackline-dropdown.theme-dark .dropdown-list ul li,.stackline-dropdown.theme-custom .dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.stackline-dropdown.theme-material .dropdown-list ul li:first-child,.stackline-dropdown.theme-dark .dropdown-list ul li:first-child,.stackline-dropdown.theme-custom .dropdown-list ul li:first-child{padding-top:12px}.stackline-dropdown.theme-material .dropdown-list ul li:last-child,.stackline-dropdown.theme-dark .dropdown-list ul li:last-child,.stackline-dropdown.theme-custom .dropdown-list ul li:last-child{padding-bottom:12px}.stackline-dropdown.theme-material .dropdown-list ul li:hover,.stackline-dropdown.theme-dark .dropdown-list ul li:hover,.stackline-dropdown.theme-custom .dropdown-list ul li:hover{background:var(--ms-surface-soft)}.stackline-dropdown.theme-material .pure-checkbox,.stackline-dropdown.theme-dark .pure-checkbox,.stackline-dropdown.theme-custom .pure-checkbox{position:relative}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:16px;height:16px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:5px;background:var(--ms-surface);transition:border-color .16s ease,background-color .16s ease,box-shadow .16s ease}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]+label:after,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]+label:after,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:8px;height:3px;margin-top:-4px;border-style:solid;border-color:#fff;border-width:0 0 3px 3px;border-image:none;background:transparent;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:hover+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:hover+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);background:var(--ms-surface-soft)}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:checked+label:before,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:checked+label:before,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.stackline-dropdown.theme-material .pure-checkbox input[type=checkbox]:checked+label:after,.stackline-dropdown.theme-dark .pure-checkbox input[type=checkbox]:checked+label:after,.stackline-dropdown.theme-custom .pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.stackline-dropdown.theme-material .list-message,.stackline-dropdown.theme-dark .list-message,.stackline-dropdown.theme-custom .list-message{margin:0;padding:20px 14px;color:var(--ms-on-surface-muted);text-align:center}\n"]
     }]
   }], function () {
     return [{

@@ -1433,3 +1433,39 @@ Validation:
   - `Real Angular runtime test application`
   - the correct npm install command
   - the embedded `live/` iframe with `Skin switcher`
+
+## 2026-05-24 - Clear-all button patch across every Angular line
+
+Issue:
+- The library source had `settings.clearAll` and `clearSelection`, but the npm packages and live documentation bundles for the Angular 2, 4, and 5 through 21 release lines were missing the visible clear-all X.
+- The expected behavior is a single X button beside the selected-token area that clears all selected items when `settings.clearAll !== false`.
+
+Fix:
+- Added `scripts/patch-clear-all-package.mjs` to patch legacy package formats and modern Angular Package Format bundles without changing the public API.
+- Published patched npm package versions:
+  - Angular 2: `2.0.6`
+  - Angular 4: `4.0.2`
+  - Angular 5 through Angular 21: `X.0.1`
+- Updated npm dist-tags:
+  - `angular-2` -> `2.0.6`
+  - `angular-4` -> `4.0.2`
+  - `angular-5` through `angular-21` -> `X.0.1`
+  - `latest` -> `21.0.1`
+- Updated `docs-src/line-matrix.json`, generated docs metadata, README compatibility table, and live docs package references to the patched versions.
+- Rebuilt live docs from clean test apps for Angular 13 through Angular 21 after installing the matching patched npm package.
+- Patched legacy live docs directly for Angular 2 and Angular 4 through Angular 12.
+- Added docs cache-busting marker `20260524-clearall` to every live iframe and live asset reference.
+- For Angular 2 and Angular 4 through Angular 12, copied the SystemJS build output to `build-20260524-clearall` and pointed `systemjs.config.js` there so CDN/browser caches cannot reuse old module files.
+- Deployed the static docs to both local and remote `alexandro.net` docs roots:
+  - `/var/www/html/alexandro.net_docs/angular/angular-multiselect-dropdown/`
+  - `/var/www/html/alexandro.net_docs/angular/angular2-multiselect-dropdown/`
+  - `/docs/angular/multiselect/` is the public symlink to `angular-multiselect-dropdown`.
+
+Validation:
+- `npm dist-tag ls @stackline/angular-multiselect-dropdown` shows all patched tags.
+- `npm pack @stackline/angular-multiselect-dropdown@2.0.6` and `@21.0.1` both include `clear-all` and `clearSelection`.
+- Local docs live bundles for Angular 2, 4, and 5 through 21 all contain `clear-all` and `clearSelection`.
+- Remote docs live bundles for Angular 2, 4, and 5 through 21 all contain `clear-all` and `clearSelection`.
+- Public HTTPS live index pages for Angular 2, 4, and 5 through 21 all show `20260524-clearall` and the patched package version.
+- Public HTTPS asset checks passed for Angular 2 legacy package output and Angular 13/21 modern `vendor.js` and `styles.css`.
+- Test apps for Angular 13 through Angular 21 were updated to install the patched official npm versions before rebuilding docs live assets.

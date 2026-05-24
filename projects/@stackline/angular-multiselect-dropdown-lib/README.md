@@ -12,7 +12,7 @@
 
 **[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested npm release:** `21.0.0` for Angular `21.x`
+**Latest tested npm release:** `21.0.1` for Angular `21.x`
 
 ---
 
@@ -24,7 +24,7 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `21.0.0` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `21.0.1` for Angular 21.x applications.
 
 The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication.
 
@@ -75,33 +75,33 @@ Each package family only installs on its matching Angular family. Framework majo
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.0 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
-| **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.0 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
-| **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.0 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
-| **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.0 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
-| **17.x** | **Angular 17 only** | **`>=17.0.0 <18.0.0`** | **17.0.0 -> 17.3.12** | [Angular 17 family docs](https://alexandro.net/docs/angular/multiselect/angular-17/) |
-| **16.x** | **Angular 16 only** | **`>=16.0.0 <17.0.0`** | **16.0.0 -> 16.2.12** | [Angular 16 family docs](https://alexandro.net/docs/angular/multiselect/angular-16/) |
-| **15.x** | **Angular 15 only** | **`>=15.0.0 <16.0.0`** | **15.0.0 -> 15.2.10** | [Angular 15 family docs](https://alexandro.net/docs/angular/multiselect/angular-15/) |
-| **14.x** | **Angular 14 only** | **`>=14.0.0 <15.0.0`** | **14.0.0 -> 14.3.0** | [Angular 14 family docs](https://alexandro.net/docs/angular/multiselect/angular-14/) |
-| **13.x** | **Angular 13 only** | **`>=13.0.0 <14.0.0`** | **13.0.0 -> 13.4.0** | [Angular 13 family docs](https://alexandro.net/docs/angular/multiselect/angular-13/) |
-| **12.x** | **Angular 12 only** | **`>=12.0.0 <13.0.0`** | **12.0.0 -> 12.2.17** | [Angular 12 family docs](https://alexandro.net/docs/angular/multiselect/angular-12/) |
-| **11.x** | **Angular 11 only** | **`>=11.0.0 <12.0.0`** | **11.0.0 -> 11.2.14** | [Angular 11 family docs](https://alexandro.net/docs/angular/multiselect/angular-11/) |
-| **10.x** | **Angular 10 only** | **`>=10.0.0 <11.0.0`** | **10.0.0 -> 10.2.5** | [Angular 10 family docs](https://alexandro.net/docs/angular/multiselect/angular-10/) |
-| **9.x** | **Angular 9 only** | **`>=9.0.0 <10.0.0`** | **9.0.0 -> 9.1.13** | [Angular 9 family docs](https://alexandro.net/docs/angular/multiselect/angular-9/) |
-| **8.x** | **Angular 8 only** | **`>=8.0.0 <9.0.0`** | **8.0.0 -> 8.2.14** | [Angular 8 family docs](https://alexandro.net/docs/angular/multiselect/angular-8/) |
-| **7.x** | **Angular 7 only** | **`>=7.0.0 <8.0.0`** | **7.0.0 -> 7.2.16** | [Angular 7 family docs](https://alexandro.net/docs/angular/multiselect/angular-7/) |
-| **6.x** | **Angular 6 only** | **`>=6.0.0 <7.0.0`** | **6.0.0 -> 6.1.10** | [Angular 6 family docs](https://alexandro.net/docs/angular/multiselect/angular-6/) |
-| **5.x** | **Angular 5 only** | **`>=5.0.0 <6.0.0`** | **5.0.0 -> 5.2.11** | [Angular 5 family docs](https://alexandro.net/docs/angular/multiselect/angular-5/) |
-| **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.0 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.1 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
+| **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
+| **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
+| **17.x** | **Angular 17 only** | **`>=17.0.0 <18.0.0`** | **17.0.1 -> 17.3.12** | [Angular 17 family docs](https://alexandro.net/docs/angular/multiselect/angular-17/) |
+| **16.x** | **Angular 16 only** | **`>=16.0.0 <17.0.0`** | **16.0.1 -> 16.2.12** | [Angular 16 family docs](https://alexandro.net/docs/angular/multiselect/angular-16/) |
+| **15.x** | **Angular 15 only** | **`>=15.0.0 <16.0.0`** | **15.0.1 -> 15.2.10** | [Angular 15 family docs](https://alexandro.net/docs/angular/multiselect/angular-15/) |
+| **14.x** | **Angular 14 only** | **`>=14.0.0 <15.0.0`** | **14.0.1 -> 14.3.0** | [Angular 14 family docs](https://alexandro.net/docs/angular/multiselect/angular-14/) |
+| **13.x** | **Angular 13 only** | **`>=13.0.0 <14.0.0`** | **13.0.1 -> 13.4.0** | [Angular 13 family docs](https://alexandro.net/docs/angular/multiselect/angular-13/) |
+| **12.x** | **Angular 12 only** | **`>=12.0.0 <13.0.0`** | **12.0.1 -> 12.2.17** | [Angular 12 family docs](https://alexandro.net/docs/angular/multiselect/angular-12/) |
+| **11.x** | **Angular 11 only** | **`>=11.0.0 <12.0.0`** | **11.0.1 -> 11.2.14** | [Angular 11 family docs](https://alexandro.net/docs/angular/multiselect/angular-11/) |
+| **10.x** | **Angular 10 only** | **`>=10.0.0 <11.0.0`** | **10.0.1 -> 10.2.5** | [Angular 10 family docs](https://alexandro.net/docs/angular/multiselect/angular-10/) |
+| **9.x** | **Angular 9 only** | **`>=9.0.0 <10.0.0`** | **9.0.1 -> 9.1.13** | [Angular 9 family docs](https://alexandro.net/docs/angular/multiselect/angular-9/) |
+| **8.x** | **Angular 8 only** | **`>=8.0.0 <9.0.0`** | **8.0.1 -> 8.2.14** | [Angular 8 family docs](https://alexandro.net/docs/angular/multiselect/angular-8/) |
+| **7.x** | **Angular 7 only** | **`>=7.0.0 <8.0.0`** | **7.0.1 -> 7.2.16** | [Angular 7 family docs](https://alexandro.net/docs/angular/multiselect/angular-7/) |
+| **6.x** | **Angular 6 only** | **`>=6.0.0 <7.0.0`** | **6.0.1 -> 6.1.10** | [Angular 6 family docs](https://alexandro.net/docs/angular/multiselect/angular-6/) |
+| **5.x** | **Angular 5 only** | **`>=5.0.0 <6.0.0`** | **5.0.1 -> 5.2.11** | [Angular 5 family docs](https://alexandro.net/docs/angular/multiselect/angular-5/) |
+| **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.2 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
 | **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/multiselect/angular-2/) |
 
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.0.0 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.0.1 --save-exact
 ```
 
-Install `21.0.0` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, and keeps `<angular2-multiselect>` only as a legacy compatibility alias.
+Install `21.0.1` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, and keeps `<angular2-multiselect>` only as a legacy compatibility alias.
 
 ## Setup
 
@@ -197,7 +197,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.0.0`. The docs now use the same examples from that test app.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.0.1`. The docs now use the same examples from that test app.
 
 Switch between skins through the settings object:
 

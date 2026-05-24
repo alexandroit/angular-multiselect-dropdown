@@ -12,8 +12,8 @@
     {
       "angular": 20,
       "base": "modern",
-      "packageVersion": "20.0.0",
-      "packageRange": "^20.0.0",
+      "packageVersion": "20.0.1",
+      "packageRange": "^20.0.1",
       "angularVersion": "20.x",
       "badge": "ANGULAR 20 · MATERIAL REFINED",
       "theme": "modern"
@@ -21,8 +21,8 @@
     {
       "angular": 19,
       "base": "modern",
-      "packageVersion": "19.0.0",
-      "packageRange": "^19.0.0",
+      "packageVersion": "19.0.1",
+      "packageRange": "^19.0.1",
       "angularVersion": "19.x",
       "badge": "ANGULAR 19 · MATERIAL REFINED",
       "theme": "modern"
@@ -30,8 +30,8 @@
     {
       "angular": 18,
       "base": "modern",
-      "packageVersion": "18.0.0",
-      "packageRange": "^18.0.0",
+      "packageVersion": "18.0.1",
+      "packageRange": "^18.0.1",
       "angularVersion": "18.x",
       "badge": "ANGULAR 18 · MATERIAL REFINED",
       "theme": "modern"
@@ -39,8 +39,8 @@
     {
       "angular": 17,
       "base": "modern",
-      "packageVersion": "17.0.0",
-      "packageRange": "^17.0.0",
+      "packageVersion": "17.0.1",
+      "packageRange": "^17.0.1",
       "angularVersion": "17.x",
       "badge": "ANGULAR 17 · MATERIAL REFINED",
       "theme": "modern"
@@ -48,8 +48,8 @@
     {
       "angular": 16,
       "base": "modern",
-      "packageVersion": "16.0.0",
-      "packageRange": "^16.0.0",
+      "packageVersion": "16.0.1",
+      "packageRange": "^16.0.1",
       "angularVersion": "16.x",
       "badge": "ANGULAR 16 · MATERIAL REFINED",
       "theme": "modern"
@@ -57,8 +57,8 @@
     {
       "angular": 15,
       "base": "modern",
-      "packageVersion": "15.0.0",
-      "packageRange": "^15.0.0",
+      "packageVersion": "15.0.1",
+      "packageRange": "^15.0.1",
       "angularVersion": "15.x",
       "badge": "ANGULAR 15 · MATERIAL REFINED",
       "theme": "modern"
@@ -66,8 +66,8 @@
     {
       "angular": 14,
       "base": "modern",
-      "packageVersion": "14.0.0",
-      "packageRange": "^14.0.0",
+      "packageVersion": "14.0.1",
+      "packageRange": "^14.0.1",
       "angularVersion": "14.x",
       "badge": "ANGULAR 14 · MATERIAL REFINED",
       "theme": "modern"
@@ -75,8 +75,8 @@
     {
       "angular": 13,
       "base": "classic",
-      "packageVersion": "13.0.0",
-      "packageRange": "^13.0.0",
+      "packageVersion": "13.0.1",
+      "packageRange": "^13.0.1",
       "angularVersion": "13.x",
       "badge": "ANGULAR 13 · CLASSIC LINE",
       "theme": "classic"
@@ -84,8 +84,8 @@
     {
       "angular": 12,
       "base": "classic",
-      "packageVersion": "12.0.0",
-      "packageRange": "^12.0.0",
+      "packageVersion": "12.0.1",
+      "packageRange": "^12.0.1",
       "angularVersion": "12.x",
       "badge": "ANGULAR 12 · CLASSIC LINE",
       "theme": "classic"
@@ -93,8 +93,8 @@
     {
       "angular": 11,
       "base": "classic",
-      "packageVersion": "11.0.0",
-      "packageRange": "^11.0.0",
+      "packageVersion": "11.0.1",
+      "packageRange": "^11.0.1",
       "angularVersion": "11.x",
       "badge": "ANGULAR 11 · CLASSIC LINE",
       "theme": "classic"
@@ -102,8 +102,8 @@
     {
       "angular": 10,
       "base": "classic",
-      "packageVersion": "10.0.0",
-      "packageRange": "^10.0.0",
+      "packageVersion": "10.0.1",
+      "packageRange": "^10.0.1",
       "angularVersion": "10.x",
       "badge": "ANGULAR 10 · CLASSIC LINE",
       "theme": "classic"
@@ -111,8 +111,8 @@
     {
       "angular": 9,
       "base": "classic",
-      "packageVersion": "9.0.0",
-      "packageRange": "^9.0.0",
+      "packageVersion": "9.0.1",
+      "packageRange": "^9.0.1",
       "angularVersion": "9.x",
       "badge": "ANGULAR 9 · CLASSIC LINE",
       "theme": "classic"
@@ -120,8 +120,8 @@
     {
       "angular": 8,
       "base": "classic",
-      "packageVersion": "8.0.0",
-      "packageRange": "^8.0.0",
+      "packageVersion": "8.0.1",
+      "packageRange": "^8.0.1",
       "angularVersion": "8.x",
       "badge": "ANGULAR 8 · CLASSIC LINE",
       "theme": "classic"
@@ -129,8 +129,8 @@
     {
       "angular": 7,
       "base": "classic",
-      "packageVersion": "7.0.0",
-      "packageRange": "^7.0.0",
+      "packageVersion": "7.0.1",
+      "packageRange": "^7.0.1",
       "angularVersion": "7.x",
       "badge": "ANGULAR 7 · CLASSIC LINE",
       "theme": "classic"
@@ -138,8 +138,8 @@
     {
       "angular": 6,
       "base": "classic",
-      "packageVersion": "6.0.0",
-      "packageRange": "^6.0.0",
+      "packageVersion": "6.0.1",
+      "packageRange": "^6.0.1",
       "angularVersion": "6.x",
       "badge": "ANGULAR 6 · CLASSIC LINE",
       "theme": "classic"
@@ -147,8 +147,8 @@
     {
       "angular": 5,
       "base": "classic",
-      "packageVersion": "5.0.0",
-      "packageRange": "^5.0.0",
+      "packageVersion": "5.0.1",
+      "packageRange": "^5.0.1",
       "angularVersion": "5.x",
       "badge": "ANGULAR 5 · CLASSIC LINE",
       "theme": "classic"
@@ -156,8 +156,8 @@
     {
       "angular": 4,
       "base": "classic",
-      "packageVersion": "4.0.0",
-      "packageRange": "^4.0.0",
+      "packageVersion": "4.0.2",
+      "packageRange": "^4.0.2",
       "angularVersion": "4.x",
       "badge": "ANGULAR 4 · CLASSIC LINE",
       "theme": "classic"
@@ -165,8 +165,8 @@
     {
       "angular": 2,
       "base": "classic",
-      "packageVersion": "2.0.5",
-      "packageRange": "^2.0.5",
+      "packageVersion": "2.0.6",
+      "packageRange": "^2.0.6",
       "angularVersion": "2.x",
       "badge": "ANGULAR 2 · CLASSIC LINE",
       "theme": "classic"

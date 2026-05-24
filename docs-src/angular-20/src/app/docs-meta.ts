@@ -1,7 +1,7 @@
 export const DOCS_META = {
-  badge: 'ANGULAR 20 FAMILY',
-  angularVersion: '20.0.0 -> 20.3.21',
-  packageVersion: '20.0.0',
-  packageRange: '^20.0.0',
+  badge: 'ANGULAR 20 · MATERIAL REFINED',
+  angularVersion: '20.x',
+  packageVersion: '20.0.1',
+  packageRange: '^20.0.1',
   docsPath: 'angular-20'
 };

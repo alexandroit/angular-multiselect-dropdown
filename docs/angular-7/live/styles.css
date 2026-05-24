@@ -266,3 +266,29 @@ h3 {
     padding: 16px;
   }
 }
+
+
+.selected-list .clear-all {
+  font-size: 12pt;
+  position: absolute;
+  right: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.stackline-dropdown.theme-material .selected-list .clear-all,
+.stackline-dropdown.theme-dark .selected-list .clear-all,
+.stackline-dropdown.theme-custom .selected-list .clear-all {
+  position: absolute;
+  top: 50%;
+  right: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  color: var(--ms-on-surface-muted);
+  cursor: pointer;
+}

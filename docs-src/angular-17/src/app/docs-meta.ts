@@ -1,7 +1,7 @@
 export const DOCS_META = {
-  badge: 'ANGULAR 17 FAMILY',
-  angularVersion: '17.0.0 -> 17.3.12',
-  packageVersion: '17.0.0',
-  packageRange: '^17.0.0',
+  badge: 'ANGULAR 17 · MATERIAL REFINED',
+  angularVersion: '17.x',
+  packageVersion: '17.0.1',
+  packageRange: '^17.0.1',
   docsPath: 'angular-17'
 };

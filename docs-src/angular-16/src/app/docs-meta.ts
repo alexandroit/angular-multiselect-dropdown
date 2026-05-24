@@ -1,7 +1,7 @@
 export const DOCS_META = {
-  badge: 'ANGULAR 16 FAMILY',
-  angularVersion: '16.0.0 -> 16.2.12',
-  packageVersion: '16.0.0',
-  packageRange: '^16.0.0',
+  badge: 'ANGULAR 16 · MATERIAL REFINED',
+  angularVersion: '16.x',
+  packageVersion: '16.0.1',
+  packageRange: '^16.0.1',
   docsPath: 'angular-16'
 };
