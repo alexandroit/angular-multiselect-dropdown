@@ -2,8 +2,8 @@
 
 - Framework: angular
 - Major family: 20
-- Exact releases: 40
-- Range: 20.0.0 -> 20.3.18
+- Exact releases: 43
+- Range: 20.0.0 -> 20.3.21
 - Validation rule: install the exact framework release with `npm install` inside each release folder.
 
 ## Exact folders
@@ -48,4 +48,6 @@
 - `20.3.16/`
 - `20.3.17/`
 - `20.3.18/`
-
+- `20.3.19/`
+- `20.3.20/`
+- `20.3.21/`

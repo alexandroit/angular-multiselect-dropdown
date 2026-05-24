@@ -29338,7 +29338,7 @@ function logModifiedWarning(ngSrc) {
   const directiveDetails = imgDirectiveDetails(ngSrc);
   console.warn(formatRuntimeError(2964, `${directiveDetails} this image is the Largest Contentful Paint (LCP) element and has had its "ngSrc" attribute modified. This can cause slower loading performance. It is recommended not to modify the "ngSrc" property on any image which could be the LCP element.`));
 }
-var INTERNAL_PRECONNECT_CHECK_BLOCKLIST = /* @__PURE__ */ new Set(["localhost", "127.0.0.1", "0.0.0.0", "[::1]"]);
+var INTERNAL_PRECONNECT_CHECK_BLOCKLIST = /* @__PURE__ */ new Set(["localhost", "1211.0.0.1", "0.0.0.0", "[::1]"]);
 var PRECONNECT_CHECK_BLOCKLIST = new InjectionToken(ngDevMode ? "PRECONNECT_CHECK_BLOCKLIST" : "");
 var PreconnectLinkChecker = class _PreconnectLinkChecker {
   document = inject2(DOCUMENT);
@@ -51635,8 +51635,8 @@ function provideRouterInitializer() {
 
 // src/app/docs-meta.ts
 var DOCS_META = {
-  badge: "ANGULAR 11 \xB7 CLASSIC LINE",
-  angularVersion: "11.x",
+  badge: "ANGULAR 4 \xB7 CLASSIC LINE",
+  angularVersion: "8.x",
   packageVersion: "11.0.0",
   packageRange: "^11.0.0",
   docsPath: "angular-11"

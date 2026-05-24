@@ -2,280 +2,310 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>@stackline/angular-multiselect-dropdown - Angular 2 docs</title>
+  <title>@stackline/angular-multiselect-dropdown - Angular 2 live docs</title>
   <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Official Angular 2.4.10 examples for @stackline/angular-multiselect-dropdown 2.0.4.">
+  <meta name="description" content="Functional Angular 2.4.10 live tests and documentation for @stackline/angular-multiselect-dropdown 2.0.5.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23102033%27/%3E%3Cpath d=%27M14 18h36v8H14zm0 14h36v8H14zm0 14h24v8H14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
   <style>
     :root {
       color-scheme: light;
-      --bg: #f6f7fb;
-      --panel: #ffffff;
-      --ink: #17324d;
-      --muted: #59708a;
-      --line: #d9e2ec;
-      --blue: #2357a6;
-      --green: #1e7a52;
-      --amber: #a56114;
-      --shadow: 0 20px 54px rgba(23, 50, 77, 0.12);
+      --page: #eef3f7;
+      --surface: #ffffff;
+      --surface-soft: #f7fafc;
+      --ink: #15304b;
+      --muted: #5c7188;
+      --line: #d6e1eb;
+      --primary: #0f6fad;
+      --primary-soft: #e7f2fb;
+      --success-soft: #e8f6f1;
+      --accent-soft: #fff1ea;
+      --code: #13263a;
+      --shadow: 0 18px 42px rgba(21, 48, 75, 0.1);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background:
-        radial-gradient(circle at 12% 0%, rgba(35, 87, 166, 0.15), transparent 30%),
-        radial-gradient(circle at 100% 8%, rgba(30, 122, 82, 0.13), transparent 28%),
-        var(--bg);
-      color: var(--ink);
-      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
       margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
     }
 
     a {
-      color: var(--blue);
+      color: inherit;
     }
 
     code,
     pre {
-      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    code {
+      color: #c2255c;
+      overflow-wrap: anywhere;
     }
 
     pre {
-      background: #13263a;
-      border-radius: 12px;
-      color: #edf4fb;
-      font-size: 0.84rem;
-      line-height: 1.65;
-      margin: 0.65rem 0 0;
+      margin: 0;
       overflow: auto;
+      overflow-wrap: anywhere;
       padding: 1rem;
+      border: 1px solid #213a54;
+      border-radius: 8px;
+      background: var(--code);
+      color: #edf4fb;
+      font-size: 0.85rem;
+      line-height: 1.58;
       white-space: pre-wrap;
     }
 
-    .shell {
+    .page {
+      width: min(1460px, calc(100% - 48px));
       margin: 0 auto;
-      max-width: 1460px;
-      padding: 2rem;
+      padding: 28px 0 48px;
     }
 
     .hero,
-    .layout,
-    .grid,
-    .case-grid {
+    .setup-grid,
+    .info-grid,
+    .code-grid {
       display: grid;
-      gap: 1.25rem;
+      gap: 14px;
     }
 
     .hero {
-      grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.9fr);
-      margin-bottom: 1.25rem;
+      grid-template-columns: minmax(0, 1.45fr) minmax(340px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .layout {
-      grid-template-columns: minmax(0, 1fr) 310px;
-    }
-
-    .grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .case-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .panel,
-    .side {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
+    .hero-main,
+    .setup-panel,
+    .section,
+    .card {
       min-width: 0;
-      padding: 1.35rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
     }
 
-    .side {
-      align-self: start;
-      position: sticky;
-      top: 1rem;
+    .hero-main,
+    .setup-panel,
+    .section {
+      padding: 24px;
     }
 
-    .badge {
-      background: #e8f0fe;
+    .section {
+      margin-top: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      margin: 0 0 14px;
+      padding: 4px 10px;
       border-radius: 999px;
-      color: var(--blue);
-      display: inline-block;
-      font-size: 0.74rem;
+      background: var(--primary-soft);
+      color: #0c5f94;
+      font-size: 0.75rem;
       font-weight: 800;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.9rem;
-      padding: 0.35rem 0.7rem;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     h1,
     h2,
     h3,
-    h4 {
-      line-height: 1.15;
-      margin: 0;
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      font-size: clamp(2.35rem, 4vw, 3.45rem);
-      max-width: 860px;
+      max-width: 900px;
+      margin-bottom: 16px;
+      font-size: 3.2rem;
+      line-height: 1.08;
+      letter-spacing: 0;
     }
 
     h2 {
-      font-size: clamp(1.65rem, 2.4vw, 2.15rem);
-      margin-bottom: 0.45rem;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      line-height: 1.16;
+      letter-spacing: 0;
     }
 
     h3 {
-      font-size: 1.22rem;
-      margin-bottom: 0.7rem;
-    }
-
-    h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      line-height: 1.25;
+      letter-spacing: 0;
     }
 
     p {
+      margin-bottom: 0;
       color: var(--muted);
-      line-height: 1.62;
-      margin: 0.75rem 0 0;
     }
 
-    .features {
+    .lead {
+      max-width: 900px;
+      font-size: 1.03rem;
+    }
+
+    .link-row {
       display: grid;
-      gap: 0.8rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-top: 1.25rem;
-    }
-
-    .feature,
-    .card,
-    .case,
-    .log-entry {
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      min-width: 0;
-      padding: 0.95rem;
-    }
-
-    .feature strong,
-    .card strong,
-    .case strong {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    .case {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .case-num {
+      grid-template-columns: repeat(4, max-content);
+      gap: 14px;
       align-items: center;
-      background: #e8f0fe;
-      border-radius: 999px;
-      color: var(--blue);
+      margin-top: 22px;
+    }
+
+    .link-row a {
       display: inline-flex;
-      font-size: 0.74rem;
-      font-weight: 800;
-      height: 1.65rem;
+      align-items: center;
       justify-content: center;
-      width: 1.65rem;
-    }
-
-    .meta-table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    .meta-table td {
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-      padding: 0.55rem 0;
-      vertical-align: top;
-    }
-
-    .meta-table td:first-child {
+      min-height: 38px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
       color: var(--ink);
       font-weight: 700;
-      padding-right: 0.8rem;
-      white-space: nowrap;
-      width: 1%;
+      text-decoration: none;
     }
 
-    .stack {
+    .link-row a:hover {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: #0c5f94;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .setup-grid {
+      margin-top: 16px;
+    }
+
+    .setup-step {
       display: grid;
-      gap: 1.25rem;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
     }
 
-    .log {
-      display: grid;
-      gap: 0.55rem;
-      margin-top: 1rem;
+    .compat-note {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
-    .log-entry {
-      color: #41566f;
-      font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-      font-size: 0.78rem;
-      line-height: 1.45;
-      overflow-wrap: anywhere;
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
     }
 
-    .theme-classic {
-      border-top: 5px solid var(--blue);
+    .card {
+      padding: 16px;
+      background: var(--surface-soft);
     }
 
-    .theme-material {
-      border-top: 5px solid var(--green);
+    .card:nth-child(2) {
+      background: var(--success-soft);
+    }
+
+    .card:nth-child(3) {
+      background: var(--accent-soft);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .live-frame-wrap {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .live-frame {
+      display: block;
+      width: 100%;
+      min-height: 2450px;
+      border: 0;
+      background: #eef2f7;
+    }
+
+    .code-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
     }
 
     .footer {
+      margin-top: 24px;
       color: var(--muted);
-      line-height: 1.7;
-      margin-top: 1.25rem;
-      padding: 0 0.35rem;
+      font-size: 0.94rem;
     }
 
     @media (max-width: 1180px) {
       .hero,
-      .layout,
-      .grid,
-      .case-grid {
+      .info-grid,
+      .code-grid {
         grid-template-columns: 1fr;
-      }
-
-      .side {
-        position: static;
       }
     }
 
     @media (max-width: 720px) {
-      .shell {
-        padding: 1rem;
+      .page {
+        width: min(100% - 20px, 1460px);
+        padding-top: 14px;
       }
 
-      .features {
+      .hero-main,
+      .setup-panel,
+      .section {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      .link-row {
         grid-template-columns: 1fr;
       }
 
-      .panel,
-      .side {
-        border-radius: 14px;
-        padding: 1rem;
+      .live-frame {
+        min-height: 5200px;
       }
     }
   </style>
@@ -289,114 +319,130 @@
   </script>
 </head>
 <body>
-  <main class="shell">
+  <main class="page">
     <section class="hero">
-      <article class="panel">
-        <span class="badge">Angular 2 family</span>
+      <article class="hero-main">
+        <p class="eyebrow">Angular 2 functional docs</p>
         <h1>@stackline/angular-multiselect-dropdown</h1>
-        <p>
-          This Angular 2 documentation uses the exact examples from the final local test app:
-          Angular <code>2.4.10</code> with <code>@stackline/angular-multiselect-dropdown@2.0.4</code>.
-        </p>
-        <p>
-          The matrix runs the same twelve scenarios in <code>classic</code> and <code>material</code>.
-          The Angular 2 test validates the legacy <code>&lt;angular2-multiselect&gt;</code> selector while
-          the maintained package also supports <code>&lt;angular-multiselect&gt;</code>.
+        <p class="lead">
+          Angular 2 documentation for the published <code>@stackline/angular-multiselect-dropdown@2.0.5</code>
+          package. The live section below runs a real Angular <code>2.4.10</code> application with
+          real <code>&lt;angular-multiselect&gt;</code> components.
         </p>
 
-        <div class="features">
-          <div class="feature">
-            <strong>Published package</strong>
-            <code>2.0.4</code> for Angular <code>2.x</code>
+        <nav class="link-row" aria-label="Documentation links">
+          <a href="#live-tests">Live tests</a>
+          <a href="live/?v=20260524-selector-runtime">Open full app</a>
+          <a href="https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown">npm</a>
+          <a href="https://github.com/alexandroit/angular-multiselect-dropdown">GitHub</a>
+        </nav>
+
+        <div class="info-grid">
+          <div class="card">
+            <strong>Package</strong>
+            <code>2.0.5</code> for Angular <code>2.x</code>
           </div>
-          <div class="feature">
+          <div class="card">
+            <strong>Runtime</strong>
+            Angular <code>2.4.10</code>
+          </div>
+          <div class="card">
             <strong>Peer range</strong>
             <code>&gt;=2.0.0 &lt;3.0.0</code>
           </div>
-          <div class="feature">
-            <strong>Skins</strong>
-            <code>theme: 'classic'</code> and <code>theme: 'material'</code>
-          </div>
-          <div class="feature">
-            <strong>Examples</strong>
-            12 scenarios per skin, 24 documented cases total.
+          <div class="card">
+            <strong>Live matrix</strong>
+            <code>12 cases x 2 skins</code>
           </div>
         </div>
       </article>
 
-      <article class="panel">
-        <h2>Setup used by the test</h2>
-        <div class="stack">
-          <div>
-            <strong>Install</strong>
-            <pre>npm install @stackline/angular-multiselect-dropdown@2.0.4</pre>
+      <aside class="setup-panel" id="setup">
+        <p class="eyebrow">Setup in 3 steps</p>
+        <h2>Install the Angular 2 line</h2>
+        <div class="setup-grid">
+          <div class="setup-step">
+            <span class="step-num">1</span>
+            <div>
+              <h3>Install</h3>
+              <pre>npm install @stackline/angular-multiselect-dropdown@2.0.5 --save-exact</pre>
+            </div>
           </div>
-          <div>
-            <strong>Register the module</strong>
-            <pre>import { FormsModule } from '@angular/forms';
+          <div class="setup-step">
+            <span class="step-num">2</span>
+            <div>
+              <h3>Register the module</h3>
+              <pre>import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AngularMultiSelectModule } from '@stackline/angular-multiselect-dropdown';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AngularMultiSelectModule]
 })
 export class AppModule {}</pre>
+            </div>
           </div>
-          <div>
-            <strong>Render the Angular 2 selector</strong>
-            <pre>&lt;angular2-multiselect
+          <div class="setup-step">
+            <span class="step-num">3</span>
+            <div>
+              <h3>Render the dropdown</h3>
+              <pre>&lt;angular-multiselect
   [data]="countries"
-  [(ngModel)]="classicBasic"
-  [settings]="classicBasicSettings"
-  (onSelect)="record('classic basic select', $event)"
-  (onDeSelect)="record('classic basic deselect', $event)"
-  (onSelectAll)="record('classic basic selectAll', $event)"
-  (onDeSelectAll)="record('classic basic deselectAll', $event)"&gt;
-&lt;/angular2-multiselect&gt;</pre>
+  [(ngModel)]="selectedCountries"
+  [settings]="dropdownSettings"&gt;
+&lt;/angular-multiselect&gt;</pre>
+              <p class="compat-note">
+                <code>&lt;angular2-multiselect&gt;</code> remains available only as a legacy compatibility alias
+                for applications migrating from the old outdated plugin. New code should use
+                <code>&lt;angular-multiselect&gt;</code>.
+              </p>
+            </div>
           </div>
         </div>
-      </article>
+      </aside>
     </section>
 
-    <section class="layout">
-      <div class="stack">
-        <article class="panel">
-          <h2>Official Angular 2 test matrix</h2>
-          <p>
-            These are the examples from the verified test application. CSS and behavior can be
-            compared by keeping the same scenario and switching only <code>theme</code>.
-          </p>
+    <section class="section" id="live-tests">
+      <p class="eyebrow">Functional live tests</p>
+      <h2>Real Angular 2.4.10 test application</h2>
+      <p>
+        This embedded app is the same functional test layout used for local validation: skin switcher,
+        classic cases, material cases, selected model updates, search, grouping, disabled state,
+        lazy list, templates, and event logging.
+      </p>
+      <div class="live-frame-wrap">
+        <iframe class="live-frame" id="liveFrame" src="live/?v=20260524-selector-runtime" title="Angular 2 functional multiselect tests"></iframe>
+      </div>
+    </section>
 
-          <div class="grid" style="margin-top: 1rem;">
-            <div class="card">
-              <strong>Base data</strong>
-              <pre>countries = [
-  { id: 1, itemName: 'Brasil' },
+    <section class="section" id="code">
+      <p class="eyebrow">Code used by the live app</p>
+      <h2>Same API shape as the functional tests</h2>
+      <div class="code-grid">
+        <div>
+          <h3>Data</h3>
+          <pre>countries = [
+  { id: 1, itemName: 'Brazil' },
   { id: 2, itemName: 'Canada' },
   { id: 3, itemName: 'Portugal' },
-  { id: 4, itemName: 'Estados Unidos' },
-  { id: 5, itemName: 'Argentina' },
-  { id: 6, itemName: 'Alemanha' },
-  { id: 7, itemName: 'Japao' },
-  { id: 8, itemName: 'Africa do Sul' }
+  { id: 4, itemName: 'United States' }
 ];</pre>
-            </div>
-
-            <div class="card">
-              <strong>Shared settings factory</strong>
-              <pre>makeSettings(theme: string, text: string, options: any) {
+        </div>
+        <div>
+          <h3>Settings</h3>
+          <pre>makeSettings(theme: string, text: string, options: any) {
   var settings: any = {
     singleSelection: false,
     text: text,
-    selectAllText: 'Selecionar todos',
-    unSelectAllText: 'Limpar todos',
+    selectAllText: 'Select all',
+    unSelectAllText: 'Clear all',
     enableCheckAll: true,
     enableSearchFilter: true,
-    searchPlaceholderText: 'Buscar',
     badgeShowLimit: 4,
     maxHeight: 260,
     showCheckbox: true,
-    noDataLabel: 'Sem dados',
-    theme: theme
+    theme: theme,
+    skin: theme
   };
 
   for (var key in options) {
@@ -407,177 +453,26 @@ export class AppModule {}</pre>
 
   return settings;
 }</pre>
-            </div>
-
-            <div class="card">
-              <strong>Template case</strong>
-              <pre>&lt;angular2-multiselect [data]="templateItems" [(ngModel)]="classicTemplate" [settings]="classicTemplateSettings"&gt;
+        </div>
+        <div>
+          <h3>Template slots</h3>
+          <pre>&lt;angular-multiselect
+  [data]="templateItems"
+  [(ngModel)]="selectedTemplateItems"
+  [settings]="templateSettings"&gt;
   &lt;c-badge&gt;
     &lt;template let-item="item"&gt;
-      &lt;span class="swatch-chip"&gt;&lt;span class="swatch" [style.background]="item.color"&gt;&lt;/span&gt;{{ item.itemName }}&lt;/span&gt;
+      &lt;span class="swatch-chip"&gt;{{ item.itemName }}&lt;/span&gt;
     &lt;/template&gt;
   &lt;/c-badge&gt;
   &lt;c-item&gt;
     &lt;template let-item="item"&gt;
-      &lt;span class="option-row"&gt;
-        &lt;span class="swatch" [style.background]="item.color"&gt;&lt;/span&gt;
-        &lt;span&gt;&lt;strong&gt;{{ item.itemName }}&lt;/strong&gt;&lt;small&gt;{{ item.detail }}&lt;/small&gt;&lt;/span&gt;
-      &lt;/span&gt;
+      &lt;strong&gt;{{ item.itemName }}&lt;/strong&gt;
     &lt;/template&gt;
   &lt;/c-item&gt;
-&lt;/angular2-multiselect&gt;</pre>
-            </div>
-          </div>
-        </article>
-
-        <article class="panel theme-classic">
-          <h2>Classic skin</h2>
-          <p>Every case below passes <code>theme: 'classic'</code> through the shared settings factory.</p>
-          <div class="case-grid" style="margin-top: 1rem;">
-            <div class="case">
-              <span class="case-num">01</span>
-              <h3>Basico multi</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicBasic = [{ id: 2, itemName: 'Canada' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic basico', { enableSearchFilter: false })</code></td></tr><tr><td>Covers</td><td>Default multi-select and select/clear all events.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">02</span>
-              <h3>Busca + selecionar todos</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicSearch = [{ id: 4, itemName: 'Estados Unidos' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic busca', {})</code></td></tr><tr><td>Covers</td><td>Search, select all, clear all, and event logging.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">03</span>
-              <h3>Single sem checkbox</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicSingle = [{ id: 1, itemName: 'Brasil' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Single-selection mode without checkboxes.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">04</span>
-              <h3>Multi sem checkbox</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicNoCheckbox = [Portugal, Alemanha]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic sem checkbox', { showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Multiple selected values with the checkbox UI hidden.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">05</span>
-              <h3>Limite de selecao</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>classicLimit = [Brasil, Estados Unidos]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic limite 2', { limitSelection: 2, badgeShowLimit: 2 })</code></td></tr><tr><td>Covers</td><td>Selection limit and compact selected badges.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">06</span>
-              <h3>Badge overflow</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>classicBadge = four selected long country names</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic badge limit', { badgeShowLimit: 2, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Overflow counter placement for selected badges.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">07</span>
-              <h3>Agrupado por regiao</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>groupedCountries</code></td></tr><tr><td>Model</td><td><code>classicGrouped = [{ id: 21, itemName: 'Brasil', region: 'America' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic agrupado', { groupBy: 'region', maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Grouping by the region field.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">08</span>
-              <h3>Disabled com valor</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>classicDisabled = [{ id: 6, itemName: 'Alemanha' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic disabled', { disabled: true })</code></td></tr><tr><td>Covers</td><td>Disabled state while preserving selected value.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">09</span>
-              <h3>Sem dados</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>emptyItems</code></td></tr><tr><td>Model</td><td><code>classicEmpty = []</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic vazio', { noDataLabel: 'Nenhum registro encontrado' })</code></td></tr><tr><td>Covers</td><td>Empty data messaging.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">10</span>
-              <h3>Lista longa com scroll</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>classicScroll = [{ id: 104, itemName: 'Item 04' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic scroll', { maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Constrained menu height and internal scrolling.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">11</span>
-              <h3>Lazy loading local</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>classicLazy = [{ id: 106, itemName: 'Item 06' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Local lazy-loading path with long lists.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">12</span>
-              <h3>Template de item + chip</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>templateItems</code></td></tr><tr><td>Model</td><td><code>classicTemplate = [Primary, Warning]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('classic', 'Classic template', { badgeShowLimit: 3, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Custom c-badge and c-item templates with swatches.</td></tr></table>
-            </div>
-          </div>
-        </article>
-
-        <article class="panel theme-material">
-          <h2>Material skin</h2>
-          <p>Every case below passes <code>theme: 'material'</code> through the shared settings factory.</p>
-          <div class="case-grid" style="margin-top: 1rem;">
-            <div class="case">
-              <span class="case-num">01</span>
-              <h3>Basico multi</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialBasic = [{ id: 2, itemName: 'Canada' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material basico', { enableSearchFilter: false })</code></td></tr><tr><td>Covers</td><td>Default multi-select in the Material skin.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">02</span>
-              <h3>Busca + selecionar todos</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialSearch = [{ id: 4, itemName: 'Estados Unidos' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material busca', {})</code></td></tr><tr><td>Covers</td><td>Search, select all, clear all, and Material menu spacing.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">03</span>
-              <h3>Single sem checkbox</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialSingle = [{ id: 3, itemName: 'Portugal' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Single-selection mode without checkboxes.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">04</span>
-              <h3>Multi sem checkbox</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialNoCheckbox = [Argentina, Japao]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material sem checkbox', { showCheckbox: false, enableCheckAll: false })</code></td></tr><tr><td>Covers</td><td>Multiple selected values with Material rows and no checkbox.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">05</span>
-              <h3>Limite de selecao</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>materialLimit = [Brasil, Estados Unidos]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material limite 2', { limitSelection: 2, badgeShowLimit: 2 })</code></td></tr><tr><td>Covers</td><td>Selection limit and compact badge display.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">06</span>
-              <h3>Badge overflow</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>longCountries</code></td></tr><tr><td>Model</td><td><code>materialBadge = four selected long country names</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material badge limit', { badgeShowLimit: 2, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Centered overflow counter beside the selected item area.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">07</span>
-              <h3>Agrupado por regiao</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>groupedCountries</code></td></tr><tr><td>Model</td><td><code>materialGrouped = [{ id: 23, itemName: 'Portugal', region: 'Europa' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material agrupado', { groupBy: 'region', maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Grouped Material rows by region.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">08</span>
-              <h3>Disabled com valor</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>countries</code></td></tr><tr><td>Model</td><td><code>materialDisabled = [{ id: 8, itemName: 'Africa do Sul' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material disabled', { disabled: true })</code></td></tr><tr><td>Covers</td><td>Disabled Material field with a preserved selected value.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">09</span>
-              <h3>Sem dados</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>emptyItems</code></td></tr><tr><td>Model</td><td><code>materialEmpty = []</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material vazio', { noDataLabel: 'Nenhum registro encontrado' })</code></td></tr><tr><td>Covers</td><td>Empty data state in the Material skin.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">10</span>
-              <h3>Lista longa com scroll</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>materialScroll = [{ id: 105, itemName: 'Item 05' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material scroll', { maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Material long-list menu with constrained scroll.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">11</span>
-              <h3>Lazy loading local</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>largeList</code></td></tr><tr><td>Model</td><td><code>materialLazy = [{ id: 107, itemName: 'Item 07' }]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })</code></td></tr><tr><td>Covers</td><td>Local lazy-loading path in the Material skin.</td></tr></table>
-            </div>
-            <div class="case">
-              <span class="case-num">12</span>
-              <h3>Template de item + chip</h3>
-              <table class="meta-table"><tr><td>Data</td><td><code>templateItems</code></td></tr><tr><td>Model</td><td><code>materialTemplate = [Success, Danger]</code></td></tr><tr><td>Settings</td><td><code>makeSettings('material', 'Material template', { badgeShowLimit: 3, maxHeight: 220 })</code></td></tr><tr><td>Covers</td><td>Custom c-badge and c-item templates in Material.</td></tr></table>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <aside class="side">
-        <h2>Release proof</h2>
-        <p>The public docs are aligned with the official local test app and npm release.</p>
-        <div class="log">
-          <div class="log-entry">Package: @stackline/angular-multiselect-dropdown@2.0.4</div>
-          <div class="log-entry">Angular runtime tested: 2.4.10</div>
-          <div class="log-entry">Angular family: 2.x</div>
-          <div class="log-entry">Peer range: &gt;=2.0.0 &lt;3.0.0</div>
-          <div class="log-entry">Selectors tested: angular2-multiselect and maintained angular-multiselect support</div>
-          <div class="log-entry">Skins tested: classic and material</div>
-          <div class="log-entry">Examples per skin: 12</div>
+&lt;/angular-multiselect&gt;</pre>
         </div>
-      </aside>
+      </div>
     </section>
 
     <footer class="footer">
@@ -585,5 +480,48 @@ export class AppModule {}</pre>
       stewardship, docs curation, and release validation by Stackline.
     </footer>
   </main>
+
+  <script>
+    (function () {
+      var frame = document.getElementById("liveFrame");
+
+      function resizeFrame() {
+        if (!frame || !frame.contentWindow || !frame.contentWindow.document) {
+          return;
+        }
+
+        var doc = frame.contentWindow.document;
+        var body = doc.body;
+        var html = doc.documentElement;
+        if (!body || !html) {
+          return;
+        }
+
+        var height = Math.max(
+          body.scrollHeight,
+          body.offsetHeight,
+          html.clientHeight,
+          html.scrollHeight,
+          html.offsetHeight
+        );
+
+        if (height > 0) {
+          frame.style.height = height + "px";
+        }
+      }
+
+      frame.addEventListener("load", function () {
+        resizeFrame();
+        var attempts = 0;
+        var timer = window.setInterval(function () {
+          attempts += 1;
+          resizeFrame();
+          if (attempts > 20) {
+            window.clearInterval(timer);
+          }
+        }, 350);
+      });
+    })();
+  </script>
 </body>
 </html>

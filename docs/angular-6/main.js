@@ -51635,7 +51635,7 @@ function provideRouterInitializer() {
 
 // src/app/docs-meta.ts
 var DOCS_META = {
-  badge: "ANGULAR 6 \xB7 CLASSIC LINE",
+  badge: "ANGULAR 4 \xB7 CLASSIC LINE",
   angularVersion: "6.x",
   packageVersion: "6.0.0",
   packageRange: "^6.0.0",

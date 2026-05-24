@@ -51637,8 +51637,8 @@ function provideRouterInitializer() {
 var DOCS_META = {
   badge: "ANGULAR 4 \xB7 CLASSIC LINE",
   angularVersion: "4.x",
-  packageVersion: "4.0.0",
-  packageRange: "^4.0.0",
+  packageVersion: "4.0.1",
+  packageRange: "^4.0.1",
   docsPath: "angular-4"
 };
 

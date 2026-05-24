@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "rootDir": ".",
+    "outDir": "build"
+  },
+  "files": [
+    "app/main.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/angular2-multiselect-dropdown.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/angular2-multiselect-dropdown.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/clickOutside.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/index.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/list-filter.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/menu-item.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/multiselect.component.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/multiselect.interface.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/src/app/angular2-multiselect-dropdown/multiselect.model.ts"
+  ]
+}

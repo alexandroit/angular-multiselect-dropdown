@@ -276,23 +276,23 @@ pre {
   max-width: 100%;
 }
 
-:host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),
-:host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {
+:host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),
+:host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {
   padding-bottom: clamp(13rem, 34vw, 18rem);
 }
 
-:host ::ng-deep .example-preview angular-multiselect .cuppa-dropdown,
-:host ::ng-deep .example-preview angular2-multiselect .cuppa-dropdown,
-:host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown,
-:host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown {
+:host ::ng-deep .example-preview angular-multiselect .stackline-dropdown,
+:host ::ng-deep .example-preview angular2-multiselect .stackline-dropdown,
+:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,
+:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {
   display: block;
   max-width: 100%;
 }
 
-:host ::ng-deep .example-preview angular-multiselect .cuppa-dropdown.is-open,
-:host ::ng-deep .example-preview angular2-multiselect .cuppa-dropdown.is-open,
-:host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,
-:host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {
+:host ::ng-deep .example-preview angular-multiselect .stackline-dropdown.is-open,
+:host ::ng-deep .example-preview angular2-multiselect .stackline-dropdown.is-open,
+:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,
+:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {
   margin-bottom: clamp(13rem, 34vw, 18rem);
 }
 
@@ -415,15 +415,15 @@ pre {
     grid-template-columns: 1fr;
   }
 
-  :host ::ng-deep .example-preview angular-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .example-preview angular2-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {
+  :host ::ng-deep .example-preview angular-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .example-preview angular2-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {
     margin-bottom: clamp(12rem, 44vw, 16rem);
   }
 
-  :host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),
-  :host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {
+  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),
+  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {
     padding-bottom: clamp(12rem, 44vw, 16rem);
   }
 }
@@ -452,15 +452,15 @@ pre {
     padding: 1rem;
   }
 
-  :host ::ng-deep .example-preview angular-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .example-preview angular2-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,
-  :host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {
+  :host ::ng-deep .example-preview angular-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .example-preview angular2-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,
+  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {
     margin-bottom: 13rem;
   }
 
-  :host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),
-  :host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {
+  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),
+  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {
     padding-bottom: 13rem;
   }
 }

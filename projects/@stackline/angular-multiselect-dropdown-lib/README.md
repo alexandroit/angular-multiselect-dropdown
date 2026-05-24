@@ -6,13 +6,13 @@
 [![npm downloads](https://img.shields.io/npm/dt/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
 [![npm monthly](https://img.shields.io/npm/dm/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
 [![license](https://img.shields.io/npm/l/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/LICENSE)
-[![Angular 2](https://img.shields.io/badge/Angular-2.x-red?style=flat-square&logo=angular)](https://alexandro.net/docs/angular/multiselect/angular-2/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-2.4-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Angular 21](https://img.shields.io/badge/Angular-21.x-red?style=flat-square&logo=angular)](https://alexandro.net/docs/angular/multiselect/angular-21/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![GitHub stars](https://img.shields.io/github/stars/alexandroit/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/stargazers)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 2 Demo](https://alexandro.net/docs/angular/multiselect/angular-2/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
+**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested npm release:** `2.0.4` for Angular `2.x`
+**Latest tested npm release:** `21.0.0` for Angular `21.x`
 
 ---
 
@@ -24,15 +24,15 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `2.0.4` for Angular 2.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `21.0.0` for Angular 21.x applications.
 
-The Angular 2 package is compatible with Angular 2.x and was tested in a real Angular 2.4.10 application before publication.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication.
 
 ## Features
 
 | Feature | Supported |
 | :--- | :---: |
-| Angular 2 tested published release line | ✅ |
+| Angular 21 tested published release line | ✅ |
 | Multi-select and single-select modes | ✅ |
 | Search and filter | ✅ |
 | Group by field | ✅ |
@@ -43,7 +43,7 @@ The Angular 2 package is compatible with Angular 2.x and was tested in a real An
 | Lazy loading and remote-data hooks | ✅ |
 | Theming via bundled CSS/SCSS | ✅ |
 | Primary selector `<angular-multiselect>` | ✅ |
-| Legacy selector `<angular2-multiselect>` | ✅ |
+| Legacy compatibility alias `<angular2-multiselect>` | ✅ |
 | Versioned docs builds per Angular line | ✅ |
 
 ## Table of Contents
@@ -54,19 +54,20 @@ The Angular 2 package is compatible with Angular 2.x and was tested in a real An
 4. [Setup](#setup)
 5. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
 6. [Basic Usage](#basic-usage)
-7. [Custom Templates](#custom-templates)
-8. [Forms Integration](#forms-integration)
-9. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-10. [Events](#events)
-11. [Run Locally](#run-locally)
-12. [License](#license)
+7. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
+8. [Custom Templates](#custom-templates)
+9. [Forms Integration](#forms-integration)
+10. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
+11. [Events](#events)
+12. [Run Locally](#run-locally)
+13. [License](#license)
 
 ## Rename Note
 
 - new package: `@stackline/angular-multiselect-dropdown`
 - previous package: `@stackline/angular2-multiselect-dropdown`
 - primary selector: `<angular-multiselect>`
-- legacy alias still accepted: `<angular2-multiselect>`
+- legacy alias still accepted only for compatibility: `<angular2-multiselect>`
 
 ## Angular Version Compatibility
 
@@ -74,9 +75,9 @@ Each package family only installs on its matching Angular family. Framework majo
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.0 -> 21.2.8** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
-| **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.0 -> 20.3.18** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
-| **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.0 -> 19.2.20** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.0 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.0 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
+| **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.0 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.0 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
 | **17.x** | **Angular 17 only** | **`>=17.0.0 <18.0.0`** | **17.0.0 -> 17.3.12** | [Angular 17 family docs](https://alexandro.net/docs/angular/multiselect/angular-17/) |
 | **16.x** | **Angular 16 only** | **`>=16.0.0 <17.0.0`** | **16.0.0 -> 16.2.12** | [Angular 16 family docs](https://alexandro.net/docs/angular/multiselect/angular-16/) |
@@ -94,14 +95,13 @@ Each package family only installs on its matching Angular family. Framework majo
 | **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.0 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
 | **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/multiselect/angular-2/) |
 
-
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@2.0.4
+npm install @stackline/angular-multiselect-dropdown@21.0.0 --save-exact
 ```
 
-Install `2.0.4` for Angular 2.x applications. This patch keeps the tested Angular 2 behavior and updates the published README, package metadata, and documentation links.
+Install `21.0.0` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, and keeps `<angular2-multiselect>` only as a legacy compatibility alias.
 
 ## Setup
 
@@ -155,20 +155,30 @@ Use the `css` file when you want a plain compiled starter that can be copied and
 
 ```ts
 dropdownList = [
-  { id: 1, itemName: 'India' },
-  { id: 2, itemName: 'Singapore' },
-  { id: 3, itemName: 'Australia' },
-  { id: 4, itemName: 'Canada' }
+  { id: 1, itemName: 'Brazil' },
+  { id: 2, itemName: 'Canada' },
+  { id: 3, itemName: 'Portugal' },
+  { id: 4, itemName: 'United States' },
+  { id: 5, itemName: 'Argentina' },
+  { id: 6, itemName: 'Germany' },
+  { id: 7, itemName: 'Japan' },
+  { id: 8, itemName: 'South Africa' }
 ];
 
-selectedItems = [{ id: 2, itemName: 'Singapore' }];
+selectedItems = [{ id: 2, itemName: 'Canada' }];
 
 dropdownSettings = {
   singleSelection: false,
-  text: 'Select Countries',
-  selectAllText: 'Select All',
-  unSelectAllText: 'UnSelect All',
+  text: 'Classic basic',
+  selectAllText: 'Select all',
+  unSelectAllText: 'Clear all',
   enableSearchFilter: true,
+  searchPlaceholderText: 'Search',
+  badgeShowLimit: 4,
+  maxHeight: 260,
+  showCheckbox: true,
+  noDataLabel: 'No data',
+  theme: 'classic',
   tagToBody: false
 };
 ```
@@ -184,6 +194,41 @@ dropdownSettings = {
   (onDeSelectAll)="onDeSelectAll($event)">
 </angular-multiselect>
 ```
+
+## Official Angular 21 Test Matrix
+
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.0.0`. The docs now use the same examples from that test app.
+
+Switch between skins through the settings object:
+
+```ts
+settings = {
+  text: 'Classic basic',
+  theme: 'classic'
+};
+
+materialSettings = {
+  text: 'Material basic',
+  theme: 'material'
+};
+```
+
+The same twelve scenarios are validated for both `classic` and `material`:
+
+| # | Scenario | Main settings tested |
+| :---: | :--- | :--- |
+| 01 | Basic multi | `{ enableSearchFilter: false }` |
+| 02 | Search + select all | Search, select all, clear all, events |
+| 03 | Single without checkbox | `{ singleSelection: true, showCheckbox: false, enableCheckAll: false }` |
+| 04 | Multi without checkbox | `{ showCheckbox: false, enableCheckAll: false }` |
+| 05 | Selection limit | `{ limitSelection: 2, badgeShowLimit: 2 }` |
+| 06 | Badge overflow | `{ badgeShowLimit: 2, maxHeight: 220 }` |
+| 07 | Grouped by region | `{ groupBy: 'region', maxHeight: 220 }` |
+| 08 | Disabled with value | `{ disabled: true }` |
+| 09 | Empty data | `{ noDataLabel: 'No records found' }` |
+| 10 | Long list with scroll | `{ maxHeight: 120, badgeShowLimit: 3 }` |
+| 11 | Local lazy loading | `{ lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 }` |
+| 12 | Item + chip template | `<c-badge>` and `<c-item>` custom templates |
 
 ## Custom Templates
 
@@ -201,11 +246,7 @@ dropdownSettings = {
 </angular-multiselect>
 ```
 
-The same template contract also works with the legacy selector:
-
-```html
-<angular2-multiselect></angular2-multiselect>
-```
+`<angular2-multiselect>` remains available only as a legacy compatibility alias for applications migrating from the old outdated plugin. New code and all current examples should use `<angular-multiselect>`.
 
 ## Forms Integration
 
@@ -268,10 +309,6 @@ The classic output contract is preserved:
 ```bash
 npm install
 npm run docs:sync
-npm run build-package
-cd docs-src/angular-21
-npm install --ignore-scripts
-npm run build
 ```
 
 ## License

@@ -2,6 +2,236 @@
 
 All notable changes to this project will be documented in this file.
 
+## [21.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 21 release line as `@stackline/angular-multiselect-dropdown@21.0.0`.
+- Added Angular 21.2.14 clean test coverage for the published npm package.
+- Added Angular 21 functional documentation with the live row-by-row test matrix.
+- Added Angular 21.2.9 through 21.2.14 release-family metadata to the documentation matrix.
+
+### Changed
+- Updated the public README standard for the Angular 21 release line.
+- Set Angular 21 peer dependencies to `>=21.0.0 <22.0.0`.
+- Added the npm dist-tag `angular-21` pointing to `21.0.0`.
+- Built the Angular 21 package with Angular Package Format through `ng-packagr@21.2.3`.
+- Updated click/touch/scroll listener typings for Angular 21 package builds.
+- Used `moduleResolution: bundler` in the Angular 21 clean test app for Angular subpath exports.
+
+## [20.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 20 release line as `@stackline/angular-multiselect-dropdown@20.0.0`.
+- Added Angular 20.3.21 clean test coverage for the published npm package.
+- Added Angular 20 functional documentation with the live row-by-row test matrix.
+- Added Angular 20.3.19, 20.3.20, and 20.3.21 release-family metadata to the documentation matrix.
+
+### Changed
+- Updated the public README standard for the Angular 20 release line.
+- Set Angular 20 peer dependencies to `>=20.0.0 <21.0.0`.
+- Added the npm dist-tag `angular-20` pointing to `20.0.0`.
+- Built the Angular 20 package with Angular Package Format through `ng-packagr@20.3.2`.
+- Kept explicit `standalone: false` metadata for Angular 20 NgModule compatibility.
+
+## [19.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 19 release line as `@stackline/angular-multiselect-dropdown@19.0.0`.
+- Added Angular 19.2.22 clean test coverage for the published npm package.
+- Added Angular 19 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 19 release line.
+- Set Angular 19 peer dependencies to `>=19.0.0 <20.0.0`.
+- Added the npm dist-tag `angular-19` pointing to `19.0.0`.
+- Built the Angular 19 package with Angular Package Format through `ng-packagr@19.2.2`.
+- Added explicit `standalone: false` metadata to the library declarations required by Angular 19 NgModule builds.
+
+## [18.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 18 release line as `@stackline/angular-multiselect-dropdown@18.0.0`.
+- Added Angular 18.2.14 clean test coverage for the published npm package.
+- Added Angular 18 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 18 release line.
+- Set Angular 18 peer dependencies to `>=18.0.0 <19.0.0`.
+- Added the npm dist-tag `angular-18` pointing to `18.0.0`.
+- Built the Angular 18 package with Angular Package Format through `ng-packagr@18.2.1`.
+
+## [17.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 17 release line as `@stackline/angular-multiselect-dropdown@17.0.0`.
+- Added Angular 17.3.12 clean test coverage for the published npm package.
+- Added Angular 17 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 17 release line.
+- Set Angular 17 peer dependencies to `>=17.0.0 <18.0.0`.
+- Added the npm dist-tag `angular-17` pointing to `17.0.0`.
+- Built the Angular 17 package with Angular Package Format through `ng-packagr@17.3.0`.
+- Escaped literal `@stackline` in the Angular 17 live test template as `&#64;stackline`.
+
+## [16.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 16 release line as `@stackline/angular-multiselect-dropdown@16.0.0`.
+- Added Angular 16.2.12 clean test coverage for the published npm package.
+- Added Angular 16 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 16 release line.
+- Set Angular 16 peer dependencies to `>=16.0.0 <17.0.0`.
+- Added the npm dist-tag `angular-16` pointing to `16.0.0`.
+- Built the Angular 16 package with Angular Package Format through `ng-packagr@16.2.3`.
+
+## [15.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 15 release line as `@stackline/angular-multiselect-dropdown@15.0.0`.
+- Added Angular 15.2.10 clean test coverage for the published npm package.
+- Added Angular 15 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 15 release line.
+- Set Angular 15 peer dependencies to `>=15.0.0 <16.0.0`.
+- Added the npm dist-tag `angular-15` pointing to `15.0.0`.
+- Built the Angular 15 package with Angular Package Format through `ng-packagr@15.2.2`.
+
+## [14.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 14 release line as `@stackline/angular-multiselect-dropdown@14.0.0`.
+- Added Angular 14.3.0 clean test coverage for the published npm package.
+- Added Angular 14 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 14 release line.
+- Set Angular 14 peer dependencies to `>=14.0.0 <15.0.0`.
+- Added the npm dist-tag `angular-14` pointing to `14.0.0`.
+- Built the Angular 14 package with Angular Package Format through `ng-packagr@14.2.2`.
+
+## [13.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 13 release line as `@stackline/angular-multiselect-dropdown@13.0.0`.
+- Added Angular 13.4.0 clean test coverage for the published npm package.
+- Added Angular 13 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 13 release line.
+- Set Angular 13 peer dependencies to `>=13.0.0 <14.0.0`.
+- Added the npm dist-tag `angular-13` pointing to `13.0.0`.
+- Switched the Angular 13 package build to Angular Package Format with `ng-packagr`.
+
+## [12.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 12 release line as `@stackline/angular-multiselect-dropdown@12.0.0`.
+- Added Angular 12.2.17 clean test coverage for the published npm package.
+- Added Angular 12 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 12 release line.
+- Set Angular 12 peer dependencies to `>=12.0.0 <13.0.0`.
+- Added the npm dist-tag `angular-12` pointing to `12.0.0`.
+
+## [11.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 11 release line as `@stackline/angular-multiselect-dropdown@11.0.0`.
+- Added Angular 11.2.14 clean test coverage for the published npm package.
+- Added Angular 11 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 11 release line.
+- Set Angular 11 peer dependencies to `>=11.0.0 <12.0.0`.
+- Added the npm dist-tag `angular-11` pointing to `11.0.0`.
+
+## [10.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 10 release line as `@stackline/angular-multiselect-dropdown@10.0.0`.
+- Added Angular 10.2.5 clean test coverage for the published npm package.
+- Added Angular 10 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 10 release line.
+- Set Angular 10 peer dependencies to `>=10.0.0 <11.0.0`.
+- Added the npm dist-tag `angular-10` pointing to `10.0.0`.
+
+## [9.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 9 release line as `@stackline/angular-multiselect-dropdown@9.0.0`.
+- Added Angular 9.1.13 clean test coverage for the published npm package.
+- Added Angular 9 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 9 release line.
+- Set Angular 9 peer dependencies to `>=9.0.0 <10.0.0`.
+- Added the npm dist-tag `angular-9` pointing to `9.0.0`.
+- Added the Angular 9 live test loader mapping for `tslib`.
+
+## [8.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 8 release line as `@stackline/angular-multiselect-dropdown@8.0.0`.
+- Added Angular 8.2.14 clean test coverage for the published npm package.
+- Added Angular 8 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 8 release line.
+- Set Angular 8 peer dependencies to `>=8.0.0 <9.0.0`.
+- Added the npm dist-tag `angular-8` pointing to `8.0.0`.
+- Added Angular 8-compatible `static: false` query metadata for `ContentChild` and `ViewChild`.
+
+## [7.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 7 release line as `@stackline/angular-multiselect-dropdown@7.0.0`.
+- Added Angular 7.2.16 clean test coverage for the published npm package.
+- Added Angular 7 functional documentation with the live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 7 release line.
+- Set Angular 7 peer dependencies to `>=7.0.0 <8.0.0`.
+- Added the npm dist-tag `angular-7` pointing to `7.0.0`.
+
+## [6.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 6 release line as `@stackline/angular-multiselect-dropdown@6.0.0`.
+- Added Angular 6.1.10 clean test coverage for the published npm package.
+- Added Angular 6 functional documentation with the same live row-by-row test matrix.
+
+### Changed
+- Updated the public README standard for the Angular 6 release line.
+- Set Angular 6 peer dependencies to `>=6.0.0 <7.0.0`.
+- Added the npm dist-tag `angular-6` pointing to `6.0.0`.
+- Updated the Angular 6 live test loader for RxJS 6 `rxjs/operators`.
+
+## [5.0.0] - 2026-05-24
+
+### Added
+- Published the Angular 5 release line as `@stackline/angular-multiselect-dropdown@5.0.0`.
+- Added Angular 5.2.11 clean test coverage for the published npm package.
+- Added Angular 5 functional documentation with the live row-by-row test matrix and generated HTML/TS/JSON examples.
+
+### Changed
+- Updated the public README standard for the Angular 5 release line.
+- Set Angular 5 peer dependencies to `>=5.0.0 <6.0.0`.
+- Added the npm dist-tag `angular-5` pointing to `5.0.0`.
+
+## [2.0.5] - 2026-05-24
+
+### Changed
+- Standardized Angular 2 docs, live examples, and README usage on the primary `<angular-multiselect>` selector.
+- Documented `<angular2-multiselect>` as a legacy compatibility alias only for applications migrating from the old outdated plugin.
+- Updated the Angular 2 package metadata and documentation matrix to the tested `2.0.5` release.
+
 ## [2.0.4] - 2026-05-23
 
 ### Changed

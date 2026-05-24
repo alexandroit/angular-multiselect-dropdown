@@ -47265,7 +47265,7 @@ function provideRouterInitializer() {
 // src/app/docs-meta.ts
 var DOCS_META = {
   badge: "ANGULAR 20 \xB7 MATERIAL REFINED",
-  angularVersion: "20.x",
+  angularVersion: "20.0.0 -> 20.3.21",
   packageVersion: "20.0.0",
   packageRange: "^20.0.0",
   docsPath: "angular-20"

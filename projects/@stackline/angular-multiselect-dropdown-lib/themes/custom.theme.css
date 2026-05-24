@@ -4,7 +4,7 @@
   Copy this file into your application and edit the values below when you want
   full control over the dropdown look without touching the library source.
 */
-.cuppa-dropdown {
+.stackline-dropdown {
   --ms-primary: #3f51b5;
   --ms-primary-soft: rgba(63, 81, 181, 0.12);
   --ms-surface: #ffffff;
@@ -21,7 +21,7 @@
   --ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, 0.12), 0 4px 12px rgba(33, 33, 33, 0.08);
 }
 
-.cuppa-dropdown .c-btn {
+.stackline-dropdown .c-btn {
   min-height: 56px;
   padding: 11px 54px 11px 16px;
   border-radius: 18px;
@@ -31,56 +31,68 @@
   box-shadow: var(--ms-shadow-soft);
 }
 
-.cuppa-dropdown .c-btn:hover {
+.stackline-dropdown .c-btn:hover {
   border-color: var(--ms-outline-strong);
 }
 
-.cuppa-dropdown .c-btn.is-active {
+.stackline-dropdown .c-btn.is-active {
   border-color: var(--ms-primary);
   box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.14), var(--ms-shadow-soft);
 }
 
-.cuppa-dropdown .c-placeholder,
-.cuppa-dropdown .c-single-value,
-.cuppa-dropdown .countplaceholder,
-.cuppa-dropdown .c-angle-down,
-.cuppa-dropdown .c-angle-up,
-.cuppa-dropdown .clear-all {
+.stackline-dropdown .c-placeholder,
+.stackline-dropdown .c-single-value,
+.stackline-dropdown .countplaceholder,
+.stackline-dropdown .c-angle-down,
+.stackline-dropdown .c-angle-up,
+.stackline-dropdown .clear-all {
   color: var(--ms-on-surface-muted);
 }
 
-.cuppa-dropdown .c-chip-list {
+.stackline-dropdown .c-chip-list {
   gap: 8px;
 }
 
-.cuppa-dropdown .c-token {
+.stackline-dropdown .c-token {
+  display: inline-block;
+  vertical-align: middle;
   min-height: 32px;
+  max-width: 100%;
   padding: 6px 30px 6px 12px;
   border-radius: 999px;
   background: var(--ms-chip-bg);
   color: var(--ms-chip-text);
   box-shadow: inset 0 0 0 1px rgba(63, 81, 181, 0.08);
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
-.cuppa-dropdown .c-token .c-label,
-.cuppa-dropdown .c-remove {
+.stackline-dropdown .c-remove {
   color: inherit;
 }
 
-.cuppa-dropdown .list-area {
+.stackline-dropdown .c-token .c-label {
+  max-width: 100%;
+  color: inherit;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.stackline-dropdown .list-area {
   border-radius: 22px;
   background: var(--ms-surface);
   border: 1px solid var(--ms-outline);
   box-shadow: var(--ms-shadow);
 }
 
-.cuppa-dropdown .select-all,
-.cuppa-dropdown .filter-select-all {
+.stackline-dropdown .select-all,
+.stackline-dropdown .filter-select-all {
   background: var(--ms-surface-soft);
   border-bottom: 1px solid rgba(121, 134, 203, 0.16);
 }
 
-.cuppa-dropdown .list-filter {
+.stackline-dropdown .list-filter {
   min-height: 52px;
   padding-left: 48px;
   padding-right: 44px;
@@ -88,19 +100,19 @@
   border-bottom: 1px solid rgba(121, 134, 203, 0.16);
 }
 
-.cuppa-dropdown .list-filter .c-input,
-.cuppa-dropdown .list-filter input {
+.stackline-dropdown .list-filter .c-input,
+.stackline-dropdown .list-filter input {
   color: var(--ms-on-surface);
 }
 
-.cuppa-dropdown .list-filter .c-input::placeholder,
-.cuppa-dropdown .list-filter input::placeholder,
-.cuppa-dropdown .list-filter .c-search,
-.cuppa-dropdown .list-filter .c-clear {
+.stackline-dropdown .list-filter .c-input::placeholder,
+.stackline-dropdown .list-filter input::placeholder,
+.stackline-dropdown .list-filter .c-search,
+.stackline-dropdown .list-filter .c-clear {
   color: var(--ms-on-surface-muted);
 }
 
-.cuppa-dropdown .btn-iceblue {
+.stackline-dropdown .btn-iceblue {
   width: 100%;
   min-height: 40px;
   border-radius: 999px;
@@ -110,43 +122,45 @@
   font-weight: 600;
 }
 
-.cuppa-dropdown .dropdown-list ul {
+.stackline-dropdown .dropdown-list ul {
   padding: 8px;
 }
 
-.cuppa-dropdown .dropdown-list ul li {
-  min-height: 48px;
+.stackline-dropdown .dropdown-list ul li {
+  min-height: 0;
+  margin: 4px;
   padding: 12px 14px;
   border-radius: 14px;
   color: var(--ms-on-surface);
+  line-height: 1.35;
 }
 
-.cuppa-dropdown .dropdown-list ul li:hover {
+.stackline-dropdown .dropdown-list ul li:hover {
   background: var(--ms-surface-soft);
 }
 
-.cuppa-dropdown .selected-item {
+.stackline-dropdown .selected-item {
   background: var(--ms-primary-soft) !important;
   color: var(--ms-primary);
 }
 
-.cuppa-dropdown .grp-title {
+.stackline-dropdown .grp-title {
   color: var(--ms-on-surface-muted);
 }
 
-.cuppa-dropdown .grp-title label,
-.cuppa-dropdown .list-grp h4 {
+.stackline-dropdown .grp-title label,
+.stackline-dropdown .list-grp h4 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.cuppa-dropdown .pure-checkbox input[type=checkbox] + label {
+.stackline-dropdown .pure-checkbox input[type=checkbox] + label {
   padding-left: 32px;
   color: inherit;
   font-weight: 500;
 }
 
-.cuppa-dropdown .pure-checkbox input[type=checkbox] + label::before {
+.stackline-dropdown .pure-checkbox input[type=checkbox] + label::before {
   width: 18px;
   height: 18px;
   margin-top: -10px;
@@ -155,7 +169,7 @@
   background: var(--ms-surface);
 }
 
-.cuppa-dropdown .pure-checkbox input[type=checkbox] + label::after {
+.stackline-dropdown .pure-checkbox input[type=checkbox] + label::after {
   left: 5px;
   width: 7px;
   height: 3px;
@@ -164,23 +178,23 @@
   border-color: #ffffff;
 }
 
-.cuppa-dropdown .pure-checkbox input[type=checkbox]:focus + label::before,
-.cuppa-dropdown .pure-checkbox input[type=checkbox]:hover + label::before {
+.stackline-dropdown .pure-checkbox input[type=checkbox]:focus + label::before,
+.stackline-dropdown .pure-checkbox input[type=checkbox]:hover + label::before {
   border-color: var(--ms-primary);
   box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.12);
 }
 
-.cuppa-dropdown .pure-checkbox input[type=checkbox]:checked + label::before {
+.stackline-dropdown .pure-checkbox input[type=checkbox]:checked + label::before {
   border-color: var(--ms-primary);
   background: var(--ms-primary);
 }
 
-.cuppa-dropdown .list-message,
-.cuppa-dropdown .nodata-label {
+.stackline-dropdown .list-message,
+.stackline-dropdown .nodata-label {
   color: var(--ms-on-surface-muted);
 }
 
-.cuppa-dropdown .loading-icon {
+.stackline-dropdown .loading-icon {
   width: 18px;
   top: 18px;
   right: 16px;

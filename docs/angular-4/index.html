@@ -2,94 +2,526 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>@stackline/angular-multiselect-dropdown — Angular 4 docs</title>
+  <title>@stackline/angular-multiselect-dropdown - Angular 4 live docs</title>
   <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Functional Angular 4.4.7 live tests and documentation for @stackline/angular-multiselect-dropdown 4.0.1.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23102033%27/%3E%3Cpath d=%27M14 18h36v8H14zm0 14h36v8H14zm0 14h24v8H14z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6353624842390947"
-     crossorigin="anonymous"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #eef3f7;
+      --surface: #ffffff;
+      --surface-soft: #f7fafc;
+      --ink: #15304b;
+      --muted: #5c7188;
+      --line: #d6e1eb;
+      --primary: #0f6fad;
+      --primary-soft: #e7f2fb;
+      --success-soft: #e8f6f1;
+      --accent-soft: #fff1ea;
+      --code: #13263a;
+      --shadow: 0 18px 42px rgba(21, 48, 75, 0.1);
+    }
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KQ9KECXR9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    * {
+      box-sizing: border-box;
+    }
 
-  gtag('config', 'G-3KQ9KECXR9');
-</script>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    code,
+    pre {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    code {
+      color: #c2255c;
+      overflow-wrap: anywhere;
+    }
+
+    pre {
+      margin: 0;
+      overflow: auto;
+      overflow-wrap: anywhere;
+      padding: 1rem;
+      border: 1px solid #213a54;
+      border-radius: 8px;
+      background: var(--code);
+      color: #edf4fb;
+      font-size: 0.85rem;
+      line-height: 1.58;
+      white-space: pre-wrap;
+    }
+
+    .page {
+      width: min(1460px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .hero,
+    .setup-grid,
+    .info-grid,
+    .code-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.45fr) minmax(340px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .setup-panel,
+    .section,
+    .card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main,
+    .setup-panel,
+    .section {
+      padding: 24px;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      margin: 0 0 14px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #0c5f94;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 16px;
+      font-size: 3.2rem;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 900px;
+      font-size: 1.03rem;
+    }
+
+    .link-row {
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      gap: 14px;
+      align-items: center;
+      margin-top: 22px;
+    }
+
+    .link-row a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .link-row a:hover {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: #0c5f94;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .setup-grid {
+      margin-top: 16px;
+    }
+
+    .setup-step {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .compat-note {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .card {
+      padding: 16px;
+      background: var(--surface-soft);
+    }
+
+    .card:nth-child(2) {
+      background: var(--success-soft);
+    }
+
+    .card:nth-child(3) {
+      background: var(--accent-soft);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .live-frame-wrap {
+      margin-top: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .live-frame {
+      display: block;
+      width: 100%;
+      min-height: 2450px;
+      border: 0;
+      background: #eef2f7;
+    }
+
+    .code-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .info-grid,
+      .code-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 1460px);
+        padding-top: 14px;
+      }
+
+      .hero-main,
+      .setup-panel,
+      .section {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.55rem;
+      }
+
+      .link-row {
+        grid-template-columns: 1fr;
+      }
+
+      .live-frame {
+        min-height: 5200px;
+      }
+    }
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6353624842390947" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KQ9KECXR9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KQ9KECXR9');
+  </script>
 </head>
 <body>
-  <app-root>Loading demo…</app-root>
-<script src="polyfills.js" type="module"></script><script src="scripts.js" defer></script><script src="main.js" type="module"></script>  <script>
-  (function () {
-    function closeModal(modal) {
-      if (!modal) return;
-      modal.classList.remove('show');
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      modal.removeAttribute('aria-modal');
-      document.body.classList.remove('modal-open');
-      document.querySelectorAll('.docs-modal-backdrop').forEach(function (node) { node.remove(); });
-      var content = modal.querySelector('.modal-content');
-      var body = modal.querySelector('.modal-body');
-      if (content) {
-        content.style.paddingBottom = '';
-        content.style.overflow = '';
-      }
-      if (body) {
-        body.style.paddingBottom = '';
-        body.style.overflow = '';
-      }
+  <main class="page">
+    <section class="hero">
+      <article class="hero-main">
+        <p class="eyebrow">Angular 4 functional docs</p>
+        <h1>@stackline/angular-multiselect-dropdown</h1>
+        <p class="lead">
+          Angular 4 documentation for the tested <code>@stackline/angular-multiselect-dropdown</code>
+          package line at <code>4.0.1</code>. The live section below runs a real Angular <code>4.4.7</code> application with
+          real <code>&lt;angular-multiselect&gt;</code> components.
+        </p>
+
+        <nav class="link-row" aria-label="Documentation links">
+          <a href="#live-tests">Live tests</a>
+          <a href="live/?v=20260524-angular4-npm">Open full app</a>
+          <a href="https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown">npm</a>
+          <a href="https://github.com/alexandroit/angular-multiselect-dropdown">GitHub</a>
+        </nav>
+
+        <div class="info-grid">
+          <div class="card">
+            <strong>Package</strong>
+            <code>4.0.1</code> for Angular <code>4.x</code>
+          </div>
+          <div class="card">
+            <strong>Runtime</strong>
+            Angular <code>4.4.7</code>
+          </div>
+          <div class="card">
+            <strong>Peer range</strong>
+            <code>&gt;=4.0.0 &lt;5.0.0</code>
+          </div>
+          <div class="card">
+            <strong>Live matrix</strong>
+            <code>12 cases x 2 skins</code>
+          </div>
+        </div>
+      </article>
+
+      <aside class="setup-panel" id="setup">
+        <p class="eyebrow">Setup in 3 steps</p>
+        <h2>Install the Angular 4 line</h2>
+        <div class="setup-grid">
+          <div class="setup-step">
+            <span class="step-num">1</span>
+            <div>
+              <h3>Install</h3>
+              <pre>npm install @stackline/angular-multiselect-dropdown&#64;4.0.1 --save-exact</pre>
+            </div>
+          </div>
+          <div class="setup-step">
+            <span class="step-num">2</span>
+            <div>
+              <h3>Register the module</h3>
+              <pre>import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AngularMultiSelectModule } from '@stackline/angular-multiselect-dropdown';
+
+@NgModule({
+  imports: [BrowserModule, FormsModule, AngularMultiSelectModule]
+})
+export class AppModule {}</pre>
+            </div>
+          </div>
+          <div class="setup-step">
+            <span class="step-num">3</span>
+            <div>
+              <h3>Render the dropdown</h3>
+              <pre>&lt;angular-multiselect
+  [data]="countries"
+  [(ngModel)]="selectedCountries"
+  [settings]="dropdownSettings"&gt;
+&lt;/angular-multiselect&gt;</pre>
+              <p class="compat-note">
+                <code>&lt;angular2-multiselect&gt;</code> remains available only as a legacy compatibility alias
+                for applications migrating from the old outdated plugin. New code should use
+                <code>&lt;angular-multiselect&gt;</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="live-tests">
+      <p class="eyebrow">Functional live tests</p>
+      <h2>Real Angular 4.4.7 test application</h2>
+      <p>
+        This embedded app is the Angular 4 functional test layout used for local validation: skin switcher,
+        classic cases, material cases, selected model updates, search, grouping, disabled state,
+        lazy list, templates, and event logging.
+      </p>
+      <div class="live-frame-wrap">
+        <iframe class="live-frame" id="liveFrame" src="live/?v=20260524-angular4-npm" title="Angular 4 functional multiselect tests"></iframe>
+      </div>
+    </section>
+
+    <section class="section" id="code">
+      <p class="eyebrow">Code used by the live app</p>
+      <h2>Same API shape as the functional tests</h2>
+      <div class="code-grid">
+        <div>
+          <h3>Data</h3>
+          <pre>countries = [
+  { id: 1, itemName: 'Brazil' },
+  { id: 2, itemName: 'Canada' },
+  { id: 3, itemName: 'Portugal' },
+  { id: 4, itemName: 'United States' }
+];</pre>
+        </div>
+        <div>
+          <h3>Settings</h3>
+          <pre>makeSettings(theme: string, text: string, options: any) {
+  var settings: any = {
+    singleSelection: false,
+    text: text,
+    selectAllText: 'Select all',
+    unSelectAllText: 'Clear all',
+    enableCheckAll: true,
+    enableSearchFilter: true,
+    badgeShowLimit: 4,
+    maxHeight: 260,
+    showCheckbox: true,
+    theme: theme,
+    skin: theme
+  };
+
+  for (var key in options) {
+    if (options.hasOwnProperty(key)) {
+      settings[key] = options[key];
     }
+  }
 
-    function openModal(modal) {
-      if (!modal) return;
-      modal.style.display = 'block';
-      modal.classList.add('show');
-      modal.removeAttribute('aria-hidden');
-      modal.setAttribute('aria-modal', 'true');
-      document.body.classList.add('modal-open');
-      var content = modal.querySelector('.modal-content');
-      var body = modal.querySelector('.modal-body');
-      if (content) {
-        content.style.paddingBottom = '13rem';
-        content.style.overflow = 'visible';
-      }
-      if (body) {
-        body.style.paddingBottom = '13rem';
-        body.style.overflow = 'visible';
+  return settings;
+}</pre>
+        </div>
+        <div>
+          <h3>Template slots</h3>
+          <pre>&lt;angular-multiselect
+  [data]="templateItems"
+  [(ngModel)]="selectedTemplateItems"
+  [settings]="templateSettings"&gt;
+  &lt;c-badge&gt;
+    &lt;ng-template let-item="item"&gt;
+      &lt;span class="swatch-chip"&gt;{{ item.itemName }}&lt;/span&gt;
+    &lt;/ng-template&gt;
+  &lt;/c-badge&gt;
+  &lt;c-item&gt;
+    &lt;ng-template let-item="item"&gt;
+      &lt;strong&gt;{{ item.itemName }}&lt;/strong&gt;
+    &lt;/ng-template&gt;
+  &lt;/c-item&gt;
+&lt;/angular-multiselect&gt;</pre>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Original upstream copyright is preserved in the license. Maintained publication, Angular line
+      stewardship, docs curation, and release validation by Stackline.
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var frame = document.getElementById("liveFrame");
+
+      function resizeFrame() {
+        if (!frame || !frame.contentWindow || !frame.contentWindow.document) {
+          return;
+        }
+
+        var doc = frame.contentWindow.document;
+        var body = doc.body;
+        var html = doc.documentElement;
+        if (!body || !html) {
+          return;
+        }
+
+        var height = Math.max(
+          body.scrollHeight,
+          body.offsetHeight,
+          html.clientHeight,
+          html.scrollHeight,
+          html.offsetHeight
+        );
+
+        if (height > 0) {
+          frame.style.height = height + "px";
+        }
       }
 
-      if (!document.querySelector('.docs-modal-backdrop')) {
-        var backdrop = document.createElement('div');
-        backdrop.className = 'modal-backdrop fade show docs-modal-backdrop';
-        backdrop.addEventListener('click', function () { closeModal(modal); });
-        document.body.appendChild(backdrop);
-      }
-    }
-
-    document.addEventListener('click', function (event) {
-      var openTrigger = event.target.closest('[data-bs-toggle="modal"]');
-      if (openTrigger) {
-        event.preventDefault();
-        openModal(document.querySelector(openTrigger.getAttribute('data-bs-target')));
-        return;
-      }
-
-      var closeTrigger = event.target.closest('[data-bs-dismiss="modal"]');
-      if (closeTrigger) {
-        event.preventDefault();
-        closeModal(closeTrigger.closest('.modal'));
-      }
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        closeModal(document.querySelector('.modal.show'));
-      }
-    });
-  })();
-</script>
+      frame.addEventListener("load", function () {
+        resizeFrame();
+        var attempts = 0;
+        var timer = window.setInterval(function () {
+          attempts += 1;
+          resizeFrame();
+          if (attempts > 20) {
+            window.clearInterval(timer);
+          }
+        }, 350);
+      });
+    })();
+  </script>
 </body>
 </html>

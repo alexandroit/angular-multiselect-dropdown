@@ -3,7 +3,7 @@ virtual-scroll {
   width: 100%;
 }
 
-.cuppa-dropdown {
+.stackline-dropdown {
   --ms-primary: #3f51b5;
   --ms-primary-soft: rgba(63, 81, 181, 0.12);
   --ms-surface: #ffffff;
@@ -93,9 +93,8 @@ virtual-scroll {
 
 .c-token {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
+  vertical-align: middle;
   min-height: 32px;
   max-width: 100%;
   padding: 6px 30px 6px 12px;
@@ -103,15 +102,20 @@ virtual-scroll {
   background: var(--ms-chip-bg);
   color: var(--ms-chip-text);
   box-shadow: inset 0 0 0 1px rgba(103, 80, 164, 0.08);
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .c-token .c-label {
   display: inline-flex;
   align-items: center;
   min-width: 0;
+  max-width: 100%;
   line-height: 1.3;
-  font-size: 0.85rem;
   font-weight: 500;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .c-remove {
@@ -276,14 +280,14 @@ virtual-scroll {
 }
 
 .dropdown-list ul li {
-  display: flex;
   align-items: center;
-  min-height: 48px;
-  margin: 0;
+  min-height: 0;
+  margin: 4px;
   padding: 12px 14px;
   border-radius: 14px;
   cursor: pointer;
   text-align: left;
+  line-height: 1.35;
   transition: background-color 160ms ease, color 160ms ease;
 }
 

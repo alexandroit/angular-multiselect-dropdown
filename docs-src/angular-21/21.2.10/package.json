@@ -1,0 +1,27 @@
+{
+  "name": "@stackline/angular-multiselect-dropdown-docs-angular21-21-2-10",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "validate": "node ./stackline-validate.mjs"
+  },
+  "dependencies": {
+    "@angular/common": "21.2.10",
+    "@angular/compiler": "21.2.10",
+    "@angular/core": "21.2.10",
+    "@angular/forms": "21.2.10",
+    "@angular/localize": "21.2.10",
+    "@angular/platform-browser": "21.2.10",
+    "@angular/platform-browser-dynamic": "21.2.10",
+    "@angular/router": "21.2.10",
+    "@popperjs/core": "^2.11.8",
+    "@stackline/angular-multiselect-dropdown": "file:../../../dist/@stackline/angular-multiselect-dropdown",
+    "bootstrap": "^5.3.8",
+    "rxjs": "7.8.2",
+    "tslib": "^2.5.0",
+    "zone.js": "0.16.1"
+  },
+  "devDependencies": {
+    "typescript": "6.0.2"
+  }
+}

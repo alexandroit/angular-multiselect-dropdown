@@ -36,7 +36,7 @@ export class AppComponent {
     `export class AppModule {}`
   ].join('\n');
   readonly templateCode = [
-    `<angular2-multiselect`,
+    `<angular-multiselect`,
     `  [data]="countries"`,
     `  [(ngModel)]="classicBasic"`,
     `  [settings]="classicBasicSettings"`,
@@ -44,22 +44,22 @@ export class AppComponent {
     `  (onDeSelect)="record('classic basic deselect', $event)"`,
     `  (onSelectAll)="record('classic basic selectAll', $event)"`,
     `  (onDeSelectAll)="record('classic basic deselectAll', $event)">`,
-    `</angular2-multiselect>`
+    `</angular-multiselect>`
   ].join('\n');
   readonly settingsCode = [
     `makeSettings(theme: string, text: string, options: any) {`,
     `  var settings: any = {`,
     `    singleSelection: false,`,
     `    text: text,`,
-    `    selectAllText: 'Selecionar todos',`,
-    `    unSelectAllText: 'Limpar todos',`,
+    `    selectAllText: 'Select all',`,
+    `    unSelectAllText: 'Clear all',`,
     `    enableCheckAll: true,`,
     `    enableSearchFilter: true,`,
-    `    searchPlaceholderText: 'Buscar',`,
+    `    searchPlaceholderText: 'Search',`,
     `    badgeShowLimit: 4,`,
     `    maxHeight: 260,`,
     `    showCheckbox: true,`,
-    `    noDataLabel: 'Sem dados',`,
+    `    noDataLabel: 'No data',`,
     `    theme: theme`,
     `  };`,
     ``,
@@ -74,25 +74,25 @@ export class AppComponent {
   ].join('\n');
   readonly dataCode = [
     `countries = [`,
-    `  { id: 1, itemName: 'Brasil' },`,
+    `  { id: 1, itemName: 'Brazil' },`,
     `  { id: 2, itemName: 'Canada' },`,
     `  { id: 3, itemName: 'Portugal' },`,
-    `  { id: 4, itemName: 'Estados Unidos' },`,
+    `  { id: 4, itemName: 'United States' },`,
     `  { id: 5, itemName: 'Argentina' },`,
-    `  { id: 6, itemName: 'Alemanha' },`,
-    `  { id: 7, itemName: 'Japao' },`,
-    `  { id: 8, itemName: 'Africa do Sul' }`,
+    `  { id: 6, itemName: 'Germany' },`,
+    `  { id: 7, itemName: 'Japan' },`,
+    `  { id: 8, itemName: 'South Africa' }`,
     `];`,
     ``,
     `groupedCountries = [`,
-    `  { id: 21, itemName: 'Brasil', region: 'America' },`,
-    `  { id: 22, itemName: 'Canada', region: 'America' },`,
-    `  { id: 23, itemName: 'Portugal', region: 'Europa' },`,
-    `  { id: 24, itemName: 'Alemanha', region: 'Europa' }`,
+    `  { id: 21, itemName: 'Brazil', region: 'Americas' },`,
+    `  { id: 22, itemName: 'Canada', region: 'Americas' },`,
+    `  { id: 23, itemName: 'Portugal', region: 'Europe' },`,
+    `  { id: 24, itemName: 'Germany', region: 'Europe' }`,
     `];`
   ].join('\n');
   readonly templateExampleCode = [
-    `<angular2-multiselect [data]="templateItems" [(ngModel)]="classicTemplate" [settings]="classicTemplateSettings">`,
+    `<angular-multiselect [data]="templateItems" [(ngModel)]="classicTemplate" [settings]="classicTemplateSettings">`,
     `  <c-badge>`,
     `    <template let-item="item">`,
     `      <span class="swatch-chip"><span class="swatch" [style.background]="item.color"></span>{{ item.itemName }}</span>`,
@@ -106,7 +106,7 @@ export class AppComponent {
     `      </span>`,
     `    </template>`,
     `  </c-item>`,
-    `</angular2-multiselect>`
+    `</angular-multiselect>`
   ].join('\n');
 
   readonly officialSkins: OfficialSkin[] = [
@@ -116,42 +116,42 @@ export class AppComponent {
       examples: [
         {
           number: '01',
-          title: 'Basico multi',
+          title: 'Basic multi',
           data: 'countries',
           model: `classicBasic = [{ id: 2, itemName: 'Canada' }]`,
-          settings: `makeSettings('classic', 'Classic basico', { enableSearchFilter: false })`,
+          settings: `makeSettings('classic', 'Classic basic', { enableSearchFilter: false })`,
           covers: 'Default multi-select, select, deselect, select all, and clear all events.'
         },
         {
           number: '02',
-          title: 'Busca + selecionar todos',
+          title: 'Search + select all',
           data: 'countries',
-          model: `classicSearch = [{ id: 4, itemName: 'Estados Unidos' }]`,
-          settings: `makeSettings('classic', 'Classic busca', {})`,
+          model: `classicSearch = [{ id: 4, itemName: 'United States' }]`,
+          settings: `makeSettings('classic', 'Classic search', {})`,
           covers: 'Search input, select all text, clear all text, and event logging.'
         },
         {
           number: '03',
-          title: 'Single sem checkbox',
+          title: 'Single without checkbox',
           data: 'countries',
-          model: `classicSingle = [{ id: 1, itemName: 'Brasil' }]`,
+          model: `classicSingle = [{ id: 1, itemName: 'Brazil' }]`,
           settings: `makeSettings('classic', 'Classic single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })`,
           covers: 'Single-selection mode without checkboxes.'
         },
         {
           number: '04',
-          title: 'Multi sem checkbox',
+          title: 'Multi without checkbox',
           data: 'countries',
-          model: `classicNoCheckbox = [{ id: 3, itemName: 'Portugal' }, { id: 6, itemName: 'Alemanha' }]`,
-          settings: `makeSettings('classic', 'Classic sem checkbox', { showCheckbox: false, enableCheckAll: false })`,
+          model: `classicNoCheckbox = [{ id: 3, itemName: 'Portugal' }, { id: 6, itemName: 'Germany' }]`,
+          settings: `makeSettings('classic', 'Classic no checkbox', { showCheckbox: false, enableCheckAll: false })`,
           covers: 'Multiple selected values with the checkbox UI hidden.'
         },
         {
           number: '05',
-          title: 'Limite de selecao',
+          title: 'Selection limit',
           data: 'longCountries',
-          model: `classicLimit = [{ id: 11, itemName: 'Republica Federativa do Brasil' }, { id: 12, itemName: 'Estados Unidos da America' }]`,
-          settings: `makeSettings('classic', 'Classic limite 2', { limitSelection: 2, badgeShowLimit: 2 })`,
+          model: `classicLimit = [{ id: 11, itemName: 'Federative Republic of Brazil' }, { id: 12, itemName: 'United States of America' }]`,
+          settings: `makeSettings('classic', 'Classic limit 2', { limitSelection: 2, badgeShowLimit: 2 })`,
           covers: 'Selection limit and compact selected badge display.'
         },
         {
@@ -164,31 +164,31 @@ export class AppComponent {
         },
         {
           number: '07',
-          title: 'Agrupado por regiao',
+          title: 'Grouped by region',
           data: 'groupedCountries',
-          model: `classicGrouped = [{ id: 21, itemName: 'Brasil', region: 'America' }]`,
-          settings: `makeSettings('classic', 'Classic agrupado', { groupBy: 'region', maxHeight: 220 })`,
+          model: `classicGrouped = [{ id: 21, itemName: 'Brazil', region: 'Americas' }]`,
+          settings: `makeSettings('classic', 'Classic grouped', { groupBy: 'region', maxHeight: 220 })`,
           covers: 'Grouping by the region field.'
         },
         {
           number: '08',
-          title: 'Disabled com valor',
+          title: 'Disabled with value',
           data: 'countries',
-          model: `classicDisabled = [{ id: 6, itemName: 'Alemanha' }]`,
+          model: `classicDisabled = [{ id: 6, itemName: 'Germany' }]`,
           settings: `makeSettings('classic', 'Classic disabled', { disabled: true })`,
           covers: 'Disabled state while preserving the selected value.'
         },
         {
           number: '09',
-          title: 'Sem dados',
+          title: 'Empty data',
           data: 'emptyItems',
           model: `classicEmpty = []`,
-          settings: `makeSettings('classic', 'Classic vazio', { noDataLabel: 'Nenhum registro encontrado' })`,
+          settings: `makeSettings('classic', 'Classic empty', { noDataLabel: 'No records found' })`,
           covers: 'Empty data messaging.'
         },
         {
           number: '10',
-          title: 'Lista longa com scroll',
+          title: 'Long list with scroll',
           data: 'largeList',
           model: `classicScroll = [{ id: 104, itemName: 'Item 04' }]`,
           settings: `makeSettings('classic', 'Classic scroll', { maxHeight: 120, badgeShowLimit: 3 })`,
@@ -196,7 +196,7 @@ export class AppComponent {
         },
         {
           number: '11',
-          title: 'Lazy loading local',
+          title: 'Local lazy loading',
           data: 'largeList',
           model: `classicLazy = [{ id: 106, itemName: 'Item 06' }]`,
           settings: `makeSettings('classic', 'Classic lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })`,
@@ -204,7 +204,7 @@ export class AppComponent {
         },
         {
           number: '12',
-          title: 'Template de item + chip',
+          title: 'Item + chip template',
           data: 'templateItems',
           model: `classicTemplate = [Primary, Warning]`,
           settings: `makeSettings('classic', 'Classic template', { badgeShowLimit: 3, maxHeight: 220 })`,
@@ -218,23 +218,23 @@ export class AppComponent {
       examples: [
         {
           number: '01',
-          title: 'Basico multi',
+          title: 'Basic multi',
           data: 'countries',
           model: `materialBasic = [{ id: 2, itemName: 'Canada' }]`,
-          settings: `makeSettings('material', 'Material basico', { enableSearchFilter: false })`,
+          settings: `makeSettings('material', 'Material basic', { enableSearchFilter: false })`,
           covers: 'Default multi-select in the Material skin.'
         },
         {
           number: '02',
-          title: 'Busca + selecionar todos',
+          title: 'Search + select all',
           data: 'countries',
-          model: `materialSearch = [{ id: 4, itemName: 'Estados Unidos' }]`,
-          settings: `makeSettings('material', 'Material busca', {})`,
+          model: `materialSearch = [{ id: 4, itemName: 'United States' }]`,
+          settings: `makeSettings('material', 'Material search', {})`,
           covers: 'Search, select all, clear all, and Material menu spacing.'
         },
         {
           number: '03',
-          title: 'Single sem checkbox',
+          title: 'Single without checkbox',
           data: 'countries',
           model: `materialSingle = [{ id: 3, itemName: 'Portugal' }]`,
           settings: `makeSettings('material', 'Material single', { singleSelection: true, showCheckbox: false, enableCheckAll: false })`,
@@ -242,18 +242,18 @@ export class AppComponent {
         },
         {
           number: '04',
-          title: 'Multi sem checkbox',
+          title: 'Multi without checkbox',
           data: 'countries',
-          model: `materialNoCheckbox = [{ id: 5, itemName: 'Argentina' }, { id: 7, itemName: 'Japao' }]`,
-          settings: `makeSettings('material', 'Material sem checkbox', { showCheckbox: false, enableCheckAll: false })`,
+          model: `materialNoCheckbox = [{ id: 5, itemName: 'Argentina' }, { id: 7, itemName: 'Japan' }]`,
+          settings: `makeSettings('material', 'Material no checkbox', { showCheckbox: false, enableCheckAll: false })`,
           covers: 'Multiple selected values with Material list rows and no checkbox.'
         },
         {
           number: '05',
-          title: 'Limite de selecao',
+          title: 'Selection limit',
           data: 'longCountries',
-          model: `materialLimit = [{ id: 11, itemName: 'Republica Federativa do Brasil' }, { id: 12, itemName: 'Estados Unidos da America' }]`,
-          settings: `makeSettings('material', 'Material limite 2', { limitSelection: 2, badgeShowLimit: 2 })`,
+          model: `materialLimit = [{ id: 11, itemName: 'Federative Republic of Brazil' }, { id: 12, itemName: 'United States of America' }]`,
+          settings: `makeSettings('material', 'Material limit 2', { limitSelection: 2, badgeShowLimit: 2 })`,
           covers: 'Selection limit and compact badge display.'
         },
         {
@@ -266,31 +266,31 @@ export class AppComponent {
         },
         {
           number: '07',
-          title: 'Agrupado por regiao',
+          title: 'Grouped by region',
           data: 'groupedCountries',
-          model: `materialGrouped = [{ id: 23, itemName: 'Portugal', region: 'Europa' }]`,
-          settings: `makeSettings('material', 'Material agrupado', { groupBy: 'region', maxHeight: 220 })`,
+          model: `materialGrouped = [{ id: 23, itemName: 'Portugal', region: 'Europe' }]`,
+          settings: `makeSettings('material', 'Material grouped', { groupBy: 'region', maxHeight: 220 })`,
           covers: 'Grouped Material rows by region.'
         },
         {
           number: '08',
-          title: 'Disabled com valor',
+          title: 'Disabled with value',
           data: 'countries',
-          model: `materialDisabled = [{ id: 8, itemName: 'Africa do Sul' }]`,
+          model: `materialDisabled = [{ id: 8, itemName: 'South Africa' }]`,
           settings: `makeSettings('material', 'Material disabled', { disabled: true })`,
           covers: 'Disabled Material field with a preserved selected value.'
         },
         {
           number: '09',
-          title: 'Sem dados',
+          title: 'Empty data',
           data: 'emptyItems',
           model: `materialEmpty = []`,
-          settings: `makeSettings('material', 'Material vazio', { noDataLabel: 'Nenhum registro encontrado' })`,
+          settings: `makeSettings('material', 'Material empty', { noDataLabel: 'No records found' })`,
           covers: 'Empty data state in the Material skin.'
         },
         {
           number: '10',
-          title: 'Lista longa com scroll',
+          title: 'Long list with scroll',
           data: 'largeList',
           model: `materialScroll = [{ id: 105, itemName: 'Item 05' }]`,
           settings: `makeSettings('material', 'Material scroll', { maxHeight: 120, badgeShowLimit: 3 })`,
@@ -298,7 +298,7 @@ export class AppComponent {
         },
         {
           number: '11',
-          title: 'Lazy loading local',
+          title: 'Local lazy loading',
           data: 'largeList',
           model: `materialLazy = [{ id: 107, itemName: 'Item 07' }]`,
           settings: `makeSettings('material', 'Material lazy', { lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 })`,
@@ -306,7 +306,7 @@ export class AppComponent {
         },
         {
           number: '12',
-          title: 'Template de item + chip',
+          title: 'Item + chip template',
           data: 'templateItems',
           model: `materialTemplate = [Success, Danger]`,
           settings: `makeSettings('material', 'Material template', { badgeShowLimit: 3, maxHeight: 220 })`,

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular 5 Test - @stackline/angular-multiselect-dropdown 5.0.0</title>
+    <base href="./">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css?v=20260524-angular5-npm">
+    <script src="https://cdn.jsdelivr.net/npm/core-js@2.6.12/client/shim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/zone.js@0.8.29/dist/zone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reflect-metadata@0.1.10/Reflect.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@0.19.47/dist/system.src.js"></script>
+    <script src="systemjs.config.js?v=20260524-angular5-npm"></script>
+    <script>
+      System.import('app').catch(function (err) {
+        console.error(err);
+        document.body.className = 'boot-error';
+        document.body.innerHTML = '<pre>' + (err && err.stack ? err.stack : err) + '</pre>';
+      });
+    </script>
+  </head>
+  <body>
+    <stackline-test>Loading Angular 5 test...</stackline-test>
+  </body>
+</html>

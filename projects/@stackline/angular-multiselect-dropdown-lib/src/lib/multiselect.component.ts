@@ -89,7 +89,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     @ViewChild('searchInput', { static: false }) searchInput: ElementRef;
     @ViewChild('selectedList', { static: false }) selectedListElem: ElementRef;
     @ViewChild('dropdownList', { static: false }) dropdownListElem: ElementRef;
-    @ViewChild('cuppaDropdown', { static: false }) cuppaDropdown: ElementRef;
+    @ViewChild('stacklineDropdown', { static: false }) stacklineDropdown: ElementRef;
 
     @HostListener('document:keyup.escape', ['$event'])
     onEscapeDown(event: Event) {
@@ -102,7 +102,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     onScroll(event: any) {
         if (this.isActive && this.settings.tagToBody) {
             this.closeDropdown();
-            /*             const elem = this.cuppaDropdown.nativeElement;
+            /*             const elem = this.stacklineDropdown.nativeElement;
                         if(this.settings.autoPosition){
                             this.dropDownTop = elem.getBoundingClientRect().y + elem.clientHeight + 1;
                         }
@@ -859,7 +859,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
     calculateDropdownDirection() {
         let shouldOpenTowardsTop = this.settings.position == 'top';
-        const elem = this.cuppaDropdown.nativeElement;
+        const elem = this.stacklineDropdown.nativeElement;
         const dropdownWidth = elem.clientWidth;
         this.dropDownWidth = dropdownWidth;
         this.dropDownLeft = this.settings.tagToBody ? elem.getBoundingClientRect().x : 0;
@@ -894,7 +894,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     }
     openTowardsTop(value: boolean) {
-        const elem = this.cuppaDropdown.nativeElement;
+        const elem = this.stacklineDropdown.nativeElement;
         if (value && this.selectedListElem.nativeElement.clientHeight) {
             this.dropdownListYOffset = 15 - this.selectedListElem.nativeElement.clientHeight;
             if(this.settings.tagToBody){

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "system",
+    "moduleResolution": "node",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "rootDir": ".",
+    "outDir": "build",
+    "types": []
+  },
+  "files": [
+    "app/main.ts",
+    "node_modules/@stackline/angular-multiselect-dropdown/angular2-multiselect-dropdown.ts"
+  ]
+}

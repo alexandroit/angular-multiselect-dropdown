@@ -1,4 +1,4 @@
-<div class="cuppa-dropdown" [ngClass]="{'is-open': isActive, 'is-disabled': settings.disabled, 'is-loading': loading}" (clickOutside)="closeDropdownOnClickOut()" #cuppaDropdown>
+<div class="stackline-dropdown" [ngClass]="{'is-open': isActive, 'is-disabled': settings.disabled, 'is-loading': loading}" (clickOutside)="closeDropdownOnClickOut()" #stacklineDropdown>
     <div class="selected-list" #selectedList>
         <div class="c-btn"
             (click)="toggleDropdown($event)"
