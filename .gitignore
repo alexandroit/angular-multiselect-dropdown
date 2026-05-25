@@ -53,3 +53,11 @@ docs-src/base-modern/node_modules/
 docs-src/angular-*/package-lock.json
 docs-src/base-classic/package-lock.json
 docs-src/base-modern/package-lock.json
+
+# Local agent/project memory
+/PROJECT_MEMORY.md
+/PROJECT_MEMORY*.md
+/MEMORY.md
+/MEMORIES.md
+/memoria*.md
+/memorias*.md
