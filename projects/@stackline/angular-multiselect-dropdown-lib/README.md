@@ -73,6 +73,8 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 
 Each package family only installs on its matching Angular family. Framework major and package major are not always the same package number, so use the package family column below.
 
+Peer ranges are intentionally bounded to the tested Angular major. The Angular 21 line stays on `>=21.0.0 <22.0.0`; Angular 22 will receive its own `22.x` package line after it is built and validated against Angular 22. Do not treat the Angular 21 package as an open-ended `>=21.0.0` dependency.
+
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
 | **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.1 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
