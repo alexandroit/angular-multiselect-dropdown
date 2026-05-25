@@ -12,7 +12,7 @@
 
 **[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested npm release:** `21.0.1` for Angular `21.x`
+**Latest tested npm release:** `21.0.2` for Angular `21.x`
 
 ---
 
@@ -24,7 +24,7 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `21.0.1` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current public npm release is `21.0.2` for Angular 21.x applications.
 
 The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication.
 
@@ -77,7 +77,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.1 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.0.2 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
 | **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
 | **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
@@ -100,10 +100,10 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.0.1 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.0.2 --save-exact
 ```
 
-Install `21.0.1` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, and keeps `<angular2-multiselect>` only as a legacy compatibility alias.
+Install `21.0.2` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, and keeps `<angular2-multiselect>` only as a legacy compatibility alias.
 
 ## Setup
 
@@ -199,7 +199,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.0.1`. The docs now use the same examples from that test app.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.0.2`. The docs now use the same examples from that test app.
 
 Switch between skins through the settings object:
 
