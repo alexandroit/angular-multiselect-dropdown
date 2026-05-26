@@ -249,7 +249,7 @@ button.c-arrow-toggle:disabled {
 .filter-select-all {
   padding: 10px 14px;
   border-bottom: 1px solid rgba(125, 119, 134, 0.16);
-  background: rgba(247, 242, 250, 0.76);
+  background: var(--ms-surface-soft);
 }
 
 .list-filter {
@@ -325,6 +325,7 @@ button.c-arrow-toggle:disabled {
   margin: 0;
   padding: 8px;
   overflow: auto;
+  background: var(--ms-surface);
 }
 
 .dropdown-list ul li {
