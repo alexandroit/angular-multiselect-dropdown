@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [21.1.0] - 2026-05-26
+
+### Added
+- Published the Angular 21.1.0 release line with ADA-compliant keyboard/ARIA accessibility support.
+- Documented the accessibility support in the GitHub README, npm README, and Angular 21 docs.
+
+### Fixed
+- Improved keyboard handling for the clear-all control, dropdown arrow button, and lazy-loaded list navigation.
+- Corrected selected-chip overflow counting and classic-theme arrow placement when the dropdown opens upward.
+
 ## [21.0.0] - 2026-05-24
 
 ### Added

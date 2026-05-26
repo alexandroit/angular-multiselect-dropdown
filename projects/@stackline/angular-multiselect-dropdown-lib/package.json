@@ -1,10 +1,10 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "21.0.2",
+  "version": "21.1.0",
   "license": "MIT",
   "author": "Pradeep Terli (Original), Alexandro Paixao Marques (Maintainer)",
-  "description": "Angular multiselect dropdown for maintained release lines from Angular 2 through Angular 21, with search, grouping, custom templates, checkbox selection, reactive and template-driven forms support, and Material-inspired theming from Angular 14 onward.",
+  "description": "Angular multiselect dropdown for maintained release lines from Angular 2 through Angular 21, with search, grouping, custom templates, checkbox selection, reactive and template-driven forms support, Material-inspired theming, and ADA-compliant keyboard/ARIA accessibility support.",
   "keywords": [
     "angular",
     "angular-library",
@@ -35,6 +35,11 @@
     "ngmodel",
     "formcontrolname",
     "forms",
+    "accessibility",
+    "a11y",
+    "aria",
+    "keyboard-navigation",
+    "ada-compliant",
     "ui-component",
     "material-inspired",
     "material-like",
@@ -60,9 +65,6 @@
     "@angular/core": ">=21.0.0 <22.0.0",
     "@angular/forms": ">=21.0.0 <22.0.0",
     "@angular/common": ">=21.0.0 <22.0.0"
-  },
-  "dependencies": {
-    "@tweenjs/tween.js": "^17.4.0"
   },
   "repository": {
     "type": "git",

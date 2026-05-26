@@ -1,7 +1,7 @@
 export const DOCS_META = {
   badge: 'ANGULAR 21 · MATERIAL REFINED',
   angularVersion: '21.x',
-  packageVersion: '21.0.2',
-  packageRange: '^21.0.2',
+  packageVersion: '21.1.0',
+  packageRange: '21.1.0',
   docsPath: 'angular-21'
 };

@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "21.0.2",
+  "version": "21.1.0",
   "scripts": {
     "ng": "ng",
     "start": "cd docs-src/angular-21 && npm start",
@@ -21,24 +21,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~21.2.7",
-    "@angular/cdk": "~21.2.5",
     "@angular/common": "~21.2.7",
     "@angular/compiler": "~21.2.7",
     "@angular/core": "~21.2.7",
     "@angular/forms": "~21.2.7",
-    "@angular/localize": "~21.2.7",
     "@angular/platform-browser": "~21.2.7",
     "@angular/platform-browser-dynamic": "~21.2.7",
     "@angular/router": "~21.2.7",
-    "@angular/service-worker": "~21.2.7",
-    "@ng-bootstrap/ng-bootstrap": "~20.0.0",
-    "@popperjs/core": "^2.11.8",
-    "@tweenjs/tween.js": "^25.0.0",
     "bootstrap": "^5.3.8",
-    "highlight.js": "^11.11.1",
-    "ng2-adsense": "^14.0.0",
-    "ngx-highlightjs": "^14.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.0",
     "zone.js": "~0.16.1"
@@ -47,7 +37,6 @@
     "@angular-devkit/build-angular": "~21.2.6",
     "@angular/cli": "~21.2.6",
     "@angular/compiler-cli": "~21.2.7",
-    "@types/highlight.js": "^10.1.0",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^22.0.0",
     "jasmine-core": "~5.1.0",
@@ -61,7 +50,7 @@
     "sass": "^1.83.0",
     "typescript": "~5.9.3"
   },
-  "description": "Angular multiselect dropdown with maintained release lines from Angular 2 through Angular 21.",
+  "description": "Angular multiselect dropdown with maintained release lines from Angular 2 through Angular 21 and ADA-compliant keyboard/ARIA accessibility support.",
   "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
     "@angular/core": ">=21.0.0 <22.0.0"

@@ -23,7 +23,6 @@ import { isPlatformServer } from '@angular/common';
 
 import { CommonModule } from '@angular/common';
 
-import * as tween from '@tweenjs/tween.js'
 import { VirtualScrollerDefaultOptions } from './defaultoptions';
 import { IPageInfo } from './ipageinfo';
 import { IViewport } from './iviewport';
@@ -496,8 +495,6 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
 		let scrollElement = this.getScrollElement();
 
-		let animationRequest: number;
-
 		if (this.currentTween) {
 			this.currentTween.stop();
 			this.currentTween = undefined;
@@ -509,41 +506,67 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 			return;
 		}
 
-		const tweenConfigObj = { scrollPosition: scrollElement[this._scrollType] };
+		const startPosition = Number(scrollElement[this._scrollType]) || 0;
+		const distance = scrollPosition - startPosition;
+		const duration = Math.max(0, animationMilliseconds);
+		let animationRequest = 0;
+		let startTime: number | undefined;
+		let stopped = false;
+		let completed = false;
 
-		let newTween = new tween.Tween(tweenConfigObj)
-			.to({ scrollPosition }, animationMilliseconds)
-			.easing(tween.Easing.Quadratic.Out)
-			.onUpdate((data) => {
-				if (isNaN(data.scrollPosition)) {
-					return;
-				}
-				this.renderer.setProperty(scrollElement, this._scrollType, data.scrollPosition);
-				this.refresh_internal(false);
-			})
-			.onStop(() => {
-				cancelAnimationFrame(animationRequest);
-			})
-			.start();
-
-		const animate = (time?: number) => {
-			if (!newTween["isPlaying"]()) {
+		const finish = () => {
+			if (completed) {
 				return;
 			}
 
-			newTween.update(time);
-			if (tweenConfigObj.scrollPosition === scrollPosition) {
-				this.refresh_internal(false, animationCompletedCallback);
-				return;
-			}
+			completed = true;
+			this.renderer.setProperty(scrollElement, this._scrollType, scrollPosition);
+			this.refresh_internal(false, animationCompletedCallback);
 
-			this.zone.runOutsideAngular(() => {
-				animationRequest = requestAnimationFrame(animate);
-			});
+			if (this.currentTween && this.currentTween.stop === stopAnimation) {
+				this.currentTween = undefined;
+			}
 		};
 
-		animate();
-		this.currentTween = newTween;
+		const easeOutQuadratic = (progress: number) => progress * (2 - progress);
+		const getNow = () =>
+			typeof performance !== 'undefined' && performance.now
+				? performance.now()
+				: Date.now();
+
+		const stopAnimation = () => {
+			stopped = true;
+			if (animationRequest) {
+				cancelAnimationFrame(animationRequest);
+			}
+		};
+
+		const animate = (time?: number) => {
+			if (stopped) {
+				return;
+			}
+
+			const currentTime = typeof time === 'number' ? time : getNow();
+			startTime = startTime === undefined ? currentTime : startTime;
+
+			const progress = duration ? Math.min((currentTime - startTime) / duration, 1) : 1;
+			const nextPosition = startPosition + distance * easeOutQuadratic(progress);
+
+			if (!isNaN(nextPosition)) {
+				this.renderer.setProperty(scrollElement, this._scrollType, nextPosition);
+				this.refresh_internal(false);
+			}
+
+			if (progress >= 1) {
+				finish();
+				return;
+			}
+
+			this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
+		};
+
+		this.currentTween = { stop: stopAnimation };
+		this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
 	}
 
 	protected isAngularUniversalSSR: boolean;
@@ -692,7 +715,7 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
 	protected padding: number = 0;
 	protected previousViewPort: IViewport = <any>{};
-	protected currentTween: any;
+	protected currentTween: { stop: () => void } | undefined;
 	protected cachedItemsLength: number;
 
 	protected disposeScrollHandler: () => void | undefined;

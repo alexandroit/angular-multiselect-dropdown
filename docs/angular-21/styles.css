@@ -11471,7 +11471,7 @@ table {
 }
 
 /* node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css */
-.cuppa-dropdown {
+.stackline-dropdown {
   --ms-primary: #3f51b5;
   --ms-primary-soft: rgba(63, 81, 181, 0.12);
   --ms-surface: #ffffff;
@@ -11487,18 +11487,18 @@ table {
   --ms-shadow: 0 1px 2px rgba(33, 33, 33, 0.16), 0 12px 32px rgba(63, 81, 181, 0.12);
   --ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, 0.12), 0 4px 12px rgba(33, 33, 33, 0.08);
 }
-.cuppa-dropdown .c-btn {
+.stackline-dropdown .c-btn {
   background: var(--ms-surface);
   border-color: var(--ms-outline);
   color: var(--ms-on-surface);
 }
-.cuppa-dropdown .c-btn:hover {
+.stackline-dropdown .c-btn:hover {
   border-color: var(--ms-outline-strong);
 }
-.cuppa-dropdown .selected-item {
+.stackline-dropdown .selected-item {
   background: var(--ms-primary-soft);
 }
-.cuppa-dropdown .btn-iceblue {
+.stackline-dropdown .btn-iceblue {
   background: var(--ms-primary);
   color: #ffffff;
 }

@@ -52,7 +52,7 @@ var __async = (__this, __arguments, generator) => {
 
 // node_modules/@angular/core/fesm2022/_effect-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -392,8 +392,8 @@ function createSignal(initialValue, equal) {
   }
   runPostProducerCreatedFn(node);
   const set = (newValue) => signalSetFn(node, newValue);
-  const update2 = (updateFn) => signalUpdateFn(node, updateFn);
-  return [getter, set, update2];
+  const update = (updateFn) => signalUpdateFn(node, updateFn);
+  return [getter, set, update];
 }
 function signalGetFn(node) {
   producerAccessed(node);
@@ -1272,9 +1272,9 @@ var AsyncAction = class extends Action {
 
 // node_modules/rxjs/dist/esm/internal/Scheduler.js
 var Scheduler = class _Scheduler {
-  constructor(schedulerActionCtor, now2 = _Scheduler.now) {
+  constructor(schedulerActionCtor, now = _Scheduler.now) {
     this.schedulerActionCtor = schedulerActionCtor;
-    this.now = now2;
+    this.now = now;
   }
   schedule(work, delay = 0, state) {
     return new this.schedulerActionCtor(this, work).schedule(state, delay);
@@ -1284,8 +1284,8 @@ Scheduler.now = dateTimestampProvider.now;
 
 // node_modules/rxjs/dist/esm/internal/scheduler/AsyncScheduler.js
 var AsyncScheduler = class extends Scheduler {
-  constructor(SchedulerAction, now2 = Scheduler.now) {
-    super(SchedulerAction, now2);
+  constructor(SchedulerAction, now = Scheduler.now) {
+    super(SchedulerAction, now);
     this.actions = [];
     this._active = false;
   }
@@ -2026,9 +2026,9 @@ function debounceTime(dueTime, scheduler = asyncScheduler) {
     };
     function emitWhenIdle() {
       const targetTime = lastTime + dueTime;
-      const now2 = scheduler.now();
-      if (now2 < targetTime) {
-        activeTask = this.schedule(void 0, targetTime - now2);
+      const now = scheduler.now();
+      if (now < targetTime) {
+        activeTask = this.schedule(void 0, targetTime - now);
         subscriber.add(activeTask);
         return;
       }
@@ -2221,7 +2221,7 @@ function tap(observerOrNext, error, complete) {
 
 // node_modules/@angular/core/fesm2022/_not_found-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2241,7 +2241,7 @@ function isNotFound(e) {
 
 // node_modules/@angular/core/fesm2022/_untracked-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2337,7 +2337,7 @@ function untracked(nonReactiveReadsFn) {
 
 // node_modules/@angular/core/fesm2022/primitives-signals.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2444,14 +2444,14 @@ if (typeof ngDevMode === "undefined" || ngDevMode) {
 
 // node_modules/@angular/core/fesm2022/primitives-di.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
 
 // node_modules/@angular/core/fesm2022/_effect-chunk2.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2468,7 +2468,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = /* @__PURE__ */ new Version("21.2.8");
+var VERSION = /* @__PURE__ */ new Version("21.2.14");
 var DOC_PAGE_BASE_URL = (() => {
   const full = VERSION.full;
   const isPreRelease = full.includes("-next") || full.includes("-rc") || full === "0.0.0-PLACEHOLDER";
@@ -5031,11 +5031,11 @@ var globalErrorListeners = new InjectionToken(typeof ngDevMode !== "undefined" &
   }
 });
 function signal(initialValue, options) {
-  const [get, set, update2] = createSignal(initialValue, options?.equal);
+  const [get, set, update] = createSignal(initialValue, options?.equal);
   const signalFn = get;
   const node = signalFn[SIGNAL];
   signalFn.set = set;
-  signalFn.update = update2;
+  signalFn.update = update;
   signalFn.asReadonly = signalAsReadonlyFn.bind(signalFn);
   if (typeof ngDevMode !== "undefined" && ngDevMode) {
     const debugName = options?.debugName;
@@ -5316,7 +5316,7 @@ function createEffectFn(node, fn) {
 
 // node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -7197,7 +7197,7 @@ var TransferState = class _TransferState {
         }
       }
     }
-    return JSON.stringify(this.store).replace(/</g, "\\u003C");
+    return JSON.stringify(this.store).replace(/</g, "\\u003C").replace(/\//g, "\\u002F");
   }
 };
 function retrieveTransferredState(doc, appId) {
@@ -7361,6 +7361,16 @@ function getIntersectionObserverKey(options) {
 var JSACTION_EVENT_CONTRACT = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "EVENT_CONTRACT_DETAILS" : "", {
   factory: () => ({})
 });
+var handledEventElements = /* @__PURE__ */ new WeakMap();
+function markEventHandledForElement(event, element) {
+  if (event == null || typeof event !== "object") return;
+  let elements = handledEventElements.get(event);
+  if (!elements) {
+    elements = /* @__PURE__ */ new WeakSet();
+    handledEventElements.set(event, elements);
+  }
+  elements.add(element);
+}
 var _stashEventListenerImpl = (lView, target, eventName, wrappedListener) => {
 };
 function stashEventListenerImpl(lView, target, eventName, wrappedListener) {
@@ -8108,11 +8118,6 @@ var RESOURCE_MAP = {
   "media": {
     "src": true
   },
-  "script": {
-    "src": true,
-    "href": true,
-    "xlink:href": true
-  },
   "base": {
     "href": true
   },
@@ -8125,7 +8130,7 @@ var RESOURCE_MAP = {
   }
 };
 function getUrlSanitizer(tag, prop) {
-  const isResource = RESOURCE_MAP[tag]?.[prop] === true;
+  const isResource = RESOURCE_MAP[tag.toLowerCase()]?.[prop.toLowerCase()] === true;
   return isResource ? \u0275\u0275sanitizeResourceUrl : \u0275\u0275sanitizeUrl;
 }
 function \u0275\u0275sanitizeUrlOrResourceUrl(unsafeUrl, tag, prop) {
@@ -8135,12 +8140,6 @@ function validateAgainstEventProperties(name) {
   if (name.toLowerCase().startsWith("on")) {
     const errorMessage = `Binding to event property '${name}' is disallowed for security reasons, please use (${name.slice(2)})=...
 If '${name}' is a directive input, make sure the directive is imported by the current module.`;
-    throw new RuntimeError(306, errorMessage);
-  }
-}
-function validateAgainstEventAttributes(name) {
-  if (name.toLowerCase().startsWith("on")) {
-    const errorMessage = `Binding to event attribute '${name}' is disallowed for security reasons, please use (${name.slice(2)})=...`;
     throw new RuntimeError(306, errorMessage);
   }
 }
@@ -8158,50 +8157,53 @@ var SECURITY_SENSITIVE_ELEMENTS = {
     "csp": true,
     "fetchpriority": true
   },
-  "animate": {
+  ":svg:animate": {
     "attributename": true,
     "to": SECURITY_SENSITIVE_ATTRIBUTE_NAMES,
     "values": SECURITY_SENSITIVE_ATTRIBUTE_NAMES,
     "from": SECURITY_SENSITIVE_ATTRIBUTE_NAMES
   },
-  "set": {
+  ":svg:set": {
     "attributename": true,
     "to": SECURITY_SENSITIVE_ATTRIBUTE_NAMES
   },
-  "animatemotion": {
+  ":svg:animatemotion": {
     "attributename": true
   },
-  "animatetransform": {
+  ":svg:animatetransform": {
     "attributename": true
   }
 };
 function \u0275\u0275validateAttribute(value, tagName, attributeName) {
   const lowerCaseTagName = tagName.toLowerCase();
   const lowerCaseAttrName = attributeName.toLowerCase();
-  const validationConfig = SECURITY_SENSITIVE_ELEMENTS[lowerCaseTagName]?.[lowerCaseAttrName];
-  if (!validationConfig) {
-    return value;
-  }
   const tNode = getSelectedTNode();
-  if (tNode.type !== 2) {
+  const fullTagName = lowerCaseTagName[0] !== ":" && tNode?.namespace ? `:${tNode.namespace}:${lowerCaseTagName}` : lowerCaseTagName;
+  const validationConfig = SECURITY_SENSITIVE_ELEMENTS[fullTagName]?.[lowerCaseAttrName];
+  if (!validationConfig) {
     return value;
   }
   const lView = getLView();
   if (lowerCaseTagName === "iframe") {
-    const element = getNativeByTNode(tNode, lView);
-    enforceIframeSecurity(element);
+    if (tNode?.type === 2) {
+      const element = getNativeByTNode(tNode, lView);
+      enforceIframeSecurity(element);
+    }
   }
+  const displayTagName = tagName[0] === ":" ? tagName.split(":").pop() : tagName;
   if (typeof validationConfig !== "boolean") {
-    const element = getNativeByTNode(tNode, lView);
-    const attributeNameValue = element.getAttribute("attributeName");
-    if (attributeNameValue && validationConfig.has(attributeNameValue.toLowerCase())) {
-      const errorMessage2 = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${tagName}> element${getTemplateLocationDetails(lView)}. For security reasons, the \`${attributeName}\` can be set on the <${tagName}> element as a static attribute only when the "attributeName" is set to '${attributeNameValue}'. 
+    if (tNode?.type === 2) {
+      const element = getNativeByTNode(tNode, lView);
+      const attributeNameValue = element.getAttribute("attributeName");
+      if (attributeNameValue && validationConfig.has(attributeNameValue.toLowerCase())) {
+        const errorMessage2 = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${displayTagName}> element${getTemplateLocationDetails(lView)}. For security reasons, the \`${attributeName}\` can be set on the <${displayTagName}> element as a static attribute only when the "attributeName" is set to '${attributeNameValue}'.
 To fix this, switch the \`${attributeNameValue}\` binding to a static attribute in a template or in host bindings section.`;
-      throw new RuntimeError(-910, errorMessage2);
+        throw new RuntimeError(-910, errorMessage2);
+      }
     }
     return value;
   }
-  const errorMessage = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${tagName}> element${getTemplateLocationDetails(lView)}. For security reasons, the \`${attributeName}\` can be set on the <${tagName}> element as a static attribute only. 
+  const errorMessage = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${displayTagName}> element${getTemplateLocationDetails(lView)}. For security reasons, the \`${attributeName}\` can be set on the <${displayTagName}> element as a static attribute only.
 To fix this, switch the \`${attributeName}\` binding to a static attribute in a template or in host bindings section.`;
   throw new RuntimeError(-910, errorMessage);
 }
@@ -9808,6 +9810,9 @@ function locateHostElement(renderer, elementOrSelector, encapsulation, injector)
   const preserveHostContent = injector.get(PRESERVE_HOST_CONTENT, PRESERVE_HOST_CONTENT_DEFAULT);
   const preserveContent = preserveHostContent || encapsulation === ViewEncapsulation.ShadowDom || encapsulation === ViewEncapsulation.ExperimentalIsolatedShadowDom;
   const rootElement = renderer.selectRootElement(elementOrSelector, preserveContent);
+  if (rootElement.tagName.toLowerCase() === "script") {
+    throw new RuntimeError(905, ngDevMode && `"<script>" tag is not allowed as a component host element.`);
+  }
   applyRootElementTransform(rootElement);
   return rootElement;
 }
@@ -9842,7 +9847,9 @@ function setDomProperty(tNode, lView, propName, value, renderer, sanitizer) {
   if (tNode.type & 3) {
     const element = getNativeByTNode(tNode, lView);
     if (ngDevMode) {
-      validateAgainstEventProperties(propName);
+      if (lView[TVIEW].firstUpdatePass) {
+        validateAgainstEventProperties(propName);
+      }
       if (!isPropertyValid(element, propName, tNode.value, lView[TVIEW].schemas)) {
         handleUnknownPropertyError(propName, tNode.value, tNode.type, lView);
       }
@@ -9984,7 +9991,6 @@ function findDirectiveDefMatches(tView, tNode) {
 function elementAttributeInternal(tNode, lView, name, value, sanitizer, namespace) {
   if (ngDevMode) {
     assertNotSame(value, NO_CHANGE, "Incoming value should never be NO_CHANGE.");
-    validateAgainstEventAttributes(name);
     assertTNodeType(tNode, 2, `Attempted to set attribute \`${name}\` on a container node. Host bindings are not valid on ng-container or ng-template.`);
   }
   const element = getNativeByTNode(tNode, lView);
@@ -10845,6 +10851,7 @@ function createTemplateRef(hostTNode, hostLView) {
   return null;
 }
 var AT_THIS_LOCATION = "<-- AT THIS LOCATION";
+var THIRD_PARTY_SCRIPTS_URL = `/guide/hydration#third-party-scripts-with-dom-manipulation`;
 function getFriendlyStringFromTNodeType(tNodeType) {
   switch (tNodeType) {
     case 4:
@@ -11002,6 +11009,7 @@ function getHydrationErrorFooter(componentClassName) {
   return `To fix this problem:
   * check ${componentInfo} component for hydration-related issues
   * check to see if your template has valid HTML structure
+  * check if there are any third-party scripts that manipulate the DOM. More info: ${DOC_PAGE_BASE_URL}${THIRD_PARTY_SCRIPTS_URL}
   * or skip hydration by adding the \`ngSkipHydration\` attribute to its host node in a template
 
 `;
@@ -11114,6 +11122,7 @@ function createTNode(tView, tParent, type, index, value, attrs) {
     flags,
     providerIndexes: 0,
     value,
+    namespace: getNamespace(),
     attrs,
     mergedAttrs: null,
     localNames: null,
@@ -12130,6 +12139,10 @@ function bindingUpdated4(lView, bindingIndex, exp1, exp2, exp3, exp4) {
 }
 function wrapListener(tNode, lView, listenerFn) {
   return function wrapListenerIn_markDirtyAndPreventDefault(event) {
+    const nativeEl = wrapListenerIn_markDirtyAndPreventDefault.__ngNativeEl__;
+    if (nativeEl !== void 0) {
+      markEventHandledForElement(event, nativeEl);
+    }
     const startView = isComponentHost(tNode) ? getComponentLViewByIndex(tNode.index, lView) : lView;
     markViewDirty(startView, 5);
     const context2 = lView[CONTEXT];
@@ -12172,6 +12185,9 @@ function listenToDomEvent(tNode, tView, lView, eventTargetResolver, renderer, ev
     const native = getNativeByTNode(tNode, lView);
     const target = eventTargetResolver ? eventTargetResolver(native) : native;
     stashEventListenerImpl(lView, target, eventName, wrappedListener);
+    if (!eventTargetResolver) {
+      wrappedListener.__ngNativeEl__ = native;
+    }
     const cleanupFn = renderer.listen(target, eventName, wrappedListener);
     if (!isAnimationEventType(eventName)) {
       const idxOrTargetGetter = eventTargetResolver ? (_lView) => eventTargetResolver(unwrapRNode(_lView[tNode.index])) : tNode.index;
@@ -12538,7 +12554,7 @@ var ComponentFactory2 = class extends ComponentFactory$1 {
   }
 };
 function createRootTView(rootSelectorOrNode, componentDef, componentBindings, directives) {
-  const tAttributes = rootSelectorOrNode ? ["ng-version", "21.2.8"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
+  const tAttributes = rootSelectorOrNode ? ["ng-version", "21.2.14"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
   let creationBindings = null;
   let updateBindings = null;
   let varsToAllocate = 0;
@@ -14365,11 +14381,11 @@ var TimerScheduler = class _TimerScheduler {
       this.clearTimeout();
       this.executingCallbacks = true;
       const current = [...this.current];
-      const now2 = Date.now();
+      const now = Date.now();
       for (let i = 0; i < current.length; i += 2) {
         const invokeAt = current[i];
         const callback2 = current[i + 1];
-        if (invokeAt <= now2) {
+        if (invokeAt <= now) {
           callback2();
         } else {
           break;
@@ -14378,7 +14394,7 @@ var TimerScheduler = class _TimerScheduler {
       let lastCallbackIndex = -1;
       for (let i = 0; i < this.current.length; i += 2) {
         const invokeAt = this.current[i];
-        if (invokeAt <= now2) {
+        if (invokeAt <= now) {
           lastCallbackIndex = i + 1;
         } else {
           break;
@@ -14400,11 +14416,11 @@ var TimerScheduler = class _TimerScheduler {
     };
     const FRAME_DURATION_MS = 16;
     if (this.current.length > 0) {
-      const now2 = Date.now();
+      const now = Date.now();
       const invokeAt = this.current[0];
       if (this.timeoutId === null || this.invokeTimerAt && this.invokeTimerAt - invokeAt > FRAME_DURATION_MS) {
         this.clearTimeout();
-        const timeout = Math.max(invokeAt - now2, FRAME_DURATION_MS);
+        const timeout = Math.max(invokeAt - now, FRAME_DURATION_MS);
         this.invokeTimerAt = invokeAt;
         this.timeoutId = ngZone.runOutsideAngular(() => {
           return setTimeout(() => ngZone.run(callback), timeout);
@@ -14549,10 +14565,10 @@ function applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView) 
   profiler(ProfilerEvent.DeferBlockStateEnd);
 }
 function applyDeferBlockStateWithScheduling(newState, lDetails, lContainer, tNode, hostLView) {
-  const now2 = Date.now();
+  const now = Date.now();
   const hostTView = hostLView[TVIEW];
   const tDetails = getTDeferBlockDetails(hostTView, tNode);
-  if (lDetails[STATE_IS_FROZEN_UNTIL] === null || lDetails[STATE_IS_FROZEN_UNTIL] <= now2) {
+  if (lDetails[STATE_IS_FROZEN_UNTIL] === null || lDetails[STATE_IS_FROZEN_UNTIL] <= now) {
     lDetails[STATE_IS_FROZEN_UNTIL] = null;
     const loadingAfter = getLoadingBlockAfter(tDetails);
     const inLoadingAfterPhase = lDetails[LOADING_AFTER_CLEANUP_FN] !== null;
@@ -14569,7 +14585,7 @@ function applyDeferBlockStateWithScheduling(newState, lDetails, lContainer, tNod
       applyDeferBlockState(newState, lDetails, lContainer, tNode, hostLView);
       const duration = getMinimumDurationForState(tDetails, newState);
       if (duration !== null) {
-        lDetails[STATE_IS_FROZEN_UNTIL] = now2 + duration;
+        lDetails[STATE_IS_FROZEN_UNTIL] = now + duration;
         scheduleDeferBlockUpdate(duration, lDetails, tNode, lContainer, hostLView);
       }
     }
@@ -17962,15 +17978,18 @@ function setMaskBit(hasChange) {
   changeMaskCounter++;
 }
 function applyI18n(tView, lView, index) {
-  if (changeMaskCounter > 0) {
-    ngDevMode && assertDefined(tView, `tView should be defined`);
-    const tI18n = tView.data[index];
-    const updateOpCodes = Array.isArray(tI18n) ? tI18n : tI18n.update;
-    const bindingsStartIndex = getBindingIndex() - changeMaskCounter - 1;
-    applyUpdateOpCodes(tView, lView, updateOpCodes, bindingsStartIndex, changeMask);
+  try {
+    if (changeMaskCounter > 0) {
+      ngDevMode && assertDefined(tView, `tView should be defined`);
+      const tI18n = tView.data[index];
+      const updateOpCodes = Array.isArray(tI18n) ? tI18n : tI18n.update;
+      const bindingsStartIndex = getBindingIndex() - changeMaskCounter - 1;
+      applyUpdateOpCodes(tView, lView, updateOpCodes, bindingsStartIndex, changeMask);
+    }
+  } finally {
+    changeMask = 0;
+    changeMaskCounter = 0;
   }
-  changeMask = 0;
-  changeMaskCounter = 0;
 }
 function createNodeWithoutHydration(lView, textOrName, nodeType) {
   const renderer = lView[RENDERER];
@@ -18500,7 +18519,7 @@ function i18nAttributesFirstPass(tView, index, values) {
         if (ICU_REGEXP.test(message)) {
           throw new Error(`ICU expressions are not supported in attributes. Message: "${message}".`);
         }
-        generateBindingUpdateOpCodes(updateOpCodes, message, previousElementIndex, attrName, countBindings(updateOpCodes), SENSITIVE_ATTRS[attrName.toLowerCase()] ? _sanitizeUrl : null);
+        generateBindingUpdateOpCodes(updateOpCodes, message, previousElementIndex, attrName, countBindings(updateOpCodes), i18nSanitizeAttribute(attrName));
       }
     }
     tView.data[index] = updateOpCodes;
@@ -18692,28 +18711,28 @@ function i18nParseTextIntoPartsAndICU(pattern) {
 }
 function parseIcuCase(ast, tView, tIcu, lView, updateOpCodes, parentIdx, caseName, unsafeCaseHtml, nestedIcus) {
   const create = [];
-  const remove3 = [];
-  const update2 = [];
+  const remove2 = [];
+  const update = [];
   if (ngDevMode) {
     attachDebugGetter(create, icuCreateOpCodesToString);
-    attachDebugGetter(remove3, i18nRemoveOpCodesToString);
-    attachDebugGetter(update2, i18nUpdateOpCodesToString);
+    attachDebugGetter(remove2, i18nRemoveOpCodesToString);
+    attachDebugGetter(update, i18nUpdateOpCodesToString);
   }
   tIcu.cases.push(caseName);
   tIcu.create.push(create);
-  tIcu.remove.push(remove3);
-  tIcu.update.push(update2);
+  tIcu.remove.push(remove2);
+  tIcu.update.push(update);
   const inertBodyHelper2 = getInertBodyHelper(getDocument());
   const inertBodyElement = inertBodyHelper2.getInertBodyElement(unsafeCaseHtml);
   ngDevMode && assertDefined(inertBodyElement, "Unable to generate inert body element");
   const inertRootNode = getTemplateContent(inertBodyElement) || inertBodyElement;
   if (inertRootNode) {
-    return walkIcuTree(ast, tView, tIcu, lView, updateOpCodes, create, remove3, update2, inertRootNode, parentIdx, nestedIcus, 0);
+    return walkIcuTree(ast, tView, tIcu, lView, updateOpCodes, create, remove2, update, inertRootNode, parentIdx, nestedIcus, 0);
   } else {
     return 0;
   }
 }
-function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remove3, update2, parentNode, parentIdx, nestedIcus, depth) {
+function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remove2, update, parentNode, parentIdx, nestedIcus, depth) {
   let bindingMask = 0;
   let currentNode = parentNode.firstChild;
   while (currentNode) {
@@ -18732,7 +18751,7 @@ function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remov
             const hasBinding2 = !!attr.value.match(BINDING_REGEXP);
             if (hasBinding2) {
               if (VALID_ATTRS.hasOwnProperty(lowerAttrName)) {
-                generateBindingUpdateOpCodes(update2, attr.value, newIndex, attr.name, 0, SENSITIVE_ATTRS[lowerAttrName] ? _sanitizeUrl : null);
+                generateBindingUpdateOpCodes(update, attr.value, newIndex, attr.name, 0, i18nSanitizeAttribute(lowerAttrName));
               } else {
                 ngDevMode && console.warn(`WARNING: ignoring unsafe attribute value ${lowerAttrName} on element ${tagName} (see ${XSS_SECURITY_URL})`);
               }
@@ -18757,17 +18776,17 @@ function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remov
             children: []
           };
           ast.push(elementNode);
-          bindingMask = walkIcuTree(elementNode.children, tView, tIcu, lView, sharedUpdateOpCodes, create, remove3, update2, currentNode, newIndex, nestedIcus, depth + 1) | bindingMask;
-          addRemoveNode(remove3, newIndex, depth);
+          bindingMask = walkIcuTree(elementNode.children, tView, tIcu, lView, sharedUpdateOpCodes, create, remove2, update, currentNode, newIndex, nestedIcus, depth + 1) | bindingMask;
+          addRemoveNode(remove2, newIndex, depth);
         }
         break;
       case Node.TEXT_NODE:
         const value = currentNode.textContent || "";
         const hasBinding = value.match(BINDING_REGEXP);
         addCreateNodeAndAppend(create, null, hasBinding ? "" : value, parentIdx, newIndex);
-        addRemoveNode(remove3, newIndex, depth);
+        addRemoveNode(remove2, newIndex, depth);
         if (hasBinding) {
-          bindingMask = generateBindingUpdateOpCodes(update2, value, newIndex, null, 0, null) | bindingMask;
+          bindingMask = generateBindingUpdateOpCodes(update, value, newIndex, null, 0, null) | bindingMask;
         }
         ast.push({
           kind: 0,
@@ -18781,7 +18800,7 @@ function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remov
           const icuExpression = nestedIcus[nestedIcuIndex];
           addCreateNodeAndAppend(create, ICU_MARKER, ngDevMode ? `nested ICU ${nestedIcuIndex}` : "", parentIdx, newIndex);
           icuStart(ast, tView, lView, sharedUpdateOpCodes, parentIdx, icuExpression, newIndex);
-          addRemoveNestedIcu(remove3, newIndex, depth);
+          addRemoveNestedIcu(remove2, newIndex, depth);
         }
         break;
     }
@@ -18789,22 +18808,22 @@ function walkIcuTree(ast, tView, tIcu, lView, sharedUpdateOpCodes, create, remov
   }
   return bindingMask;
 }
-function addRemoveNode(remove3, index, depth) {
+function addRemoveNode(remove2, index, depth) {
   if (depth === 0) {
-    remove3.push(index);
+    remove2.push(index);
   }
 }
-function addRemoveNestedIcu(remove3, index, depth) {
+function addRemoveNestedIcu(remove2, index, depth) {
   if (depth === 0) {
-    remove3.push(~index);
-    remove3.push(index);
+    remove2.push(~index);
+    remove2.push(index);
   }
 }
-function addUpdateIcuSwitch(update2, icuExpression, index) {
-  update2.push(toMaskBit(icuExpression.mainBinding), 2, -1 - icuExpression.mainBinding, index << 2 | 2);
+function addUpdateIcuSwitch(update, icuExpression, index) {
+  update.push(toMaskBit(icuExpression.mainBinding), 2, -1 - icuExpression.mainBinding, index << 2 | 2);
 }
-function addUpdateIcuUpdate(update2, bindingMask, index) {
-  update2.push(bindingMask, 1, index << 2 | 3);
+function addUpdateIcuUpdate(update, bindingMask, index) {
+  update.push(bindingMask, 1, index << 2 | 3);
 }
 function addCreateNodeAndAppend(create, marker, text, appendToParentIdx, createAtIdx) {
   if (marker !== null) {
@@ -18814,6 +18833,17 @@ function addCreateNodeAndAppend(create, marker, text, appendToParentIdx, createA
 }
 function addCreateAttribute(create, newIndex, attrName, attrValue) {
   create.push(newIndex << 1 | 1, attrName, attrValue);
+}
+var SECURITY_SENSITIVE_ATTRS = /* @__PURE__ */ (() => new Set(Object.values(SECURITY_SENSITIVE_ELEMENTS).flatMap((attrs) => attrs ? Object.keys(attrs) : [])))();
+function i18nSanitizeAttribute(attrName) {
+  const lowerAttrName = attrName.toLowerCase();
+  if (SENSITIVE_ATTRS[lowerAttrName]) {
+    return _sanitizeUrl;
+  }
+  if (SECURITY_SENSITIVE_ATTRS.has(lowerAttrName)) {
+    return \u0275\u0275validateAttribute;
+  }
+  return null;
 }
 var ROOT_TEMPLATE_ID = 0;
 var PP_MULTI_VALUE_PLACEHOLDERS_REGEXP = /\[(�.+?�?)\]/;
@@ -21278,7 +21308,8 @@ function convertToR3QueryMetadata(propertyName, ann) {
   };
 }
 function extractQueriesMetadata(type, propMetadata, isQueryAnn) {
-  const queriesMeta = [];
+  const signalQueriesMeta = [];
+  const decoratorQueriesMeta = [];
   for (const field in propMetadata) {
     if (propMetadata.hasOwnProperty(field)) {
       const annotations = propMetadata[field];
@@ -21290,12 +21321,17 @@ function extractQueriesMetadata(type, propMetadata, isQueryAnn) {
           if (annotations.some(isInputAnnotation)) {
             throw new Error(`Cannot combine @Input decorators with query decorators`);
           }
-          queriesMeta.push(convertToR3QueryMetadata(field, ann));
+          const queryMeta = convertToR3QueryMetadata(field, ann);
+          if (queryMeta.isSignal) {
+            signalQueriesMeta.push(queryMeta);
+          } else {
+            decoratorQueriesMeta.push(queryMeta);
+          }
         }
       });
     }
   }
-  return queriesMeta;
+  return [...signalQueriesMeta, ...decoratorQueriesMeta];
 }
 function extractExportAs(exportAs) {
   return exportAs === void 0 ? null : splitByComma(exportAs);
@@ -21695,7 +21731,7 @@ var MissingTranslationStrategy;
 
 // node_modules/@angular/core/fesm2022/_resource-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -22060,7 +22096,7 @@ var ResourceWrappedError = class extends Error {
 
 // node_modules/@angular/core/fesm2022/core.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -23591,7 +23627,7 @@ var REQUEST_CONTEXT = new InjectionToken(typeof ngDevMode === "undefined" || ngD
 
 // node_modules/@angular/common/fesm2022/_platform_location-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -23712,7 +23748,7 @@ var BrowserPlatformLocation = class _BrowserPlatformLocation extends PlatformLoc
 
 // node_modules/@angular/common/fesm2022/_location-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -24022,7 +24058,7 @@ function _stripOrigin(baseHref) {
 
 // node_modules/@angular/common/fesm2022/_common_module-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -26829,7 +26865,7 @@ var CommonModule = class _CommonModule {
 
 // node_modules/@angular/common/fesm2022/_platform_navigation-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -26860,7 +26896,7 @@ var PlatformNavigation = class _PlatformNavigation {
 
 // node_modules/@angular/common/fesm2022/_xhr-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -26880,7 +26916,7 @@ var XhrFactory = class {
 
 // node_modules/@angular/common/fesm2022/common.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -26983,7 +27019,9 @@ var BrowserViewportScroller = class {
     const elSelected = findAnchorFromDocument(this.document, target);
     if (elSelected) {
       this.scrollToElement(elSelected, options);
-      elSelected.focus();
+      elSelected.focus({
+        preventScroll: true
+      });
     }
   }
   setHistoryScrollRestoration(scrollRestoration) {
@@ -28017,14 +28055,14 @@ function assertNoImageDistortion(dir, img, renderer, destroyRef) {
     const inaccurateDimensions = Math.abs(suppliedAspectRatio - intrinsicAspectRatio) > ASPECT_RATIO_TOLERANCE;
     const stylingDistortion = nonZeroRenderedDimensions && Math.abs(intrinsicAspectRatio - renderedAspectRatio) > ASPECT_RATIO_TOLERANCE;
     if (inaccurateDimensions) {
-      console.warn(formatRuntimeError(2952, `${imgDirectiveDetails(dir.ngSrc)} the aspect ratio of the image does not match the aspect ratio indicated by the width and height attributes. 
-Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h (aspect-ratio: ${round(intrinsicAspectRatio)}). 
-Supplied width and height attributes: ${suppliedWidth}w x ${suppliedHeight}h (aspect-ratio: ${round(suppliedAspectRatio)}). 
+      console.warn(formatRuntimeError(2952, `${imgDirectiveDetails(dir.ngSrc)} the aspect ratio of the image does not match the aspect ratio indicated by the width and height attributes.
+Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h (aspect-ratio: ${round(intrinsicAspectRatio)}).
+Supplied width and height attributes: ${suppliedWidth}w x ${suppliedHeight}h (aspect-ratio: ${round(suppliedAspectRatio)}).
 To fix this, update the width and height attributes.`));
     } else if (stylingDistortion) {
-      console.warn(formatRuntimeError(2952, `${imgDirectiveDetails(dir.ngSrc)} the aspect ratio of the rendered image does not match the image's intrinsic aspect ratio. 
-Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h (aspect-ratio: ${round(intrinsicAspectRatio)}). 
-Rendered image size: ${renderedWidth}w x ${renderedHeight}h (aspect-ratio: ${round(renderedAspectRatio)}). 
+      console.warn(formatRuntimeError(2952, `${imgDirectiveDetails(dir.ngSrc)} the aspect ratio of the rendered image does not match the image's intrinsic aspect ratio.
+Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h (aspect-ratio: ${round(intrinsicAspectRatio)}).
+Rendered image size: ${renderedWidth}w x ${renderedHeight}h (aspect-ratio: ${round(renderedAspectRatio)}).
 This issue can occur if "width" and "height" attributes are added to an image without updating the corresponding image styling. To fix this, adjust image styling. In most cases, adding "height: auto" or "width: auto" to the image styling will fix this issue.`));
     } else if (!dir.ngSrcset && nonZeroRenderedDimensions) {
       const recommendedWidth = RECOMMENDED_SRCSET_DENSITY_CAP * renderedWidth;
@@ -28032,10 +28070,10 @@ This issue can occur if "width" and "height" attributes are added to an image wi
       const oversizedWidth = intrinsicWidth - recommendedWidth >= OVERSIZED_IMAGE_TOLERANCE2;
       const oversizedHeight = intrinsicHeight - recommendedHeight >= OVERSIZED_IMAGE_TOLERANCE2;
       if (oversizedWidth || oversizedHeight) {
-        console.warn(formatRuntimeError(2960, `${imgDirectiveDetails(dir.ngSrc)} the intrinsic image is significantly larger than necessary. 
-Rendered image size: ${renderedWidth}w x ${renderedHeight}h. 
-Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h. 
-Recommended intrinsic image size: ${recommendedWidth}w x ${recommendedHeight}h. 
+        console.warn(formatRuntimeError(2960, `${imgDirectiveDetails(dir.ngSrc)} the intrinsic image is significantly larger than necessary.
+Rendered image size: ${renderedWidth}w x ${renderedHeight}h.
+Intrinsic image size: ${intrinsicWidth}w x ${intrinsicHeight}h.
+Recommended intrinsic image size: ${recommendedWidth}w x ${recommendedHeight}h.
 Note: Recommended intrinsic image size is calculated assuming a maximum DPR of ${RECOMMENDED_SRCSET_DENSITY_CAP}. To improve loading time, resize the image or consider using the "ngSrcset" and "sizes" attributes.`));
       }
     }
@@ -28167,7 +28205,7 @@ function booleanOrUrlAttribute(value) {
 
 // node_modules/@angular/platform-browser/fesm2022/_dom_renderer-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -28857,7 +28895,7 @@ var EmulatedEncapsulationDomRenderer2 = class extends NoneEncapsulationDomRender
 
 // node_modules/@angular/platform-browser/fesm2022/_browser-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -29202,7 +29240,7 @@ var BrowserModule = class _BrowserModule {
 
 // node_modules/@angular/common/fesm2022/_module-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -29295,7 +29333,7 @@ var HttpHeaders = class _HttpHeaders {
       }
       this.lazyInit = null;
       if (!!this.lazyUpdate) {
-        this.lazyUpdate.forEach((update2) => this.applyUpdate(update2));
+        this.lazyUpdate.forEach((update) => this.applyUpdate(update));
         this.lazyUpdate = null;
       }
     }
@@ -29307,31 +29345,31 @@ var HttpHeaders = class _HttpHeaders {
       this.normalizedNames.set(key, other.normalizedNames.get(key));
     });
   }
-  clone(update2) {
+  clone(update) {
     const clone = new _HttpHeaders();
     clone.lazyInit = !!this.lazyInit && this.lazyInit instanceof _HttpHeaders ? this.lazyInit : this;
-    clone.lazyUpdate = (this.lazyUpdate || []).concat([update2]);
+    clone.lazyUpdate = (this.lazyUpdate || []).concat([update]);
     return clone;
   }
-  applyUpdate(update2) {
-    const key = update2.name.toLowerCase();
-    switch (update2.op) {
+  applyUpdate(update) {
+    const key = update.name.toLowerCase();
+    switch (update.op) {
       case "a":
       case "s":
-        let value = update2.value;
+        let value = update.value;
         if (typeof value === "string") {
           value = [value];
         }
         if (value.length === 0) {
           return;
         }
-        this.maybeSetNormalizedName(update2.name, key);
-        const base = (update2.op === "a" ? this.headers.get(key) : void 0) || [];
+        this.maybeSetNormalizedName(update.name, key);
+        const base = (update.op === "a" ? this.headers.get(key) : void 0) || [];
         base.push(...value);
         this.headers.set(key, base);
         break;
       case "d":
-        const toDelete = update2.value;
+        const toDelete = update.value;
         if (!toDelete) {
           this.headers.delete(key);
           this.normalizedNames.delete(key);
@@ -29536,12 +29574,12 @@ var HttpParams = class _HttpParams {
       return this.map.get(key).map((value) => eKey + "=" + this.encoder.encodeValue(value)).join("&");
     }).filter((param) => param !== "").join("&");
   }
-  clone(update2) {
+  clone(update) {
     const clone = new _HttpParams({
       encoder: this.encoder
     });
     clone.cloneFrom = this.cloneFrom || this;
-    clone.updates = (this.updates || []).concat(update2);
+    clone.updates = (this.updates || []).concat(update);
     return clone;
   }
   init() {
@@ -29551,28 +29589,28 @@ var HttpParams = class _HttpParams {
     if (this.cloneFrom !== null) {
       this.cloneFrom.init();
       this.cloneFrom.keys().forEach((key) => this.map.set(key, this.cloneFrom.map.get(key)));
-      this.updates.forEach((update2) => {
-        switch (update2.op) {
+      this.updates.forEach((update) => {
+        switch (update.op) {
           case "a":
           case "s":
-            const base = (update2.op === "a" ? this.map.get(update2.param) : void 0) || [];
-            base.push(valueToString(update2.value));
-            this.map.set(update2.param, base);
+            const base = (update.op === "a" ? this.map.get(update.param) : void 0) || [];
+            base.push(valueToString(update.value));
+            this.map.set(update.param, base);
             break;
           case "d":
-            if (update2.value !== void 0) {
-              let base2 = this.map.get(update2.param) || [];
-              const idx = base2.indexOf(valueToString(update2.value));
+            if (update.value !== void 0) {
+              let base2 = this.map.get(update.param) || [];
+              const idx = base2.indexOf(valueToString(update.value));
               if (idx !== -1) {
                 base2.splice(idx, 1);
               }
               if (base2.length > 0) {
-                this.map.set(update2.param, base2);
+                this.map.set(update.param, base2);
               } else {
-                this.map.delete(update2.param);
+                this.map.delete(update.param);
               }
             } else {
-              this.map.delete(update2.param);
+              this.map.delete(update.param);
               break;
             }
         }
@@ -29745,32 +29783,32 @@ var HttpRequest = class _HttpRequest {
     }
     return null;
   }
-  clone(update2 = {}) {
-    const method = update2.method || this.method;
-    const url = update2.url || this.url;
-    const responseType = update2.responseType || this.responseType;
-    const keepalive = update2.keepalive ?? this.keepalive;
-    const priority = update2.priority || this.priority;
-    const cache = update2.cache || this.cache;
-    const mode = update2.mode || this.mode;
-    const redirect = update2.redirect || this.redirect;
-    const credentials = update2.credentials || this.credentials;
-    const referrer = update2.referrer || this.referrer;
-    const integrity = update2.integrity || this.integrity;
-    const referrerPolicy = update2.referrerPolicy || this.referrerPolicy;
-    const transferCache = update2.transferCache ?? this.transferCache;
-    const timeout = update2.timeout ?? this.timeout;
-    const body = update2.body !== void 0 ? update2.body : this.body;
-    const withCredentials = update2.withCredentials ?? this.withCredentials;
-    const reportProgress = update2.reportProgress ?? this.reportProgress;
-    let headers = update2.headers || this.headers;
-    let params = update2.params || this.params;
-    const context2 = update2.context ?? this.context;
-    if (update2.setHeaders !== void 0) {
-      headers = Object.keys(update2.setHeaders).reduce((headers2, name) => headers2.set(name, update2.setHeaders[name]), headers);
+  clone(update = {}) {
+    const method = update.method || this.method;
+    const url = update.url || this.url;
+    const responseType = update.responseType || this.responseType;
+    const keepalive = update.keepalive ?? this.keepalive;
+    const priority = update.priority || this.priority;
+    const cache = update.cache || this.cache;
+    const mode = update.mode || this.mode;
+    const redirect = update.redirect || this.redirect;
+    const credentials = update.credentials || this.credentials;
+    const referrer = update.referrer || this.referrer;
+    const integrity = update.integrity || this.integrity;
+    const referrerPolicy = update.referrerPolicy || this.referrerPolicy;
+    const transferCache = update.transferCache ?? this.transferCache;
+    const timeout = update.timeout ?? this.timeout;
+    const body = update.body !== void 0 ? update.body : this.body;
+    const withCredentials = update.withCredentials ?? this.withCredentials;
+    const reportProgress = update.reportProgress ?? this.reportProgress;
+    let headers = update.headers || this.headers;
+    let params = update.params || this.params;
+    const context2 = update.context ?? this.context;
+    if (update.setHeaders !== void 0) {
+      headers = Object.keys(update.setHeaders).reduce((headers2, name) => headers2.set(name, update.setHeaders[name]), headers);
     }
-    if (update2.setParams) {
-      params = Object.keys(update2.setParams).reduce((params2, param) => params2.set(param, update2.setParams[param]), params);
+    if (update.setParams) {
+      params = Object.keys(update.setParams).reduce((params2, param) => params2.set(param, update.setParams[param]), params);
     }
     return new _HttpRequest(method, url, body, {
       params,
@@ -29826,12 +29864,12 @@ var HttpHeaderResponse = class _HttpHeaderResponse extends HttpResponseBase {
     super(init);
   }
   type = HttpEventType.ResponseHeader;
-  clone(update2 = {}) {
+  clone(update = {}) {
     return new _HttpHeaderResponse({
-      headers: update2.headers || this.headers,
-      status: update2.status !== void 0 ? update2.status : this.status,
-      statusText: update2.statusText || this.statusText,
-      url: update2.url || this.url || void 0
+      headers: update.headers || this.headers,
+      status: update.status !== void 0 ? update.status : this.status,
+      statusText: update.statusText || this.statusText,
+      url: update.url || this.url || void 0
     });
   }
 };
@@ -29842,15 +29880,15 @@ var HttpResponse = class _HttpResponse extends HttpResponseBase {
     this.body = init.body !== void 0 ? init.body : null;
   }
   type = HttpEventType.Response;
-  clone(update2 = {}) {
+  clone(update = {}) {
     return new _HttpResponse({
-      body: update2.body !== void 0 ? update2.body : this.body,
-      headers: update2.headers || this.headers,
-      status: update2.status !== void 0 ? update2.status : this.status,
-      statusText: update2.statusText || this.statusText,
-      url: update2.url || this.url || void 0,
-      redirected: update2.redirected ?? this.redirected,
-      responseType: update2.responseType ?? this.responseType
+      body: update.body !== void 0 ? update.body : this.body,
+      headers: update.headers || this.headers,
+      status: update.status !== void 0 ? update.status : this.status,
+      statusText: update.statusText || this.statusText,
+      url: update.url || this.url || void 0,
+      redirected: update.redirected ?? this.redirected,
+      responseType: update.responseType ?? this.responseType
     });
   }
 };
@@ -30753,6 +30791,9 @@ var JsonpClientBackend = class _JsonpClientBackend {
   callbackMap;
   document;
   resolvedPromise = Promise.resolve();
+  nonce = inject2(CSP_NONCE, {
+    optional: true
+  });
   constructor(callbackMap, document2) {
     this.callbackMap = callbackMap;
     this.document = document2;
@@ -30774,6 +30815,9 @@ var JsonpClientBackend = class _JsonpClientBackend {
       const url = req.urlWithParams.replace(/=JSONP_CALLBACK(&|$)/, `=${callback}$1`);
       const node = this.document.createElement("script");
       node.src = url;
+      if (this.nonce) {
+        node.setAttribute("nonce", this.nonce);
+      }
       let body = null;
       let finished = false;
       this.callbackMap[callback] = (data) => {
@@ -31190,7 +31234,7 @@ var HttpClientJsonpModule = class _HttpClientJsonpModule {
 
 // node_modules/@angular/common/fesm2022/http.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -31507,7 +31551,7 @@ var HttpResourceImpl = class extends ResourceImpl {
 
 // node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -31970,7 +32014,7 @@ var HydrationFeatureKind;
 
 // node_modules/@angular/forms/fesm2022/forms.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -32665,7 +32709,7 @@ var ngModelWithFormGroupExample = `
       <input [(ngModel)]="showMoreControls" [ngModelOptions]="{standalone: true}">
   </div>
 `;
-var VERSION2 = /* @__PURE__ */ new Version("21.2.8");
+var VERSION2 = /* @__PURE__ */ new Version("21.2.14");
 function controlParentException(nameOrIndex) {
   return new RuntimeError(1050, `formControlName must be used with a parent formGroup or formArray directive. You'll want to add a formGroup/formArray
       directive and pass it an existing FormGroup/FormArray instance (you can create one in your class).
@@ -32865,7 +32909,7 @@ function assertControlPresent(parent, isGroup, key) {
 function assertAllValuesPresent(control, isGroup, value) {
   control._forEachChild((_, key) => {
     if (value[key] === void 0) {
-      throw new RuntimeError(1002, typeof ngDevMode === "undefined" || ngDevMode ? missingControlValueError(isGroup, key) : "");
+      throw new RuntimeError(-1002, typeof ngDevMode === "undefined" || ngDevMode ? missingControlValueError(isGroup, key) : "");
     }
   });
 }
@@ -35817,11 +35861,11 @@ var SelectMultipleControlValueAccessor = class _SelectMultipleControlValueAccess
     let optionSelectedStateSetter;
     if (Array.isArray(value)) {
       const ids = value.map((v) => this._getOptionId(v));
-      optionSelectedStateSetter = (opt, o) => {
-        opt._setSelected(ids.indexOf(o.toString()) > -1);
+      optionSelectedStateSetter = (opt, id) => {
+        opt._setSelected(ids.indexOf(id) > -1);
       };
     } else {
-      optionSelectedStateSetter = (opt, o) => {
+      optionSelectedStateSetter = (opt) => {
         opt._setSelected(false);
       };
     }
@@ -36632,838 +36676,6 @@ var ReactiveFormsModule = class _ReactiveFormsModule {
   }], null, null);
 })();
 
-// ../../node_modules/@tweenjs/tween.js/dist/tween.esm.js
-var Easing = Object.freeze({
-  Linear: Object.freeze({
-    None: function(amount) {
-      return amount;
-    },
-    In: function(amount) {
-      return amount;
-    },
-    Out: function(amount) {
-      return amount;
-    },
-    InOut: function(amount) {
-      return amount;
-    }
-  }),
-  Quadratic: Object.freeze({
-    In: function(amount) {
-      return amount * amount;
-    },
-    Out: function(amount) {
-      return amount * (2 - amount);
-    },
-    InOut: function(amount) {
-      if ((amount *= 2) < 1) {
-        return 0.5 * amount * amount;
-      }
-      return -0.5 * (--amount * (amount - 2) - 1);
-    }
-  }),
-  Cubic: Object.freeze({
-    In: function(amount) {
-      return amount * amount * amount;
-    },
-    Out: function(amount) {
-      return --amount * amount * amount + 1;
-    },
-    InOut: function(amount) {
-      if ((amount *= 2) < 1) {
-        return 0.5 * amount * amount * amount;
-      }
-      return 0.5 * ((amount -= 2) * amount * amount + 2);
-    }
-  }),
-  Quartic: Object.freeze({
-    In: function(amount) {
-      return amount * amount * amount * amount;
-    },
-    Out: function(amount) {
-      return 1 - --amount * amount * amount * amount;
-    },
-    InOut: function(amount) {
-      if ((amount *= 2) < 1) {
-        return 0.5 * amount * amount * amount * amount;
-      }
-      return -0.5 * ((amount -= 2) * amount * amount * amount - 2);
-    }
-  }),
-  Quintic: Object.freeze({
-    In: function(amount) {
-      return amount * amount * amount * amount * amount;
-    },
-    Out: function(amount) {
-      return --amount * amount * amount * amount * amount + 1;
-    },
-    InOut: function(amount) {
-      if ((amount *= 2) < 1) {
-        return 0.5 * amount * amount * amount * amount * amount;
-      }
-      return 0.5 * ((amount -= 2) * amount * amount * amount * amount + 2);
-    }
-  }),
-  Sinusoidal: Object.freeze({
-    In: function(amount) {
-      return 1 - Math.sin((1 - amount) * Math.PI / 2);
-    },
-    Out: function(amount) {
-      return Math.sin(amount * Math.PI / 2);
-    },
-    InOut: function(amount) {
-      return 0.5 * (1 - Math.sin(Math.PI * (0.5 - amount)));
-    }
-  }),
-  Exponential: Object.freeze({
-    In: function(amount) {
-      return amount === 0 ? 0 : Math.pow(1024, amount - 1);
-    },
-    Out: function(amount) {
-      return amount === 1 ? 1 : 1 - Math.pow(2, -10 * amount);
-    },
-    InOut: function(amount) {
-      if (amount === 0) {
-        return 0;
-      }
-      if (amount === 1) {
-        return 1;
-      }
-      if ((amount *= 2) < 1) {
-        return 0.5 * Math.pow(1024, amount - 1);
-      }
-      return 0.5 * (-Math.pow(2, -10 * (amount - 1)) + 2);
-    }
-  }),
-  Circular: Object.freeze({
-    In: function(amount) {
-      return 1 - Math.sqrt(1 - amount * amount);
-    },
-    Out: function(amount) {
-      return Math.sqrt(1 - --amount * amount);
-    },
-    InOut: function(amount) {
-      if ((amount *= 2) < 1) {
-        return -0.5 * (Math.sqrt(1 - amount * amount) - 1);
-      }
-      return 0.5 * (Math.sqrt(1 - (amount -= 2) * amount) + 1);
-    }
-  }),
-  Elastic: Object.freeze({
-    In: function(amount) {
-      if (amount === 0) {
-        return 0;
-      }
-      if (amount === 1) {
-        return 1;
-      }
-      return -Math.pow(2, 10 * (amount - 1)) * Math.sin((amount - 1.1) * 5 * Math.PI);
-    },
-    Out: function(amount) {
-      if (amount === 0) {
-        return 0;
-      }
-      if (amount === 1) {
-        return 1;
-      }
-      return Math.pow(2, -10 * amount) * Math.sin((amount - 0.1) * 5 * Math.PI) + 1;
-    },
-    InOut: function(amount) {
-      if (amount === 0) {
-        return 0;
-      }
-      if (amount === 1) {
-        return 1;
-      }
-      amount *= 2;
-      if (amount < 1) {
-        return -0.5 * Math.pow(2, 10 * (amount - 1)) * Math.sin((amount - 1.1) * 5 * Math.PI);
-      }
-      return 0.5 * Math.pow(2, -10 * (amount - 1)) * Math.sin((amount - 1.1) * 5 * Math.PI) + 1;
-    }
-  }),
-  Back: Object.freeze({
-    In: function(amount) {
-      var s = 1.70158;
-      return amount === 1 ? 1 : amount * amount * ((s + 1) * amount - s);
-    },
-    Out: function(amount) {
-      var s = 1.70158;
-      return amount === 0 ? 0 : --amount * amount * ((s + 1) * amount + s) + 1;
-    },
-    InOut: function(amount) {
-      var s = 1.70158 * 1.525;
-      if ((amount *= 2) < 1) {
-        return 0.5 * (amount * amount * ((s + 1) * amount - s));
-      }
-      return 0.5 * ((amount -= 2) * amount * ((s + 1) * amount + s) + 2);
-    }
-  }),
-  Bounce: Object.freeze({
-    In: function(amount) {
-      return 1 - Easing.Bounce.Out(1 - amount);
-    },
-    Out: function(amount) {
-      if (amount < 1 / 2.75) {
-        return 7.5625 * amount * amount;
-      } else if (amount < 2 / 2.75) {
-        return 7.5625 * (amount -= 1.5 / 2.75) * amount + 0.75;
-      } else if (amount < 2.5 / 2.75) {
-        return 7.5625 * (amount -= 2.25 / 2.75) * amount + 0.9375;
-      } else {
-        return 7.5625 * (amount -= 2.625 / 2.75) * amount + 0.984375;
-      }
-    },
-    InOut: function(amount) {
-      if (amount < 0.5) {
-        return Easing.Bounce.In(amount * 2) * 0.5;
-      }
-      return Easing.Bounce.Out(amount * 2 - 1) * 0.5 + 0.5;
-    }
-  }),
-  generatePow: function(power) {
-    if (power === void 0) {
-      power = 4;
-    }
-    power = power < Number.EPSILON ? Number.EPSILON : power;
-    power = power > 1e4 ? 1e4 : power;
-    return {
-      In: function(amount) {
-        return Math.pow(amount, power);
-      },
-      Out: function(amount) {
-        return 1 - Math.pow(1 - amount, power);
-      },
-      InOut: function(amount) {
-        if (amount < 0.5) {
-          return Math.pow(amount * 2, power) / 2;
-        }
-        return (1 - Math.pow(2 - amount * 2, power)) / 2 + 0.5;
-      }
-    };
-  }
-});
-var now = function() {
-  return performance.now();
-};
-var Group = (
-  /** @class */
-  (function() {
-    function Group2() {
-      var tweens = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        tweens[_i] = arguments[_i];
-      }
-      this._tweens = {};
-      this._tweensAddedDuringUpdate = {};
-      this.add.apply(this, tweens);
-    }
-    Group2.prototype.getAll = function() {
-      var _this = this;
-      return Object.keys(this._tweens).map(function(tweenId) {
-        return _this._tweens[tweenId];
-      });
-    };
-    Group2.prototype.removeAll = function() {
-      this._tweens = {};
-    };
-    Group2.prototype.add = function() {
-      var _a;
-      var tweens = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        tweens[_i] = arguments[_i];
-      }
-      for (var _b = 0, tweens_1 = tweens; _b < tweens_1.length; _b++) {
-        var tween = tweens_1[_b];
-        (_a = tween._group) === null || _a === void 0 ? void 0 : _a.remove(tween);
-        tween._group = this;
-        this._tweens[tween.getId()] = tween;
-        this._tweensAddedDuringUpdate[tween.getId()] = tween;
-      }
-    };
-    Group2.prototype.remove = function() {
-      var tweens = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        tweens[_i] = arguments[_i];
-      }
-      for (var _a = 0, tweens_2 = tweens; _a < tweens_2.length; _a++) {
-        var tween = tweens_2[_a];
-        tween._group = void 0;
-        delete this._tweens[tween.getId()];
-        delete this._tweensAddedDuringUpdate[tween.getId()];
-      }
-    };
-    Group2.prototype.allStopped = function() {
-      return this.getAll().every(function(tween) {
-        return !tween.isPlaying();
-      });
-    };
-    Group2.prototype.update = function(time, preserve) {
-      if (time === void 0) {
-        time = now();
-      }
-      if (preserve === void 0) {
-        preserve = true;
-      }
-      var tweenIds = Object.keys(this._tweens);
-      if (tweenIds.length === 0)
-        return;
-      while (tweenIds.length > 0) {
-        this._tweensAddedDuringUpdate = {};
-        for (var i = 0; i < tweenIds.length; i++) {
-          var tween = this._tweens[tweenIds[i]];
-          var autoStart = !preserve;
-          if (tween && tween.update(time, autoStart) === false && !preserve)
-            this.remove(tween);
-        }
-        tweenIds = Object.keys(this._tweensAddedDuringUpdate);
-      }
-    };
-    return Group2;
-  })()
-);
-var Interpolation = {
-  Linear: function(v, k) {
-    var m = v.length - 1;
-    var f = m * k;
-    var i = Math.floor(f);
-    var fn = Interpolation.Utils.Linear;
-    if (k < 0) {
-      return fn(v[0], v[1], f);
-    }
-    if (k > 1) {
-      return fn(v[m], v[m - 1], m - f);
-    }
-    return fn(v[i], v[i + 1 > m ? m : i + 1], f - i);
-  },
-  Bezier: function(v, k) {
-    var b = 0;
-    var n = v.length - 1;
-    var pw = Math.pow;
-    var bn = Interpolation.Utils.Bernstein;
-    for (var i = 0; i <= n; i++) {
-      b += pw(1 - k, n - i) * pw(k, i) * v[i] * bn(n, i);
-    }
-    return b;
-  },
-  CatmullRom: function(v, k) {
-    var m = v.length - 1;
-    var f = m * k;
-    var i = Math.floor(f);
-    var fn = Interpolation.Utils.CatmullRom;
-    if (v[0] === v[m]) {
-      if (k < 0) {
-        i = Math.floor(f = m * (1 + k));
-      }
-      return fn(v[(i - 1 + m) % m], v[i], v[(i + 1) % m], v[(i + 2) % m], f - i);
-    } else {
-      if (k < 0) {
-        return v[0] - (fn(v[0], v[0], v[1], v[1], -f) - v[0]);
-      }
-      if (k > 1) {
-        return v[m] - (fn(v[m], v[m], v[m - 1], v[m - 1], f - m) - v[m]);
-      }
-      return fn(v[i ? i - 1 : 0], v[i], v[m < i + 1 ? m : i + 1], v[m < i + 2 ? m : i + 2], f - i);
-    }
-  },
-  Utils: {
-    Linear: function(p0, p1, t) {
-      return (p1 - p0) * t + p0;
-    },
-    Bernstein: function(n, i) {
-      var fc = Interpolation.Utils.Factorial;
-      return fc(n) / fc(i) / fc(n - i);
-    },
-    Factorial: /* @__PURE__ */ (function() {
-      var a = [1];
-      return function(n) {
-        var s = 1;
-        if (a[n]) {
-          return a[n];
-        }
-        for (var i = n; i > 1; i--) {
-          s *= i;
-        }
-        a[n] = s;
-        return s;
-      };
-    })(),
-    CatmullRom: function(p0, p1, p2, p3, t) {
-      var v0 = (p2 - p0) * 0.5;
-      var v1 = (p3 - p1) * 0.5;
-      var t2 = t * t;
-      var t3 = t * t2;
-      return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1;
-    }
-  }
-};
-var Sequence = (
-  /** @class */
-  (function() {
-    function Sequence2() {
-    }
-    Sequence2.nextId = function() {
-      return Sequence2._nextId++;
-    };
-    Sequence2._nextId = 0;
-    return Sequence2;
-  })()
-);
-var mainGroup = new Group();
-var Tween = (
-  /** @class */
-  (function() {
-    function Tween2(object, group) {
-      this._isPaused = false;
-      this._pauseStart = 0;
-      this._valuesStart = {};
-      this._valuesEnd = {};
-      this._valuesStartRepeat = {};
-      this._duration = 1e3;
-      this._isDynamic = false;
-      this._initialRepeat = 0;
-      this._repeat = 0;
-      this._yoyo = false;
-      this._isPlaying = false;
-      this._reversed = false;
-      this._delayTime = 0;
-      this._startTime = 0;
-      this._easingFunction = Easing.Linear.None;
-      this._interpolationFunction = Interpolation.Linear;
-      this._chainedTweens = [];
-      this._onStartCallbackFired = false;
-      this._onEveryStartCallbackFired = false;
-      this._id = Sequence.nextId();
-      this._isChainStopped = false;
-      this._propertiesAreSetUp = false;
-      this._goToEnd = false;
-      this._object = object;
-      if (typeof group === "object") {
-        this._group = group;
-        group.add(this);
-      } else if (group === true) {
-        this._group = mainGroup;
-        mainGroup.add(this);
-      }
-    }
-    Tween2.prototype.getId = function() {
-      return this._id;
-    };
-    Tween2.prototype.isPlaying = function() {
-      return this._isPlaying;
-    };
-    Tween2.prototype.isPaused = function() {
-      return this._isPaused;
-    };
-    Tween2.prototype.getDuration = function() {
-      return this._duration;
-    };
-    Tween2.prototype.to = function(target, duration) {
-      if (duration === void 0) {
-        duration = 1e3;
-      }
-      if (this._isPlaying)
-        throw new Error("Can not call Tween.to() while Tween is already started or paused. Stop the Tween first.");
-      this._valuesEnd = target;
-      this._propertiesAreSetUp = false;
-      this._duration = duration < 0 ? 0 : duration;
-      return this;
-    };
-    Tween2.prototype.duration = function(duration) {
-      if (duration === void 0) {
-        duration = 1e3;
-      }
-      this._duration = duration < 0 ? 0 : duration;
-      return this;
-    };
-    Tween2.prototype.dynamic = function(dynamic) {
-      if (dynamic === void 0) {
-        dynamic = false;
-      }
-      this._isDynamic = dynamic;
-      return this;
-    };
-    Tween2.prototype.start = function(time, overrideStartingValues) {
-      if (time === void 0) {
-        time = now();
-      }
-      if (overrideStartingValues === void 0) {
-        overrideStartingValues = false;
-      }
-      if (this._isPlaying) {
-        return this;
-      }
-      this._repeat = this._initialRepeat;
-      if (this._reversed) {
-        this._reversed = false;
-        for (var property in this._valuesStartRepeat) {
-          this._swapEndStartRepeatValues(property);
-          this._valuesStart[property] = this._valuesStartRepeat[property];
-        }
-      }
-      this._isPlaying = true;
-      this._isPaused = false;
-      this._onStartCallbackFired = false;
-      this._onEveryStartCallbackFired = false;
-      this._isChainStopped = false;
-      this._startTime = time;
-      this._startTime += this._delayTime;
-      if (!this._propertiesAreSetUp || overrideStartingValues) {
-        this._propertiesAreSetUp = true;
-        if (!this._isDynamic) {
-          var tmp = {};
-          for (var prop in this._valuesEnd)
-            tmp[prop] = this._valuesEnd[prop];
-          this._valuesEnd = tmp;
-        }
-        this._setupProperties(this._object, this._valuesStart, this._valuesEnd, this._valuesStartRepeat, overrideStartingValues);
-      }
-      return this;
-    };
-    Tween2.prototype.startFromCurrentValues = function(time) {
-      return this.start(time, true);
-    };
-    Tween2.prototype._setupProperties = function(_object, _valuesStart, _valuesEnd, _valuesStartRepeat, overrideStartingValues) {
-      for (var property in _valuesEnd) {
-        var startValue = _object[property];
-        var startValueIsArray = Array.isArray(startValue);
-        var propType = startValueIsArray ? "array" : typeof startValue;
-        var isInterpolationList = !startValueIsArray && Array.isArray(_valuesEnd[property]);
-        if (propType === "undefined" || propType === "function") {
-          continue;
-        }
-        if (isInterpolationList) {
-          var endValues = _valuesEnd[property];
-          if (endValues.length === 0) {
-            continue;
-          }
-          var temp = [startValue];
-          for (var i = 0, l = endValues.length; i < l; i += 1) {
-            var value = this._handleRelativeValue(startValue, endValues[i]);
-            if (isNaN(value)) {
-              isInterpolationList = false;
-              console.warn("Found invalid interpolation list. Skipping.");
-              break;
-            }
-            temp.push(value);
-          }
-          if (isInterpolationList) {
-            _valuesEnd[property] = temp;
-          }
-        }
-        if ((propType === "object" || startValueIsArray) && startValue && !isInterpolationList) {
-          _valuesStart[property] = startValueIsArray ? [] : {};
-          var nestedObject = startValue;
-          for (var prop in nestedObject) {
-            _valuesStart[property][prop] = nestedObject[prop];
-          }
-          _valuesStartRepeat[property] = startValueIsArray ? [] : {};
-          var endValues = _valuesEnd[property];
-          if (!this._isDynamic) {
-            var tmp = {};
-            for (var prop in endValues)
-              tmp[prop] = endValues[prop];
-            _valuesEnd[property] = endValues = tmp;
-          }
-          this._setupProperties(nestedObject, _valuesStart[property], endValues, _valuesStartRepeat[property], overrideStartingValues);
-        } else {
-          if (typeof _valuesStart[property] === "undefined" || overrideStartingValues) {
-            _valuesStart[property] = startValue;
-          }
-          if (!startValueIsArray) {
-            _valuesStart[property] *= 1;
-          }
-          if (isInterpolationList) {
-            _valuesStartRepeat[property] = _valuesEnd[property].slice().reverse();
-          } else {
-            _valuesStartRepeat[property] = _valuesStart[property] || 0;
-          }
-        }
-      }
-    };
-    Tween2.prototype.stop = function() {
-      if (!this._isChainStopped) {
-        this._isChainStopped = true;
-        this.stopChainedTweens();
-      }
-      if (!this._isPlaying) {
-        return this;
-      }
-      this._isPlaying = false;
-      this._isPaused = false;
-      if (this._onStopCallback) {
-        this._onStopCallback(this._object);
-      }
-      return this;
-    };
-    Tween2.prototype.end = function() {
-      this._goToEnd = true;
-      this.update(this._startTime + this._duration);
-      return this;
-    };
-    Tween2.prototype.pause = function(time) {
-      if (time === void 0) {
-        time = now();
-      }
-      if (this._isPaused || !this._isPlaying) {
-        return this;
-      }
-      this._isPaused = true;
-      this._pauseStart = time;
-      return this;
-    };
-    Tween2.prototype.resume = function(time) {
-      if (time === void 0) {
-        time = now();
-      }
-      if (!this._isPaused || !this._isPlaying) {
-        return this;
-      }
-      this._isPaused = false;
-      this._startTime += time - this._pauseStart;
-      this._pauseStart = 0;
-      return this;
-    };
-    Tween2.prototype.stopChainedTweens = function() {
-      for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
-        this._chainedTweens[i].stop();
-      }
-      return this;
-    };
-    Tween2.prototype.group = function(group) {
-      if (!group) {
-        console.warn("tween.group() without args has been removed, use group.add(tween) instead.");
-        return this;
-      }
-      group.add(this);
-      return this;
-    };
-    Tween2.prototype.remove = function() {
-      var _a;
-      (_a = this._group) === null || _a === void 0 ? void 0 : _a.remove(this);
-      return this;
-    };
-    Tween2.prototype.delay = function(amount) {
-      if (amount === void 0) {
-        amount = 0;
-      }
-      this._delayTime = amount;
-      return this;
-    };
-    Tween2.prototype.repeat = function(times) {
-      if (times === void 0) {
-        times = 0;
-      }
-      this._initialRepeat = times;
-      this._repeat = times;
-      return this;
-    };
-    Tween2.prototype.repeatDelay = function(amount) {
-      this._repeatDelayTime = amount;
-      return this;
-    };
-    Tween2.prototype.yoyo = function(yoyo) {
-      if (yoyo === void 0) {
-        yoyo = false;
-      }
-      this._yoyo = yoyo;
-      return this;
-    };
-    Tween2.prototype.easing = function(easingFunction) {
-      if (easingFunction === void 0) {
-        easingFunction = Easing.Linear.None;
-      }
-      this._easingFunction = easingFunction;
-      return this;
-    };
-    Tween2.prototype.interpolation = function(interpolationFunction) {
-      if (interpolationFunction === void 0) {
-        interpolationFunction = Interpolation.Linear;
-      }
-      this._interpolationFunction = interpolationFunction;
-      return this;
-    };
-    Tween2.prototype.chain = function() {
-      var tweens = [];
-      for (var _i = 0; _i < arguments.length; _i++) {
-        tweens[_i] = arguments[_i];
-      }
-      this._chainedTweens = tweens;
-      return this;
-    };
-    Tween2.prototype.onStart = function(callback) {
-      this._onStartCallback = callback;
-      return this;
-    };
-    Tween2.prototype.onEveryStart = function(callback) {
-      this._onEveryStartCallback = callback;
-      return this;
-    };
-    Tween2.prototype.onUpdate = function(callback) {
-      this._onUpdateCallback = callback;
-      return this;
-    };
-    Tween2.prototype.onRepeat = function(callback) {
-      this._onRepeatCallback = callback;
-      return this;
-    };
-    Tween2.prototype.onComplete = function(callback) {
-      this._onCompleteCallback = callback;
-      return this;
-    };
-    Tween2.prototype.onStop = function(callback) {
-      this._onStopCallback = callback;
-      return this;
-    };
-    Tween2.prototype.update = function(time, autoStart) {
-      var _this = this;
-      var _a;
-      if (time === void 0) {
-        time = now();
-      }
-      if (autoStart === void 0) {
-        autoStart = Tween2.autoStartOnUpdate;
-      }
-      if (this._isPaused)
-        return true;
-      var property;
-      if (!this._goToEnd && !this._isPlaying) {
-        if (autoStart)
-          this.start(time, true);
-        else
-          return false;
-      }
-      this._goToEnd = false;
-      if (time < this._startTime) {
-        return true;
-      }
-      if (this._onStartCallbackFired === false) {
-        if (this._onStartCallback) {
-          this._onStartCallback(this._object);
-        }
-        this._onStartCallbackFired = true;
-      }
-      if (this._onEveryStartCallbackFired === false) {
-        if (this._onEveryStartCallback) {
-          this._onEveryStartCallback(this._object);
-        }
-        this._onEveryStartCallbackFired = true;
-      }
-      var elapsedTime = time - this._startTime;
-      var durationAndDelay = this._duration + ((_a = this._repeatDelayTime) !== null && _a !== void 0 ? _a : this._delayTime);
-      var totalTime = this._duration + this._repeat * durationAndDelay;
-      var calculateElapsedPortion = function() {
-        if (_this._duration === 0)
-          return 1;
-        if (elapsedTime > totalTime) {
-          return 1;
-        }
-        var timesRepeated = Math.trunc(elapsedTime / durationAndDelay);
-        var timeIntoCurrentRepeat = elapsedTime - timesRepeated * durationAndDelay;
-        var portion = Math.min(timeIntoCurrentRepeat / _this._duration, 1);
-        if (portion === 0 && elapsedTime === _this._duration) {
-          return 1;
-        }
-        return portion;
-      };
-      var elapsed = calculateElapsedPortion();
-      var value = this._easingFunction(elapsed);
-      this._updateProperties(this._object, this._valuesStart, this._valuesEnd, value);
-      if (this._onUpdateCallback) {
-        this._onUpdateCallback(this._object, elapsed);
-      }
-      if (this._duration === 0 || elapsedTime >= this._duration) {
-        if (this._repeat > 0) {
-          var completeCount = Math.min(Math.trunc((elapsedTime - this._duration) / durationAndDelay) + 1, this._repeat);
-          if (isFinite(this._repeat)) {
-            this._repeat -= completeCount;
-          }
-          for (property in this._valuesStartRepeat) {
-            if (!this._yoyo && typeof this._valuesEnd[property] === "string") {
-              this._valuesStartRepeat[property] = // eslint-disable-next-line
-              // @ts-ignore FIXME?
-              this._valuesStartRepeat[property] + parseFloat(this._valuesEnd[property]);
-            }
-            if (this._yoyo) {
-              this._swapEndStartRepeatValues(property);
-            }
-            this._valuesStart[property] = this._valuesStartRepeat[property];
-          }
-          if (this._yoyo) {
-            this._reversed = !this._reversed;
-          }
-          this._startTime += durationAndDelay * completeCount;
-          if (this._onRepeatCallback) {
-            this._onRepeatCallback(this._object);
-          }
-          this._onEveryStartCallbackFired = false;
-          return true;
-        } else {
-          if (this._onCompleteCallback) {
-            this._onCompleteCallback(this._object);
-          }
-          for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
-            this._chainedTweens[i].start(this._startTime + this._duration, false);
-          }
-          this._isPlaying = false;
-          return false;
-        }
-      }
-      return true;
-    };
-    Tween2.prototype._updateProperties = function(_object, _valuesStart, _valuesEnd, value) {
-      for (var property in _valuesEnd) {
-        if (_valuesStart[property] === void 0) {
-          continue;
-        }
-        var start = _valuesStart[property] || 0;
-        var end = _valuesEnd[property];
-        var startIsArray = Array.isArray(_object[property]);
-        var endIsArray = Array.isArray(end);
-        var isInterpolationList = !startIsArray && endIsArray;
-        if (isInterpolationList) {
-          _object[property] = this._interpolationFunction(end, value);
-        } else if (typeof end === "object" && end) {
-          this._updateProperties(_object[property], start, end, value);
-        } else {
-          end = this._handleRelativeValue(start, end);
-          if (typeof end === "number") {
-            _object[property] = start + (end - start) * value;
-          }
-        }
-      }
-    };
-    Tween2.prototype._handleRelativeValue = function(start, end) {
-      if (typeof end !== "string") {
-        return end;
-      }
-      if (end.charAt(0) === "+" || end.charAt(0) === "-") {
-        return start + parseFloat(end);
-      }
-      return parseFloat(end);
-    };
-    Tween2.prototype._swapEndStartRepeatValues = function(property) {
-      var tmp = this._valuesStartRepeat[property];
-      var endValue = this._valuesEnd[property];
-      if (typeof endValue === "string") {
-        this._valuesStartRepeat[property] = this._valuesStartRepeat[property] + parseFloat(endValue);
-      } else {
-        this._valuesStartRepeat[property] = this._valuesEnd[property];
-      }
-      this._valuesEnd[property] = tmp;
-    };
-    Tween2.autoStartOnUpdate = false;
-    return Tween2;
-  })()
-);
-var nextId = Sequence.nextId;
-var TWEEN = mainGroup;
-var getAll = TWEEN.getAll.bind(TWEEN);
-var removeAll = TWEEN.removeAll.bind(TWEEN);
-var add = TWEEN.add.bind(TWEEN);
-var remove2 = TWEEN.remove.bind(TWEEN);
-var update = TWEEN.update.bind(TWEEN);
-
 // node_modules/@stackline/angular-multiselect-dropdown/fesm2022/stackline-angular-multiselect-dropdown.mjs
 function CIcon__svg_svg_0_Template(rf, ctx) {
   if (rf & 1) {
@@ -37513,44 +36725,39 @@ var _c4 = ["*"];
 var _c5 = ["searchInput"];
 var _c6 = ["selectedList"];
 var _c7 = ["dropdownList"];
-var _c8 = ["cuppaDropdown"];
-var _c9 = (a0, a1, a2) => ({
-  "is-open": a0,
-  "is-disabled": a1,
-  "is-loading": a2
-});
-var _c10 = (a0, a1, a2, a3) => ({
+var _c8 = ["stacklineDropdown"];
+var _c9 = (a0, a1, a2, a3) => ({
   "disabled": a0,
   "is-active": a1,
   "has-selection": a2,
   "single-select-mode": a3
 });
-var _c11 = (a0) => ({
+var _c10 = (a0) => ({
   "tagToBody": a0
 });
-var _c12 = (a0, a1) => ({
+var _c11 = (a0, a1) => ({
   "arrow-up": a0,
   "arrow-down": a1
 });
-var _c13 = (a0) => ({
+var _c12 = (a0) => ({
   "single-select-mode": a0
 });
-var _c14 = (a0) => ({
+var _c13 = (a0) => ({
   "selected-item": a0
 });
-var _c15 = (a0) => ({
+var _c14 = (a0) => ({
   "height": a0
 });
-var _c16 = (a0, a1) => ({
+var _c15 = (a0, a1) => ({
   "grp-title": a0,
   "grp-item": a1
 });
-var _c17 = (a0, a1, a2) => ({
+var _c16 = (a0, a1, a2) => ({
   "grp-title": a0,
   "grp-item": a1,
   "selected-item": a2
 });
-var _c18 = (a0, a1, a2) => ({
+var _c17 = (a0, a1, a2) => ({
   "selected-item": a0,
   "grp-title": a1,
   "grp-item": a2
@@ -38144,7 +37351,7 @@ function AngularMultiSelect_div_24_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r24 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(3, _c14, ctx_r0.isSelected(item_r24) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(3, _c13, ctx_r0.isSelected(item_r24) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38193,7 +37400,7 @@ function AngularMultiSelect_div_25_li_3_Template(rf, ctx) {
   if (rf & 2) {
     const item_r29 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(3, _c14, ctx_r0.isSelected(item_r29) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(3, _c13, ctx_r0.isSelected(item_r29) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38221,7 +37428,7 @@ function AngularMultiSelect_div_25_Template(rf, ctx) {
     const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c14, ctx_r0.settings.maxHeight + "px"));
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", scroll_r31.viewPortItems);
   }
@@ -38254,7 +37461,7 @@ function AngularMultiSelect_div_26_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r34 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(4, _c14, ctx_r0.isSelected(item_r34) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(4, _c13, ctx_r0.isSelected(item_r34) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38302,7 +37509,7 @@ function AngularMultiSelect_div_27_li_3_Template(rf, ctx) {
   if (rf & 2) {
     const item_r39 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(4, _c14, ctx_r0.isSelected(item_r39) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(4, _c13, ctx_r0.isSelected(item_r39) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38330,7 +37537,7 @@ function AngularMultiSelect_div_27_Template(rf, ctx) {
     const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c14, ctx_r0.settings.maxHeight + "px"));
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", scroll2_r41.viewPortItems);
   }
@@ -38364,7 +37571,7 @@ function AngularMultiSelect_div_28_span_3_li_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r45 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c15, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     \u0275\u0275advance(2);
@@ -38391,7 +37598,7 @@ function AngularMultiSelect_div_28_span_3_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r45 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c15, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38433,7 +37640,7 @@ function AngularMultiSelect_div_28_Template(rf, ctx) {
     const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(6, _c14, ctx_r0.settings.maxHeight + "px"));
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", scroll3_r47.viewPortItems);
   }
@@ -38478,7 +37685,7 @@ function AngularMultiSelect_div_29_span_2_span_6_Template(rf, ctx) {
     const val_r52 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, val_r52.grpTitle, !val_r52.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c15, val_r52.grpTitle, !val_r52.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38506,7 +37713,7 @@ function AngularMultiSelect_div_29_span_2_Template(rf, ctx) {
     const item_r49 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r49.grpTitle, !item_r49.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c15, item_r49.grpTitle, !item_r49.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     \u0275\u0275advance(2);
@@ -38549,7 +37756,7 @@ function AngularMultiSelect_div_30_span_4_li_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r55 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c16, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !item_r55.grpTitle && !ctx_r0.settings.singleSelection);
     \u0275\u0275advance(2);
@@ -38586,7 +37793,7 @@ function AngularMultiSelect_div_30_span_4_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r55 = \u0275\u0275nextContext().$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c16, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !item_r55.grpTitle);
     \u0275\u0275advance(2);
@@ -38638,9 +37845,9 @@ function AngularMultiSelect_div_30_Template(rf, ctx) {
     const ctx_r0 = \u0275\u0275nextContext();
     \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("items", ctx_r0.groupedData)("ngStyle", \u0275\u0275pureFunction1(8, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("items", ctx_r0.groupedData)("ngStyle", \u0275\u0275pureFunction1(8, _c14, ctx_r0.settings.maxHeight + "px"));
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(10, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(10, _c14, ctx_r0.settings.maxHeight + "px"));
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", scroll4_r59.viewPortItems);
   }
@@ -38686,7 +37893,7 @@ function AngularMultiSelect_div_31_span_2_span_6_Template(rf, ctx) {
     const val_r64 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c18, ctx_r0.isSelected(val_r64) == true, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, ctx_r0.isSelected(val_r64) == true, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
     \u0275\u0275advance(2);
@@ -38714,7 +37921,7 @@ function AngularMultiSelect_div_31_span_2_Template(rf, ctx) {
     const item_r61 = ctx.$implicit;
     const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r61.grpTitle, !item_r61.grpTitle && !ctx_r0.settings.singleSelection));
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c15, item_r61.grpTitle, !item_r61.grpTitle && !ctx_r0.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     \u0275\u0275advance(2);
@@ -39623,7 +38830,6 @@ var VirtualScrollerComponent = class _VirtualScrollerComponent {
     scrollPosition += this.getElementsOffset();
     animationMilliseconds = animationMilliseconds === void 0 ? this.scrollAnimationTime : animationMilliseconds;
     let scrollElement = this.getScrollElement();
-    let animationRequest;
     if (this.currentTween) {
       this.currentTween.stop();
       this.currentTween = void 0;
@@ -39633,35 +38839,54 @@ var VirtualScrollerComponent = class _VirtualScrollerComponent {
       this.refresh_internal(false, animationCompletedCallback);
       return;
     }
-    const tweenConfigObj = {
-      scrollPosition: scrollElement[this._scrollType]
-    };
-    let newTween = new Tween(tweenConfigObj).to({
-      scrollPosition
-    }, animationMilliseconds).easing(Easing.Quadratic.Out).onUpdate((data) => {
-      if (isNaN(data.scrollPosition)) {
+    const startPosition = Number(scrollElement[this._scrollType]) || 0;
+    const distance = scrollPosition - startPosition;
+    const duration = Math.max(0, animationMilliseconds);
+    let animationRequest = 0;
+    let startTime;
+    let stopped = false;
+    let completed = false;
+    const finish = () => {
+      if (completed) {
         return;
       }
-      this.renderer.setProperty(scrollElement, this._scrollType, data.scrollPosition);
-      this.refresh_internal(false);
-    }).onStop(() => {
-      cancelAnimationFrame(animationRequest);
-    }).start();
+      completed = true;
+      this.renderer.setProperty(scrollElement, this._scrollType, scrollPosition);
+      this.refresh_internal(false, animationCompletedCallback);
+      if (this.currentTween && this.currentTween.stop === stopAnimation) {
+        this.currentTween = void 0;
+      }
+    };
+    const easeOutQuadratic = (progress) => progress * (2 - progress);
+    const getNow = () => typeof performance !== "undefined" && performance.now ? performance.now() : Date.now();
+    const stopAnimation = () => {
+      stopped = true;
+      if (animationRequest) {
+        cancelAnimationFrame(animationRequest);
+      }
+    };
     const animate = (time) => {
-      if (!newTween["isPlaying"]()) {
+      if (stopped) {
         return;
       }
-      newTween.update(time);
-      if (tweenConfigObj.scrollPosition === scrollPosition) {
-        this.refresh_internal(false, animationCompletedCallback);
+      const currentTime = typeof time === "number" ? time : getNow();
+      startTime = startTime === void 0 ? currentTime : startTime;
+      const progress = duration ? Math.min((currentTime - startTime) / duration, 1) : 1;
+      const nextPosition = startPosition + distance * easeOutQuadratic(progress);
+      if (!isNaN(nextPosition)) {
+        this.renderer.setProperty(scrollElement, this._scrollType, nextPosition);
+        this.refresh_internal(false);
+      }
+      if (progress >= 1) {
+        finish();
         return;
       }
-      this.zone.runOutsideAngular(() => {
-        animationRequest = requestAnimationFrame(animate);
-      });
+      this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
     };
-    animate();
-    this.currentTween = newTween;
+    this.currentTween = {
+      stop: stopAnimation
+    };
+    this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
   }
   isAngularUniversalSSR;
   constructor(element, renderer, zone, changeDetectorRef, platformId, options) {
@@ -40578,7 +39803,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
   searchInput;
   selectedListElem;
   dropdownListElem;
-  cuppaDropdown;
+  stacklineDropdown;
   onEscapeDown(event) {
     if (this.settings.escapeToClose) {
       this.closeDropdown();
@@ -40645,6 +39870,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
     lazyLoading: false,
     labelKey: "itemName",
     primaryKey: "id",
+    theme: "classic",
+    skin: "classic",
     position: "bottom",
     autoPosition: true,
     enableFilterSelectAll: true,
@@ -40684,6 +39911,32 @@ var AngularMultiSelect = class _AngularMultiSelect {
       this.calculateDropdownDirection();
     });
     this.virtualScroollInit = false;
+  }
+  getThemeName() {
+    var rawTheme = "classic";
+    if (this.settings) {
+      rawTheme = this.settings.skin || this.settings.theme || "classic";
+    }
+    var theme = String(rawTheme).toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+    theme = theme.replace(/^-+|-+$/g, "");
+    return theme || "classic";
+  }
+  getDropdownClasses() {
+    var theme = this.getThemeName();
+    var classes = "theme-" + theme;
+    if (theme !== "classic" && theme !== "material" && theme !== "dark" && theme !== "custom") {
+      classes += " theme-custom";
+    }
+    if (this.isActive) {
+      classes += " is-open";
+    }
+    if (this.settings && this.settings.disabled) {
+      classes += " is-disabled";
+    }
+    if (this.loading) {
+      classes += " is-loading";
+    }
+    return classes;
   }
   onKeyUp(evt) {
     this.searchTerm$.next(evt.target.value);
@@ -41265,7 +40518,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   calculateDropdownDirection() {
     let shouldOpenTowardsTop = this.settings.position == "top";
-    const elem = this.cuppaDropdown.nativeElement;
+    const elem = this.stacklineDropdown.nativeElement;
     const dropdownWidth = elem.clientWidth;
     this.dropDownWidth = dropdownWidth;
     this.dropDownLeft = this.settings.tagToBody ? elem.getBoundingClientRect().x : 0;
@@ -41288,7 +40541,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
   }
   openTowardsTop(value) {
-    const elem = this.cuppaDropdown.nativeElement;
+    const elem = this.stacklineDropdown.nativeElement;
     if (value && this.selectedListElem.nativeElement.clientHeight) {
       this.dropdownListYOffset = 15 - this.selectedListElem.nativeElement.clientHeight;
       if (this.settings.tagToBody) {
@@ -41366,7 +40619,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
         \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.searchInput = _t.first);
         \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.selectedListElem = _t.first);
         \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.dropdownListElem = _t.first);
-        \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.cuppaDropdown = _t.first);
+        \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.stacklineDropdown = _t.first);
         \u0275\u0275queryRefresh(_t = \u0275\u0275loadQuery()) && (ctx.virtualScroller = _t.first);
       }
     },
@@ -41405,8 +40658,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
     standalone: false,
     features: [\u0275\u0275ProvidersFeature([DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION]), \u0275\u0275NgOnChangesFeature],
     decls: 33,
-    vars: 61,
-    consts: [["cuppaDropdown", ""], ["selectedList", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "cuppa-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["class", "c-remove clear-all", 3, "click", 4, "ngIf"], ["class", "c-angle-down", 4, "ngIf"], ["class", "c-angle-up", 4, "ngIf"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], [1, "c-remove", 3, "click"], [3, "name"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 3, "hidden", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token", 3, "hidden"], [1, "countplaceholder"], [1, "c-remove", "clear-all", 3, "click"], [1, "c-angle-down"], [1, "c-angle-up"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", 1, "c-search"], ["class", "c-clear", 3, "hidden", "click", 4, "ngIf"], ["class", "c-input", "type", "text", "aria-labelledby", "searchIcon", 3, "placeholder", "ngModel", "ngModelChange", "keyup", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], [1, "c-clear", 3, "click", "hidden"], ["type", "text", "aria-labelledby", "searchIcon", 1, "c-input", 3, "ngModelChange", "keyup", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", 3, "click", 4, "ngIf"], [1, "pure-checkbox", "select-all", 3, "click"], ["type", "checkbox", "aria-labelledby", "optionName", "aria-label", "option", 3, "checked", "disabled"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], [1, "lazyContainer"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 3, "click", "ngClass"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled", 4, "ngIf"], ["virtualScroller", "", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle"], ["type", "checkbox", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", 3, "checked", "disabled"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngIf"], ["class", "pure-checkbox", 3, "ngClass", 4, "ngIf"], [1, "pure-checkbox", 3, "ngClass"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
+    vars: 57,
+    consts: [["stacklineDropdown", ""], ["selectedList", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["class", "c-remove clear-all", 3, "click", 4, "ngIf"], ["class", "c-angle-down", 4, "ngIf"], ["class", "c-angle-up", 4, "ngIf"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], [1, "c-remove", 3, "click"], [3, "name"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 3, "hidden", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token", 3, "hidden"], [1, "countplaceholder"], [1, "c-remove", "clear-all", 3, "click"], [1, "c-angle-down"], [1, "c-angle-up"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", 1, "c-search"], ["class", "c-clear", 3, "hidden", "click", 4, "ngIf"], ["class", "c-input", "type", "text", "aria-labelledby", "searchIcon", 3, "placeholder", "ngModel", "ngModelChange", "keyup", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], [1, "c-clear", 3, "click", "hidden"], ["type", "text", "aria-labelledby", "searchIcon", 1, "c-input", 3, "ngModelChange", "keyup", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", 3, "click", 4, "ngIf"], [1, "pure-checkbox", "select-all", 3, "click"], ["type", "checkbox", "aria-labelledby", "optionName", "aria-label", "option", 3, "checked", "disabled"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], [1, "lazyContainer"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 3, "click", "ngClass"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled", 4, "ngIf"], ["virtualScroller", "", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle"], ["type", "checkbox", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", 3, "checked", "disabled"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngIf"], ["class", "pure-checkbox", 3, "ngClass", 4, "ngIf"], [1, "pure-checkbox", 3, "ngClass"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
     template: function AngularMultiSelect_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 8, 0);
@@ -41426,9 +40679,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         \u0275\u0275elementEnd()()();
       }
       if (rf & 2) {
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(42, _c9, ctx.isActive, ctx.settings.disabled, ctx.loading));
+        \u0275\u0275property("ngClass", ctx.getDropdownClasses());
         \u0275\u0275advance(4);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(46, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(42, _c9, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
         \u0275\u0275attribute("tabindex", 0)("aria-expanded", ctx.isActive)("aria-disabled", ctx.settings.disabled);
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) == 0);
@@ -41448,14 +40701,14 @@ var AngularMultiSelect = class _AngularMultiSelect {
         \u0275\u0275property("ngIf", ctx.isActive);
         \u0275\u0275advance();
         \u0275\u0275styleProp("width", ctx.dropDownWidth, "px")("top", ctx.dropDownTop)("bottom", ctx.dropDownBottom)("left", ctx.dropDownLeft, "px");
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(51, _c11, ctx.settings.tagToBody))("hidden", !ctx.isActive);
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(47, _c10, ctx.settings.tagToBody))("hidden", !ctx.isActive);
         \u0275\u0275attribute("aria-hidden", !ctx.isActive);
         \u0275\u0275advance(2);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(53, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(49, _c11, ctx.settings.position == "bottom", ctx.settings.position == "top"));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(56, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(52, _c11, ctx.settings.position == "bottom", ctx.settings.position == "top"));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(59, _c13, ctx.settings.singleSelection));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(55, _c12, ctx.settings.singleSelection));
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.settings.enableCheckAll && !ctx.settings.singleSelection && !ctx.settings.limitSelection && (ctx.data == null ? null : ctx.data.length) > 0 && !ctx.isDisabledItemPresent);
         \u0275\u0275advance();
@@ -41489,7 +40742,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       }
     },
     dependencies: () => [NgClass, NgForOf, NgIf, NgStyle, DefaultValueAccessor, NgControlStatus, NgModel, VirtualScrollerComponent, ClickOutsideDirective, TemplateRenderer, CIcon],
-    styles: ['virtual-scroll{display:block;width:100%}.cuppa-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;line-height:1.3;font-size:.85rem;font-weight:500}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{display:flex;align-items:center;min-height:48px;margin:0;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}\n'],
+    styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;z-index:9999}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n'],
     encapsulation: 2
   });
 };
@@ -41504,7 +40757,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION],
       encapsulation: ViewEncapsulation.None,
       standalone: false,
-      template: `<div class="cuppa-dropdown" [ngClass]="{'is-open': isActive, 'is-disabled': settings.disabled, 'is-loading': loading}" (clickOutside)="closeDropdownOnClickOut()" #cuppaDropdown>
+      template: `<div class="stackline-dropdown" [ngClass]="getDropdownClasses()" (clickOutside)="closeDropdownOnClickOut()" #stacklineDropdown>
     <div class="selected-list" #selectedList>
         <div class="c-btn"
             (click)="toggleDropdown($event)"
@@ -41559,10 +40812,10 @@ var AngularMultiSelect = class _AngularMultiSelect {
     </div>
     <div #dropdownList class="dropdown-list animated fadeIn"
     [ngClass]="{'tagToBody': settings.tagToBody}"
-    [style.width.px]="dropDownWidth" 
-    [style.top]="dropDownTop" 
+    [style.width.px]="dropDownWidth"
+    [style.top]="dropDownTop"
     [style.bottom]="dropDownBottom"
-    [style.left.px]="dropDownLeft" 
+    [style.left.px]="dropDownLeft"
         role="presentation"
         [attr.aria-hidden]="!isActive"
         [hidden]="!isActive">
@@ -41804,7 +41057,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     </div>
 </div>
 `,
-      styles: ['virtual-scroll{display:block;width:100%}.cuppa-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-flex;align-items:center;gap:8px;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;line-height:1.3;font-size:.85rem;font-weight:500}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{display:flex;align-items:center;min-height:48px;margin:0;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}\n']
+      styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;z-index:9999}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n']
     }]
   }], () => [{
     type: ElementRef
@@ -41906,9 +41159,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         static: false
       }]
     }],
-    cuppaDropdown: [{
+    stacklineDropdown: [{
       type: ViewChild,
-      args: ["cuppaDropdown", {
+      args: ["stacklineDropdown", {
         static: false
       }]
     }],
@@ -41957,7 +41210,7 @@ var AngularMultiSelectModule = class _AngularMultiSelectModule {
 
 // node_modules/@angular/router/fesm2022/_router-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -42387,7 +41640,8 @@ var UrlParser = class {
     this.remaining = url;
   }
   parseRootSegment() {
-    this.consumeOptional("/");
+    while (this.consumeOptional("/")) {
+    }
     if (this.remaining === "" || this.peekStartsWith("?") || this.peekStartsWith("#")) {
       return new UrlSegmentGroup([], {});
     }
@@ -45831,6 +45085,14 @@ var StateManager = class _StateManager {
     const path = url instanceof UrlTree ? this.urlSerializer.serialize(url) : url;
     return path;
   }
+  routerUrlState(navigation) {
+    if (navigation?.targetBrowserUrl === void 0 || navigation?.finalUrl === void 0) {
+      return {};
+    }
+    return {
+      \u0275routerUrl: this.urlSerializer.serialize(navigation.finalUrl)
+    };
+  }
   commitTransition({
     targetRouterState,
     finalUrl,
@@ -45928,20 +45190,21 @@ var HistoryStateManager = class _HistoryStateManager extends StateManager {
       this.currentPageId = this.browserPageId;
     }
   }
-  setBrowserUrl(path, {
-    extras,
-    id
-  }) {
+  setBrowserUrl(path, navigation) {
+    const {
+      extras,
+      id
+    } = navigation;
     const {
       replaceUrl,
       state
     } = extras;
     if (this.location.isCurrentPathEqualTo(path) || !!replaceUrl) {
       const currentBrowserPageId = this.browserPageId;
-      const newState = __spreadValues(__spreadValues({}, state), this.generateNgRouterState(id, currentBrowserPageId));
+      const newState = __spreadValues(__spreadValues({}, state), this.generateNgRouterState(id, currentBrowserPageId, navigation));
       this.location.replaceState(path, "", newState);
     } else {
-      const newState = __spreadValues(__spreadValues({}, state), this.generateNgRouterState(id, this.browserPageId + 1));
+      const newState = __spreadValues(__spreadValues({}, state), this.generateNgRouterState(id, this.browserPageId + 1, navigation));
       this.location.go(path, "", newState);
     }
   }
@@ -45972,16 +45235,16 @@ var HistoryStateManager = class _HistoryStateManager extends StateManager {
   resetUrlToCurrentUrlTree() {
     this.location.replaceState(this.urlSerializer.serialize(this.getRawUrlTree()), "", this.generateNgRouterState(this.lastSuccessfulId, this.currentPageId));
   }
-  generateNgRouterState(navigationId, routerPageId) {
+  generateNgRouterState(navigationId, routerPageId, navigation) {
     if (this.canceledNavigationResolution === "computed") {
-      return {
+      return __spreadValues({
         navigationId,
         \u0275routerPageId: routerPageId
-      };
+      }, this.routerUrlState(navigation));
     }
-    return {
+    return __spreadValues({
       navigationId
-    };
+    }, this.routerUrlState(navigation));
   }
   static \u0275fac = /* @__PURE__ */ (() => {
     let \u0275HistoryStateManager_BaseFactory;
@@ -46121,15 +45384,22 @@ var Router = class _Router {
   }
   navigateToSyncWithBrowser(url, source, state, extras) {
     const restoredState = state?.navigationId ? state : null;
+    const routerUrl = state?.\u0275routerUrl ?? url;
+    if (state?.\u0275routerUrl) {
+      extras = __spreadProps(__spreadValues({}, extras), {
+        browserUrl: url
+      });
+    }
     if (state) {
       const stateCopy = __spreadValues({}, state);
       delete stateCopy.navigationId;
       delete stateCopy.\u0275routerPageId;
+      delete stateCopy.\u0275routerUrl;
       if (Object.keys(stateCopy).length !== 0) {
         extras.state = stateCopy;
       }
     }
-    const urlTree = this.parseUrl(url);
+    const urlTree = this.parseUrl(routerUrl);
     this.scheduleNavigation(urlTree, source, restoredState, extras).catch((e) => {
       if (this.disposed) {
         return;
@@ -46217,7 +45487,7 @@ var Router = class _Router {
     try {
       return this.urlSerializer.parse(url);
     } catch (e) {
-      this.console.warn(formatRuntimeError(4018, ngDevMode && `Error parsing URL ${url}. Falling back to '/' instead. 
+      this.console.warn(formatRuntimeError(4018, ngDevMode && `Error parsing URL ${url}. Falling back to '/' instead.
 ` + e));
       return this.urlSerializer.parse("/");
     }
@@ -46309,7 +45579,7 @@ function validateCommands(commands) {
 
 // node_modules/@angular/router/fesm2022/_router_module-chunk.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -47013,6 +46283,9 @@ var RouterScroller = class _RouterScroller {
   lastSource = IMPERATIVE_NAVIGATION;
   restoredId = 0;
   store = {};
+  isHydrating = inject2(IS_HYDRATION_DOM_REUSE_ENABLED, {
+    optional: true
+  }) ?? false;
   urlSerializer = inject2(UrlSerializer);
   zone = inject2(NgZone);
   viewportScroller = inject2(ViewportScroller);
@@ -47021,6 +46294,11 @@ var RouterScroller = class _RouterScroller {
     this.options = options;
     this.options.scrollPositionRestoration ||= "disabled";
     this.options.anchorScrolling ||= "disabled";
+    if (this.isHydrating) {
+      inject2(ApplicationRef).whenStable().then(() => {
+        this.isHydrating = false;
+      });
+    }
   }
   init() {
     if (this.options.scrollPositionRestoration !== "disabled") {
@@ -47067,6 +46345,7 @@ var RouterScroller = class _RouterScroller {
     });
   }
   scheduleScrollEvent(routerEvent, anchor) {
+    if (this.isHydrating) return;
     const scroll = untracked2(this.transitions.currentNavigation)?.extras.scroll;
     this.zone.runOutsideAngular(() => __async(this, null, function* () {
       yield new Promise((resolve) => {
@@ -47209,9 +46488,7 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
   }
   navigate(internalPath, transition) {
     const path = transition.extras.skipLocationChange ? this.navigation.currentEntry.url : this.location.prepareExternalUrl(internalPath);
-    const state = __spreadProps(__spreadValues({}, transition.extras.state), {
-      navigationId: transition.id
-    });
+    const state = __spreadValues(__spreadValues({}, transition.extras.state), this.generateNgRouterState(transition));
     const info = {
       \u0275routerInfo: {
         intercept: true
@@ -47348,9 +46625,7 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
         if (transition && !transition.extras.skipLocationChange) {
           const internalPath = this.createBrowserPath(transition);
           const history = this.location.isCurrentPathEqualTo(internalPath) || !!transition.extras.replaceUrl ? "replace" : "push";
-          const state = __spreadProps(__spreadValues({}, transition.extras.state), {
-            navigationId: transition.id
-          });
+          const state = __spreadValues(__spreadValues({}, transition.extras.state), this.generateNgRouterState(transition));
           const pathOrUrl = this.location.prepareExternalUrl(internalPath);
           (yield redirect)(pathOrUrl, {
             state,
@@ -47379,6 +46654,11 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
     const eventDestination = new URL(navigateEvent.destination.url);
     const routerDestination = this.location.prepareExternalUrl(internalPath);
     return new URL(routerDestination, eventDestination.origin).href === eventDestination.href;
+  }
+  generateNgRouterState(transition) {
+    return __spreadProps(__spreadValues({}, this.routerUrlState(transition)), {
+      navigationId: transition.id
+    });
   }
   deferredCommitSupported(event) {
     return this.precommitHandlerSupported && event.cancelable;
@@ -47661,23 +46941,23 @@ function provideRouterInitializer() {
 
 // node_modules/@angular/router/fesm2022/router.mjs
 /**
- * @license Angular v21.2.8
+ * @license Angular v21.2.14
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
 
 // src/app/docs-meta.ts
 var DOCS_META = {
-  badge: "ANGULAR 21 FAMILY",
-  angularVersion: "21.0.0 -> 21.2.14",
-  packageVersion: "21.0.0",
-  packageRange: "^21.0.0",
+  badge: "ANGULAR 21 \xB7 MATERIAL REFINED",
+  angularVersion: "21.x",
+  packageVersion: "21.0.3",
+  packageRange: "^21.0.3",
   docsPath: "angular-21"
 };
 
 // src/app/app.component.ts
 var _c02 = (a0) => [a0];
-var _c19 = () => ({ exact: true });
+var _c18 = () => ({ exact: true });
 function AppComponent_a_30_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 38);
@@ -47686,7 +46966,7 @@ function AppComponent_a_30_Template(rf, ctx) {
   }
   if (rf & 2) {
     const link_r1 = ctx.$implicit;
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(3, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(5, _c19));
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(3, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(5, _c18));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", link_r1.data == null ? null : link_r1.data["label"], " ");
   }
@@ -48067,7 +47347,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275advance(7);
         \u0275\u0275property("ngForOf", ctx.apiCards);
       }
-    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect:has(.cuppa-dropdown.is-open), \n[_nghost-%COMP%]     .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .cuppa-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .cuppa-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .cuppa-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .cuppa-dropdown {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .cuppa-dropdown.is-open, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .cuppa-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular-multiselect .cuppa-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.cuppa-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .cuppa-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.cuppa-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n[_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
   }
 };
 (() => {
@@ -48226,7 +47506,7 @@ var AppComponent = class _AppComponent {
     </main>
   </div>
 </div>
-`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),\n:host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n:host ::ng-deep .preview-canvas angular-multiselect .cuppa-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .cuppa-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .cuppa-dropdown.is-open,\n:host ::ng-deep .preview-canvas angular2-multiselect .cuppa-dropdown.is-open,\n:host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,\n:host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout,\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .cuppa-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .cuppa-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.cuppa-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.cuppa-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
+`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n:host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout,\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
   }], () => [{ type: Router }, { type: ActivatedRoute }], null);
 })();
 (() => {
@@ -49722,11 +49002,11 @@ var UsingWithFormExample = class _UsingWithFormExample {
     <div class="form-group">
         <label for="name">Skills </label>
         <span style="color: red;float: right;">* required</span>
-        <angular-multiselect [data]="itemList" [(ngModel)]="formModel.skills" 
-                              [settings]="settings" 
+        <angular-multiselect [data]="itemList" [(ngModel)]="formModel.skills"
+                              [settings]="settings"
                               (onSelect)="onItemSelect($event)"
-                              (onDeSelect)="OnItemDeSelect($event)" 
-                              (onSelectAll)="onSelectAll($event)" 
+                              (onDeSelect)="OnItemDeSelect($event)"
+                              (onSelectAll)="onSelectAll($event)"
                               (onDeSelectAll)="onDeSelectAll($event)" name="skills" #skills="ngModel" required>
         </angular-multiselect>
         <div [hidden]="skills.valid" class="alert alert-danger">
@@ -49737,7 +49017,7 @@ var UsingWithFormExample = class _UsingWithFormExample {
     <div class="d-grid col-12 mx-auto">
         <button type="submit" class="btn btn-success btn-block" [disabled]="!loginForm.form.valid">Submit</button>
     </div>
-    
+
 </form>
 <table class="table">
     <tr>
@@ -51399,6 +50679,18 @@ var UsingInListExample = class _UsingInListExample {
 })();
 
 // src/app/examples/usingWithinDialog.ts
+function UsingWithinDialog_div_15_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r1 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 13);
+    \u0275\u0275listener("click", function UsingWithinDialog_div_15_Template_div_click_0_listener() {
+      \u0275\u0275restoreView(_r1);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.modalOpen = false);
+    });
+    \u0275\u0275elementEnd();
+  }
+}
 var UsingWithinDialog = class _UsingWithinDialog {
   constructor(seotitle, meta) {
     this.seotitle = seotitle;
@@ -51406,6 +50698,7 @@ var UsingWithinDialog = class _UsingWithinDialog {
     this.itemList = [];
     this.selectedItems = [];
     this.settings = {};
+    this.modalOpen = false;
     this.cssgist = false;
     this.title = "Basic example";
     this.tsgist = "CuppaLabs/ee72fbc7b21dad7e4e7664c5b1553235";
@@ -51464,16 +50757,22 @@ var UsingWithinDialog = class _UsingWithinDialog {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _UsingWithinDialog, selectors: [["ng-component"]], standalone: false, decls: 15, vars: 3, consts: [[1, "d-grid", "gap-2", "col-6", "mx-auto"], ["type", "button", "data-bs-toggle", "modal", "data-bs-target", "#exampleModal", 1, "btn", "btn-primary"], ["id", "exampleModal", "tabindex", "-1", "aria-labelledby", "exampleModalLabel", "aria-hidden", "true", 1, "modal", "fade"], [1, "modal-dialog"], [1, "modal-content"], [1, "modal-header"], ["id", "exampleModalLabel", 1, "modal-title"], ["type", "button", "data-bs-dismiss", "modal", "aria-label", "Close", 1, "btn-close"], [1, "modal-body"], [3, "ngModelChange", "onSelect", "onDeSelect", "onSelectAll", "onDeSelectAll", "data", "ngModel", "settings"], [1, "modal-footer"], ["type", "button", "data-bs-dismiss", "modal", 1, "btn", "btn-secondary"]], template: function UsingWithinDialog_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _UsingWithinDialog, selectors: [["ng-component"]], standalone: false, decls: 16, vars: 9, consts: [[1, "d-grid", "gap-2", "col-6", "mx-auto"], ["type", "button", 1, "btn", "btn-primary", 3, "click"], ["id", "exampleModal", "tabindex", "-1", "aria-labelledby", "exampleModalLabel", 1, "modal", "fade"], [1, "modal-dialog"], [1, "modal-content"], [1, "modal-header"], ["id", "exampleModalLabel", 1, "modal-title"], ["type", "button", "aria-label", "Close", 1, "btn-close", 3, "click"], [1, "modal-body"], [3, "ngModelChange", "onSelect", "onDeSelect", "onSelectAll", "onDeSelectAll", "data", "ngModel", "settings"], [1, "modal-footer"], ["type", "button", 1, "btn", "btn-secondary", 3, "click"], ["class", "modal-backdrop fade show", 3, "click", 4, "ngIf"], [1, "modal-backdrop", "fade", "show", 3, "click"]], template: function UsingWithinDialog_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "button", 1);
+        \u0275\u0275listener("click", function UsingWithinDialog_Template_button_click_1_listener() {
+          return ctx.modalOpen = true;
+        });
         \u0275\u0275text(2, " Launch demo modal ");
         \u0275\u0275elementEnd()();
         \u0275\u0275elementStart(3, "div", 2)(4, "div", 3)(5, "div", 4)(6, "div", 5)(7, "h5", 6);
         \u0275\u0275text(8, "Dropdown in Modal");
         \u0275\u0275elementEnd();
-        \u0275\u0275element(9, "button", 7);
-        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(9, "button", 7);
+        \u0275\u0275listener("click", function UsingWithinDialog_Template_button_click_9_listener() {
+          return ctx.modalOpen = false;
+        });
+        \u0275\u0275elementEnd()();
         \u0275\u0275elementStart(10, "div", 8)(11, "angular-multiselect", 9);
         \u0275\u0275twoWayListener("ngModelChange", function UsingWithinDialog_Template_angular_multiselect_ngModelChange_11_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.selectedItems, $event) || (ctx.selectedItems = $event);
@@ -51490,22 +50789,58 @@ var UsingWithinDialog = class _UsingWithinDialog {
         });
         \u0275\u0275elementEnd()();
         \u0275\u0275elementStart(12, "div", 10)(13, "button", 11);
+        \u0275\u0275listener("click", function UsingWithinDialog_Template_button_click_13_listener() {
+          return ctx.modalOpen = false;
+        });
         \u0275\u0275text(14, "Close");
         \u0275\u0275elementEnd()()()()();
+        \u0275\u0275template(15, UsingWithinDialog_div_15_Template, 1, 0, "div", 12);
       }
       if (rf & 2) {
-        \u0275\u0275advance(11);
+        \u0275\u0275advance(3);
+        \u0275\u0275styleProp("display", ctx.modalOpen ? "block" : "none");
+        \u0275\u0275classProp("show", ctx.modalOpen);
+        \u0275\u0275attribute("aria-hidden", !ctx.modalOpen);
+        \u0275\u0275advance(8);
         \u0275\u0275property("data", ctx.itemList);
         \u0275\u0275twoWayProperty("ngModel", ctx.selectedItems);
         \u0275\u0275property("settings", ctx.settings);
+        \u0275\u0275advance(4);
+        \u0275\u0275property("ngIf", ctx.modalOpen);
       }
-    }, dependencies: [NgControlStatus, NgModel, AngularMultiSelect], encapsulation: 2 });
+    }, dependencies: [NgIf, NgControlStatus, NgModel, AngularMultiSelect], encapsulation: 2 });
   }
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(UsingWithinDialog, [{
     type: Component,
-    args: [{ standalone: false, template: '<div class="d-grid gap-2 col-6 mx-auto">\n\n<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">\n    Launch demo modal\n  </button>\n</div>\n<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">\n    <div class="modal-dialog">\n      <div class="modal-content">\n        <div class="modal-header">\n          <h5 class="modal-title" id="exampleModalLabel">Dropdown in Modal</h5>\n          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>\n        </div>\n        <div class="modal-body">\n          \n <angular-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)"\n (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">\n </angular-multiselect>\n        </div>\n        <div class="modal-footer">\n          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>\n        </div>\n      </div>\n    </div>\n  </div>' }]
+    args: [{ standalone: false, template: `<div class="d-grid gap-2 col-6 mx-auto">
+
+<button type="button" class="btn btn-primary" (click)="modalOpen = true">
+    Launch demo modal
+  </button>
+</div>
+<div class="modal fade" [class.show]="modalOpen" [style.display]="modalOpen ? 'block' : 'none'" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" [attr.aria-hidden]="!modalOpen">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dropdown in Modal</h5>
+          <button type="button" class="btn-close" (click)="modalOpen = false" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+ <angular-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)"
+ (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+ </angular-multiselect>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="modalOpen = false">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show" *ngIf="modalOpen" (click)="modalOpen = false"></div>
+` }]
   }], () => [{ type: Title }, { type: Meta }], null);
 })();
 (() => {
@@ -51713,7 +51048,7 @@ var DialogContentExampleDialog = class _DialogContentExampleDialog {
   }], null, null);
 })();
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(DialogContentExampleDialog, { className: "DialogContentExampleDialog", filePath: "src/app/examples/usingWithinDialog.ts", lineNumber: 76 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(DialogContentExampleDialog, { className: "DialogContentExampleDialog", filePath: "src/app/examples/usingWithinDialog.ts", lineNumber: 77 });
 })();
 
 // src/app/app.router.ts

@@ -22,6 +22,8 @@ export interface DropdownSettings{
     lazyLoading?: boolean;
     labelKey?: string;
     primaryKey?: string;
+    theme?: string;
+    skin?: string;
     position?:string;
     loading?: boolean;
     selectGroup?: boolean;
@@ -31,4 +33,14 @@ export interface DropdownSettings{
     autoPosition?: boolean;
     clearAll?: boolean;
     tagToBody?: boolean;
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
+    listboxAriaLabel?: string;
+    searchAriaLabel?: string;
+    clearSearchAriaLabel?: string;
+    clearAllAriaLabel?: string;
+    removeItemAriaLabel?: string;
+    openDropdownAriaLabel?: string;
+    closeDropdownAriaLabel?: string;
+    loadingText?: string;
 } 

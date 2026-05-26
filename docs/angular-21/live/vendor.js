@@ -1,607 +1,5 @@
+"use strict";
 (self["webpackChunkstackline_angular21_test"] = self["webpackChunkstackline_angular21_test"] || []).push([["vendor"],{
-
-/***/ 7832
-/*!*****************************************************!*\
-  !*** ./node_modules/@tweenjs/tween.js/src/Tween.js ***!
-  \*****************************************************/
-(module, exports) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * Tween.js - Licensed under the MIT license
- * https://github.com/tweenjs/tween.js
- * ----------------------------------------------
- *
- * See https://github.com/tweenjs/tween.js/graphs/contributors for the full list of contributors.
- * Thank you all, you're awesome!
- */
-
-var _Group = function () {
-  this._tweens = {};
-  this._tweensAddedDuringUpdate = {};
-};
-_Group.prototype = {
-  getAll: function () {
-    return Object.keys(this._tweens).map(function (tweenId) {
-      return this._tweens[tweenId];
-    }.bind(this));
-  },
-  removeAll: function () {
-    this._tweens = {};
-  },
-  add: function (tween) {
-    this._tweens[tween.getId()] = tween;
-    this._tweensAddedDuringUpdate[tween.getId()] = tween;
-  },
-  remove: function (tween) {
-    delete this._tweens[tween.getId()];
-    delete this._tweensAddedDuringUpdate[tween.getId()];
-  },
-  update: function (time, preserve) {
-    var tweenIds = Object.keys(this._tweens);
-    if (tweenIds.length === 0) {
-      return false;
-    }
-    time = time !== undefined ? time : TWEEN.now();
-
-    // Tweens are updated in "batches". If you add a new tween during an update, then the
-    // new tween will be updated in the next batch.
-    // If you remove a tween during an update, it may or may not be updated. However,
-    // if the removed tween was added during the current batch, then it will not be updated.
-    while (tweenIds.length > 0) {
-      this._tweensAddedDuringUpdate = {};
-      for (var i = 0; i < tweenIds.length; i++) {
-        var tween = this._tweens[tweenIds[i]];
-        if (tween && tween.update(time) === false) {
-          tween._isPlaying = false;
-          if (!preserve) {
-            delete this._tweens[tweenIds[i]];
-          }
-        }
-      }
-      tweenIds = Object.keys(this._tweensAddedDuringUpdate);
-    }
-    return true;
-  }
-};
-var TWEEN = new _Group();
-TWEEN.Group = _Group;
-TWEEN._nextId = 0;
-TWEEN.nextId = function () {
-  return TWEEN._nextId++;
-};
-
-// Include a performance.now polyfill.
-// In node.js, use process.hrtime.
-if (typeof self === 'undefined' && typeof process !== 'undefined' && process.hrtime) {
-  TWEEN.now = function () {
-    var time = process.hrtime();
-
-    // Convert [seconds, nanoseconds] to milliseconds.
-    return time[0] * 1000 + time[1] / 1000000;
-  };
-}
-// In a browser, use self.performance.now if it is available.
-else if (typeof self !== 'undefined' && self.performance !== undefined && self.performance.now !== undefined) {
-  // This must be bound, because directly assigning this function
-  // leads to an invocation exception in Chrome.
-  TWEEN.now = self.performance.now.bind(self.performance);
-}
-// Use Date.now if it is available.
-else if (Date.now !== undefined) {
-  TWEEN.now = Date.now;
-}
-// Otherwise, use 'new Date().getTime()'.
-else {
-  TWEEN.now = function () {
-    return new Date().getTime();
-  };
-}
-TWEEN.Tween = function (object, group) {
-  this._object = object;
-  this._valuesStart = {};
-  this._valuesEnd = {};
-  this._valuesStartRepeat = {};
-  this._duration = 1000;
-  this._repeat = 0;
-  this._repeatDelayTime = undefined;
-  this._yoyo = false;
-  this._isPlaying = false;
-  this._reversed = false;
-  this._delayTime = 0;
-  this._startTime = null;
-  this._easingFunction = TWEEN.Easing.Linear.None;
-  this._interpolationFunction = TWEEN.Interpolation.Linear;
-  this._chainedTweens = [];
-  this._onStartCallback = null;
-  this._onStartCallbackFired = false;
-  this._onUpdateCallback = null;
-  this._onRepeatCallback = null;
-  this._onCompleteCallback = null;
-  this._onStopCallback = null;
-  this._group = group || TWEEN;
-  this._id = TWEEN.nextId();
-};
-TWEEN.Tween.prototype = {
-  getId: function () {
-    return this._id;
-  },
-  isPlaying: function () {
-    return this._isPlaying;
-  },
-  to: function (properties, duration) {
-    this._valuesEnd = properties;
-    if (duration !== undefined) {
-      this._duration = duration;
-    }
-    return this;
-  },
-  duration: function duration(d) {
-    this._duration = d;
-    return this;
-  },
-  start: function (time) {
-    this._group.add(this);
-    this._isPlaying = true;
-    this._onStartCallbackFired = false;
-    this._startTime = time !== undefined ? typeof time === 'string' ? TWEEN.now() + parseFloat(time) : time : TWEEN.now();
-    this._startTime += this._delayTime;
-    for (var property in this._valuesEnd) {
-      // Check if an Array was provided as property value
-      if (this._valuesEnd[property] instanceof Array) {
-        if (this._valuesEnd[property].length === 0) {
-          continue;
-        }
-
-        // Create a local copy of the Array with the start value at the front
-        this._valuesEnd[property] = [this._object[property]].concat(this._valuesEnd[property]);
-      }
-
-      // If `to()` specifies a property that doesn't exist in the source object,
-      // we should not set that property in the object
-      if (this._object[property] === undefined) {
-        continue;
-      }
-
-      // Save the starting value.
-      this._valuesStart[property] = this._object[property];
-      if (this._valuesStart[property] instanceof Array === false) {
-        this._valuesStart[property] *= 1.0; // Ensures we're using numbers, not strings
-      }
-      this._valuesStartRepeat[property] = this._valuesStart[property] || 0;
-    }
-    return this;
-  },
-  stop: function () {
-    if (!this._isPlaying) {
-      return this;
-    }
-    this._group.remove(this);
-    this._isPlaying = false;
-    if (this._onStopCallback !== null) {
-      this._onStopCallback(this._object);
-    }
-    this.stopChainedTweens();
-    return this;
-  },
-  end: function () {
-    this.update(Infinity);
-    return this;
-  },
-  stopChainedTweens: function () {
-    for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
-      this._chainedTweens[i].stop();
-    }
-  },
-  group: function (group) {
-    this._group = group;
-    return this;
-  },
-  delay: function (amount) {
-    this._delayTime = amount;
-    return this;
-  },
-  repeat: function (times) {
-    this._repeat = times;
-    return this;
-  },
-  repeatDelay: function (amount) {
-    this._repeatDelayTime = amount;
-    return this;
-  },
-  yoyo: function (yoyo) {
-    this._yoyo = yoyo;
-    return this;
-  },
-  easing: function (easingFunction) {
-    this._easingFunction = easingFunction;
-    return this;
-  },
-  interpolation: function (interpolationFunction) {
-    this._interpolationFunction = interpolationFunction;
-    return this;
-  },
-  chain: function () {
-    this._chainedTweens = arguments;
-    return this;
-  },
-  onStart: function (callback) {
-    this._onStartCallback = callback;
-    return this;
-  },
-  onUpdate: function (callback) {
-    this._onUpdateCallback = callback;
-    return this;
-  },
-  onRepeat: function onRepeat(callback) {
-    this._onRepeatCallback = callback;
-    return this;
-  },
-  onComplete: function (callback) {
-    this._onCompleteCallback = callback;
-    return this;
-  },
-  onStop: function (callback) {
-    this._onStopCallback = callback;
-    return this;
-  },
-  update: function (time) {
-    var property;
-    var elapsed;
-    var value;
-    if (time < this._startTime) {
-      return true;
-    }
-    if (this._onStartCallbackFired === false) {
-      if (this._onStartCallback !== null) {
-        this._onStartCallback(this._object);
-      }
-      this._onStartCallbackFired = true;
-    }
-    elapsed = (time - this._startTime) / this._duration;
-    elapsed = this._duration === 0 || elapsed > 1 ? 1 : elapsed;
-    value = this._easingFunction(elapsed);
-    for (property in this._valuesEnd) {
-      // Don't update properties that do not exist in the source object
-      if (this._valuesStart[property] === undefined) {
-        continue;
-      }
-      var start = this._valuesStart[property] || 0;
-      var end = this._valuesEnd[property];
-      if (end instanceof Array) {
-        this._object[property] = this._interpolationFunction(end, value);
-      } else {
-        // Parses relative end values with start as base (e.g.: +10, -3)
-        if (typeof end === 'string') {
-          if (end.charAt(0) === '+' || end.charAt(0) === '-') {
-            end = start + parseFloat(end);
-          } else {
-            end = parseFloat(end);
-          }
-        }
-
-        // Protect against non numeric properties.
-        if (typeof end === 'number') {
-          this._object[property] = start + (end - start) * value;
-        }
-      }
-    }
-    if (this._onUpdateCallback !== null) {
-      this._onUpdateCallback(this._object, elapsed);
-    }
-    if (elapsed === 1) {
-      if (this._repeat > 0) {
-        if (isFinite(this._repeat)) {
-          this._repeat--;
-        }
-
-        // Reassign starting values, restart by making startTime = now
-        for (property in this._valuesStartRepeat) {
-          if (typeof this._valuesEnd[property] === 'string') {
-            this._valuesStartRepeat[property] = this._valuesStartRepeat[property] + parseFloat(this._valuesEnd[property]);
-          }
-          if (this._yoyo) {
-            var tmp = this._valuesStartRepeat[property];
-            this._valuesStartRepeat[property] = this._valuesEnd[property];
-            this._valuesEnd[property] = tmp;
-          }
-          this._valuesStart[property] = this._valuesStartRepeat[property];
-        }
-        if (this._yoyo) {
-          this._reversed = !this._reversed;
-        }
-        if (this._repeatDelayTime !== undefined) {
-          this._startTime = time + this._repeatDelayTime;
-        } else {
-          this._startTime = time + this._delayTime;
-        }
-        if (this._onRepeatCallback !== null) {
-          this._onRepeatCallback(this._object);
-        }
-        return true;
-      } else {
-        if (this._onCompleteCallback !== null) {
-          this._onCompleteCallback(this._object);
-        }
-        for (var i = 0, numChainedTweens = this._chainedTweens.length; i < numChainedTweens; i++) {
-          // Make the chained tweens start exactly at the time they should,
-          // even if the `update()` method was called way past the duration of the tween
-          this._chainedTweens[i].start(this._startTime + this._duration);
-        }
-        return false;
-      }
-    }
-    return true;
-  }
-};
-TWEEN.Easing = {
-  Linear: {
-    None: function (k) {
-      return k;
-    }
-  },
-  Quadratic: {
-    In: function (k) {
-      return k * k;
-    },
-    Out: function (k) {
-      return k * (2 - k);
-    },
-    InOut: function (k) {
-      if ((k *= 2) < 1) {
-        return 0.5 * k * k;
-      }
-      return -0.5 * (--k * (k - 2) - 1);
-    }
-  },
-  Cubic: {
-    In: function (k) {
-      return k * k * k;
-    },
-    Out: function (k) {
-      return --k * k * k + 1;
-    },
-    InOut: function (k) {
-      if ((k *= 2) < 1) {
-        return 0.5 * k * k * k;
-      }
-      return 0.5 * ((k -= 2) * k * k + 2);
-    }
-  },
-  Quartic: {
-    In: function (k) {
-      return k * k * k * k;
-    },
-    Out: function (k) {
-      return 1 - --k * k * k * k;
-    },
-    InOut: function (k) {
-      if ((k *= 2) < 1) {
-        return 0.5 * k * k * k * k;
-      }
-      return -0.5 * ((k -= 2) * k * k * k - 2);
-    }
-  },
-  Quintic: {
-    In: function (k) {
-      return k * k * k * k * k;
-    },
-    Out: function (k) {
-      return --k * k * k * k * k + 1;
-    },
-    InOut: function (k) {
-      if ((k *= 2) < 1) {
-        return 0.5 * k * k * k * k * k;
-      }
-      return 0.5 * ((k -= 2) * k * k * k * k + 2);
-    }
-  },
-  Sinusoidal: {
-    In: function (k) {
-      return 1 - Math.cos(k * Math.PI / 2);
-    },
-    Out: function (k) {
-      return Math.sin(k * Math.PI / 2);
-    },
-    InOut: function (k) {
-      return 0.5 * (1 - Math.cos(Math.PI * k));
-    }
-  },
-  Exponential: {
-    In: function (k) {
-      return k === 0 ? 0 : Math.pow(1024, k - 1);
-    },
-    Out: function (k) {
-      return k === 1 ? 1 : 1 - Math.pow(2, -10 * k);
-    },
-    InOut: function (k) {
-      if (k === 0) {
-        return 0;
-      }
-      if (k === 1) {
-        return 1;
-      }
-      if ((k *= 2) < 1) {
-        return 0.5 * Math.pow(1024, k - 1);
-      }
-      return 0.5 * (-Math.pow(2, -10 * (k - 1)) + 2);
-    }
-  },
-  Circular: {
-    In: function (k) {
-      return 1 - Math.sqrt(1 - k * k);
-    },
-    Out: function (k) {
-      return Math.sqrt(1 - --k * k);
-    },
-    InOut: function (k) {
-      if ((k *= 2) < 1) {
-        return -0.5 * (Math.sqrt(1 - k * k) - 1);
-      }
-      return 0.5 * (Math.sqrt(1 - (k -= 2) * k) + 1);
-    }
-  },
-  Elastic: {
-    In: function (k) {
-      if (k === 0) {
-        return 0;
-      }
-      if (k === 1) {
-        return 1;
-      }
-      return -Math.pow(2, 10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI);
-    },
-    Out: function (k) {
-      if (k === 0) {
-        return 0;
-      }
-      if (k === 1) {
-        return 1;
-      }
-      return Math.pow(2, -10 * k) * Math.sin((k - 0.1) * 5 * Math.PI) + 1;
-    },
-    InOut: function (k) {
-      if (k === 0) {
-        return 0;
-      }
-      if (k === 1) {
-        return 1;
-      }
-      k *= 2;
-      if (k < 1) {
-        return -0.5 * Math.pow(2, 10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI);
-      }
-      return 0.5 * Math.pow(2, -10 * (k - 1)) * Math.sin((k - 1.1) * 5 * Math.PI) + 1;
-    }
-  },
-  Back: {
-    In: function (k) {
-      var s = 1.70158;
-      return k * k * ((s + 1) * k - s);
-    },
-    Out: function (k) {
-      var s = 1.70158;
-      return --k * k * ((s + 1) * k + s) + 1;
-    },
-    InOut: function (k) {
-      var s = 1.70158 * 1.525;
-      if ((k *= 2) < 1) {
-        return 0.5 * (k * k * ((s + 1) * k - s));
-      }
-      return 0.5 * ((k -= 2) * k * ((s + 1) * k + s) + 2);
-    }
-  },
-  Bounce: {
-    In: function (k) {
-      return 1 - TWEEN.Easing.Bounce.Out(1 - k);
-    },
-    Out: function (k) {
-      if (k < 1 / 2.75) {
-        return 7.5625 * k * k;
-      } else if (k < 2 / 2.75) {
-        return 7.5625 * (k -= 1.5 / 2.75) * k + 0.75;
-      } else if (k < 2.5 / 2.75) {
-        return 7.5625 * (k -= 2.25 / 2.75) * k + 0.9375;
-      } else {
-        return 7.5625 * (k -= 2.625 / 2.75) * k + 0.984375;
-      }
-    },
-    InOut: function (k) {
-      if (k < 0.5) {
-        return TWEEN.Easing.Bounce.In(k * 2) * 0.5;
-      }
-      return TWEEN.Easing.Bounce.Out(k * 2 - 1) * 0.5 + 0.5;
-    }
-  }
-};
-TWEEN.Interpolation = {
-  Linear: function (v, k) {
-    var m = v.length - 1;
-    var f = m * k;
-    var i = Math.floor(f);
-    var fn = TWEEN.Interpolation.Utils.Linear;
-    if (k < 0) {
-      return fn(v[0], v[1], f);
-    }
-    if (k > 1) {
-      return fn(v[m], v[m - 1], m - f);
-    }
-    return fn(v[i], v[i + 1 > m ? m : i + 1], f - i);
-  },
-  Bezier: function (v, k) {
-    var b = 0;
-    var n = v.length - 1;
-    var pw = Math.pow;
-    var bn = TWEEN.Interpolation.Utils.Bernstein;
-    for (var i = 0; i <= n; i++) {
-      b += pw(1 - k, n - i) * pw(k, i) * v[i] * bn(n, i);
-    }
-    return b;
-  },
-  CatmullRom: function (v, k) {
-    var m = v.length - 1;
-    var f = m * k;
-    var i = Math.floor(f);
-    var fn = TWEEN.Interpolation.Utils.CatmullRom;
-    if (v[0] === v[m]) {
-      if (k < 0) {
-        i = Math.floor(f = m * (1 + k));
-      }
-      return fn(v[(i - 1 + m) % m], v[i], v[(i + 1) % m], v[(i + 2) % m], f - i);
-    } else {
-      if (k < 0) {
-        return v[0] - (fn(v[0], v[0], v[1], v[1], -f) - v[0]);
-      }
-      if (k > 1) {
-        return v[m] - (fn(v[m], v[m], v[m - 1], v[m - 1], f - m) - v[m]);
-      }
-      return fn(v[i ? i - 1 : 0], v[i], v[m < i + 1 ? m : i + 1], v[m < i + 2 ? m : i + 2], f - i);
-    }
-  },
-  Utils: {
-    Linear: function (p0, p1, t) {
-      return (p1 - p0) * t + p0;
-    },
-    Bernstein: function (n, i) {
-      var fc = TWEEN.Interpolation.Utils.Factorial;
-      return fc(n) / fc(i) / fc(n - i);
-    },
-    Factorial: function () {
-      var a = [1];
-      return function (n) {
-        var s = 1;
-        if (a[n]) {
-          return a[n];
-        }
-        for (var i = n; i > 1; i--) {
-          s *= i;
-        }
-        a[n] = s;
-        return s;
-      };
-    }(),
-    CatmullRom: function (p0, p1, p2, p3, t) {
-      var v0 = (p2 - p0) * 0.5;
-      var v1 = (p3 - p1) * 0.5;
-      var t2 = t * t;
-      var t3 = t * t2;
-      return (2 * p1 - 2 * p2 + v0 + v1) * t3 + (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 + v0 * t + p1;
-    }
-  }
-};
-
-// UMD (Universal Module Definition)
-(function (root) {
-  if (true) {
-    // AMD
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-      return TWEEN;
-    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else // removed by dead control flow
-{}
-})(this);
-
-/***/ },
 
 /***/ 5797
 /*!****************************************************************!*\
@@ -609,7 +7,6 @@ TWEEN.Interpolation = {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BehaviorSubject: () => (/* binding */ BehaviorSubject)
@@ -654,7 +51,6 @@ class BehaviorSubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   COMPLETE_NOTIFICATION: () => (/* binding */ COMPLETE_NOTIFICATION),
@@ -685,7 +81,6 @@ function createNotification(kind, value, error) {
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Observable: () => (/* binding */ Observable)
@@ -792,7 +187,6 @@ function isSubscriber(value) {
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Scheduler: () => (/* binding */ Scheduler)
@@ -818,7 +212,6 @@ Scheduler.now = _scheduler_dateTimestampProvider__WEBPACK_IMPORTED_MODULE_0__.da
   \********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AnonymousSubject: () => (/* binding */ AnonymousSubject),
@@ -982,7 +375,6 @@ class AnonymousSubject extends Subject {
   \***********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EMPTY_OBSERVER: () => (/* binding */ EMPTY_OBSERVER),
@@ -1174,7 +566,6 @@ const EMPTY_OBSERVER = {
   \*************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   EMPTY_SUBSCRIPTION: () => (/* binding */ EMPTY_SUBSCRIPTION),
@@ -1317,7 +708,6 @@ function execFinalizer(finalizer) {
   \*******************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   config: () => (/* binding */ config)
@@ -1338,7 +728,6 @@ const config = {
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   forkJoin: () => (/* binding */ forkJoin)
@@ -1403,7 +792,6 @@ function forkJoin(...args) {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   from: () => (/* binding */ from)
@@ -1424,7 +812,6 @@ function from(input, scheduler) {
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   fromArrayLike: () => (/* binding */ fromArrayLike),
@@ -1566,7 +953,6 @@ function process(asyncIterable, subscriber) {
   \*****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   OperatorSubscriber: () => (/* binding */ OperatorSubscriber),
@@ -1628,7 +1014,6 @@ class OperatorSubscriber extends _Subscriber__WEBPACK_IMPORTED_MODULE_0__.Subscr
   \***********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   debounceTime: () => (/* binding */ debounceTime)
@@ -1687,7 +1072,6 @@ function debounceTime(dueTime, scheduler = _scheduler_async__WEBPACK_IMPORTED_MO
   \*******************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   distinctUntilChanged: () => (/* binding */ distinctUntilChanged)
@@ -1725,7 +1109,6 @@ function defaultCompare(a, b) {
   \**************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   map: () => (/* binding */ map)
@@ -1751,7 +1134,6 @@ function map(project, thisArg) {
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   observeOn: () => (/* binding */ observeOn)
@@ -1776,7 +1158,6 @@ function observeOn(scheduler, delay = 0) {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   subscribeOn: () => (/* binding */ subscribeOn)
@@ -1797,7 +1178,6 @@ function subscribeOn(scheduler, delay = 0) {
   \**************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tap: () => (/* binding */ tap)
@@ -1852,7 +1232,6 @@ function tap(observerOrNext, error, complete) {
   \************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleArray: () => (/* binding */ scheduleArray)
@@ -1883,7 +1262,6 @@ function scheduleArray(input, scheduler) {
   \********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleAsyncIterable: () => (/* binding */ scheduleAsyncIterable)
@@ -1920,7 +1298,6 @@ function scheduleAsyncIterable(input, scheduler) {
   \***************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleIterable: () => (/* binding */ scheduleIterable)
@@ -1969,7 +1346,6 @@ function scheduleIterable(input, scheduler) {
   \*****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleObservable: () => (/* binding */ scheduleObservable)
@@ -1992,7 +1368,6 @@ function scheduleObservable(input, scheduler) {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   schedulePromise: () => (/* binding */ schedulePromise)
@@ -2015,7 +1390,6 @@ function schedulePromise(input, scheduler) {
   \*************************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduleReadableStreamLike: () => (/* binding */ scheduleReadableStreamLike)
@@ -2036,7 +1410,6 @@ function scheduleReadableStreamLike(input, scheduler) {
   \********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   scheduled: () => (/* binding */ scheduled)
@@ -2099,7 +1472,6 @@ function scheduled(input, scheduler) {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Action: () => (/* binding */ Action)
@@ -2123,7 +1495,6 @@ class Action extends _Subscription__WEBPACK_IMPORTED_MODULE_0__.Subscription {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AsyncAction: () => (/* binding */ AsyncAction)
@@ -2224,7 +1595,6 @@ class AsyncAction extends _Action__WEBPACK_IMPORTED_MODULE_0__.Action {
   \*************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AsyncScheduler: () => (/* binding */ AsyncScheduler)
@@ -2270,7 +1640,6 @@ class AsyncScheduler extends _Scheduler__WEBPACK_IMPORTED_MODULE_0__.Scheduler {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   async: () => (/* binding */ async),
@@ -2291,7 +1660,6 @@ const async = asyncScheduler;
   \********************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   dateTimestampProvider: () => (/* binding */ dateTimestampProvider)
@@ -2311,7 +1679,6 @@ const dateTimestampProvider = {
   \***************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   intervalProvider: () => (/* binding */ intervalProvider)
@@ -2343,7 +1710,6 @@ const intervalProvider = {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   timeoutProvider: () => (/* binding */ timeoutProvider)
@@ -2375,7 +1741,6 @@ const timeoutProvider = {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   getSymbolIterator: () => (/* binding */ getSymbolIterator),
@@ -2397,7 +1762,6 @@ const iterator = getSymbolIterator();
   \******************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   observable: () => (/* binding */ observable)
@@ -2412,7 +1776,6 @@ const observable = (() => typeof Symbol === 'function' && Symbol.observable || '
   \*****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ObjectUnsubscribedError: () => (/* binding */ ObjectUnsubscribedError)
@@ -2433,7 +1796,6 @@ const ObjectUnsubscribedError = (0,_createErrorClass__WEBPACK_IMPORTED_MODULE_0_
   \*************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   UnsubscriptionError: () => (/* binding */ UnsubscriptionError)
@@ -2456,7 +1818,6 @@ ${errors.map((err, i) => `${i + 1}) ${err.toString()}`).join('\n  ')}` : '';
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   popNumber: () => (/* binding */ popNumber),
@@ -2488,7 +1849,6 @@ function popNumber(args, defaultValue) {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   argsArgArrayOrObject: () => (/* binding */ argsArgArrayOrObject)
@@ -2535,7 +1895,6 @@ function isPOJO(obj) {
   \***************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   arrRemove: () => (/* binding */ arrRemove)
@@ -2555,7 +1914,6 @@ function arrRemove(arr, item) {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createErrorClass: () => (/* binding */ createErrorClass)
@@ -2579,7 +1937,6 @@ function createErrorClass(createImpl) {
   \******************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createObject: () => (/* binding */ createObject)
@@ -2596,7 +1953,6 @@ function createObject(keys, values) {
   \******************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   captureError: () => (/* binding */ captureError),
@@ -2644,7 +2000,6 @@ function captureError(err) {
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   executeSchedule: () => (/* binding */ executeSchedule)
@@ -2672,7 +2027,6 @@ function executeSchedule(parentSubscription, scheduler, work, delay = 0, repeat 
   \**************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   identity: () => (/* binding */ identity)
@@ -2689,7 +2043,6 @@ function identity(x) {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isArrayLike: () => (/* binding */ isArrayLike)
@@ -2704,7 +2057,6 @@ const isArrayLike = x => x && typeof x.length === 'number' && typeof x !== 'func
   \*********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isAsyncIterable: () => (/* binding */ isAsyncIterable)
@@ -2723,7 +2075,6 @@ function isAsyncIterable(obj) {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isFunction: () => (/* binding */ isFunction)
@@ -2740,7 +2091,6 @@ function isFunction(value) {
   \*************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isInteropObservable: () => (/* binding */ isInteropObservable)
@@ -2761,7 +2111,6 @@ function isInteropObservable(input) {
   \****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isIterable: () => (/* binding */ isIterable)
@@ -2782,7 +2131,6 @@ function isIterable(input) {
   \***************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isPromise: () => (/* binding */ isPromise)
@@ -2801,7 +2149,6 @@ function isPromise(value) {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isReadableStreamLike: () => (/* binding */ isReadableStreamLike),
@@ -2842,7 +2189,6 @@ function isReadableStreamLike(obj) {
   \*****************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   isScheduler: () => (/* binding */ isScheduler)
@@ -2861,7 +2207,6 @@ function isScheduler(value) {
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   hasLift: () => (/* binding */ hasLift),
@@ -2895,7 +2240,6 @@ function operate(init) {
   \**********************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   mapOneOrManyArgs: () => (/* binding */ mapOneOrManyArgs)
@@ -2920,7 +2264,6 @@ function mapOneOrManyArgs(fn) {
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   noop: () => (/* binding */ noop)
@@ -2935,7 +2278,6 @@ function noop() {}
   \**********************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   pipe: () => (/* binding */ pipe),
@@ -2966,7 +2308,6 @@ function pipeFromArray(fns) {
   \**************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   reportUnhandledError: () => (/* binding */ reportUnhandledError)
@@ -2996,7 +2337,6 @@ function reportUnhandledError(err) {
   \****************************************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createInvalidObservableTypeError: () => (/* binding */ createInvalidObservableTypeError)
@@ -3013,7 +2353,6 @@ function createInvalidObservableTypeError(input) {
   \************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AsyncPipe: () => (/* binding */ AsyncPipe),
@@ -5932,7 +5271,6 @@ class CommonModule {
   \*******************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   APP_BASE_HREF: () => (/* binding */ APP_BASE_HREF),
@@ -6271,7 +5609,6 @@ function _stripOrigin(baseHref) {
   \****************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BrowserPlatformLocation: () => (/* binding */ BrowserPlatformLocation),
@@ -6414,7 +5751,6 @@ class BrowserPlatformLocation extends PlatformLocation {
   \******************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PRECOMMIT_HANDLER_SUPPORTED: () => (/* binding */ PRECOMMIT_HANDLER_SUPPORTED),
@@ -6464,7 +5800,6 @@ class PlatformNavigation {
   \**************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   XhrFactory: () => (/* binding */ XhrFactory),
@@ -6498,7 +5833,6 @@ class XhrFactory {}
   \**********************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   APP_BASE_HREF: () => (/* reexport safe */ _location_chunk_mjs__WEBPACK_IMPORTED_MODULE_1__.APP_BASE_HREF),
@@ -7981,7 +7315,6 @@ function booleanOrUrlAttribute(value) {
   \******************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Attribute: () => (/* binding */ Attribute)
@@ -8005,7 +7338,6 @@ const Attribute = {
   \*******************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AFTER_RENDER_PHASES: () => (/* binding */ AFTER_RENDER_PHASES),
@@ -26977,7 +26309,6 @@ function getDebugNode(nativeNode) {
   \***************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BASE_EFFECT_NODE: () => (/* binding */ BASE_EFFECT_NODE),
@@ -27440,7 +26771,6 @@ function runEffect(node) {
   \****************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AFTER_RENDER_SEQUENCES_TO_ADD: () => (/* binding */ AFTER_RENDER_SEQUENCES_TO_ADD),
@@ -30660,7 +29990,6 @@ function createEffectFn(node, fn) {
   \******************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   NOT_FOUND: () => (/* binding */ NOT_FOUND),
@@ -30715,7 +30044,6 @@ function isNotFound(e) {
   \*****************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   OutputEmitterRef: () => (/* binding */ OutputEmitterRef),
@@ -31153,7 +30481,6 @@ class ResourceWrappedError extends Error {
   \******************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   createLinkedSignal: () => (/* binding */ createLinkedSignal),
@@ -31269,7 +30596,6 @@ function untracked(nonReactiveReadsFn) {
   \*****************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   setAlternateWeakRefImpl: () => (/* binding */ setAlternateWeakRefImpl)
@@ -31291,7 +30617,6 @@ function setAlternateWeakRefImpl(impl) {}
   \******************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ANIMATION_MODULE_TYPE: () => (/* reexport safe */ _debug_node_chunk_mjs__WEBPACK_IMPORTED_MODULE_0__.ANIMATION_MODULE_TYPE),
@@ -34691,7 +34016,6 @@ const REQUEST_CONTEXT = new _effect_chunk2_mjs__WEBPACK_IMPORTED_MODULE_1__.Inje
   \***************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Attribute: () => (/* reexport safe */ _attribute_chunk_mjs__WEBPACK_IMPORTED_MODULE_0__.Attribute),
@@ -35468,7 +34792,6 @@ function clearAppScopedEarlyEventContract(appId, dataContainer = window) {
   \********************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AbstractControl: () => (/* binding */ AbstractControl),
@@ -40221,7 +39544,6 @@ class ReactiveFormsModule {
   \****************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BrowserDomAdapter: () => (/* binding */ BrowserDomAdapter),
@@ -40651,7 +39973,6 @@ class BrowserModule {
   \*********************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DomEventsPlugin: () => (/* binding */ DomEventsPlugin),
@@ -41367,7 +40688,6 @@ class EmulatedEncapsulationDomRenderer2 extends NoneEncapsulationDomRenderer {
   \******************************************************************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AngularMultiSelect: () => (/* binding */ AngularMultiSelect),
@@ -41390,11 +40710,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 9748);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 316);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ 819);
-/* harmony import */ var _tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tweenjs/tween.js */ 7832);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ 2575);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 4198);
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ 8764);
-
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ 2575);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ 4198);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs/operators */ 8764);
 
 
 
@@ -41452,43 +40770,38 @@ const _c5 = ["searchInput"];
 const _c6 = ["selectedList"];
 const _c7 = ["dropdownList"];
 const _c8 = ["stacklineDropdown"];
-const _c9 = (a0, a1, a2) => ({
-  "is-open": a0,
-  "is-disabled": a1,
-  "is-loading": a2
-});
-const _c10 = (a0, a1, a2, a3) => ({
+const _c9 = (a0, a1, a2, a3) => ({
   "disabled": a0,
   "is-active": a1,
   "has-selection": a2,
   "single-select-mode": a3
 });
-const _c11 = a0 => ({
+const _c10 = a0 => ({
   "tagToBody": a0
 });
-const _c12 = (a0, a1) => ({
+const _c11 = (a0, a1) => ({
   "arrow-up": a0,
   "arrow-down": a1
 });
-const _c13 = a0 => ({
+const _c12 = a0 => ({
   "single-select-mode": a0
 });
-const _c14 = a0 => ({
+const _c13 = a0 => ({
   "selected-item": a0
 });
-const _c15 = a0 => ({
+const _c14 = a0 => ({
   "height": a0
 });
-const _c16 = (a0, a1) => ({
+const _c15 = (a0, a1) => ({
   "grp-title": a0,
   "grp-item": a1
 });
-const _c17 = (a0, a1, a2) => ({
+const _c16 = (a0, a1, a2) => ({
   "grp-title": a0,
   "grp-item": a1,
   "selected-item": a2
 });
-const _c18 = (a0, a1, a2) => ({
+const _c17 = (a0, a1, a2) => ({
   "selected-item": a0,
   "grp-title": a1,
   "grp-item": a2
@@ -42082,7 +41395,7 @@ function AngularMultiSelect_div_24_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r24 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c14, ctx_r0.isSelected(item_r24) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c13, ctx_r0.isSelected(item_r24) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42131,7 +41444,7 @@ function AngularMultiSelect_div_25_li_3_Template(rf, ctx) {
   if (rf & 2) {
     const item_r29 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c14, ctx_r0.isSelected(item_r29) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c13, ctx_r0.isSelected(item_r29) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42159,7 +41472,7 @@ function AngularMultiSelect_div_25_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("max-height", ctx_r0.settings.maxHeight + "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c15, ctx_r0.settings.maxHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c14, ctx_r0.settings.maxHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", scroll_r31.viewPortItems);
   }
@@ -42192,7 +41505,7 @@ function AngularMultiSelect_div_26_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r34 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](4, _c14, ctx_r0.isSelected(item_r34) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](4, _c13, ctx_r0.isSelected(item_r34) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42240,7 +41553,7 @@ function AngularMultiSelect_div_27_li_3_Template(rf, ctx) {
   if (rf & 2) {
     const item_r39 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](4, _c14, ctx_r0.isSelected(item_r39) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](4, _c13, ctx_r0.isSelected(item_r39) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42268,7 +41581,7 @@ function AngularMultiSelect_div_27_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("max-height", ctx_r0.settings.maxHeight + "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c15, ctx_r0.settings.maxHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c14, ctx_r0.settings.maxHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", scroll2_r41.viewPortItems);
   }
@@ -42302,7 +41615,7 @@ function AngularMultiSelect_div_28_span_3_li_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c16, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c15, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42329,7 +41642,7 @@ function AngularMultiSelect_div_28_span_3_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c16, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c15, item_r45.grpTitle, !item_r45.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42371,7 +41684,7 @@ function AngularMultiSelect_div_28_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("max-height", ctx_r0.settings.maxHeight + "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c15, ctx_r0.settings.maxHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](6, _c14, ctx_r0.settings.maxHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", scroll3_r47.viewPortItems);
   }
@@ -42416,7 +41729,7 @@ function AngularMultiSelect_div_29_span_2_span_6_Template(rf, ctx) {
     const val_r52 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c16, val_r52.grpTitle, !val_r52.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c15, val_r52.grpTitle, !val_r52.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42444,7 +41757,7 @@ function AngularMultiSelect_div_29_span_2_Template(rf, ctx) {
     const item_r49 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c16, item_r49.grpTitle, !item_r49.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c15, item_r49.grpTitle, !item_r49.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42487,7 +41800,7 @@ function AngularMultiSelect_div_30_span_4_li_1_Template(rf, ctx) {
   if (rf & 2) {
     const item_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c17, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c16, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox && !item_r55.grpTitle && !ctx_r0.settings.singleSelection);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42524,7 +41837,7 @@ function AngularMultiSelect_div_30_span_4_li_2_Template(rf, ctx) {
   if (rf & 2) {
     const item_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c17, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c16, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox && !item_r55.grpTitle);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42576,9 +41889,9 @@ function AngularMultiSelect_div_30_Template(rf, ctx) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("max-height", ctx_r0.settings.maxHeight + "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("items", ctx_r0.groupedData)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](8, _c15, ctx_r0.settings.maxHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("items", ctx_r0.groupedData)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](8, _c14, ctx_r0.settings.maxHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](10, _c15, ctx_r0.settings.maxHeight + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](10, _c14, ctx_r0.settings.maxHeight + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", scroll4_r59.viewPortItems);
   }
@@ -42624,7 +41937,7 @@ function AngularMultiSelect_div_31_span_2_span_6_Template(rf, ctx) {
     const val_r64 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c18, ctx_r0.isSelected(val_r64) == true, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](3, _c17, ctx_r0.isSelected(val_r64) == true, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -42652,7 +41965,7 @@ function AngularMultiSelect_div_31_span_2_Template(rf, ctx) {
     const item_r61 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c16, item_r61.grpTitle, !item_r61.grpTitle && !ctx_r0.settings.singleSelection));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c15, item_r61.grpTitle, !item_r61.grpTitle && !ctx_r0.settings.singleSelection));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
@@ -43554,7 +42867,6 @@ class VirtualScrollerComponent {
     scrollPosition += this.getElementsOffset();
     animationMilliseconds = animationMilliseconds === undefined ? this.scrollAnimationTime : animationMilliseconds;
     let scrollElement = this.getScrollElement();
-    let animationRequest;
     if (this.currentTween) {
       this.currentTween.stop();
       this.currentTween = undefined;
@@ -43564,35 +42876,54 @@ class VirtualScrollerComponent {
       this.refresh_internal(false, animationCompletedCallback);
       return;
     }
-    const tweenConfigObj = {
-      scrollPosition: scrollElement[this._scrollType]
-    };
-    let newTween = new _tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_7__.Tween(tweenConfigObj).to({
-      scrollPosition
-    }, animationMilliseconds).easing(_tweenjs_tween_js__WEBPACK_IMPORTED_MODULE_7__.Easing.Quadratic.Out).onUpdate(data => {
-      if (isNaN(data.scrollPosition)) {
+    const startPosition = Number(scrollElement[this._scrollType]) || 0;
+    const distance = scrollPosition - startPosition;
+    const duration = Math.max(0, animationMilliseconds);
+    let animationRequest = 0;
+    let startTime;
+    let stopped = false;
+    let completed = false;
+    const finish = () => {
+      if (completed) {
         return;
       }
-      this.renderer.setProperty(scrollElement, this._scrollType, data.scrollPosition);
-      this.refresh_internal(false);
-    }).onStop(() => {
-      cancelAnimationFrame(animationRequest);
-    }).start();
+      completed = true;
+      this.renderer.setProperty(scrollElement, this._scrollType, scrollPosition);
+      this.refresh_internal(false, animationCompletedCallback);
+      if (this.currentTween && this.currentTween.stop === stopAnimation) {
+        this.currentTween = undefined;
+      }
+    };
+    const easeOutQuadratic = progress => progress * (2 - progress);
+    const getNow = () => typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now();
+    const stopAnimation = () => {
+      stopped = true;
+      if (animationRequest) {
+        cancelAnimationFrame(animationRequest);
+      }
+    };
     const animate = time => {
-      if (!newTween["isPlaying"]()) {
+      if (stopped) {
         return;
       }
-      newTween.update(time);
-      if (tweenConfigObj.scrollPosition === scrollPosition) {
-        this.refresh_internal(false, animationCompletedCallback);
+      const currentTime = typeof time === 'number' ? time : getNow();
+      startTime = startTime === undefined ? currentTime : startTime;
+      const progress = duration ? Math.min((currentTime - startTime) / duration, 1) : 1;
+      const nextPosition = startPosition + distance * easeOutQuadratic(progress);
+      if (!isNaN(nextPosition)) {
+        this.renderer.setProperty(scrollElement, this._scrollType, nextPosition);
+        this.refresh_internal(false);
+      }
+      if (progress >= 1) {
+        finish();
         return;
       }
-      this.zone.runOutsideAngular(() => {
-        animationRequest = requestAnimationFrame(animate);
-      });
+      this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
     };
-    animate();
-    this.currentTween = newTween;
+    this.currentTween = {
+      stop: stopAnimation
+    };
+    this.zone.runOutsideAngular(() => animationRequest = requestAnimationFrame(animate));
   }
   isAngularUniversalSSR;
   constructor(element, renderer, zone, changeDetectorRef, platformId, options) {
@@ -44583,6 +43914,8 @@ class AngularMultiSelect {
     lazyLoading: false,
     labelKey: 'itemName',
     primaryKey: 'id',
+    theme: 'classic',
+    skin: 'classic',
     position: 'bottom',
     autoPosition: true,
     enableFilterSelectAll: true,
@@ -44603,7 +43936,7 @@ class AngularMultiSelect {
     this._elementRef = _elementRef;
     this.cdr = cdr;
     this.filterPipe = filterPipe;
-    this.searchTerm$.asObservable().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_8__.debounceTime)(1000), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.distinctUntilChanged)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_10__.tap)(term => term)).subscribe(val => {
+    this.searchTerm$.asObservable().pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_7__.debounceTime)(1000), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_8__.distinctUntilChanged)(), (0,rxjs_operators__WEBPACK_IMPORTED_MODULE_9__.tap)(term => term)).subscribe(val => {
       this.filterInfiniteList(val);
     });
   }
@@ -44622,6 +43955,32 @@ class AngularMultiSelect {
       this.calculateDropdownDirection();
     });
     this.virtualScroollInit = false;
+  }
+  getThemeName() {
+    var rawTheme = 'classic';
+    if (this.settings) {
+      rawTheme = this.settings.skin || this.settings.theme || 'classic';
+    }
+    var theme = String(rawTheme).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
+    theme = theme.replace(/^-+|-+$/g, '');
+    return theme || 'classic';
+  }
+  getDropdownClasses() {
+    var theme = this.getThemeName();
+    var classes = 'theme-' + theme;
+    if (theme !== 'classic' && theme !== 'material' && theme !== 'dark' && theme !== 'custom') {
+      classes += ' theme-custom';
+    }
+    if (this.isActive) {
+      classes += ' is-open';
+    }
+    if (this.settings && this.settings.disabled) {
+      classes += ' is-disabled';
+    }
+    if (this.loading) {
+      classes += ' is-loading';
+    }
+    return classes;
   }
   onKeyUp(evt) {
     this.searchTerm$.next(evt.target.value);
@@ -45356,7 +44715,7 @@ class AngularMultiSelect {
     standalone: false,
     features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]],
     decls: 33,
-    vars: 61,
+    vars: 57,
     consts: [["stacklineDropdown", ""], ["selectedList", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["class", "c-remove clear-all", 3, "click", 4, "ngIf"], ["class", "c-angle-down", 4, "ngIf"], ["class", "c-angle-up", 4, "ngIf"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], [1, "c-remove", 3, "click"], [3, "name"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 3, "hidden", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token", 3, "hidden"], [1, "countplaceholder"], [1, "c-remove", "clear-all", 3, "click"], [1, "c-angle-down"], [1, "c-angle-up"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", 1, "c-search"], ["class", "c-clear", 3, "hidden", "click", 4, "ngIf"], ["class", "c-input", "type", "text", "aria-labelledby", "searchIcon", 3, "placeholder", "ngModel", "ngModelChange", "keyup", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], [1, "c-clear", 3, "click", "hidden"], ["type", "text", "aria-labelledby", "searchIcon", 1, "c-input", 3, "ngModelChange", "keyup", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", 3, "click", 4, "ngIf"], [1, "pure-checkbox", "select-all", 3, "click"], ["type", "checkbox", "aria-labelledby", "optionName", "aria-label", "option", 3, "checked", "disabled"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], [1, "lazyContainer"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "pure-checkbox", 3, "click", "ngClass"], ["type", "checkbox", "aria-labelledby", "option", 3, "checked", "disabled", 4, "ngIf"], ["virtualScroller", "", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle"], ["type", "checkbox", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", 3, "checked", "disabled"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox", 3, "ngClass", "click", 4, "ngIf"], ["class", "pure-checkbox", 3, "ngClass", 4, "ngIf"], [1, "pure-checkbox", 3, "ngClass"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
     template: function AngularMultiSelect_Template(rf, ctx) {
       if (rf & 1) {
@@ -45377,9 +44736,9 @@ class AngularMultiSelect {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()()();
       }
       if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction3"](42, _c9, ctx.isActive, ctx.settings.disabled, ctx.loading));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", ctx.getDropdownClasses());
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction4"](46, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction4"](42, _c9, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("tabindex", 0)("aria-expanded", ctx.isActive)("aria-disabled", ctx.settings.disabled);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) == 0);
@@ -45399,14 +44758,14 @@ class AngularMultiSelect {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.isActive);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵstyleProp"]("width", ctx.dropDownWidth, "px")("top", ctx.dropDownTop)("bottom", ctx.dropDownBottom)("left", ctx.dropDownLeft, "px");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](51, _c11, ctx.settings.tagToBody))("hidden", !ctx.isActive);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](47, _c10, ctx.settings.tagToBody))("hidden", !ctx.isActive);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵattribute"]("aria-hidden", !ctx.isActive);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](53, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](49, _c11, ctx.settings.position == "bottom", ctx.settings.position == "top"));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](56, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](52, _c11, ctx.settings.position == "bottom", ctx.settings.position == "top"));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](59, _c13, ctx.settings.singleSelection));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](55, _c12, ctx.settings.singleSelection));
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.settings.enableCheckAll && !ctx.settings.singleSelection && !ctx.settings.limitSelection && (ctx.data == null ? null : ctx.data.length) > 0 && !ctx.isDisabledItemPresent);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
@@ -45440,7 +44799,7 @@ class AngularMultiSelect {
       }
     },
     dependencies: () => [_angular_common__WEBPACK_IMPORTED_MODULE_4__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgStyle, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgModel, VirtualScrollerComponent, ClickOutsideDirective, TemplateRenderer, CIcon],
-    styles: ["virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}\n"],
+    styles: ["virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;z-index:9999}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n"],
     encapsulation: 2
   });
 }
@@ -45455,8 +44814,8 @@ class AngularMultiSelect {
       providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION],
       encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ViewEncapsulation.None,
       standalone: false,
-      template: "<div class=\"stackline-dropdown\" [ngClass]=\"{'is-open': isActive, 'is-disabled': settings.disabled, 'is-loading': loading}\" (clickOutside)=\"closeDropdownOnClickOut()\" #stacklineDropdown>\n    <div class=\"selected-list\" #selectedList>\n        <div class=\"c-btn\"\n            (click)=\"toggleDropdown($event)\"\n            [ngClass]=\"{'disabled': settings.disabled, 'is-active': isActive, 'has-selection': selectedItems?.length > 0, 'single-select-mode': settings.singleSelection}\"\n            [attr.tabindex]=\"0\"\n            role=\"combobox\"\n            aria-haspopup=\"listbox\"\n            [attr.aria-expanded]=\"isActive\"\n            [attr.aria-disabled]=\"settings.disabled\">\n\n            <span class=\"c-placeholder\" *ngIf=\"selectedItems?.length == 0\">{{settings.text}}</span>\n            <span class=\"c-single-value\" *ngIf=\"settings.singleSelection && !badgeTempl\">\n                <span *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    {{item[settings.labelKey]}}\n                </span>\n            </span>\n            <span class=\"c-list c-chip-list\" *ngIf=\"selectedItems?.length > 0 && settings.singleSelection && badgeTempl \">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </span>\n            <div class=\"c-list c-chip-list\" *ngIf=\"selectedItems?.length > 0 && !settings.singleSelection\">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\" [hidden]=\"k > settings.badgeShowLimit-1\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </div>\n            <span class=\"countplaceholder\" *ngIf=\"selectedItems?.length > settings.badgeShowLimit\">+{{selectedItems?.length - settings.badgeShowLimit }}</span>\n            <span class=\"c-remove clear-all\" *ngIf=\"settings.clearAll && selectedItems?.length > 0 && !settings.disabled\" (click)=\"clearSelection($event);$event.stopPropagation()\">\n                <c-icon [name]=\"'remove'\"></c-icon>\n            </span>\n            <span *ngIf=\"!isActive\" class=\"c-angle-down\">\n                <c-icon [name]=\"'angle-down'\"></c-icon>\n            </span>\n            <span *ngIf=\"isActive\" class=\"c-angle-up\">\n                <c-icon [name]=\"'angle-up'\"></c-icon>\n\n            </span>\n        </div>\n    </div>\n    <div #dropdownList class=\"dropdown-list animated fadeIn\"\n    [ngClass]=\"{'tagToBody': settings.tagToBody}\"\n    [style.width.px]=\"dropDownWidth\" \n    [style.top]=\"dropDownTop\" \n    [style.bottom]=\"dropDownBottom\"\n    [style.left.px]=\"dropDownLeft\" \n        role=\"presentation\"\n        [attr.aria-hidden]=\"!isActive\"\n        [hidden]=\"!isActive\">\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\" class=\"arrow-2\"></div>\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\"></div>\n        <div class=\"list-area\" [ngClass]=\"{'single-select-mode': settings.singleSelection }\">\n            <div class=\"pure-checkbox select-all\" *ngIf=\"settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent\"\n                >\n                <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                [id]=\"id\" (change)=\"toggleSelectAll($event)\"/>\n                <label [for]=\"id\">\n                    <span [hidden]=\"isSelectAll\">{{settings.selectAllText}}</span>\n                    <span [hidden]=\"!isSelectAll\">{{settings.unSelectAllText}}</span>\n                </label>\n            </div>\n            <img class=\"loading-icon\" *ngIf=\"loading\" src=\"assets/img/loading.gif\" />\n            <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter\">\n                <span class=\"c-search\" id=\"searchIcon\">\n                    <c-icon [name]=\"'search'\"></c-icon>\n                </span>\n                <span *ngIf=\"!settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"clearSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n                <span *ngIf=\"settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"resetInfiniteSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n\n                <input class=\"c-input\" *ngIf=\"settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"filterGroupedList()\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"!settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"filteritems($event)\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"onKeyUp($event)\" aria-labelledby=\"searchIcon\">\n                <!--            <input class=\"c-input\" *ngIf=\"!settings.lazyLoading && !searchTempl && settings.groupBy\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                [(ngModel)]=\"filter\" (keyup)=\"filterGroupList($event)\">-->\n                <c-templateRenderer *ngIf=\"searchTempl\" [data]=\"searchTempl\" [item]=\"item\"></c-templateRenderer>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"!settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"!settings.groupBy && filter?.length > 0 && filterLength > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\" aria-labelledby=\"optionName\"\n                    aria-label=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n                <div class=\"pure-checkbox select-all\" *ngIf=\"settings.groupBy && filter?.length > 0 && groupedData?.length > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll && filter?.length > 0\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent && !settings.singleSelection\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"filter?.length > 0 && infiniteFilterLength > 0\" (click)=\"toggleInfiniteFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isInfiniteFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isInfiniteFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isInfiniteFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"filter?.length\">\n                <div class=\"btn-container\" *ngIf=\"settings.addNewItemOnFilter\">\n                    <button class=\"c-btn btn-iceblue\" (click)=\"addFilterNewItem()\">{{settings.addNewButtonText}}</button>\n                </div>\n            </div>\n\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        aria-labelledby=\"option\"/>\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <li *ngFor=\"let item of scroll.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- custom template -->\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading and custom template -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll2 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" class=\"lazyContainer\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <li *ngFor=\"let item of scroll2.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading, group By and custom template -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll3 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <span *ngFor=\"let item of scroll3.viewPortItems; let i = index;\">\n                        <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                        <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- group By and custom template -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label></label>\n                                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"val\"></c-templateRenderer>\n                                    </li>\n                                </span>\n                            </ul>\n\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- lazy loading, group By -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <virtual-scroller [items]=\"groupedData\" (vsUpdate)=\"viewPortItems = $event\" (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <ul virtualScroller #scroll4 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                        (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                        <span *ngFor=\"let item of scroll4.viewPortItems; let i = index;\">\n                            <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\"\n                                    [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                            <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                        </span>\n                    </ul>\n                </virtual-scroller>\n            </div>\n            <!-- group By -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData ; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'selected-item': isSelected(val) == true,'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label>{{val[settings.labelKey]}}</label>\n                                    </li>\n                                </span>\n                            </ul>\n                        </li>\n                    </span>\n                    <!-- <span *ngFor=\"let item of groupedData ; let i = index;\">\n                    <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                <li *ngIf=\"item.grpTitle && !settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                 <li  (click)=\"selectGroup(item)\" *ngIf=\"item.grpTitle && settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                </span> -->\n                </ul>\n            </div>\n            <h5 class=\"list-message\" *ngIf=\"data?.length == 0\">{{settings.noDataLabel}}</h5>\n        </div>\n    </div>\n</div>\n",
-      styles: ["virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}\n"]
+      template: "<div class=\"stackline-dropdown\" [ngClass]=\"getDropdownClasses()\" (clickOutside)=\"closeDropdownOnClickOut()\" #stacklineDropdown>\n    <div class=\"selected-list\" #selectedList>\n        <div class=\"c-btn\"\n            (click)=\"toggleDropdown($event)\"\n            [ngClass]=\"{'disabled': settings.disabled, 'is-active': isActive, 'has-selection': selectedItems?.length > 0, 'single-select-mode': settings.singleSelection}\"\n            [attr.tabindex]=\"0\"\n            role=\"combobox\"\n            aria-haspopup=\"listbox\"\n            [attr.aria-expanded]=\"isActive\"\n            [attr.aria-disabled]=\"settings.disabled\">\n\n            <span class=\"c-placeholder\" *ngIf=\"selectedItems?.length == 0\">{{settings.text}}</span>\n            <span class=\"c-single-value\" *ngIf=\"settings.singleSelection && !badgeTempl\">\n                <span *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    {{item[settings.labelKey]}}\n                </span>\n            </span>\n            <span class=\"c-list c-chip-list\" *ngIf=\"selectedItems?.length > 0 && settings.singleSelection && badgeTempl \">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </span>\n            <div class=\"c-list c-chip-list\" *ngIf=\"selectedItems?.length > 0 && !settings.singleSelection\">\n                <div class=\"c-token\" *ngFor=\"let item of selectedItems;trackBy: trackByFn.bind(this);let k = index\" [hidden]=\"k > settings.badgeShowLimit-1\">\n                    <span *ngIf=\"!badgeTempl\" class=\"c-label\">{{item[settings.labelKey]}}</span>\n                    <span *ngIf=\"badgeTempl\" class=\"c-label\">\n                        <c-templateRenderer [data]=\"badgeTempl\" [item]=\"item\"></c-templateRenderer>\n                    </span>\n                    <span class=\"c-remove\" (click)=\"onItemClick(item,k,$event);$event.stopPropagation()\">\n                        <c-icon [name]=\"'remove'\"></c-icon>\n                    </span>\n                </div>\n            </div>\n            <span class=\"countplaceholder\" *ngIf=\"selectedItems?.length > settings.badgeShowLimit\">+{{selectedItems?.length - settings.badgeShowLimit }}</span>\n            <span class=\"c-remove clear-all\" *ngIf=\"settings.clearAll && selectedItems?.length > 0 && !settings.disabled\" (click)=\"clearSelection($event);$event.stopPropagation()\">\n                <c-icon [name]=\"'remove'\"></c-icon>\n            </span>\n            <span *ngIf=\"!isActive\" class=\"c-angle-down\">\n                <c-icon [name]=\"'angle-down'\"></c-icon>\n            </span>\n            <span *ngIf=\"isActive\" class=\"c-angle-up\">\n                <c-icon [name]=\"'angle-up'\"></c-icon>\n\n            </span>\n        </div>\n    </div>\n    <div #dropdownList class=\"dropdown-list animated fadeIn\"\n    [ngClass]=\"{'tagToBody': settings.tagToBody}\"\n    [style.width.px]=\"dropDownWidth\" \n    [style.top]=\"dropDownTop\" \n    [style.bottom]=\"dropDownBottom\"\n    [style.left.px]=\"dropDownLeft\" \n        role=\"presentation\"\n        [attr.aria-hidden]=\"!isActive\"\n        [hidden]=\"!isActive\">\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\" class=\"arrow-2\"></div>\n        <div [ngClass]=\"{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}\"></div>\n        <div class=\"list-area\" [ngClass]=\"{'single-select-mode': settings.singleSelection }\">\n            <div class=\"pure-checkbox select-all\" *ngIf=\"settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent\"\n                >\n                <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                [id]=\"id\" (change)=\"toggleSelectAll($event)\"/>\n                <label [for]=\"id\">\n                    <span [hidden]=\"isSelectAll\">{{settings.selectAllText}}</span>\n                    <span [hidden]=\"!isSelectAll\">{{settings.unSelectAllText}}</span>\n                </label>\n            </div>\n            <img class=\"loading-icon\" *ngIf=\"loading\" src=\"assets/img/loading.gif\" />\n            <div class=\"list-filter\" *ngIf=\"settings.enableSearchFilter\">\n                <span class=\"c-search\" id=\"searchIcon\">\n                    <c-icon [name]=\"'search'\"></c-icon>\n                </span>\n                <span *ngIf=\"!settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"clearSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n                <span *ngIf=\"settings.lazyLoading\" [hidden]=\"filter == undefined || filter?.length == 0\" class=\"c-clear\" (click)=\"resetInfiniteSearch()\">\n                    <c-icon [name]=\"'clear'\"></c-icon>\n                </span>\n\n                <input class=\"c-input\" *ngIf=\"settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"filterGroupedList()\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"!settings.groupBy && !settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"filteritems($event)\" aria-labelledby=\"searchIcon\">\n                <input class=\"c-input\" *ngIf=\"settings.lazyLoading && !searchTempl\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                    [(ngModel)]=\"filter\" (keyup)=\"onKeyUp($event)\" aria-labelledby=\"searchIcon\">\n                <!--            <input class=\"c-input\" *ngIf=\"!settings.lazyLoading && !searchTempl && settings.groupBy\" #searchInput type=\"text\" [placeholder]=\"settings.searchPlaceholderText\"\n                [(ngModel)]=\"filter\" (keyup)=\"filterGroupList($event)\">-->\n                <c-templateRenderer *ngIf=\"searchTempl\" [data]=\"searchTempl\" [item]=\"item\"></c-templateRenderer>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"!settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"!settings.groupBy && filter?.length > 0 && filterLength > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\" aria-labelledby=\"optionName\"\n                    aria-label=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n                <div class=\"pure-checkbox select-all\" *ngIf=\"settings.groupBy && filter?.length > 0 && groupedData?.length > 0  && !settings.singleSelection\" (click)=\"toggleFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isFilterSelectAll && filter?.length > 0\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"settings.lazyLoading && settings.enableFilterSelectAll && !isDisabledItemPresent && !settings.singleSelection\">\n                <div class=\"pure-checkbox select-all\" *ngIf=\"filter?.length > 0 && infiniteFilterLength > 0\" (click)=\"toggleInfiniteFilterSelectAll()\">\n                    <input type=\"checkbox\" [checked]=\"isInfiniteFilterSelectAll\" [disabled]=\"settings.limitSelection == selectedItems?.length\"\n                    aria-labelledby=\"option\"/>\n                    <label>\n                        <span [hidden]=\"isInfiniteFilterSelectAll\">{{settings.filterSelectAllText}}</span>\n                        <span [hidden]=\"!isInfiniteFilterSelectAll\">{{settings.filterUnSelectAllText}}</span>\n                    </label>\n                </div>\n            </div>\n            <div class=\"filter-select-all\" *ngIf=\"filter?.length\">\n                <div class=\"btn-container\" *ngIf=\"settings.addNewItemOnFilter\">\n                    <button class=\"c-btn btn-iceblue\" (click)=\"addFilterNewItem()\">{{settings.addNewButtonText}}</button>\n                </div>\n            </div>\n\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        aria-labelledby=\"option\"/>\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <li *ngFor=\"let item of scroll.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label>{{item[settings.labelKey]}}</label>\n                    </li>\n                </ul>\n            </div>\n            <!-- custom template -->\n            <div *ngIf=\"!settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <li *ngFor=\"let item of data; let i = index;\" (click)=\"onItemClick(item,i,$event)\"\n                        class=\"pure-checkbox\" [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading and custom template -->\n            <div *ngIf=\"!settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll2 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" class=\"lazyContainer\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <li *ngFor=\"let item of scroll2.viewPortItems; let i = index;\" (click)=\"onItemClick(item,i,$event)\" class=\"pure-checkbox\"\n                        [ngClass]=\"{'selected-item': isSelected(item) == true }\">\n                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                        />\n                        <label></label>\n                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                    </li>\n                </ul>\n            </div>\n            <!-- lazy loading, group By and custom template -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul virtualScroller #scroll3 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                    (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                    <span *ngFor=\"let item of scroll3.viewPortItems; let i = index;\">\n                        <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                        <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label></label>\n                            <c-templateRenderer [data]=\"itemTempl\" [item]=\"item\"></c-templateRenderer>\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- group By and custom template -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl != undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label></label>\n                                        <c-templateRenderer [data]=\"itemTempl\" [item]=\"val\"></c-templateRenderer>\n                                    </li>\n                                </span>\n                            </ul>\n\n                        </li>\n                    </span>\n                </ul>\n            </div>\n            <!-- lazy loading, group By -->\n            <div *ngIf=\"settings.groupBy && settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <virtual-scroller [items]=\"groupedData\" (vsUpdate)=\"viewPortItems = $event\" (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\">\n                    <ul virtualScroller #scroll4 [enableUnequalChildrenSizes]=\"randomSize\" [items]=\"virtualdata\" (vsStart)=\"onScrollEnd($event)\"\n                        (vsEnd)=\"onScrollEnd($event)\" [ngStyle]=\"{'height': settings.maxHeight+'px'}\" class=\"lazyContainer\">\n                        <span *ngFor=\"let item of scroll4.viewPortItems; let i = index;\">\n                            <li *ngIf=\"item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle && !settings.singleSelection\" type=\"checkbox\" [checked]=\"isSelected(item)\"\n                                    [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                            <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true }\"\n                                class=\"pure-checkbox\">\n                                <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                                />\n                                <label>{{item[settings.labelKey]}}</label>\n                            </li>\n                        </span>\n                    </ul>\n                </virtual-scroller>\n            </div>\n            <!-- group By -->\n            <div *ngIf=\"settings.groupBy && !settings.lazyLoading && itemTempl == undefined\" [style.maxHeight]=\"settings.maxHeight+'px'\"\n                style=\"overflow: auto;\">\n                <ul class=\"lazyContainer\">\n                    <span *ngFor=\"let item of groupedData ; let i = index;\">\n                        <li (click)=\"selectGroup(item)\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}\"\n                            class=\"pure-checkbox\">\n                            <input *ngIf=\"settings.showCheckbox && !settings.singleSelection\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled\"\n                            />\n                            <label>{{item[settings.labelKey]}}</label>\n                            <ul class=\"lazyContainer\">\n                                <span *ngFor=\"let val of item.list ; let j = index;\">\n                                    <li (click)=\"onItemClick(val,j,$event); $event.stopPropagation()\" [ngClass]=\"{'selected-item': isSelected(val) == true,'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection}\"\n                                        class=\"pure-checkbox\">\n                                        <input *ngIf=\"settings.showCheckbox\" type=\"checkbox\" [checked]=\"isSelected(val)\" [disabled]=\"(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled\"\n                                        />\n                                        <label>{{val[settings.labelKey]}}</label>\n                                    </li>\n                                </span>\n                            </ul>\n                        </li>\n                    </span>\n                    <!-- <span *ngFor=\"let item of groupedData ; let i = index;\">\n                    <li (click)=\"onItemClick(item,i,$event)\" *ngIf=\"!item.grpTitle\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && !item.grpTitle\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                <li *ngIf=\"item.grpTitle && !settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"isSelected(item)\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                 <li  (click)=\"selectGroup(item)\" *ngIf=\"item.grpTitle && settings.selectGroup\" [ngClass]=\"{'grp-title': item.grpTitle,'grp-item': !item.grpTitle}\" class=\"pure-checkbox\">\n                    <input *ngIf=\"settings.showCheckbox && settings.selectGroup\" type=\"checkbox\" [checked]=\"item.selected\" [disabled]=\"settings.limitSelection == selectedItems?.length && !isSelected(item)\"\n                    />\n                    <label>{{item[settings.labelKey]}}</label>\n                </li>\n                </span> -->\n                </ul>\n            </div>\n            <h5 class=\"list-message\" *ngIf=\"data?.length == 0\">{{settings.noDataLabel}}</h5>\n        </div>\n    </div>\n</div>\n",
+      styles: ["virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:none}.dropdown-list{position:absolute;width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:#f7f2fac2}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:\"\";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;z-index:9999}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n"]
     }]
   }], () => [{
     type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef
@@ -45618,7 +44977,6 @@ class AngularMultiSelectModule {
   \*********************************************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _asyncToGenerator)
@@ -45658,7 +45016,6 @@ function _asyncToGenerator(n) {
   \******************************************/
 (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   __addDisposableResource: () => (/* binding */ __addDisposableResource),

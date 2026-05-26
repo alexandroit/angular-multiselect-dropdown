@@ -363,7 +363,7 @@ function AppComponent_p_57_Template(rf, ctx) {
 class AppComponent {
   constructor() {
     this.angularVersion = '21.2.14';
-    this.packageVersion = '21.0.2';
+    this.packageVersion = '21.1.0';
     this.countries = [{
       id: 1,
       itemName: 'Brazil'

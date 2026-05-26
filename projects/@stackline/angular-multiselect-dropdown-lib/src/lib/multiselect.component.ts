@@ -90,6 +90,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     @ViewChild('selectedList', { static: false }) selectedListElem: ElementRef;
     @ViewChild('dropdownList', { static: false }) dropdownListElem: ElementRef;
     @ViewChild('stacklineDropdown', { static: false }) stacklineDropdown: ElementRef;
+    @ViewChild('triggerButton', { static: false }) triggerButton: ElementRef;
 
     @HostListener('document:keyup.escape', ['$event'])
     onEscapeDown(event: Event) {
@@ -146,6 +147,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     public dropDownBottom: string | null = null;
     public dropDownLeft: number = 0;
     public id: any = Math.random().toString(36).substring(2)
+    public listboxId: string = 'stackline-listbox-' + this.id;
+    public activeDescendantId: string | null = null;
     defaultSettings: DropdownSettings = {
         singleSelection: false,
         text: 'Select',
@@ -167,6 +170,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         lazyLoading: false,
         labelKey: 'itemName',
         primaryKey: 'id',
+        theme: 'classic',
+        skin: 'classic',
         position: 'bottom',
         autoPosition: true,
         enableFilterSelectAll: true,
@@ -175,7 +180,16 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         addNewButtonText: "Add",
         escapeToClose: true,
         clearAll: true,
-        tagToBody: false
+        tagToBody: false,
+        ariaLabel: 'Select options',
+        listboxAriaLabel: 'Available options',
+        searchAriaLabel: 'Search options',
+        clearSearchAriaLabel: 'Clear search',
+        clearAllAriaLabel: 'Clear selected options',
+        removeItemAriaLabel: 'Remove selected option',
+        openDropdownAriaLabel: 'Open options',
+        closeDropdownAriaLabel: 'Close options',
+        loadingText: 'Loading options'
     }
     randomSize: boolean = true;
     public parseError: boolean;
@@ -209,6 +223,500 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         });
         this.virtualScroollInit = false;
     }
+    getThemeName() {
+        var rawTheme = 'classic';
+
+        if (this.settings) {
+            rawTheme = this.settings.skin || this.settings.theme || 'classic';
+        }
+
+        var theme = String(rawTheme).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
+        theme = theme.replace(/^-+|-+$/g, '');
+        return theme || 'classic';
+    }
+    getDropdownClasses() {
+        var theme = this.getThemeName();
+        var classes = 'theme-' + theme;
+
+        if (theme !== 'classic' && theme !== 'material' && theme !== 'dark' && theme !== 'custom') {
+            classes += ' theme-custom';
+        }
+
+        if (this.isActive) {
+            classes += ' is-open';
+        }
+
+        if (this.settings && this.settings.disabled) {
+            classes += ' is-disabled';
+        }
+
+        if (this.loading) {
+            classes += ' is-loading';
+        }
+
+        return classes;
+    }
+
+    getAriaLabel() {
+        if (this.settings && this.settings.ariaLabel) {
+            return this.settings.ariaLabel;
+        }
+
+        return this.settings && this.settings.text ? this.settings.text : 'Select options';
+    }
+
+    getListboxAriaLabel() {
+        return this.settings && this.settings.listboxAriaLabel ? this.settings.listboxAriaLabel : this.getAriaLabel();
+    }
+
+    getSearchAriaLabel() {
+        return this.settings && this.settings.searchAriaLabel ? this.settings.searchAriaLabel : 'Search options';
+    }
+
+    getClearSearchAriaLabel() {
+        return this.settings && this.settings.clearSearchAriaLabel ? this.settings.clearSearchAriaLabel : 'Clear search';
+    }
+
+    getClearAllAriaLabel() {
+        return this.settings && this.settings.clearAllAriaLabel ? this.settings.clearAllAriaLabel : 'Clear selected options';
+    }
+
+    getOpenDropdownAriaLabel() {
+        return this.settings && this.settings.openDropdownAriaLabel ? this.settings.openDropdownAriaLabel : 'Open options';
+    }
+
+    getCloseDropdownAriaLabel() {
+        return this.settings && this.settings.closeDropdownAriaLabel ? this.settings.closeDropdownAriaLabel : 'Close options';
+    }
+
+    getItemLabel(item: any) {
+        if (!item || !this.settings) {
+            return '';
+        }
+
+        var label = item[this.settings.labelKey];
+        if (label === undefined || label === null) {
+            return '';
+        }
+
+        return String(label);
+    }
+
+    getRemoveItemAriaLabel(item: any) {
+        var label = this.getItemLabel(item);
+        var base = this.settings && this.settings.removeItemAriaLabel ? this.settings.removeItemAriaLabel : 'Remove selected option';
+        return label ? base + ': ' + label : base;
+    }
+
+    getOptionId(item: any, index: number, prefix: string = 'option') {
+        var rawId = item && this.settings && item[this.settings.primaryKey] !== undefined ? item[this.settings.primaryKey] : index;
+        var cleanId = String(rawId).toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
+        var cleanPrefix = String(prefix || 'option').toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
+        return this.id + '-' + (cleanPrefix || 'option') + '-' + (cleanId || index);
+    }
+
+    isOptionDisabled(item: any) {
+        if (!item || item.disabled || (this.settings && this.settings.disabled)) {
+            return true;
+        }
+
+        return this.settings && this.settings.limitSelection == this.selectedItems?.length && !this.isSelected(item);
+    }
+
+    setActiveDescendant(item: any, index: number, prefix: string = 'option') {
+        this.activeDescendantId = this.getOptionId(item, index, prefix);
+    }
+
+    getVisibleBadgeLimit() {
+        var selectedCount = this.selectedItems ? this.selectedItems.length : 0;
+        var rawLimit = this.settings ? this.settings.badgeShowLimit : selectedCount;
+        var limit = Number(rawLimit);
+
+        if (!isFinite(limit)) {
+            return selectedCount;
+        }
+
+        limit = Math.floor(limit);
+        if (limit < 0) {
+            return 0;
+        }
+
+        return Math.min(limit, selectedCount);
+    }
+
+    shouldShowSelectedBadge(index: number) {
+        return index < this.getVisibleBadgeLimit();
+    }
+
+    getHiddenSelectedCount() {
+        var selectedCount = this.selectedItems ? this.selectedItems.length : 0;
+        return Math.max(0, selectedCount - this.getVisibleBadgeLimit());
+    }
+
+    getVirtualItemIndex(item: any, fallbackIndex: number, scroller?: VirtualScrollerComponent) {
+        if (scroller && scroller.items) {
+            var itemIndex = scroller.items.indexOf(item);
+            if (itemIndex > -1) {
+                return itemIndex;
+            }
+        }
+
+        return fallbackIndex;
+    }
+
+    private isTriggerChildAction(evt: KeyboardEvent) {
+        var target = evt.target as HTMLElement;
+        var trigger = this.triggerButton && this.triggerButton.nativeElement;
+
+        if (!target || !trigger || target === trigger || !trigger.contains(target)) {
+            return false;
+        }
+
+        return !!target.closest('button, input, textarea, select, a, [role="button"], [role="checkbox"]');
+    }
+
+    onTriggerKeydown(evt: KeyboardEvent) {
+        if (this.settings.disabled || this.isTriggerChildAction(evt)) {
+            return;
+        }
+
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.preventDefault();
+                this.toggleDropdown(evt);
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusFirstOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                this.closeDropdown();
+                break;
+        }
+    }
+
+    onOptionKeydown(item: any, index: number, evt: KeyboardEvent, prefix: string = 'option', scroller?: VirtualScrollerComponent) {
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.preventDefault();
+                if (!this.isOptionDisabled(item)) {
+                    this.onItemClick(item, index, evt);
+                    this.setActiveDescendant(item, index, prefix);
+                }
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                this.focusNextOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                this.focusPreviousOption();
+                break;
+            case 'Home':
+                evt.preventDefault();
+                this.focusFirstOption();
+                break;
+            case 'End':
+                evt.preventDefault();
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+            case 'Tab':
+                if (this.focusVirtualOptionByDirection(item, evt.shiftKey ? -1 : 1, prefix, scroller)) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                }
+                break;
+        }
+    }
+
+    onGroupKeydown(item: any, index: number, evt: KeyboardEvent, prefix: string = 'group') {
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.preventDefault();
+                if (!this.isOptionDisabled(item)) {
+                    this.selectGroup(item);
+                    this.setActiveDescendant(item, index, prefix);
+                }
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                this.focusNextOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                this.focusPreviousOption();
+                break;
+            case 'Home':
+                evt.preventDefault();
+                this.focusFirstOption();
+                break;
+            case 'End':
+                evt.preventDefault();
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+        }
+    }
+
+    onInlineActionKeydown(evt: KeyboardEvent) {
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.stopPropagation();
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                evt.stopPropagation();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusFirstOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                evt.stopPropagation();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+        }
+    }
+
+    onArrowButtonKeydown(evt: KeyboardEvent) {
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.toggleDropdown(evt);
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                evt.stopPropagation();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusFirstOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                evt.stopPropagation();
+                if (!this.isActive) {
+                    this.openDropdown();
+                }
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+        }
+    }
+
+    onSearchKeydown(evt: KeyboardEvent) {
+        switch (evt.key) {
+            case 'ArrowDown':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.focusFirstOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.focusLastOption();
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+        }
+    }
+
+    onSelectAllKeydown(evt: KeyboardEvent, action: 'filter' | 'infinite-filter') {
+        switch (evt.key) {
+            case 'Enter':
+            case ' ':
+            case 'Spacebar':
+                evt.preventDefault();
+                if (action === 'filter') {
+                    this.toggleFilterSelectAll();
+                }
+                else {
+                    this.toggleInfiniteFilterSelectAll();
+                }
+                break;
+            case 'Escape':
+                evt.preventDefault();
+                this.closeDropdown();
+                this.focusTrigger();
+                break;
+            case 'ArrowDown':
+                evt.preventDefault();
+                this.focusFirstOption();
+                break;
+            case 'ArrowUp':
+                evt.preventDefault();
+                this.focusLastOption();
+                break;
+        }
+    }
+
+    focusTrigger() {
+        if (this.triggerButton && this.triggerButton.nativeElement) {
+            setTimeout(() => {
+                this.triggerButton.nativeElement.focus();
+            }, 0);
+        }
+    }
+
+    private getOptionElements(): HTMLElement[] {
+        if (!this.dropdownListElem || !this.dropdownListElem.nativeElement) {
+            return [];
+        }
+
+        return Array.prototype.slice.call(this.dropdownListElem.nativeElement.querySelectorAll('.dropdown-option:not(.is-disabled)'));
+    }
+
+    private focusOptionByIndex(index: number) {
+        setTimeout(() => {
+            var options = this.getOptionElements();
+            if (!options.length) {
+                return;
+            }
+
+            var nextIndex = Math.max(0, Math.min(index, options.length - 1));
+            options[nextIndex].focus();
+            this.activeDescendantId = options[nextIndex].id || null;
+        }, 0);
+    }
+
+    focusFirstOption() {
+        this.focusOptionByIndex(0);
+    }
+
+    focusLastOption() {
+        setTimeout(() => {
+            var options = this.getOptionElements();
+            this.focusOptionByIndex(options.length - 1);
+        }, 0);
+    }
+
+    focusNextOption() {
+        var options = this.getOptionElements();
+        var activeIndex = options.indexOf(document.activeElement as HTMLElement);
+        this.focusOptionByIndex(activeIndex + 1);
+    }
+
+    focusPreviousOption() {
+        var options = this.getOptionElements();
+        var activeIndex = options.indexOf(document.activeElement as HTMLElement);
+        this.focusOptionByIndex(activeIndex <= 0 ? 0 : activeIndex - 1);
+    }
+
+    private focusVirtualOptionByDirection(item: any, direction: number, prefix: string, scroller?: VirtualScrollerComponent) {
+        if (!scroller || !scroller.items || !scroller.items.length) {
+            return false;
+        }
+
+        var currentIndex = scroller.items.indexOf(item);
+        if (currentIndex < 0) {
+            currentIndex = this.getVirtualItemIndex(item, 0, scroller);
+        }
+
+        var nextIndex = this.getNextFocusableVirtualIndex(scroller, currentIndex, direction);
+        if (nextIndex < 0) {
+            return false;
+        }
+
+        scroller.scrollToIndex(nextIndex, true, 0, 0, () => {
+            this.scheduleFocusVirtualOptionByIndex(nextIndex, prefix);
+        });
+
+        this.scheduleFocusVirtualOptionByIndex(nextIndex, prefix);
+        return true;
+    }
+
+    private getNextFocusableVirtualIndex(scroller: VirtualScrollerComponent, currentIndex: number, direction: number) {
+        var nextIndex = currentIndex + direction;
+
+        while (nextIndex >= 0 && nextIndex < scroller.items.length) {
+            var item = scroller.items[nextIndex];
+            if (item && !item.grpTitle && !this.isOptionDisabled(item)) {
+                return nextIndex;
+            }
+            nextIndex += direction;
+        }
+
+        return -1;
+    }
+
+    private scheduleFocusVirtualOptionByIndex(index: number, prefix: string) {
+        var attempts = 0;
+        var tryFocus = () => {
+            attempts++;
+            if (this.focusVirtualOptionByIndex(index, prefix) || attempts >= 10) {
+                return;
+            }
+            setTimeout(tryFocus, 25);
+        };
+
+        setTimeout(tryFocus, 0);
+    }
+
+    private focusVirtualOptionByIndex(index: number, prefix: string) {
+        if (!this.dropdownListElem || !this.dropdownListElem.nativeElement) {
+            return false;
+        }
+
+        var option = this.dropdownListElem.nativeElement.querySelector('.dropdown-option[data-virtual-index="' + index + '"]') as HTMLElement;
+        if (!option) {
+            return false;
+        }
+
+        option.focus();
+        this.activeDescendantId = option.id || this.id + '-' + prefix + '-' + index;
+        return true;
+    }
+
     onKeyUp(evt: any){
         this.searchTerm$.next((<HTMLInputElement>evt.target).value);
     }

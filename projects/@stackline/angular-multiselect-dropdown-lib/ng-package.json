@@ -3,7 +3,6 @@
     "lib": {
       "entryFile": "src/public_api.ts"
     },
-    "allowedNonPeerDependencies": ["@tweenjs/tween.js"],
     "assets": [
       "README.md",
       "LICENSE",

@@ -73,6 +73,7 @@ export class TemplateRenderer implements OnInit, OnDestroy {
 @Component({
   selector: 'c-icon',
   standalone: false,
+  host: { 'aria-hidden': 'true' },
   template: `<svg *ngIf="name == 'remove'" width="100%" height="100%" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve">
                         <g>

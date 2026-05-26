@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
     'Custom templates',
     'Lazy loading',
     'Material-like theme',
+    'ADA-compliant keyboard/ARIA',
     'Custom CSS/SCSS theme'
   ];
   readonly apiCards = [
@@ -67,6 +68,11 @@ export class AppComponent implements OnInit {
       kicker: 'Events',
       title: 'onSelect, onDeSelect, onSelectAll',
       copy: 'The classic callback outputs are preserved, so event handling code keeps working while the UI gets refined.'
+    },
+    {
+      kicker: 'Accessibility',
+      title: 'ADA-compliant keyboard and ARIA support',
+      copy: 'The trigger, clear-all action, chips, listbox, and lazy-loaded results expose keyboard flow, visible focus, and ARIA labels for accessible use.'
     },
     {
       kicker: 'Styling',
