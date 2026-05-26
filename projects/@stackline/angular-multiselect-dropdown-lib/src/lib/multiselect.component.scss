@@ -212,13 +212,21 @@ button.c-arrow-toggle:disabled {
 
 .dropdown-list {
   position: absolute;
-  width: 100%;
+  right: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
   padding-top: 8px;
   z-index: 99999;
 }
 
 .dropdown-list.tagToBody {
   position: fixed;
+  right: auto;
+  max-width: calc(100vw - 16px);
+  z-index: 100000;
 }
 
 .arrow-up,
@@ -228,6 +236,8 @@ button.c-arrow-toggle:disabled {
 }
 
 .list-area {
+  box-sizing: border-box;
+  max-width: 100%;
   overflow: hidden;
   border-radius: 22px;
   background: var(--ms-surface);

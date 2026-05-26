@@ -61,3 +61,6 @@ docs-src/base-modern/package-lock.json
 /MEMORIES.md
 /memoria*.md
 /memorias*.md
+
+# Local social media assets
+/social/

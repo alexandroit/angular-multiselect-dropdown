@@ -10,6 +10,7 @@ export class UsingWithinDialog implements OnInit {
     itemList = [];
     selectedItems = [];
     settings = {};
+    modalOpen = false;
 
     constructor(public seotitle: Title, public meta: Meta) { 
         this.seotitle.setTitle('Basic example');
@@ -43,7 +44,8 @@ export class UsingWithinDialog implements OnInit {
             classes: "myclass custom-class",
             primaryKey: "countryId",
             enableSearchFilter: true,
-            tagToBody: false,
+            tagToBody: true,
+            appendToBody: true,
         };
     }
     onItemSelect(item: any) {
@@ -103,7 +105,8 @@ export class UsingWithinDialog implements OnInit {
             classes: "myclass custom-class",
             primaryKey: "countryId",
             enableSearchFilter: true,
-            tagToBody: false,
+            tagToBody: true,
+            appendToBody: true,
         };
     }
     onItemSelect(item: any) {

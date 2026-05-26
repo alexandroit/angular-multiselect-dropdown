@@ -82,18 +82,22 @@ body {
   border-color: #c5cae9;
 }
 
+.overlay-section {
+  border-color: #7dd3fc;
+}
+
 .skin-switcher-section {
   border-color: #99f6e4;
 }
 
-.theme-buttons {
+.skin-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 18px;
 }
 
-.theme-buttons button {
+.skin-buttons button {
   min-height: 36px;
   padding: 0 14px;
   border: 1px solid #cbd5e1;
@@ -104,7 +108,7 @@ body {
   text-transform: capitalize;
 }
 
-.theme-buttons button.active {
+.skin-buttons button.active {
   border-color: #0f766e;
   background: #0f766e;
   color: #fff;
@@ -210,6 +214,44 @@ h3 {
 .demo-cell angular-multiselect,
 .demo-cell angular2-multiselect {
   display: block;
+}
+
+.overflow-dialog-frame {
+  max-width: 460px;
+  padding: 18px;
+  border: 1px solid #bae6fd;
+  background: repeating-linear-gradient(
+    135deg,
+    #e0f2fe,
+    #e0f2fe 12px,
+    #f8fafc 12px,
+    #f8fafc 24px
+  );
+}
+
+.demo-dialog-surface {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  gap: 14px;
+  height: 160px;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid #38bdf8;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(14, 116, 144, 0.28);
+}
+
+.dialog-copy {
+  display: grid;
+  gap: 4px;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.dialog-copy span {
+  color: #475569;
 }
 
 .code-grid {

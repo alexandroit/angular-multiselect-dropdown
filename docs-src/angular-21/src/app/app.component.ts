@@ -51,6 +51,7 @@ export class AppComponent implements OnInit {
     'Lazy loading',
     'Material-like theme',
     'ADA-compliant keyboard/ARIA',
+    'Dialog overflow overlay',
     'Custom CSS/SCSS theme'
   ];
   readonly apiCards = [
@@ -73,6 +74,11 @@ export class AppComponent implements OnInit {
       kicker: 'Accessibility',
       title: 'ADA-compliant keyboard and ARIA support',
       copy: 'The trigger, clear-all action, chips, listbox, and lazy-loaded results expose keyboard flow, visible focus, and ARIA labels for accessible use.'
+    },
+    {
+      kicker: 'Dialogs',
+      title: 'tagToBody for clipped containers',
+      copy: 'Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.2 the open panel is moved to document.body, aligned to the trigger, and cleaned up on close.'
     },
     {
       kicker: 'Styling',

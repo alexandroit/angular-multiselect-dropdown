@@ -22,6 +22,7 @@ export interface DropdownSettings{
     lazyLoading?: boolean;
     labelKey?: string;
     primaryKey?: string;
+    /** @deprecated Use `skin` instead. Kept as a compatibility alias. */
     theme?: string;
     skin?: string;
     position?:string;
@@ -33,6 +34,7 @@ export interface DropdownSettings{
     autoPosition?: boolean;
     clearAll?: boolean;
     tagToBody?: boolean;
+    appendToBody?: boolean;
     ariaLabel?: string;
     ariaLabelledBy?: string;
     listboxAriaLabel?: string;

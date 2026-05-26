@@ -101,13 +101,15 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     @HostListener('window:scroll', ['$event'])
     onScroll(event: any) {
-        if (this.isActive && this.settings.tagToBody) {
-            this.closeDropdown();
-            /*             const elem = this.stacklineDropdown.nativeElement;
-                        if(this.settings.autoPosition){
-                            this.dropDownTop = elem.getBoundingClientRect().y + elem.clientHeight + 1;
-                        }
-                        this.dropDownLeft = elem.getBoundingClientRect().x; */
+        if (this.isActive && this.isBodyOverlayEnabled()) {
+            this.scheduleDropdownPositionUpdate();
+        }
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event: any) {
+        if (this.isActive && this.isBodyOverlayEnabled()) {
+            this.scheduleDropdownPositionUpdate();
         }
     }
 
@@ -142,10 +144,16 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     public item: any;
     public dropdownListYOffset: number = 0;
     subscription: Subscription;
-    public dropDownWidth: number = 0;
+    public dropDownWidth: number | null = null;
     public dropDownTop: string | null = null;
     public dropDownBottom: string | null = null;
-    public dropDownLeft: number = 0;
+    public dropDownLeft: number | null = null;
+    private dropdownOriginalParent: Node | null = null;
+    private dropdownOriginalNextSibling: Node | null = null;
+    private dropdownAppendedToBody: boolean = false;
+    private overlayListenersBound: boolean = false;
+    private overlayPositionTimer: any = null;
+    private boundOverlayPositionUpdate = () => this.scheduleDropdownPositionUpdate();
     public id: any = Math.random().toString(36).substring(2)
     public listboxId: string = 'stackline-listbox-' + this.id;
     public activeDescendantId: string | null = null;
@@ -170,8 +178,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         lazyLoading: false,
         labelKey: 'itemName',
         primaryKey: 'id',
-        theme: 'classic',
         skin: 'classic',
+        theme: '',
         position: 'bottom',
         autoPosition: true,
         enableFilterSelectAll: true,
@@ -181,6 +189,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         escapeToClose: true,
         clearAll: true,
         tagToBody: false,
+        appendToBody: false,
         ariaLabel: 'Select options',
         listboxAriaLabel: 'Available options',
         searchAriaLabel: 'Search options',
@@ -200,7 +209,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     public isDisabledItemPresent = false;
 
     constructor(public _elementRef: ElementRef, private cdr: ChangeDetectorRef, private filterPipe: ListFilterPipe) {
-        this.searchTerm$.asObservable().pipe(
+        this.subscription = this.searchTerm$.asObservable().pipe(
             debounceTime(1000),
             distinctUntilChanged(),
             tap(term => term)
@@ -223,22 +232,22 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         });
         this.virtualScroollInit = false;
     }
-    getThemeName() {
-        var rawTheme = 'classic';
+    getSkinName() {
+        var rawSkin = 'classic';
 
         if (this.settings) {
-            rawTheme = this.settings.skin || this.settings.theme || 'classic';
+            rawSkin = this.settings.skin || this.settings.theme || 'classic';
         }
 
-        var theme = String(rawTheme).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
-        theme = theme.replace(/^-+|-+$/g, '');
-        return theme || 'classic';
+        var skin = String(rawSkin).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
+        skin = skin.replace(/^-+|-+$/g, '');
+        return skin || 'classic';
     }
     getDropdownClasses() {
-        var theme = this.getThemeName();
-        var classes = 'theme-' + theme;
+        var skin = this.getSkinName();
+        var classes = 'skin-' + skin + ' theme-' + skin;
 
-        if (theme !== 'classic' && theme !== 'material' && theme !== 'dark' && theme !== 'custom') {
+        if (skin !== 'classic' && skin !== 'material' && skin !== 'dark' && skin !== 'custom') {
             classes += ' theme-custom';
         }
 
@@ -255,6 +264,137 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
 
         return classes;
+    }
+
+    isBodyOverlayEnabled() {
+        return !!(this.settings && (this.settings.tagToBody || this.settings.appendToBody));
+    }
+
+    private getDropdownPanelElement(): HTMLElement | null {
+        if (!this.dropdownListElem || !this.dropdownListElem.nativeElement) {
+            return null;
+        }
+
+        return this.dropdownListElem.nativeElement as HTMLElement;
+    }
+
+    private getAnchorElement(): HTMLElement | null {
+        if (this.selectedListElem && this.selectedListElem.nativeElement) {
+            return this.selectedListElem.nativeElement as HTMLElement;
+        }
+
+        if (this.stacklineDropdown && this.stacklineDropdown.nativeElement) {
+            return this.stacklineDropdown.nativeElement as HTMLElement;
+        }
+
+        return null;
+    }
+
+    private getDropdownMaxHeight() {
+        return this.settings && this.settings.maxHeight ? this.settings.maxHeight : this.defaultSettings.maxHeight || 300;
+    }
+
+    private appendDropdownPanelToBody() {
+        if (!this.isBodyOverlayEnabled() || !this.isActive || typeof document === 'undefined') {
+            this.restoreDropdownPanel();
+            return;
+        }
+
+        var panel = this.getDropdownPanelElement();
+        if (!panel || !document.body) {
+            return;
+        }
+
+        if (!this.dropdownAppendedToBody) {
+            this.dropdownOriginalParent = panel.parentNode;
+            this.dropdownOriginalNextSibling = panel.nextSibling;
+            document.body.appendChild(panel);
+            this.dropdownAppendedToBody = true;
+        }
+
+        this.bindOverlayListeners();
+    }
+
+    private restoreDropdownPanel(removeFromDom: boolean = false) {
+        this.unbindOverlayListeners();
+        this.clearOverlayPositionTimer();
+
+        var panel = this.getDropdownPanelElement();
+        if (!panel || !this.dropdownAppendedToBody) {
+            this.dropdownAppendedToBody = false;
+            return;
+        }
+
+        if (removeFromDom) {
+            if (panel.parentNode) {
+                panel.parentNode.removeChild(panel);
+            }
+        }
+        else if (this.dropdownOriginalParent) {
+            if (this.dropdownOriginalNextSibling && this.dropdownOriginalNextSibling.parentNode === this.dropdownOriginalParent) {
+                this.dropdownOriginalParent.insertBefore(panel, this.dropdownOriginalNextSibling);
+            }
+            else {
+                this.dropdownOriginalParent.appendChild(panel);
+            }
+        }
+
+        this.dropdownOriginalParent = null;
+        this.dropdownOriginalNextSibling = null;
+        this.dropdownAppendedToBody = false;
+    }
+
+    private bindOverlayListeners() {
+        if (this.overlayListenersBound || typeof window === 'undefined' || typeof document === 'undefined') {
+            return;
+        }
+
+        window.addEventListener('resize', this.boundOverlayPositionUpdate);
+        window.addEventListener('scroll', this.boundOverlayPositionUpdate, true);
+        document.addEventListener('scroll', this.boundOverlayPositionUpdate, true);
+        this.overlayListenersBound = true;
+    }
+
+    private unbindOverlayListeners() {
+        if (!this.overlayListenersBound || typeof window === 'undefined' || typeof document === 'undefined') {
+            this.overlayListenersBound = false;
+            return;
+        }
+
+        window.removeEventListener('resize', this.boundOverlayPositionUpdate);
+        window.removeEventListener('scroll', this.boundOverlayPositionUpdate, true);
+        document.removeEventListener('scroll', this.boundOverlayPositionUpdate, true);
+        this.overlayListenersBound = false;
+    }
+
+    private clearOverlayPositionTimer() {
+        if (this.overlayPositionTimer !== null) {
+            clearTimeout(this.overlayPositionTimer);
+            this.overlayPositionTimer = null;
+        }
+    }
+
+    private scheduleDropdownPositionUpdate() {
+        if (!this.isActive || !this.isBodyOverlayEnabled() || this.overlayPositionTimer !== null) {
+            return;
+        }
+
+        this.overlayPositionTimer = setTimeout(() => {
+            this.overlayPositionTimer = null;
+            if (!this.isActive || !this.isBodyOverlayEnabled()) {
+                return;
+            }
+
+            this.appendDropdownPanelToBody();
+            this.calculateDropdownDirection();
+            this.cdr.detectChanges();
+        }, 0);
+    }
+
+    onDropdownPanelPointerDown(event: Event) {
+        if (this.isBodyOverlayEnabled()) {
+            event.stopPropagation();
+        }
     }
 
     getAriaLabel() {
@@ -733,6 +873,14 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
         if (changes.settings && !changes.settings.firstChange) {
             this.settings = Object.assign(this.defaultSettings, this.settings);
+            if (this.isActive) {
+                if (this.isBodyOverlayEnabled()) {
+                    this.scheduleDropdownPositionUpdate();
+                }
+                else {
+                    this.restoreDropdownPanel();
+                }
+            }
         }
         if (changes.loading) {
         }
@@ -756,6 +904,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         if (this.selectedListElem.nativeElement.clientHeight && this.settings.position == 'top' && this.selectedListHeight) {
             this.selectedListHeight.val = this.selectedListElem.nativeElement.clientHeight;
             this.cdr.detectChanges();
+        }
+        if (this.isActive && this.isBodyOverlayEnabled() && !this.dropdownAppendedToBody) {
+            this.appendDropdownPanelToBody();
         }
         //this.calculateDropdownDirection();
     }
@@ -798,6 +949,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         if (this.settings.groupBy) {
             this.updateGroupInfo(item);
         }
+        this.scheduleDropdownPositionUpdate();
 
 
     }
@@ -920,7 +1072,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             return;
         }
         this.isActive = true;
+        this.appendDropdownPanelToBody();
         this.calculateDropdownDirection();
+        this.scheduleDropdownPositionUpdate();
         if (this.settings.searchAutofocus && this.searchInput && this.settings.enableSearchFilter && !this.searchTempl) {
             setTimeout(() => {
                 this.searchInput.nativeElement.focus();
@@ -937,6 +1091,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
         this.filter = "";
         this.isActive = false;
+        this.restoreDropdownPanel();
         this.searchTerm$.next('');
         this.onClose.emit(false);
     }
@@ -950,6 +1105,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             }
             this.filter = "";
             this.isActive = false;
+            this.restoreDropdownPanel();
             this.clearSearch();
             this.searchTerm$.next('');
             this.onClose.emit(false);
@@ -992,6 +1148,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
         setTimeout(() => {
             this.calculateDropdownDirection();
+            this.scheduleDropdownPositionUpdate();
         });
         event.stopPropagation();
     }
@@ -1024,6 +1181,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             }
 
         });
+        this.scheduleDropdownPositionUpdate();
     }
     toggleFilterSelectAll() {
         if (!this.isFilterSelectAll) {
@@ -1097,6 +1255,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.isFilterSelectAll = false;
             this.onFilterDeSelectAll.emit(removed);
         }
+        this.scheduleDropdownPositionUpdate();
     }
     toggleInfiniteFilterSelectAll() {
         if (!this.isInfiniteFilterSelectAll) {
@@ -1116,6 +1275,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             });
             this.isInfiniteFilterSelectAll = false;
         }
+        this.scheduleDropdownPositionUpdate();
     }
     clearSearch() {
         if (this.settings.groupBy) {
@@ -1126,6 +1286,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         this.isFilterSelectAll = false;
         this.searchTerm$.next('');
         this.data = this.cachedItems;
+        this.scheduleDropdownPositionUpdate();
     }
     onFilterChange(data: any) {
         if (this.filter && this.filter == "" || data.length == 0) {
@@ -1147,6 +1308,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.isFilterSelectAll = false;
         }
         this.data = data;
+        this.scheduleDropdownPositionUpdate();
     }
     cloneArray(arr: any) {
         let i, copy;
@@ -1318,6 +1480,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         this.groupedData = this.groupCachedItems;
         this.searchTerm$.next('');
         this.infiniteFilterLength = 0;
+        this.scheduleDropdownPositionUpdate();
     }
     onScrollEnd(e: any) {
         if (e.endIndex === this.data.length - 1 || e.startIndex === 0) {
@@ -1327,9 +1490,11 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     }
     ngOnDestroy() {
+        this.restoreDropdownPanel(true);
         if (this.subscription) {
             this.subscription.unsubscribe();
         }
+        this.searchTerm$.complete();
 
     }
     selectGroup(item: any) {
@@ -1367,10 +1532,26 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
     calculateDropdownDirection() {
         let shouldOpenTowardsTop = this.settings.position == 'top';
-        const elem = this.stacklineDropdown.nativeElement;
-        const dropdownWidth = elem.clientWidth;
-        this.dropDownWidth = dropdownWidth;
-        this.dropDownLeft = this.settings.tagToBody ? elem.getBoundingClientRect().x : 0;
+        const elem = this.getAnchorElement();
+        if (!elem) {
+            return;
+        }
+        const elemBounds = elem.getBoundingClientRect();
+        const dropdownWidth = Math.round(elemBounds.width || elem.clientWidth || 0);
+
+        if (this.isBodyOverlayEnabled()) {
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth || dropdownWidth;
+            const maxWidth = Math.max(0, viewportWidth - 16);
+            const safeWidth = Math.max(0, Math.min(dropdownWidth, maxWidth));
+            const maxLeft = Math.max(8, viewportWidth - safeWidth - 8);
+
+            this.dropDownWidth = safeWidth || null;
+            this.dropDownLeft = Math.round(Math.max(8, Math.min(elemBounds.left, maxLeft)));
+        }
+        else {
+            this.dropDownWidth = null;
+            this.dropDownLeft = null;
+        }
         if (this.settings.position == 'top' && !this.settings.autoPosition) {
             this.openTowardsTop(true);
         }
@@ -1378,12 +1559,12 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.openTowardsTop(false);
         }
         if (this.settings.autoPosition) {
-            const dropdownHeight = this.defaultSettings.maxHeight;
+            const dropdownHeight = this.getDropdownMaxHeight() + 32;
             const viewportHeight = document.documentElement.clientHeight;
             const selectedListBounds = this.selectedListElem.nativeElement.getBoundingClientRect();
 
             const spaceOnTop: number = selectedListBounds.top;
-            const spaceOnBottom: number = viewportHeight - selectedListBounds.top;
+            const spaceOnBottom: number = viewportHeight - selectedListBounds.bottom;
             if (spaceOnBottom < spaceOnTop && dropdownHeight < spaceOnTop) {
                 this.openTowardsTop(true);
             }
@@ -1402,11 +1583,16 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     }
     openTowardsTop(value: boolean) {
-        const elem = this.stacklineDropdown.nativeElement;
+        const elem = this.getAnchorElement();
+        if (!elem) {
+            return;
+        }
+        const elemBounds = elem.getBoundingClientRect();
+        const dropdownMaxHeight = this.getDropdownMaxHeight();
         if (value && this.selectedListElem.nativeElement.clientHeight) {
             this.dropdownListYOffset = 15 - this.selectedListElem.nativeElement.clientHeight;
-            if(this.settings.tagToBody){
-                this.dropDownTop = (elem.getBoundingClientRect().y - this.selectedListElem.nativeElement.clientHeight*2 - 15 - this.defaultSettings.maxHeight)+'px';
+            if(this.isBodyOverlayEnabled()){
+                this.dropDownTop = Math.max(8, elemBounds.top - dropdownMaxHeight - 15)+'px';
                 this.dropDownBottom = null;
             }
             else {
@@ -1416,8 +1602,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.settings.position = 'top'
 
         } else {
-            if(this.settings.tagToBody){
-                this.dropDownTop = (elem.getBoundingClientRect().y + elem.clientHeight + 1)+'px';
+            if(this.isBodyOverlayEnabled()){
+                this.dropDownTop = (elemBounds.bottom + 1)+'px';
                 this.dropDownBottom = null;
             }
             else {
@@ -1441,6 +1627,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         this.onChangeCallback(this.selectedItems);
         this.onTouchedCallback(this.selectedItems);
         this.onDeSelectAll.emit(this.selectedItems);
+        this.scheduleDropdownPositionUpdate();
     }
     filteritems(evt: any) {
         this.filteredList = this.filterPipe.transform(this.cachedItems, evt.target.value, this.settings.searchBy);

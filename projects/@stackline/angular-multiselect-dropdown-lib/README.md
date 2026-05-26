@@ -12,7 +12,7 @@
 
 **[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested package release:** `21.1.0` for Angular `21.x`
+**Latest tested package release:** `21.1.2` for Angular `21.x`
 
 ---
 
@@ -24,9 +24,9 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.0` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.2` for Angular 21.x applications.
 
-The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.0 line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.2 patch keeps that behavior, fixes responsive dropdown width handling, and makes tagToBody/appendToBody render the open panel from document.body so dialogs and overflow containers do not clip it.
 
 ## Features
 
@@ -59,9 +59,10 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 8. [Custom Templates](#custom-templates)
 9. [Forms Integration](#forms-integration)
 10. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-11. [Events](#events)
-12. [Run Locally](#run-locally)
-13. [License](#license)
+11. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
+12. [Events](#events)
+13. [Run Locally](#run-locally)
+14. [License](#license)
 
 ## Rename Note
 
@@ -78,7 +79,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.0 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.2 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
 | **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
 | **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
@@ -101,10 +102,10 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.1.0 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.1.2 --save-exact
 ```
 
-Install `21.1.0` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, and adds the ADA-compliant keyboard/ARIA accessibility patch.
+Install `21.1.2` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, and fixes responsive dropdown width handling.
 
 ## Setup
 
@@ -181,7 +182,7 @@ dropdownSettings = {
   maxHeight: 260,
   showCheckbox: true,
   noDataLabel: 'No data',
-  theme: 'classic',
+  skin: 'classic',
   tagToBody: false
 };
 ```
@@ -200,21 +201,23 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.0`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, and ARIA behavior added in this release.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.2`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, and responsive dropdown width handling and body-overlay positioning added in this release line.
 
 Switch between skins through the settings object:
 
 ```ts
 settings = {
   text: 'Classic basic',
-  theme: 'classic'
+  skin: 'classic'
 };
 
 materialSettings = {
   text: 'Material basic',
-  theme: 'material'
+  skin: 'material'
 };
 ```
+
+`settings.theme` is still accepted as a legacy alias for older code, but new Angular usage should configure only `settings.skin`.
 
 The same twelve scenarios are validated for both `classic` and `material`:
 
@@ -296,6 +299,21 @@ settings = {
 The versioned docs include working examples for lazy loading, remote data, grouping, templating, and forms usage.
 
 For sticky cards, constrained containers, or dashboard layouts, keep `tagToBody: false` so the dropdown panel stays anchored to the field and does not jump across the page.
+
+## Dialogs and Overflow Containers
+
+Use `tagToBody: true` when the dropdown is inside Angular Material dialogs, modals, drawers, or containers that set `overflow: hidden` or `overflow: auto`.
+
+```ts
+settings = {
+  text: 'Select countries',
+  enableSearchFilter: true,
+  skin: 'material',
+  tagToBody: true
+};
+```
+
+In `21.1.2`, `tagToBody: true` moves the open panel to `document.body`, keeps it aligned to the original trigger, recalculates position on scroll and resize, and removes the body node on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
 ## Events
 

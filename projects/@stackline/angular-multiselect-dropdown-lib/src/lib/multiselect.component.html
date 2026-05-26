@@ -60,11 +60,13 @@
         </div>
     </div>
     <div #dropdownList class="dropdown-list animated fadeIn"
-    [ngClass]="{'tagToBody': settings.tagToBody, 'opens-up': settings.position == 'top', 'opens-down': settings.position == 'bottom'}"
-    [style.width.px]="dropDownWidth" 
+    [ngClass]="{'tagToBody': isBodyOverlayEnabled(), 'opens-up': settings.position == 'top', 'opens-down': settings.position == 'bottom'}"
+    [style.width]="dropDownWidth !== null ? dropDownWidth + 'px' : 'auto'"
     [style.top]="dropDownTop" 
     [style.bottom]="dropDownBottom"
     [style.left.px]="dropDownLeft" 
+        (pointerdown)="onDropdownPanelPointerDown($event)"
+        (touchstart)="onDropdownPanelPointerDown($event)"
         role="presentation"
         [attr.aria-hidden]="!isActive"
         [hidden]="!isActive">

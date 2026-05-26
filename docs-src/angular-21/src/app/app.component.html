@@ -57,7 +57,8 @@
           UI to feel much closer to Angular Material surfaces and field patterns. Version
           <code>{{ docsMeta.packageVersion }}</code> adds ADA-compliant keyboard navigation,
           focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action,
-          and lazy-loaded results.
+          and lazy-loaded results, plus body-level dropdown positioning for dialogs and overflow
+          containers through <code>tagToBody</code>.
         </p>
 
         <div class="pill-row">
@@ -76,6 +77,11 @@
           <div class="compat-card">
             <strong>ADA-compliant interactions</strong>
             Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata.
+          </div>
+          <div class="compat-card">
+            <strong>Dialog-safe overlay</strong>
+            <code>tagToBody: true</code> appends the open panel to <code>document.body</code> so
+            Angular Material dialogs, drawers, and overflow containers do not clip the list.
           </div>
           <div class="compat-card">
             <strong>Modern line foundation</strong>
