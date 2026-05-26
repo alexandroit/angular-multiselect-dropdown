@@ -83,7 +83,7 @@ body {
 }
 
 .overlay-section {
-  border-color: #7dd3fc;
+  border-color: #93c5fd;
 }
 
 .skin-switcher-section {
@@ -219,14 +219,8 @@ h3 {
 .overflow-dialog-frame {
   max-width: 460px;
   padding: 18px;
-  border: 1px solid #bae6fd;
-  background: repeating-linear-gradient(
-    135deg,
-    #e0f2fe,
-    #e0f2fe 12px,
-    #f8fafc 12px,
-    #f8fafc 24px
-  );
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
 }
 
 .demo-dialog-surface {
@@ -235,12 +229,12 @@ h3 {
   display: grid;
   align-content: end;
   gap: 14px;
-  height: 160px;
+  height: 150px;
   overflow: hidden;
   padding: 18px;
-  border: 1px solid #38bdf8;
+  border: 1px solid #60a5fa;
   background: #ffffff;
-  box-shadow: 0 18px 40px rgba(14, 116, 144, 0.28);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);
 }
 
 .dialog-copy {

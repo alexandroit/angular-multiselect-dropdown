@@ -26,7 +26,7 @@ The original `angular2-multiselect-dropdown` package became difficult to keep cu
 
 The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.2` for Angular 21.x applications.
 
-The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.2 patch keeps that behavior, fixes responsive dropdown width handling, and makes tagToBody/appendToBody render the open panel from document.body so dialogs and overflow containers do not clip it.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.2 patch keeps that behavior, fixes responsive dropdown width handling, and makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list.
 
 ## Features
 
@@ -201,7 +201,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.2`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, and responsive dropdown width handling and body-overlay positioning added in this release line.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.2`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, and dialog-safe positioning added in this release line.
 
 Switch between skins through the settings object:
 
@@ -313,7 +313,7 @@ settings = {
 };
 ```
 
-In `21.1.2`, `tagToBody: true` moves the open panel to `document.body`, keeps it aligned to the original trigger, recalculates position on scroll and resize, and removes the body node on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
+In `21.1.2`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
 ## Events
 

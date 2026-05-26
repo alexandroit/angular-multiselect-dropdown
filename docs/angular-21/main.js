@@ -47930,7 +47930,7 @@ function AppComponent_span_78_Template(rf, ctx) {
     \u0275\u0275textInterpolate(pill_r2);
   }
 }
-function AppComponent_article_166_Template(rf, ctx) {
+function AppComponent_article_163_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "article", 40)(1, "div", 29);
     \u0275\u0275text(2);
@@ -47997,7 +47997,7 @@ var AppComponent = class _AppComponent {
       "Lazy loading",
       "Material-like theme",
       "ADA-compliant keyboard/ARIA",
-      "Dialog overflow overlay",
+      "Dialog overflow support",
       "Custom CSS/SCSS theme"
     ];
     this.apiCards = [
@@ -48023,8 +48023,8 @@ var AppComponent = class _AppComponent {
       },
       {
         kicker: "Dialogs",
-        title: "tagToBody for clipped containers",
-        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.2 the open panel is moved to document.body, aligned to the trigger, and cleaned up on close."
+        title: "tagToBody for dialogs",
+        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.2 the open list uses portal-style positioning, stays aligned to the trigger, and is cleaned up on close."
       },
       {
         kicker: "Styling",
@@ -48080,7 +48080,7 @@ var AppComponent = class _AppComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 167, vars: 21, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link", "routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "setup-label"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "status-pill"], [1, "preview-canvas"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 164, vars: 21, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link", "routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "setup-label"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "status-pill"], [1, "preview-canvas"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "header", 1)(2, "div", 2)(3, "div", 3);
         \u0275\u0275text(4, "M");
@@ -48165,7 +48165,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275elementStart(71, "code");
         \u0275\u0275text(72);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(73, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus body-level dropdown positioning for dialogs and overflow containers through ");
+        \u0275\u0275text(73, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
         \u0275\u0275elementStart(74, "code");
         \u0275\u0275text(75, "tagToBody");
         \u0275\u0275elementEnd();
@@ -48190,103 +48190,99 @@ var AppComponent = class _AppComponent {
         \u0275\u0275text(91, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(92, "div", 25)(93, "strong");
-        \u0275\u0275text(94, "Dialog-safe overlay");
+        \u0275\u0275text(94, "Dialog-safe positioning");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(95, "code");
         \u0275\u0275text(96, "tagToBody: true");
         \u0275\u0275elementEnd();
-        \u0275\u0275text(97, " appends the open panel to ");
-        \u0275\u0275elementStart(98, "code");
-        \u0275\u0275text(99, "document.body");
+        \u0275\u0275text(97, " keeps the open list visible above Angular Material dialogs, drawers, and overflow containers. ");
         \u0275\u0275elementEnd();
-        \u0275\u0275text(100, " so Angular Material dialogs, drawers, and overflow containers do not clip the list. ");
+        \u0275\u0275elementStart(98, "div", 25)(99, "strong");
+        \u0275\u0275text(100, "Modern line foundation");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(101, "div", 25)(102, "strong");
-        \u0275\u0275text(103, "Modern line foundation");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(104, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
+        \u0275\u0275text(101, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(105, "section", 26)(106, "article", 27)(107, "div", 28)(108, "div")(109, "div", 29);
-        \u0275\u0275text(110, "Step 1");
+        \u0275\u0275elementStart(102, "section", 26)(103, "article", 27)(104, "div", 28)(105, "div")(106, "div", 29);
+        \u0275\u0275text(107, "Step 1");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(111, "h3");
-        \u0275\u0275text(112, "Install the package");
+        \u0275\u0275elementStart(108, "h3");
+        \u0275\u0275text(109, "Install the package");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(113, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_113_listener() {
+        \u0275\u0275elementStart(110, "button", 30);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_110_listener() {
           return ctx.copySnippet("install", ctx.installCode);
         });
-        \u0275\u0275text(114);
+        \u0275\u0275text(111);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(115, "pre", 31);
+        \u0275\u0275element(112, "pre", 31);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(116, "article", 27)(117, "div", 28)(118, "div")(119, "div", 29);
-        \u0275\u0275text(120, "Step 2");
+        \u0275\u0275elementStart(113, "article", 27)(114, "div", 28)(115, "div")(116, "div", 29);
+        \u0275\u0275text(117, "Step 2");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(121, "h3");
-        \u0275\u0275text(122, "Register the module");
+        \u0275\u0275elementStart(118, "h3");
+        \u0275\u0275text(119, "Register the module");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(123, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_123_listener() {
+        \u0275\u0275elementStart(120, "button", 30);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_120_listener() {
           return ctx.copySnippet("setup", ctx.setupCode);
         });
-        \u0275\u0275text(124);
+        \u0275\u0275text(121);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(125, "pre", 31);
+        \u0275\u0275element(122, "pre", 31);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(126, "article", 27)(127, "div", 28)(128, "div")(129, "div", 29);
-        \u0275\u0275text(130, "Step 3");
+        \u0275\u0275elementStart(123, "article", 27)(124, "div", 28)(125, "div")(126, "div", 29);
+        \u0275\u0275text(127, "Step 3");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(131, "h3");
-        \u0275\u0275text(132, "Customize the full theme");
+        \u0275\u0275elementStart(128, "h3");
+        \u0275\u0275text(129, "Customize the full theme");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(133, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_133_listener() {
+        \u0275\u0275elementStart(130, "button", 30);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_130_listener() {
           return ctx.copySnippet("customTheme", ctx.customThemeCode);
         });
-        \u0275\u0275text(134);
+        \u0275\u0275text(131);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(135, "pre", 31);
+        \u0275\u0275element(132, "pre", 31);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(136, "article", 27)(137, "div", 28)(138, "div")(139, "div", 29);
-        \u0275\u0275text(140, "Step 4");
+        \u0275\u0275elementStart(133, "article", 27)(134, "div", 28)(135, "div")(136, "div", 29);
+        \u0275\u0275text(137, "Step 4");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(141, "h3");
-        \u0275\u0275text(142, "Render the dropdown");
+        \u0275\u0275elementStart(138, "h3");
+        \u0275\u0275text(139, "Render the dropdown");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(143, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_143_listener() {
+        \u0275\u0275elementStart(140, "button", 30);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_140_listener() {
           return ctx.copySnippet("template", ctx.templateCode);
         });
-        \u0275\u0275text(144);
+        \u0275\u0275text(141);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(145, "pre", 31);
+        \u0275\u0275element(142, "pre", 31);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(146, "section", 32)(147, "div", 33)(148, "div")(149, "div", 29);
-        \u0275\u0275text(150, "Live preview");
+        \u0275\u0275elementStart(143, "section", 32)(144, "div", 33)(145, "div")(146, "div", 29);
+        \u0275\u0275text(147, "Live preview");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(151, "h3");
-        \u0275\u0275text(152);
+        \u0275\u0275elementStart(148, "h3");
+        \u0275\u0275text(149);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(153, "p");
-        \u0275\u0275text(154, " Running against package line ");
+        \u0275\u0275elementStart(150, "p");
+        \u0275\u0275text(151, " Running against package line ");
+        \u0275\u0275elementStart(152, "code");
+        \u0275\u0275text(153);
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(154, " and Angular ");
         \u0275\u0275elementStart(155, "code");
         \u0275\u0275text(156);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(157, " and Angular ");
-        \u0275\u0275elementStart(158, "code");
-        \u0275\u0275text(159);
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(160, ". ");
+        \u0275\u0275text(157, ". ");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(161, "span", 34);
-        \u0275\u0275text(162, "Classic selector preserved");
+        \u0275\u0275elementStart(158, "span", 34);
+        \u0275\u0275text(159, "Classic selector preserved");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(163, "div", 35);
-        \u0275\u0275element(164, "router-outlet");
+        \u0275\u0275elementStart(160, "div", 35);
+        \u0275\u0275element(161, "router-outlet");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(165, "section", 36);
-        \u0275\u0275template(166, AppComponent_article_166_Template, 7, 3, "article", 37);
+        \u0275\u0275elementStart(162, "section", 36);
+        \u0275\u0275template(163, AppComponent_article_163_Template, 7, 3, "article", 37);
         \u0275\u0275elementEnd()()()();
       }
       if (rf & 2) {
@@ -48308,7 +48304,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
         \u0275\u0275advance(6);
         \u0275\u0275property("ngForOf", ctx.featurePills);
-        \u0275\u0275advance(36);
+        \u0275\u0275advance(33);
         \u0275\u0275textInterpolate(ctx.copyLabels.install);
         \u0275\u0275advance();
         \u0275\u0275property("textContent", ctx.installCode);
@@ -48398,8 +48394,8 @@ var AppComponent = class _AppComponent {
           UI to feel much closer to Angular Material surfaces and field patterns. Version
           <code>{{ docsMeta.packageVersion }}</code> adds ADA-compliant keyboard navigation,
           focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action,
-          and lazy-loaded results, plus body-level dropdown positioning for dialogs and overflow
-          containers through <code>tagToBody</code>.
+          and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers
+          through <code>tagToBody</code>.
         </p>
 
         <div class="pill-row">
@@ -48420,9 +48416,9 @@ var AppComponent = class _AppComponent {
             Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata.
           </div>
           <div class="compat-card">
-            <strong>Dialog-safe overlay</strong>
-            <code>tagToBody: true</code> appends the open panel to <code>document.body</code> so
-            Angular Material dialogs, drawers, and overflow containers do not clip the list.
+            <strong>Dialog-safe positioning</strong>
+            <code>tagToBody: true</code> keeps the open list visible above Angular Material dialogs,
+            drawers, and overflow containers.
           </div>
           <div class="compat-card">
             <strong>Modern line foundation</strong>
