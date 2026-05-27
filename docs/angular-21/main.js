@@ -36733,41 +36733,36 @@ var _c10 = (a0, a1, a2, a3) => ({
   "has-selection": a2,
   "single-select-mode": a3
 });
-var _c11 = (a0, a1, a2) => ({
-  "tagToBody": a0,
-  "opens-up": a1,
-  "opens-down": a2
-});
-var _c12 = (a0, a1) => ({
+var _c11 = (a0, a1) => ({
   "arrow-up": a0,
   "arrow-down": a1
 });
-var _c13 = (a0) => ({
+var _c12 = (a0) => ({
   "single-select-mode": a0
 });
-var _c14 = (a0, a1) => ({
+var _c13 = (a0, a1) => ({
   "selected-item": a0,
   "is-disabled": a1
 });
-var _c15 = (a0) => ({
+var _c14 = (a0) => ({
   "height": a0
 });
-var _c16 = (a0, a1, a2, a3) => ({
+var _c15 = (a0, a1, a2, a3) => ({
   "grp-title": a0,
   "grp-item": a1,
   "selected-item": a2,
   "is-disabled": a3
 });
-var _c17 = (a0, a1) => ({
+var _c16 = (a0, a1) => ({
   "grp-title": a0,
   "grp-item": a1
 });
-var _c18 = (a0, a1, a2) => ({
+var _c17 = (a0, a1, a2) => ({
   "grp-title": a0,
   "grp-item": a1,
   "selected-item": a2
 });
-var _c19 = (a0, a1, a2, a3) => ({
+var _c18 = (a0, a1, a2, a3) => ({
   "selected-item": a0,
   "grp-title": a1,
   "grp-item": a2,
@@ -36780,9 +36775,9 @@ function AngularMultiSelect_span_6_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.text);
+    \u0275\u0275textInterpolate(ctx_r1.settings.text);
   }
 }
 function AngularMultiSelect_span_7_span_1_Template(rf, ctx) {
@@ -36792,10 +36787,10 @@ function AngularMultiSelect_span_7_span_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r2 = ctx.$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r3 = ctx.$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", item_r2[ctx_r0.settings.labelKey], " ");
+    \u0275\u0275textInterpolate1(" ", item_r3[ctx_r1.settings.labelKey], " ");
   }
 }
 function AngularMultiSelect_span_7_Template(rf, ctx) {
@@ -36805,67 +36800,67 @@ function AngularMultiSelect_span_7_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.selectedItems)("ngForTrackBy", ctx_r0.trackByFn.bind(ctx_r0));
+    \u0275\u0275property("ngForOf", ctx_r1.selectedItems)("ngForTrackBy", ctx_r1.trackByFn.bind(ctx_r1));
   }
 }
 function AngularMultiSelect_span_8_div_1_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 38);
+    \u0275\u0275elementStart(0, "span", 37);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r4 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r5 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(item_r4[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r5[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_span_8_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 38);
-    \u0275\u0275element(1, "c-templateRenderer", 39);
+    \u0275\u0275elementStart(0, "span", 37);
+    \u0275\u0275element(1, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r4 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r5 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("data", ctx_r0.badgeTempl)("item", item_r4);
+    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r5);
   }
 }
 function AngularMultiSelect_span_8_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r3 = \u0275\u0275getCurrentView();
+    const _r4 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 34);
     \u0275\u0275template(1, AngularMultiSelect_span_8_div_1_span_1_Template, 2, 1, "span", 35)(2, AngularMultiSelect_span_8_div_1_span_2_Template, 2, 2, "span", 35);
     \u0275\u0275elementStart(3, "button", 36);
     \u0275\u0275listener("click", function AngularMultiSelect_span_8_div_1_Template_button_click_3_listener($event) {
-      const ctx_r4 = \u0275\u0275restoreView(_r3);
-      const item_r4 = ctx_r4.$implicit;
-      const k_r6 = ctx_r4.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      ctx_r0.onItemClick(item_r4, k_r6, $event);
+      const ctx_r5 = \u0275\u0275restoreView(_r4);
+      const item_r5 = ctx_r5.$implicit;
+      const k_r7 = ctx_r5.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      ctx_r1.onItemClick(item_r5, k_r7, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_span_8_div_1_Template_button_keydown_3_listener($event) {
-      \u0275\u0275restoreView(_r3);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r4);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275element(4, "c-icon", 37);
+    \u0275\u0275element(4, "c-icon", 18);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r4 = ctx.$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r5 = ctx.$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r0.badgeTempl);
+    \u0275\u0275property("ngIf", !ctx_r1.badgeTempl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.badgeTempl);
+    \u0275\u0275property("ngIf", ctx_r1.badgeTempl);
     \u0275\u0275advance();
-    \u0275\u0275attribute("aria-label", ctx_r0.getRemoveItemAriaLabel(item_r4));
+    \u0275\u0275attribute("aria-label", ctx_r1.getRemoveItemAriaLabel(item_r5));
     \u0275\u0275advance();
     \u0275\u0275property("name", "remove");
   }
@@ -36877,68 +36872,68 @@ function AngularMultiSelect_span_8_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.selectedItems)("ngForTrackBy", ctx_r0.trackByFn.bind(ctx_r0));
+    \u0275\u0275property("ngForOf", ctx_r1.selectedItems)("ngForTrackBy", ctx_r1.trackByFn.bind(ctx_r1));
   }
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 38);
+    \u0275\u0275elementStart(0, "span", 37);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r8 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r9 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(item_r8[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r9[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 38);
-    \u0275\u0275element(1, "c-templateRenderer", 39);
+    \u0275\u0275elementStart(0, "span", 37);
+    \u0275\u0275element(1, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r8 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r9 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("data", ctx_r0.badgeTempl)("item", item_r8);
+    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r9);
   }
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r7 = \u0275\u0275getCurrentView();
+    const _r8 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 34);
     \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_span_1_Template, 2, 1, "span", 35)(2, AngularMultiSelect_div_9_ng_container_1_div_1_span_2_Template, 2, 2, "span", 35);
     \u0275\u0275elementStart(3, "button", 36);
     \u0275\u0275listener("click", function AngularMultiSelect_div_9_ng_container_1_div_1_Template_button_click_3_listener($event) {
-      \u0275\u0275restoreView(_r7);
-      const ctx_r8 = \u0275\u0275nextContext();
-      const item_r8 = ctx_r8.$implicit;
-      const k_r10 = ctx_r8.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      ctx_r0.onItemClick(item_r8, k_r10, $event);
+      \u0275\u0275restoreView(_r8);
+      const ctx_r9 = \u0275\u0275nextContext();
+      const item_r9 = ctx_r9.$implicit;
+      const k_r11 = ctx_r9.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      ctx_r1.onItemClick(item_r9, k_r11, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_div_9_ng_container_1_div_1_Template_button_keydown_3_listener($event) {
-      \u0275\u0275restoreView(_r7);
-      const ctx_r0 = \u0275\u0275nextContext(3);
-      return \u0275\u0275resetView(ctx_r0.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r8);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275element(4, "c-icon", 37);
+    \u0275\u0275element(4, "c-icon", 18);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r8 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r9 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r0.badgeTempl);
+    \u0275\u0275property("ngIf", !ctx_r1.badgeTempl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.badgeTempl);
+    \u0275\u0275property("ngIf", ctx_r1.badgeTempl);
     \u0275\u0275advance();
-    \u0275\u0275attribute("aria-label", ctx_r0.getRemoveItemAriaLabel(item_r8));
+    \u0275\u0275attribute("aria-label", ctx_r1.getRemoveItemAriaLabel(item_r9));
     \u0275\u0275advance();
     \u0275\u0275property("name", "remove");
   }
@@ -36946,14 +36941,14 @@ function AngularMultiSelect_div_9_ng_container_1_div_1_Template(rf, ctx) {
 function AngularMultiSelect_div_9_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_Template, 5, 4, "div", 40);
+    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_Template, 5, 4, "div", 39);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const k_r10 = ctx.index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const k_r11 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.shouldShowSelectedBadge(k_r10));
+    \u0275\u0275property("ngIf", ctx_r1.shouldShowSelectedBadge(k_r11));
   }
 }
 function AngularMultiSelect_div_9_Template(rf, ctx) {
@@ -36963,1335 +36958,1285 @@ function AngularMultiSelect_div_9_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.selectedItems)("ngForTrackBy", ctx_r0.trackByFn.bind(ctx_r0));
+    \u0275\u0275property("ngForOf", ctx_r1.selectedItems)("ngForTrackBy", ctx_r1.trackByFn.bind(ctx_r1));
   }
 }
 function AngularMultiSelect_span_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 41);
+    \u0275\u0275elementStart(0, "span", 40);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1("+", ctx_r0.getHiddenSelectedCount());
+    \u0275\u0275textInterpolate1("+", ctx_r1.getHiddenSelectedCount());
   }
 }
 function AngularMultiSelect_button_11_Template(rf, ctx) {
   if (rf & 1) {
-    const _r11 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 42);
+    const _r12 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 41);
     \u0275\u0275listener("click", function AngularMultiSelect_button_11_Template_button_click_0_listener($event) {
-      \u0275\u0275restoreView(_r11);
-      const ctx_r0 = \u0275\u0275nextContext();
-      ctx_r0.clearSelection($event);
+      \u0275\u0275restoreView(_r12);
+      const ctx_r1 = \u0275\u0275nextContext();
+      ctx_r1.clearSelection($event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_button_11_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r11);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r12);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275element(1, "c-icon", 37);
+    \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275attribute("aria-label", ctx_r0.getClearAllAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275attribute("aria-label", ctx_r1.getClearAllAriaLabel());
     \u0275\u0275advance();
     \u0275\u0275property("name", "remove");
   }
 }
-function AngularMultiSelect_button_12_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 43);
-    \u0275\u0275listener("click", function AngularMultiSelect_button_12_Template_button_click_0_listener($event) {
-      \u0275\u0275restoreView(_r12);
-      const ctx_r0 = \u0275\u0275nextContext();
-      ctx_r0.toggleDropdown($event);
-      return \u0275\u0275resetView($event.stopPropagation());
-    })("keydown", function AngularMultiSelect_button_12_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r12);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onArrowButtonKeydown($event));
-    });
-    \u0275\u0275element(1, "c-icon", 37);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("disabled", ctx_r0.settings.disabled);
-    \u0275\u0275attribute("aria-label", ctx_r0.getOpenDropdownAriaLabel())("aria-controls", ctx_r0.listboxId)("aria-expanded", ctx_r0.isActive);
-    \u0275\u0275advance();
-    \u0275\u0275property("name", "angle-down");
-  }
-}
-function AngularMultiSelect_button_13_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r13 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 44);
-    \u0275\u0275listener("click", function AngularMultiSelect_button_13_Template_button_click_0_listener($event) {
-      \u0275\u0275restoreView(_r13);
-      const ctx_r0 = \u0275\u0275nextContext();
-      ctx_r0.toggleDropdown($event);
-      return \u0275\u0275resetView($event.stopPropagation());
-    })("keydown", function AngularMultiSelect_button_13_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r13);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onArrowButtonKeydown($event));
-    });
-    \u0275\u0275element(1, "c-icon", 37);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("disabled", ctx_r0.settings.disabled);
-    \u0275\u0275attribute("aria-label", ctx_r0.getCloseDropdownAriaLabel())("aria-controls", ctx_r0.listboxId)("aria-expanded", ctx_r0.isActive);
-    \u0275\u0275advance();
-    \u0275\u0275property("name", "angle-up");
-  }
-}
 function AngularMultiSelect_div_19_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r14 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 49);
+    const _r13 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 46);
     \u0275\u0275listener("change", function AngularMultiSelect_div_19_input_1_Template_input_change_0_listener($event) {
-      \u0275\u0275restoreView(_r14);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleSelectAll($event));
+      \u0275\u0275restoreView(_r13);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleSelectAll($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelectAll)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length))("id", ctx_r0.id);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length))("id", ctx_r1.id);
   }
 }
 function AngularMultiSelect_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 45);
-    \u0275\u0275template(1, AngularMultiSelect_div_19_input_1_Template, 1, 3, "input", 46);
-    \u0275\u0275elementStart(2, "label", 47)(3, "span", 48);
+    \u0275\u0275elementStart(0, "div", 42);
+    \u0275\u0275template(1, AngularMultiSelect_div_19_input_1_Template, 1, 3, "input", 43);
+    \u0275\u0275elementStart(2, "label", 44)(3, "span", 45);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 48);
+    \u0275\u0275elementStart(5, "span", 45);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance();
-    \u0275\u0275property("for", ctx_r0.id);
+    \u0275\u0275property("for", ctx_r1.id);
     \u0275\u0275advance();
-    \u0275\u0275property("hidden", ctx_r0.isSelectAll);
+    \u0275\u0275property("hidden", ctx_r1.isSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.selectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.selectAllText);
     \u0275\u0275advance();
-    \u0275\u0275property("hidden", !ctx_r0.isSelectAll);
+    \u0275\u0275property("hidden", !ctx_r1.isSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.unSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.unSelectAllText);
   }
 }
 function AngularMultiSelect_img_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "img", 50);
+    \u0275\u0275element(0, "img", 47);
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275attribute("alt", ctx_r0.settings.loadingText);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275attribute("alt", ctx_r1.settings.loadingText);
   }
 }
 function AngularMultiSelect_div_21_button_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r15 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 56);
+    const _r14 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 53);
     \u0275\u0275listener("click", function AngularMultiSelect_div_21_button_3_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r15);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.clearSearch());
+      \u0275\u0275restoreView(_r14);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.clearSearch());
     })("keydown", function AngularMultiSelect_div_21_button_3_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r15);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r14);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275element(1, "c-icon", 37);
+    \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("hidden", ctx_r0.filter == void 0 || (ctx_r0.filter == null ? null : ctx_r0.filter.length) == 0);
-    \u0275\u0275attribute("aria-label", ctx_r0.getClearSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
+    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
     \u0275\u0275advance();
     \u0275\u0275property("name", "clear");
   }
 }
 function AngularMultiSelect_div_21_button_4_Template(rf, ctx) {
   if (rf & 1) {
-    const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 56);
+    const _r15 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 53);
     \u0275\u0275listener("click", function AngularMultiSelect_div_21_button_4_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r16);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.resetInfiniteSearch());
+      \u0275\u0275restoreView(_r15);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.resetInfiniteSearch());
     })("keydown", function AngularMultiSelect_div_21_button_4_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r16);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r15);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275element(1, "c-icon", 37);
+    \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("hidden", ctx_r0.filter == void 0 || (ctx_r0.filter == null ? null : ctx_r0.filter.length) == 0);
-    \u0275\u0275attribute("aria-label", ctx_r0.getClearSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
+    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
     \u0275\u0275advance();
     \u0275\u0275property("name", "clear");
   }
 }
 function AngularMultiSelect_div_21_input_5_Template(rf, ctx) {
   if (rf & 1) {
-    const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 57, 4);
+    const _r16 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 54, 4);
     \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_5_Template_input_ngModelChange_0_listener($event) {
-      \u0275\u0275restoreView(_r17);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r0.filter, $event) || (ctx_r0.filter = $event);
+      \u0275\u0275restoreView(_r16);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_5_Template_input_keyup_0_listener() {
-      \u0275\u0275restoreView(_r17);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.filterGroupedList());
+      \u0275\u0275restoreView(_r16);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.filterGroupedList());
     })("keydown", function AngularMultiSelect_div_21_input_5_Template_input_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r17);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSearchKeydown($event));
+      \u0275\u0275restoreView(_r16);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("placeholder", ctx_r0.settings.searchPlaceholderText);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r0.filter);
-    \u0275\u0275attribute("aria-label", ctx_r0.getSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
+    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
   }
 }
 function AngularMultiSelect_div_21_input_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r18 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 57, 4);
+    const _r17 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 54, 4);
     \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_6_Template_input_ngModelChange_0_listener($event) {
-      \u0275\u0275restoreView(_r18);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r0.filter, $event) || (ctx_r0.filter = $event);
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_6_Template_input_keyup_0_listener($event) {
-      \u0275\u0275restoreView(_r18);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.filteritems($event));
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.filteritems($event));
     })("keydown", function AngularMultiSelect_div_21_input_6_Template_input_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r18);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSearchKeydown($event));
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("placeholder", ctx_r0.settings.searchPlaceholderText);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r0.filter);
-    \u0275\u0275attribute("aria-label", ctx_r0.getSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
+    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
   }
 }
 function AngularMultiSelect_div_21_input_7_Template(rf, ctx) {
   if (rf & 1) {
-    const _r19 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 57, 4);
+    const _r18 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 54, 4);
     \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_7_Template_input_ngModelChange_0_listener($event) {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r0.filter, $event) || (ctx_r0.filter = $event);
+      \u0275\u0275restoreView(_r18);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_7_Template_input_keyup_0_listener($event) {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onKeyUp($event));
+      \u0275\u0275restoreView(_r18);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onKeyUp($event));
     })("keydown", function AngularMultiSelect_div_21_input_7_Template_input_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSearchKeydown($event));
+      \u0275\u0275restoreView(_r18);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("placeholder", ctx_r0.settings.searchPlaceholderText);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r0.filter);
-    \u0275\u0275attribute("aria-label", ctx_r0.getSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
+    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
   }
 }
 function AngularMultiSelect_div_21_c_templateRenderer_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "c-templateRenderer", 39);
+    \u0275\u0275element(0, "c-templateRenderer", 38);
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("data", ctx_r0.searchTempl)("item", ctx_r0.item);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("data", ctx_r1.searchTempl)("item", ctx_r1.item);
   }
 }
 function AngularMultiSelect_div_21_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 51)(1, "span", 52);
-    \u0275\u0275element(2, "c-icon", 37);
+    \u0275\u0275elementStart(0, "div", 48)(1, "span", 49);
+    \u0275\u0275element(2, "c-icon", 18);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, AngularMultiSelect_div_21_button_3_Template, 2, 3, "button", 53)(4, AngularMultiSelect_div_21_button_4_Template, 2, 3, "button", 53)(5, AngularMultiSelect_div_21_input_5_Template, 2, 3, "input", 54)(6, AngularMultiSelect_div_21_input_6_Template, 2, 3, "input", 54)(7, AngularMultiSelect_div_21_input_7_Template, 2, 3, "input", 54)(8, AngularMultiSelect_div_21_c_templateRenderer_8_Template, 1, 2, "c-templateRenderer", 55);
+    \u0275\u0275template(3, AngularMultiSelect_div_21_button_3_Template, 2, 3, "button", 50)(4, AngularMultiSelect_div_21_button_4_Template, 2, 3, "button", 50)(5, AngularMultiSelect_div_21_input_5_Template, 2, 3, "input", 51)(6, AngularMultiSelect_div_21_input_6_Template, 2, 3, "input", 51)(7, AngularMultiSelect_div_21_input_7_Template, 2, 3, "input", 51)(8, AngularMultiSelect_div_21_c_templateRenderer_8_Template, 1, 2, "c-templateRenderer", 52);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance(2);
     \u0275\u0275property("name", "search");
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r0.settings.lazyLoading);
+    \u0275\u0275property("ngIf", !ctx_r1.settings.lazyLoading);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.lazyLoading);
+    \u0275\u0275property("ngIf", ctx_r1.settings.lazyLoading);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.groupBy && !ctx_r0.settings.lazyLoading && !ctx_r0.searchTempl);
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && !ctx_r1.searchTempl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r0.settings.groupBy && !ctx_r0.settings.lazyLoading && !ctx_r0.searchTempl);
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && !ctx_r1.searchTempl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.lazyLoading && !ctx_r0.searchTempl);
+    \u0275\u0275property("ngIf", ctx_r1.settings.lazyLoading && !ctx_r1.searchTempl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.searchTempl);
+    \u0275\u0275property("ngIf", ctx_r1.searchTempl);
   }
 }
 function AngularMultiSelect_div_22_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 60);
+    const _r19 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 57);
     \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_1_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleFilterSelectAll());
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     })("keydown", function AngularMultiSelect_div_22_div_1_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSelectAllKeydown($event, "filter"));
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "filter"));
     });
-    \u0275\u0275elementStart(1, "input", 61);
+    \u0275\u0275elementStart(1, "input", 58);
     \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_1_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
     })("change", function AngularMultiSelect_div_22_div_1_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleFilterSelectAll());
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 48);
+    \u0275\u0275elementStart(2, "label")(3, "span", 45);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 48);
+    \u0275\u0275elementStart(5, "span", 45);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275attribute("aria-checked", ctx_r0.isFilterSelectAll);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275attribute("aria-checked", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275property("checked", ctx_r0.isFilterSelectAll)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length));
+    \u0275\u0275property("checked", ctx_r1.isFilterSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
     \u0275\u0275advance(2);
-    \u0275\u0275property("hidden", ctx_r0.isFilterSelectAll);
+    \u0275\u0275property("hidden", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterSelectAllText);
     \u0275\u0275advance();
-    \u0275\u0275property("hidden", !ctx_r0.isFilterSelectAll);
+    \u0275\u0275property("hidden", !ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterUnSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
 function AngularMultiSelect_div_22_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r21 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 60);
+    const _r20 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 57);
     \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_2_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleFilterSelectAll());
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     })("keydown", function AngularMultiSelect_div_22_div_2_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSelectAllKeydown($event, "filter"));
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "filter"));
     });
-    \u0275\u0275elementStart(1, "input", 61);
+    \u0275\u0275elementStart(1, "input", 58);
     \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_2_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
     })("change", function AngularMultiSelect_div_22_div_2_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleFilterSelectAll());
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 48);
+    \u0275\u0275elementStart(2, "label")(3, "span", 45);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 48);
+    \u0275\u0275elementStart(5, "span", 45);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275attribute("aria-checked", ctx_r0.isFilterSelectAll);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275attribute("aria-checked", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275property("checked", ctx_r0.isFilterSelectAll && (ctx_r0.filter == null ? null : ctx_r0.filter.length) > 0)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length));
+    \u0275\u0275property("checked", ctx_r1.isFilterSelectAll && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
     \u0275\u0275advance(2);
-    \u0275\u0275property("hidden", ctx_r0.isFilterSelectAll);
+    \u0275\u0275property("hidden", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterSelectAllText);
     \u0275\u0275advance();
-    \u0275\u0275property("hidden", !ctx_r0.isFilterSelectAll);
+    \u0275\u0275property("hidden", !ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterUnSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
 function AngularMultiSelect_div_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 58);
-    \u0275\u0275template(1, AngularMultiSelect_div_22_div_1_Template, 7, 7, "div", 59)(2, AngularMultiSelect_div_22_div_2_Template, 7, 7, "div", 59);
+    \u0275\u0275elementStart(0, "div", 55);
+    \u0275\u0275template(1, AngularMultiSelect_div_22_div_1_Template, 7, 7, "div", 56)(2, AngularMultiSelect_div_22_div_2_Template, 7, 7, "div", 56);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r0.settings.groupBy && (ctx_r0.filter == null ? null : ctx_r0.filter.length) > 0 && ctx_r0.filterLength > 0 && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && ctx_r1.filterLength > 0 && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.groupBy && (ctx_r0.filter == null ? null : ctx_r0.filter.length) > 0 && (ctx_r0.groupedData == null ? null : ctx_r0.groupedData.length) > 0 && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && (ctx_r1.groupedData == null ? null : ctx_r1.groupedData.length) > 0 && !ctx_r1.settings.singleSelection);
   }
 }
 function AngularMultiSelect_div_23_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 60);
+    const _r21 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 57);
     \u0275\u0275listener("click", function AngularMultiSelect_div_23_div_1_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r22);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleInfiniteFilterSelectAll());
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleInfiniteFilterSelectAll());
     })("keydown", function AngularMultiSelect_div_23_div_1_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r22);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onSelectAllKeydown($event, "infinite-filter"));
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "infinite-filter"));
     });
-    \u0275\u0275elementStart(1, "input", 61);
+    \u0275\u0275elementStart(1, "input", 58);
     \u0275\u0275listener("click", function AngularMultiSelect_div_23_div_1_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
     })("change", function AngularMultiSelect_div_23_div_1_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r22);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.toggleInfiniteFilterSelectAll());
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.toggleInfiniteFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 48);
+    \u0275\u0275elementStart(2, "label")(3, "span", 45);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 48);
+    \u0275\u0275elementStart(5, "span", 45);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275attribute("aria-checked", ctx_r0.isInfiniteFilterSelectAll);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275attribute("aria-checked", ctx_r1.isInfiniteFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275property("checked", ctx_r0.isInfiniteFilterSelectAll)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length));
+    \u0275\u0275property("checked", ctx_r1.isInfiniteFilterSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
     \u0275\u0275advance(2);
-    \u0275\u0275property("hidden", ctx_r0.isInfiniteFilterSelectAll);
+    \u0275\u0275property("hidden", ctx_r1.isInfiniteFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterSelectAllText);
     \u0275\u0275advance();
-    \u0275\u0275property("hidden", !ctx_r0.isInfiniteFilterSelectAll);
+    \u0275\u0275property("hidden", !ctx_r1.isInfiniteFilterSelectAll);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.filterUnSelectAllText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
 function AngularMultiSelect_div_23_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 58);
-    \u0275\u0275template(1, AngularMultiSelect_div_23_div_1_Template, 7, 7, "div", 59);
+    \u0275\u0275elementStart(0, "div", 55);
+    \u0275\u0275template(1, AngularMultiSelect_div_23_div_1_Template, 7, 7, "div", 56);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", (ctx_r0.filter == null ? null : ctx_r0.filter.length) > 0 && ctx_r0.infiniteFilterLength > 0);
+    \u0275\u0275property("ngIf", (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && ctx_r1.infiniteFilterLength > 0);
   }
 }
 function AngularMultiSelect_div_24_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r23 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 63)(1, "button", 64);
+    const _r22 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 60)(1, "button", 61);
     \u0275\u0275listener("click", function AngularMultiSelect_div_24_div_1_Template_button_click_1_listener() {
-      \u0275\u0275restoreView(_r23);
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.addFilterNewItem());
+      \u0275\u0275restoreView(_r22);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.addFilterNewItem());
     });
     \u0275\u0275text(2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(ctx_r0.settings.addNewButtonText);
+    \u0275\u0275textInterpolate(ctx_r1.settings.addNewButtonText);
   }
 }
 function AngularMultiSelect_div_24_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 58);
-    \u0275\u0275template(1, AngularMultiSelect_div_24_div_1_Template, 3, 1, "div", 62);
+    \u0275\u0275elementStart(0, "div", 55);
+    \u0275\u0275template(1, AngularMultiSelect_div_24_div_1_Template, 3, 1, "div", 59);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.addNewItemOnFilter);
+    \u0275\u0275property("ngIf", ctx_r1.settings.addNewItemOnFilter);
   }
 }
 function AngularMultiSelect_div_25_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r26 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r26))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r26) || item_r26.disabled);
+    const item_r25 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r25))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r25) || item_r25.disabled);
   }
 }
 function AngularMultiSelect_div_25_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r24 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 68);
+    const _r23 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 65);
     \u0275\u0275listener("click", function AngularMultiSelect_div_25_li_2_Template_li_click_0_listener($event) {
-      const ctx_r24 = \u0275\u0275restoreView(_r24);
-      const item_r26 = ctx_r24.$implicit;
-      const i_r27 = ctx_r24.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r26, i_r27, $event));
+      const ctx_r23 = \u0275\u0275restoreView(_r23);
+      const item_r25 = ctx_r23.$implicit;
+      const i_r26 = ctx_r23.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r25, i_r26, $event));
     })("focus", function AngularMultiSelect_div_25_li_2_Template_li_focus_0_listener() {
-      const ctx_r27 = \u0275\u0275restoreView(_r24);
-      const item_r26 = ctx_r27.$implicit;
-      const i_r27 = ctx_r27.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r26, i_r27, "default"));
+      const ctx_r26 = \u0275\u0275restoreView(_r23);
+      const item_r25 = ctx_r26.$implicit;
+      const i_r26 = ctx_r26.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r25, i_r26, "default"));
     })("keydown", function AngularMultiSelect_div_25_li_2_Template_li_keydown_0_listener($event) {
-      const ctx_r28 = \u0275\u0275restoreView(_r24);
-      const item_r26 = ctx_r28.$implicit;
-      const i_r27 = ctx_r28.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r26, i_r27, $event, "default"));
+      const ctx_r27 = \u0275\u0275restoreView(_r23);
+      const item_r25 = ctx_r27.$implicit;
+      const i_r26 = ctx_r27.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r25, i_r26, $event, "default"));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_25_li_2_input_1_Template, 1, 2, "input", 69);
+    \u0275\u0275template(1, AngularMultiSelect_div_25_li_2_input_1_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r26 = ctx.$implicit;
-    const i_r27 = ctx.index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("id", ctx_r0.getOptionId(item_r26, i_r27, "default"))("ngClass", \u0275\u0275pureFunction2(7, _c14, ctx_r0.isSelected(item_r26) == true, ctx_r0.isOptionDisabled(item_r26)));
-    \u0275\u0275attribute("aria-selected", ctx_r0.isSelected(item_r26))("aria-disabled", ctx_r0.isOptionDisabled(item_r26))("tabindex", ctx_r0.isOptionDisabled(item_r26) ? -1 : 0);
+    const item_r25 = ctx.$implicit;
+    const i_r26 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r25, i_r26, "default"))("ngClass", \u0275\u0275pureFunction2(7, _c13, ctx_r1.isSelected(item_r25) == true, ctx_r1.isOptionDisabled(item_r25)));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r25))("aria-disabled", ctx_r1.isOptionDisabled(item_r25))("tabindex", ctx_r1.isOptionDisabled(item_r25) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r26[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r25[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_25_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 66);
-    \u0275\u0275template(2, AngularMultiSelect_div_25_li_2_Template, 4, 10, "li", 67);
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
+    \u0275\u0275template(2, AngularMultiSelect_div_25_li_2_Template, 4, 10, "li", 64);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.data);
+    \u0275\u0275property("ngForOf", ctx_r1.data);
   }
 }
 function AngularMultiSelect_div_26_li_3_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r33 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r33))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r33) || item_r33.disabled);
+    const item_r32 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r32))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r32) || item_r32.disabled);
   }
 }
 function AngularMultiSelect_div_26_li_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r31 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 68);
+    const _r30 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 65);
     \u0275\u0275listener("click", function AngularMultiSelect_div_26_li_3_Template_li_click_0_listener($event) {
-      const ctx_r31 = \u0275\u0275restoreView(_r31);
-      const item_r33 = ctx_r31.$implicit;
-      const i_r34 = ctx_r31.index;
+      const ctx_r30 = \u0275\u0275restoreView(_r30);
+      const item_r32 = ctx_r30.$implicit;
+      const i_r33 = ctx_r30.index;
       \u0275\u0275nextContext();
-      const scroll_r35 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r33, ctx_r0.getVirtualItemIndex(item_r33, i_r34, scroll_r35), $event));
+      const scroll_r34 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), $event));
     })("focus", function AngularMultiSelect_div_26_li_3_Template_li_focus_0_listener() {
-      const ctx_r35 = \u0275\u0275restoreView(_r31);
-      const item_r33 = ctx_r35.$implicit;
-      const i_r34 = ctx_r35.index;
+      const ctx_r34 = \u0275\u0275restoreView(_r30);
+      const item_r32 = ctx_r34.$implicit;
+      const i_r33 = ctx_r34.index;
       \u0275\u0275nextContext();
-      const scroll_r35 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r33, ctx_r0.getVirtualItemIndex(item_r33, i_r34, scroll_r35), "lazy"));
+      const scroll_r34 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), "lazy"));
     })("keydown", function AngularMultiSelect_div_26_li_3_Template_li_keydown_0_listener($event) {
-      const ctx_r36 = \u0275\u0275restoreView(_r31);
-      const item_r33 = ctx_r36.$implicit;
-      const i_r34 = ctx_r36.index;
+      const ctx_r35 = \u0275\u0275restoreView(_r30);
+      const item_r32 = ctx_r35.$implicit;
+      const i_r33 = ctx_r35.index;
       \u0275\u0275nextContext();
-      const scroll_r35 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r33, ctx_r0.getVirtualItemIndex(item_r33, i_r34, scroll_r35), $event, "lazy", scroll_r35));
+      const scroll_r34 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), $event, "lazy", scroll_r34));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_26_li_3_input_1_Template, 1, 2, "input", 69);
+    \u0275\u0275template(1, AngularMultiSelect_div_26_li_3_input_1_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r33 = ctx.$implicit;
-    const i_r34 = ctx.index;
+    const item_r32 = ctx.$implicit;
+    const i_r33 = ctx.index;
     \u0275\u0275nextContext();
-    const scroll_r35 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("id", ctx_r0.getOptionId(item_r33, ctx_r0.getVirtualItemIndex(item_r33, i_r34, scroll_r35), "lazy"))("ngClass", \u0275\u0275pureFunction2(8, _c14, ctx_r0.isSelected(item_r33) == true, ctx_r0.isOptionDisabled(item_r33)));
-    \u0275\u0275attribute("data-virtual-index", ctx_r0.getVirtualItemIndex(item_r33, i_r34, scroll_r35))("aria-selected", ctx_r0.isSelected(item_r33))("aria-disabled", ctx_r0.isOptionDisabled(item_r33))("tabindex", ctx_r0.isOptionDisabled(item_r33) ? -1 : 0);
+    const scroll_r34 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), "lazy"))("ngClass", \u0275\u0275pureFunction2(8, _c13, ctx_r1.isSelected(item_r32) == true, ctx_r1.isOptionDisabled(item_r32)));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34))("aria-selected", ctx_r1.isSelected(item_r32))("aria-disabled", ctx_r1.isOptionDisabled(item_r32))("tabindex", ctx_r1.isOptionDisabled(item_r32) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r33[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r32[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_26_Template(rf, ctx) {
   if (rf & 1) {
-    const _r30 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 71, 5);
+    const _r29 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 5);
     \u0275\u0275listener("vsStart", function AngularMultiSelect_div_26_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r30);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r29);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     })("vsEnd", function AngularMultiSelect_div_26_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r30);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r29);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_26_li_3_Template, 4, 11, "li", 67);
+    \u0275\u0275template(3, AngularMultiSelect_div_26_li_3_Template, 4, 11, "li", 64);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll_r35 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const scroll_r34 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c15, ctx_r0.settings.maxHeight + "px"))("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll_r35.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll_r34.viewPortItems);
   }
 }
 function AngularMultiSelect_div_27_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r40 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r40))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r40) || item_r40.disabled);
+    const item_r39 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r39))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r39) || item_r39.disabled);
   }
 }
 function AngularMultiSelect_div_27_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r38 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 68);
+    const _r37 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 65);
     \u0275\u0275listener("click", function AngularMultiSelect_div_27_li_2_Template_li_click_0_listener($event) {
-      const ctx_r38 = \u0275\u0275restoreView(_r38);
-      const item_r40 = ctx_r38.$implicit;
-      const i_r41 = ctx_r38.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r40, i_r41, $event));
+      const ctx_r37 = \u0275\u0275restoreView(_r37);
+      const item_r39 = ctx_r37.$implicit;
+      const i_r40 = ctx_r37.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r39, i_r40, $event));
     })("focus", function AngularMultiSelect_div_27_li_2_Template_li_focus_0_listener() {
-      const ctx_r41 = \u0275\u0275restoreView(_r38);
-      const item_r40 = ctx_r41.$implicit;
-      const i_r41 = ctx_r41.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r40, i_r41, "custom"));
+      const ctx_r40 = \u0275\u0275restoreView(_r37);
+      const item_r39 = ctx_r40.$implicit;
+      const i_r40 = ctx_r40.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r39, i_r40, "custom"));
     })("keydown", function AngularMultiSelect_div_27_li_2_Template_li_keydown_0_listener($event) {
-      const ctx_r42 = \u0275\u0275restoreView(_r38);
-      const item_r40 = ctx_r42.$implicit;
-      const i_r41 = ctx_r42.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r40, i_r41, $event, "custom"));
+      const ctx_r41 = \u0275\u0275restoreView(_r37);
+      const item_r39 = ctx_r41.$implicit;
+      const i_r40 = ctx_r41.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r39, i_r40, $event, "custom"));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_27_li_2_input_1_Template, 1, 2, "input", 69);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 39);
+    \u0275\u0275template(1, AngularMultiSelect_div_27_li_2_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r40 = ctx.$implicit;
-    const i_r41 = ctx.index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("id", ctx_r0.getOptionId(item_r40, i_r41, "custom"))("ngClass", \u0275\u0275pureFunction2(8, _c14, ctx_r0.isSelected(item_r40) == true, ctx_r0.isOptionDisabled(item_r40)));
-    \u0275\u0275attribute("aria-selected", ctx_r0.isSelected(item_r40))("aria-disabled", ctx_r0.isOptionDisabled(item_r40))("tabindex", ctx_r0.isOptionDisabled(item_r40) ? -1 : 0);
+    const item_r39 = ctx.$implicit;
+    const i_r40 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r39, i_r40, "custom"))("ngClass", \u0275\u0275pureFunction2(8, _c13, ctx_r1.isSelected(item_r39) == true, ctx_r1.isOptionDisabled(item_r39)));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r39))("aria-disabled", ctx_r1.isOptionDisabled(item_r39))("tabindex", ctx_r1.isOptionDisabled(item_r39) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r0.itemTempl)("item", item_r40);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r39);
   }
 }
 function AngularMultiSelect_div_27_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 66);
-    \u0275\u0275template(2, AngularMultiSelect_div_27_li_2_Template, 4, 11, "li", 67);
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
+    \u0275\u0275template(2, AngularMultiSelect_div_27_li_2_Template, 4, 11, "li", 64);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.data);
+    \u0275\u0275property("ngForOf", ctx_r1.data);
   }
 }
 function AngularMultiSelect_div_28_li_3_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r47 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r47))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r47) || item_r47.disabled);
+    const item_r46 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r46))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r46) || item_r46.disabled);
   }
 }
 function AngularMultiSelect_div_28_li_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r45 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 68);
+    const _r44 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 65);
     \u0275\u0275listener("click", function AngularMultiSelect_div_28_li_3_Template_li_click_0_listener($event) {
-      const ctx_r45 = \u0275\u0275restoreView(_r45);
-      const item_r47 = ctx_r45.$implicit;
-      const i_r48 = ctx_r45.index;
+      const ctx_r44 = \u0275\u0275restoreView(_r44);
+      const item_r46 = ctx_r44.$implicit;
+      const i_r47 = ctx_r44.index;
       \u0275\u0275nextContext();
-      const scroll2_r49 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r47, ctx_r0.getVirtualItemIndex(item_r47, i_r48, scroll2_r49), $event));
+      const scroll2_r48 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), $event));
     })("focus", function AngularMultiSelect_div_28_li_3_Template_li_focus_0_listener() {
-      const ctx_r49 = \u0275\u0275restoreView(_r45);
-      const item_r47 = ctx_r49.$implicit;
-      const i_r48 = ctx_r49.index;
+      const ctx_r48 = \u0275\u0275restoreView(_r44);
+      const item_r46 = ctx_r48.$implicit;
+      const i_r47 = ctx_r48.index;
       \u0275\u0275nextContext();
-      const scroll2_r49 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r47, ctx_r0.getVirtualItemIndex(item_r47, i_r48, scroll2_r49), "lazy-custom"));
+      const scroll2_r48 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), "lazy-custom"));
     })("keydown", function AngularMultiSelect_div_28_li_3_Template_li_keydown_0_listener($event) {
-      const ctx_r50 = \u0275\u0275restoreView(_r45);
-      const item_r47 = ctx_r50.$implicit;
-      const i_r48 = ctx_r50.index;
+      const ctx_r49 = \u0275\u0275restoreView(_r44);
+      const item_r46 = ctx_r49.$implicit;
+      const i_r47 = ctx_r49.index;
       \u0275\u0275nextContext();
-      const scroll2_r49 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r47, ctx_r0.getVirtualItemIndex(item_r47, i_r48, scroll2_r49), $event, "lazy-custom", scroll2_r49));
+      const scroll2_r48 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), $event, "lazy-custom", scroll2_r48));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_28_li_3_input_1_Template, 1, 2, "input", 69);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 39);
+    \u0275\u0275template(1, AngularMultiSelect_div_28_li_3_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r47 = ctx.$implicit;
-    const i_r48 = ctx.index;
+    const item_r46 = ctx.$implicit;
+    const i_r47 = ctx.index;
     \u0275\u0275nextContext();
-    const scroll2_r49 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("id", ctx_r0.getOptionId(item_r47, ctx_r0.getVirtualItemIndex(item_r47, i_r48, scroll2_r49), "lazy-custom"))("ngClass", \u0275\u0275pureFunction2(9, _c14, ctx_r0.isSelected(item_r47) == true, ctx_r0.isOptionDisabled(item_r47)));
-    \u0275\u0275attribute("data-virtual-index", ctx_r0.getVirtualItemIndex(item_r47, i_r48, scroll2_r49))("aria-selected", ctx_r0.isSelected(item_r47))("aria-disabled", ctx_r0.isOptionDisabled(item_r47))("tabindex", ctx_r0.isOptionDisabled(item_r47) ? -1 : 0);
+    const scroll2_r48 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), "lazy-custom"))("ngClass", \u0275\u0275pureFunction2(9, _c13, ctx_r1.isSelected(item_r46) == true, ctx_r1.isOptionDisabled(item_r46)));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48))("aria-selected", ctx_r1.isSelected(item_r46))("aria-disabled", ctx_r1.isOptionDisabled(item_r46))("tabindex", ctx_r1.isOptionDisabled(item_r46) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r0.itemTempl)("item", item_r47);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r46);
   }
 }
 function AngularMultiSelect_div_28_Template(rf, ctx) {
   if (rf & 1) {
-    const _r44 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 71, 6);
+    const _r43 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 6);
     \u0275\u0275listener("vsStart", function AngularMultiSelect_div_28_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r44);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r43);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     })("vsEnd", function AngularMultiSelect_div_28_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r44);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r43);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_28_li_3_Template, 4, 12, "li", 67);
+    \u0275\u0275template(3, AngularMultiSelect_div_28_li_3_Template, 4, 12, "li", 64);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll2_r49 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const scroll2_r48 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c15, ctx_r0.settings.maxHeight + "px"))("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll2_r49.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll2_r48.viewPortItems);
   }
 }
 function AngularMultiSelect_div_29_span_3_li_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r55 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r55))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r55) || item_r55.disabled);
+    const item_r54 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r54))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r54) || item_r54.disabled);
   }
 }
 function AngularMultiSelect_div_29_span_3_li_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r53 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 75);
+    const _r52 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_29_span_3_li_1_Template_li_click_0_listener($event) {
-      \u0275\u0275restoreView(_r53);
-      const ctx_r53 = \u0275\u0275nextContext();
-      const item_r55 = ctx_r53.$implicit;
-      const i_r56 = ctx_r53.index;
+      \u0275\u0275restoreView(_r52);
+      const ctx_r52 = \u0275\u0275nextContext();
+      const item_r54 = ctx_r52.$implicit;
+      const i_r55 = ctx_r52.index;
       \u0275\u0275nextContext();
-      const scroll3_r57 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r55, ctx_r0.getVirtualItemIndex(item_r55, i_r56, scroll3_r57), $event));
+      const scroll3_r56 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), $event));
     })("focus", function AngularMultiSelect_div_29_span_3_li_1_Template_li_focus_0_listener() {
-      \u0275\u0275restoreView(_r53);
-      const ctx_r53 = \u0275\u0275nextContext();
-      const item_r55 = ctx_r53.$implicit;
-      const i_r56 = ctx_r53.index;
+      \u0275\u0275restoreView(_r52);
+      const ctx_r52 = \u0275\u0275nextContext();
+      const item_r54 = ctx_r52.$implicit;
+      const i_r55 = ctx_r52.index;
       \u0275\u0275nextContext();
-      const scroll3_r57 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r55, ctx_r0.getVirtualItemIndex(item_r55, i_r56, scroll3_r57), "lazy-group-custom"));
+      const scroll3_r56 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), "lazy-group-custom"));
     })("keydown", function AngularMultiSelect_div_29_span_3_li_1_Template_li_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r53);
-      const ctx_r53 = \u0275\u0275nextContext();
-      const item_r55 = ctx_r53.$implicit;
-      const i_r56 = ctx_r53.index;
+      \u0275\u0275restoreView(_r52);
+      const ctx_r52 = \u0275\u0275nextContext();
+      const item_r54 = ctx_r52.$implicit;
+      const i_r55 = ctx_r52.index;
       \u0275\u0275nextContext();
-      const scroll3_r57 = \u0275\u0275reference(2);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r55, ctx_r0.getVirtualItemIndex(item_r55, i_r56, scroll3_r57), $event, "lazy-group-custom", scroll3_r57));
+      const scroll3_r56 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), $event, "lazy-group-custom", scroll3_r56));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_input_1_Template, 1, 2, "input", 69);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 39);
+    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r53 = \u0275\u0275nextContext();
-    const item_r55 = ctx_r53.$implicit;
-    const i_r56 = ctx_r53.index;
+    const ctx_r52 = \u0275\u0275nextContext();
+    const item_r54 = ctx_r52.$implicit;
+    const i_r55 = ctx_r52.index;
     \u0275\u0275nextContext();
-    const scroll3_r57 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c16, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r55) == true, ctx_r0.isOptionDisabled(item_r55)))("id", ctx_r0.getOptionId(item_r55, ctx_r0.getVirtualItemIndex(item_r55, i_r56, scroll3_r57), "lazy-group-custom"));
-    \u0275\u0275attribute("data-virtual-index", ctx_r0.getVirtualItemIndex(item_r55, i_r56, scroll3_r57))("aria-selected", ctx_r0.isSelected(item_r55))("aria-disabled", ctx_r0.isOptionDisabled(item_r55))("tabindex", ctx_r0.isOptionDisabled(item_r55) ? -1 : 0);
+    const scroll3_r56 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c15, item_r54.grpTitle, !item_r54.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r54) == true, ctx_r1.isOptionDisabled(item_r54)))("id", ctx_r1.getOptionId(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), "lazy-group-custom"));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56))("aria-selected", ctx_r1.isSelected(item_r54))("aria-disabled", ctx_r1.isOptionDisabled(item_r54))("tabindex", ctx_r1.isOptionDisabled(item_r54) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r0.itemTempl)("item", item_r55);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r54);
   }
 }
 function AngularMultiSelect_div_29_span_3_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r55 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r55))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r55) || item_r55.disabled);
+    const item_r54 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r54))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r54) || item_r54.disabled);
   }
 }
 function AngularMultiSelect_div_29_span_3_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "li", 76);
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_2_input_1_Template, 1, 2, "input", 69);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 39);
+    \u0275\u0275elementStart(0, "li", 73);
+    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_2_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r55 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c17, item_r55.grpTitle, !item_r55.grpTitle && !ctx_r0.settings.singleSelection));
+    const item_r54 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r54.grpTitle, !item_r54.grpTitle && !ctx_r1.settings.singleSelection));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r0.itemTempl)("item", item_r55);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r54);
   }
 }
 function AngularMultiSelect_div_29_span_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_Template, 4, 14, "li", 73)(2, AngularMultiSelect_div_29_span_3_li_2_Template, 4, 7, "li", 74);
+    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_Template, 4, 14, "li", 70)(2, AngularMultiSelect_div_29_span_3_li_2_Template, 4, 7, "li", 71);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r55 = ctx.$implicit;
+    const item_r54 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !item_r55.grpTitle);
+    \u0275\u0275property("ngIf", !item_r54.grpTitle);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", item_r55.grpTitle);
+    \u0275\u0275property("ngIf", item_r54.grpTitle);
   }
 }
 function AngularMultiSelect_div_29_Template(rf, ctx) {
   if (rf & 1) {
-    const _r52 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 71, 7);
+    const _r51 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 7);
     \u0275\u0275listener("vsStart", function AngularMultiSelect_div_29_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r52);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r51);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     })("vsEnd", function AngularMultiSelect_div_29_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r52);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r51);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_29_span_3_Template, 3, 2, "span", 72);
+    \u0275\u0275template(3, AngularMultiSelect_div_29_span_3_Template, 3, 2, "span", 69);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll3_r57 = \u0275\u0275reference(2);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const scroll3_r56 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c15, ctx_r0.settings.maxHeight + "px"))("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll3_r57.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll3_r56.viewPortItems);
   }
 }
 function AngularMultiSelect_div_30_span_2_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r59 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", item_r59.selected)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r59) || item_r59.disabled);
+    const item_r58 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", item_r58.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r58) || item_r58.disabled);
   }
 }
 function AngularMultiSelect_div_30_span_2_span_6_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const val_r65 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(3);
-    \u0275\u0275property("checked", ctx_r0.isSelected(val_r65))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(val_r65) || val_r65.disabled);
+    const val_r64 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(val_r64))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r64) || val_r64.disabled);
   }
 }
 function AngularMultiSelect_div_30_span_2_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r63 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 75);
+    const _r62 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_30_span_2_span_6_Template_li_click_1_listener($event) {
-      const ctx_r63 = \u0275\u0275restoreView(_r63);
-      const val_r65 = ctx_r63.$implicit;
-      const j_r66 = ctx_r63.index;
-      const ctx_r0 = \u0275\u0275nextContext(3);
-      ctx_r0.onItemClick(val_r65, j_r66, $event);
+      const ctx_r62 = \u0275\u0275restoreView(_r62);
+      const val_r64 = ctx_r62.$implicit;
+      const j_r65 = ctx_r62.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      ctx_r1.onItemClick(val_r64, j_r65, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("focus", function AngularMultiSelect_div_30_span_2_span_6_Template_li_focus_1_listener() {
-      const ctx_r66 = \u0275\u0275restoreView(_r63);
-      const val_r65 = ctx_r66.$implicit;
-      const j_r66 = ctx_r66.index;
-      const i_r61 = \u0275\u0275nextContext().index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(val_r65, j_r66, "group-custom-" + i_r61));
+      const ctx_r65 = \u0275\u0275restoreView(_r62);
+      const val_r64 = ctx_r65.$implicit;
+      const j_r65 = ctx_r65.index;
+      const i_r60 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r64, j_r65, "group-custom-" + i_r60));
     })("keydown", function AngularMultiSelect_div_30_span_2_span_6_Template_li_keydown_1_listener($event) {
-      const ctx_r67 = \u0275\u0275restoreView(_r63);
-      const val_r65 = ctx_r67.$implicit;
-      const j_r66 = ctx_r67.index;
-      const i_r61 = \u0275\u0275nextContext().index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(val_r65, j_r66, $event, "group-custom-" + i_r61));
+      const ctx_r66 = \u0275\u0275restoreView(_r62);
+      const val_r64 = ctx_r66.$implicit;
+      const j_r65 = ctx_r66.index;
+      const i_r60 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r64, j_r65, $event, "group-custom-" + i_r60));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_span_6_input_2_Template, 1, 2, "input", 69);
-    \u0275\u0275element(3, "label")(4, "c-templateRenderer", 39);
+    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_span_6_input_2_Template, 1, 2, "input", 66);
+    \u0275\u0275element(3, "label")(4, "c-templateRenderer", 38);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const val_r65 = ctx.$implicit;
-    const j_r66 = ctx.index;
-    const i_r61 = \u0275\u0275nextContext().index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const val_r64 = ctx.$implicit;
+    const j_r65 = ctx.index;
+    const i_r60 = \u0275\u0275nextContext().index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c16, val_r65.grpTitle, !val_r65.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(val_r65) == true, ctx_r0.isOptionDisabled(val_r65)))("id", ctx_r0.getOptionId(val_r65, j_r66, "group-custom-" + i_r61));
-    \u0275\u0275attribute("aria-selected", ctx_r0.isSelected(val_r65))("aria-disabled", ctx_r0.isOptionDisabled(val_r65))("tabindex", ctx_r0.isOptionDisabled(val_r65) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(val_r64) == true, ctx_r1.isOptionDisabled(val_r64)))("id", ctx_r1.getOptionId(val_r64, j_r65, "group-custom-" + i_r60));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r64))("aria-disabled", ctx_r1.isOptionDisabled(val_r64))("tabindex", ctx_r1.isOptionDisabled(val_r64) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r0.itemTempl)("item", val_r65);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", val_r64);
   }
 }
 function AngularMultiSelect_div_30_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r58 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 75);
+    const _r57 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_30_span_2_Template_li_click_1_listener() {
-      const item_r59 = \u0275\u0275restoreView(_r58).$implicit;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.selectGroup(item_r59));
+      const item_r58 = \u0275\u0275restoreView(_r57).$implicit;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r58));
     })("focus", function AngularMultiSelect_div_30_span_2_Template_li_focus_1_listener() {
-      const ctx_r59 = \u0275\u0275restoreView(_r58);
-      const item_r59 = ctx_r59.$implicit;
-      const i_r61 = ctx_r59.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r59, i_r61, "group-custom"));
+      const ctx_r58 = \u0275\u0275restoreView(_r57);
+      const item_r58 = ctx_r58.$implicit;
+      const i_r60 = ctx_r58.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r58, i_r60, "group-custom"));
     })("keydown", function AngularMultiSelect_div_30_span_2_Template_li_keydown_1_listener($event) {
-      const ctx_r61 = \u0275\u0275restoreView(_r58);
-      const item_r59 = ctx_r61.$implicit;
-      const i_r61 = ctx_r61.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onGroupKeydown(item_r59, i_r61, $event, "group-custom"));
+      const ctx_r60 = \u0275\u0275restoreView(_r57);
+      const item_r58 = ctx_r60.$implicit;
+      const i_r60 = ctx_r60.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r58, i_r60, $event, "group-custom"));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_input_2_Template, 1, 2, "input", 69);
+    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_input_2_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "ul", 77);
-    \u0275\u0275template(6, AngularMultiSelect_div_30_span_2_span_6_Template, 5, 13, "span", 72);
+    \u0275\u0275elementStart(5, "ul", 74);
+    \u0275\u0275template(6, AngularMultiSelect_div_30_span_2_span_6_Template, 5, 13, "span", 69);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r59 = ctx.$implicit;
-    const i_r61 = ctx.index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r58 = ctx.$implicit;
+    const i_r60 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c16, item_r59.grpTitle, !item_r59.grpTitle && !ctx_r0.settings.singleSelection, item_r59.selected == true, ctx_r0.isOptionDisabled(item_r59)))("id", ctx_r0.getOptionId(item_r59, i_r61, "group-custom"));
-    \u0275\u0275attribute("aria-selected", item_r59.selected)("aria-disabled", ctx_r0.isOptionDisabled(item_r59))("tabindex", ctx_r0.isOptionDisabled(item_r59) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r58.grpTitle, !item_r58.grpTitle && !ctx_r1.settings.singleSelection, item_r58.selected == true, ctx_r1.isOptionDisabled(item_r58)))("id", ctx_r1.getOptionId(item_r58, i_r60, "group-custom"));
+    \u0275\u0275attribute("aria-selected", item_r58.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r58))("tabindex", ctx_r1.isOptionDisabled(item_r58) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r59[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r58[ctx_r1.settings.labelKey]);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", item_r59.list);
+    \u0275\u0275property("ngForOf", item_r58.list);
   }
 }
 function AngularMultiSelect_div_30_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 66);
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_Template, 7, 13, "span", 72);
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
+    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_Template, 7, 13, "span", 69);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.groupedData);
+    \u0275\u0275property("ngForOf", ctx_r1.groupedData);
   }
 }
 function AngularMultiSelect_div_31_span_4_li_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r70 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r70))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r70) || item_r70.disabled);
+    const item_r69 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r69))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r69) || item_r69.disabled);
   }
 }
 function AngularMultiSelect_div_31_span_4_li_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "li", 76);
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_input_1_Template, 1, 2, "input", 69);
+    \u0275\u0275elementStart(0, "li", 73);
+    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_input_1_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r70 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c18, item_r70.grpTitle, !item_r70.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r70) == true));
+    const item_r69 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, item_r69.grpTitle, !item_r69.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r69) == true));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !item_r70.grpTitle && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r69.grpTitle && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r70[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r69[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_31_span_4_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r70 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r0.isSelected(item_r70))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r70) || item_r70.disabled);
+    const item_r69 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r69))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r69) || item_r69.disabled);
   }
 }
 function AngularMultiSelect_div_31_span_4_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r71 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 75);
+    const _r70 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_31_span_4_li_2_Template_li_click_0_listener($event) {
-      \u0275\u0275restoreView(_r71);
-      const ctx_r71 = \u0275\u0275nextContext();
-      const item_r70 = ctx_r71.$implicit;
-      const i_r73 = ctx_r71.index;
+      \u0275\u0275restoreView(_r70);
+      const ctx_r70 = \u0275\u0275nextContext();
+      const item_r69 = ctx_r70.$implicit;
+      const i_r72 = ctx_r70.index;
       \u0275\u0275nextContext();
-      const scroll4_r74 = \u0275\u0275reference(3);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onItemClick(item_r70, ctx_r0.getVirtualItemIndex(item_r70, i_r73, scroll4_r74), $event));
+      const scroll4_r73 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), $event));
     })("focus", function AngularMultiSelect_div_31_span_4_li_2_Template_li_focus_0_listener() {
-      \u0275\u0275restoreView(_r71);
-      const ctx_r71 = \u0275\u0275nextContext();
-      const item_r70 = ctx_r71.$implicit;
-      const i_r73 = ctx_r71.index;
+      \u0275\u0275restoreView(_r70);
+      const ctx_r70 = \u0275\u0275nextContext();
+      const item_r69 = ctx_r70.$implicit;
+      const i_r72 = ctx_r70.index;
       \u0275\u0275nextContext();
-      const scroll4_r74 = \u0275\u0275reference(3);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r70, ctx_r0.getVirtualItemIndex(item_r70, i_r73, scroll4_r74), "lazy-group"));
+      const scroll4_r73 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), "lazy-group"));
     })("keydown", function AngularMultiSelect_div_31_span_4_li_2_Template_li_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r71);
-      const ctx_r71 = \u0275\u0275nextContext();
-      const item_r70 = ctx_r71.$implicit;
-      const i_r73 = ctx_r71.index;
+      \u0275\u0275restoreView(_r70);
+      const ctx_r70 = \u0275\u0275nextContext();
+      const item_r69 = ctx_r70.$implicit;
+      const i_r72 = ctx_r70.index;
       \u0275\u0275nextContext();
-      const scroll4_r74 = \u0275\u0275reference(3);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(item_r70, ctx_r0.getVirtualItemIndex(item_r70, i_r73, scroll4_r74), $event, "lazy-group", scroll4_r74));
+      const scroll4_r73 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), $event, "lazy-group", scroll4_r73));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_2_input_1_Template, 1, 2, "input", 69);
+    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_2_input_1_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r71 = \u0275\u0275nextContext();
-    const item_r70 = ctx_r71.$implicit;
-    const i_r73 = ctx_r71.index;
+    const ctx_r70 = \u0275\u0275nextContext();
+    const item_r69 = ctx_r70.$implicit;
+    const i_r72 = ctx_r70.index;
     \u0275\u0275nextContext();
-    const scroll4_r74 = \u0275\u0275reference(3);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c16, item_r70.grpTitle, !item_r70.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isSelected(item_r70) == true, ctx_r0.isOptionDisabled(item_r70)))("id", ctx_r0.getOptionId(item_r70, ctx_r0.getVirtualItemIndex(item_r70, i_r73, scroll4_r74), "lazy-group"));
-    \u0275\u0275attribute("data-virtual-index", ctx_r0.getVirtualItemIndex(item_r70, i_r73, scroll4_r74))("aria-selected", ctx_r0.isSelected(item_r70))("aria-disabled", ctx_r0.isOptionDisabled(item_r70))("tabindex", ctx_r0.isOptionDisabled(item_r70) ? -1 : 0);
+    const scroll4_r73 = \u0275\u0275reference(3);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r69.grpTitle, !item_r69.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r69) == true, ctx_r1.isOptionDisabled(item_r69)))("id", ctx_r1.getOptionId(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), "lazy-group"));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73))("aria-selected", ctx_r1.isSelected(item_r69))("aria-disabled", ctx_r1.isOptionDisabled(item_r69))("tabindex", ctx_r1.isOptionDisabled(item_r69) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !item_r70.grpTitle);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r69.grpTitle);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r70[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r69[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_31_span_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_Template, 4, 7, "li", 74)(2, AngularMultiSelect_div_31_span_4_li_2_Template, 4, 13, "li", 73);
+    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_Template, 4, 7, "li", 71)(2, AngularMultiSelect_div_31_span_4_li_2_Template, 4, 13, "li", 70);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r70 = ctx.$implicit;
+    const item_r69 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", item_r70.grpTitle);
+    \u0275\u0275property("ngIf", item_r69.grpTitle);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !item_r70.grpTitle);
+    \u0275\u0275property("ngIf", !item_r69.grpTitle);
   }
 }
 function AngularMultiSelect_div_31_Template(rf, ctx) {
   if (rf & 1) {
-    const _r69 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 65)(1, "virtual-scroller", 78);
+    const _r68 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 62)(1, "virtual-scroller", 75);
     \u0275\u0275listener("vsUpdate", function AngularMultiSelect_div_31_Template_virtual_scroller_vsUpdate_1_listener($event) {
-      \u0275\u0275restoreView(_r69);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.viewPortItems = $event);
+      \u0275\u0275restoreView(_r68);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.viewPortItems = $event);
     })("vsEnd", function AngularMultiSelect_div_31_Template_virtual_scroller_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r69);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r68);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275elementStart(2, "ul", 71, 8);
+    \u0275\u0275elementStart(2, "ul", 68, 8);
     \u0275\u0275listener("vsStart", function AngularMultiSelect_div_31_Template_ul_vsStart_2_listener($event) {
-      \u0275\u0275restoreView(_r69);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r68);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     })("vsEnd", function AngularMultiSelect_div_31_Template_ul_vsEnd_2_listener($event) {
-      \u0275\u0275restoreView(_r69);
-      const ctx_r0 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r0.onScrollEnd($event));
+      \u0275\u0275restoreView(_r68);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(4, AngularMultiSelect_div_31_span_4_Template, 3, 2, "span", 72);
+    \u0275\u0275template(4, AngularMultiSelect_div_31_span_4_Template, 3, 2, "span", 69);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const scroll4_r74 = \u0275\u0275reference(3);
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const scroll4_r73 = \u0275\u0275reference(3);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("items", ctx_r0.groupedData)("ngStyle", \u0275\u0275pureFunction1(11, _c15, ctx_r0.settings.maxHeight + "px"));
+    \u0275\u0275property("items", ctx_r1.groupedData)("ngStyle", \u0275\u0275pureFunction1(11, _c14, ctx_r1.settings.maxHeight + "px"));
     \u0275\u0275advance();
-    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r0.randomSize)("items", ctx_r0.virtualdata)("ngStyle", \u0275\u0275pureFunction1(13, _c15, ctx_r0.settings.maxHeight + "px"))("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(13, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll4_r74.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll4_r73.viewPortItems);
   }
 }
 function AngularMultiSelect_div_32_span_2_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const item_r76 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", item_r76.selected)("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(item_r76) || item_r76.disabled);
+    const item_r75 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("checked", item_r75.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r75) || item_r75.disabled);
   }
 }
 function AngularMultiSelect_div_32_span_2_span_6_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 70);
+    \u0275\u0275element(0, "input", 67);
   }
   if (rf & 2) {
-    const val_r82 = \u0275\u0275nextContext().$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(3);
-    \u0275\u0275property("checked", ctx_r0.isSelected(val_r82))("disabled", ctx_r0.settings.limitSelection == (ctx_r0.selectedItems == null ? null : ctx_r0.selectedItems.length) && !ctx_r0.isSelected(val_r82) || val_r82.disabled);
+    const val_r81 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(val_r81))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r81) || val_r81.disabled);
   }
 }
 function AngularMultiSelect_div_32_span_2_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r80 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 75);
+    const _r79 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_32_span_2_span_6_Template_li_click_1_listener($event) {
-      const ctx_r80 = \u0275\u0275restoreView(_r80);
-      const val_r82 = ctx_r80.$implicit;
-      const j_r83 = ctx_r80.index;
-      const ctx_r0 = \u0275\u0275nextContext(3);
-      ctx_r0.onItemClick(val_r82, j_r83, $event);
+      const ctx_r79 = \u0275\u0275restoreView(_r79);
+      const val_r81 = ctx_r79.$implicit;
+      const j_r82 = ctx_r79.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      ctx_r1.onItemClick(val_r81, j_r82, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("focus", function AngularMultiSelect_div_32_span_2_span_6_Template_li_focus_1_listener() {
-      const ctx_r83 = \u0275\u0275restoreView(_r80);
-      const val_r82 = ctx_r83.$implicit;
-      const j_r83 = ctx_r83.index;
-      const i_r78 = \u0275\u0275nextContext().index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(val_r82, j_r83, "group-" + i_r78));
+      const ctx_r82 = \u0275\u0275restoreView(_r79);
+      const val_r81 = ctx_r82.$implicit;
+      const j_r82 = ctx_r82.index;
+      const i_r77 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r81, j_r82, "group-" + i_r77));
     })("keydown", function AngularMultiSelect_div_32_span_2_span_6_Template_li_keydown_1_listener($event) {
-      const ctx_r84 = \u0275\u0275restoreView(_r80);
-      const val_r82 = ctx_r84.$implicit;
-      const j_r83 = ctx_r84.index;
-      const i_r78 = \u0275\u0275nextContext().index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onOptionKeydown(val_r82, j_r83, $event, "group-" + i_r78));
+      const ctx_r83 = \u0275\u0275restoreView(_r79);
+      const val_r81 = ctx_r83.$implicit;
+      const j_r82 = ctx_r83.index;
+      const i_r77 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r81, j_r82, $event, "group-" + i_r77));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_span_6_input_2_Template, 1, 2, "input", 69);
+    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_span_6_input_2_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const val_r82 = ctx.$implicit;
-    const j_r83 = ctx.index;
-    const i_r78 = \u0275\u0275nextContext().index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const val_r81 = ctx.$implicit;
+    const j_r82 = ctx.index;
+    const i_r77 = \u0275\u0275nextContext().index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(7, _c19, ctx_r0.isSelected(val_r82) == true, val_r82.grpTitle, !val_r82.grpTitle && !ctx_r0.settings.singleSelection, ctx_r0.isOptionDisabled(val_r82)))("id", ctx_r0.getOptionId(val_r82, j_r83, "group-" + i_r78));
-    \u0275\u0275attribute("aria-selected", ctx_r0.isSelected(val_r82))("aria-disabled", ctx_r0.isOptionDisabled(val_r82))("tabindex", ctx_r0.isOptionDisabled(val_r82) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(7, _c18, ctx_r1.isSelected(val_r81) == true, val_r81.grpTitle, !val_r81.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isOptionDisabled(val_r81)))("id", ctx_r1.getOptionId(val_r81, j_r82, "group-" + i_r77));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r81))("aria-disabled", ctx_r1.isOptionDisabled(val_r81))("tabindex", ctx_r1.isOptionDisabled(val_r81) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(val_r82[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(val_r81[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_32_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r75 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 75);
+    const _r74 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 72);
     \u0275\u0275listener("click", function AngularMultiSelect_div_32_span_2_Template_li_click_1_listener() {
-      const item_r76 = \u0275\u0275restoreView(_r75).$implicit;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.selectGroup(item_r76));
+      const item_r75 = \u0275\u0275restoreView(_r74).$implicit;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r75));
     })("focus", function AngularMultiSelect_div_32_span_2_Template_li_focus_1_listener() {
-      const ctx_r76 = \u0275\u0275restoreView(_r75);
-      const item_r76 = ctx_r76.$implicit;
-      const i_r78 = ctx_r76.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.setActiveDescendant(item_r76, i_r78, "group"));
+      const ctx_r75 = \u0275\u0275restoreView(_r74);
+      const item_r75 = ctx_r75.$implicit;
+      const i_r77 = ctx_r75.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r75, i_r77, "group"));
     })("keydown", function AngularMultiSelect_div_32_span_2_Template_li_keydown_1_listener($event) {
-      const ctx_r78 = \u0275\u0275restoreView(_r75);
-      const item_r76 = ctx_r78.$implicit;
-      const i_r78 = ctx_r78.index;
-      const ctx_r0 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r0.onGroupKeydown(item_r76, i_r78, $event, "group"));
+      const ctx_r77 = \u0275\u0275restoreView(_r74);
+      const item_r75 = ctx_r77.$implicit;
+      const i_r77 = ctx_r77.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r75, i_r77, $event, "group"));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_input_2_Template, 1, 2, "input", 69);
+    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_input_2_Template, 1, 2, "input", 66);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "ul", 77);
-    \u0275\u0275template(6, AngularMultiSelect_div_32_span_2_span_6_Template, 5, 12, "span", 72);
+    \u0275\u0275elementStart(5, "ul", 74);
+    \u0275\u0275template(6, AngularMultiSelect_div_32_span_2_span_6_Template, 5, 12, "span", 69);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r76 = ctx.$implicit;
-    const i_r78 = ctx.index;
-    const ctx_r0 = \u0275\u0275nextContext(2);
+    const item_r75 = ctx.$implicit;
+    const i_r77 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c16, item_r76.grpTitle, !item_r76.grpTitle && !ctx_r0.settings.singleSelection, item_r76.selected == true, ctx_r0.isOptionDisabled(item_r76)))("id", ctx_r0.getOptionId(item_r76, i_r78, "group"));
-    \u0275\u0275attribute("aria-selected", item_r76.selected)("aria-disabled", ctx_r0.isOptionDisabled(item_r76))("tabindex", ctx_r0.isOptionDisabled(item_r76) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r75.grpTitle, !item_r75.grpTitle && !ctx_r1.settings.singleSelection, item_r75.selected == true, ctx_r1.isOptionDisabled(item_r75)))("id", ctx_r1.getOptionId(item_r75, i_r77, "group"));
+    \u0275\u0275attribute("aria-selected", item_r75.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r75))("tabindex", ctx_r1.isOptionDisabled(item_r75) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r0.settings.showCheckbox && !ctx_r0.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r76[ctx_r0.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r75[ctx_r1.settings.labelKey]);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", item_r76.list);
+    \u0275\u0275property("ngForOf", item_r75.list);
   }
 }
 function AngularMultiSelect_div_32_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 65)(1, "ul", 66);
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_Template, 7, 13, "span", 72);
+    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
+    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_Template, 7, 13, "span", 69);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
-    \u0275\u0275styleProp("max-height", ctx_r0.settings.maxHeight + "px");
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
-    \u0275\u0275property("id", ctx_r0.listboxId);
-    \u0275\u0275attribute("aria-multiselectable", !ctx_r0.settings.singleSelection)("aria-label", ctx_r0.getListboxAriaLabel());
+    \u0275\u0275property("id", ctx_r1.listboxId);
+    \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r0.groupedData);
+    \u0275\u0275property("ngForOf", ctx_r1.groupedData);
   }
 }
 function AngularMultiSelect_h5_33_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "h5", 79);
+    \u0275\u0275elementStart(0, "h5", 76);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.settings.noDataLabel);
+    \u0275\u0275textInterpolate(ctx_r1.settings.noDataLabel);
   }
 }
 var MyException = class {
@@ -40149,17 +40094,20 @@ var AngularMultiSelect = class _AngularMultiSelect {
   stacklineDropdown;
   triggerButton;
   onEscapeDown(event) {
-    if (this.settings.escapeToClose) {
+    if (this.settings && this.settings.escapeToClose) {
       this.closeDropdown();
     }
   }
+  onDocumentClick(event) {
+    this.closeDropdownOnClickOut(event);
+  }
   onScroll(event) {
-    if (this.isActive && this.isBodyOverlayEnabled()) {
+    if (this.isActive) {
       this.scheduleDropdownPositionUpdate();
     }
   }
   onResize(event) {
-    if (this.isActive && this.isBodyOverlayEnabled()) {
+    if (this.isActive) {
       this.scheduleDropdownPositionUpdate();
     }
   }
@@ -40197,12 +40145,14 @@ var AngularMultiSelect = class _AngularMultiSelect {
   dropDownTop = null;
   dropDownBottom = null;
   dropDownLeft = null;
+  dropDownDirection = "bottom";
   dropdownOriginalParent = null;
   dropdownOriginalNextSibling = null;
   dropdownAppendedToBody = false;
   overlayListenersBound = false;
   overlayPositionTimer = null;
   boundOverlayPositionUpdate = () => this.scheduleDropdownPositionUpdate();
+  overlayThemeVariables = ["--ms-primary", "--ms-primary-soft", "--ms-surface", "--ms-surface-soft", "--ms-surface-muted", "--ms-outline", "--ms-outline-strong", "--ms-on-surface", "--ms-on-surface-muted", "--ms-chip-bg", "--ms-chip-text", "--ms-chip-remove", "--ms-shadow", "--ms-shadow-soft", "--stackline-ms-primary", "--stackline-ms-primary-soft", "--stackline-ms-surface", "--stackline-ms-surface-soft", "--stackline-ms-surface-muted", "--stackline-ms-outline", "--stackline-ms-outline-strong", "--stackline-ms-on-surface", "--stackline-ms-on-surface-muted", "--stackline-ms-chip-bg", "--stackline-ms-chip-text", "--stackline-ms-chip-remove", "--stackline-ms-shadow", "--stackline-ms-shadow-soft"];
   id = Math.random().toString(36).substring(2);
   listboxId = "stackline-listbox-" + this.id;
   activeDescendantId = null;
@@ -40264,7 +40214,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     });
   }
   ngOnInit() {
-    this.settings = Object.assign(this.defaultSettings, this.settings);
+    this.normalizeSettings(this.settings);
     this.cachedItems = this.cloneArray(this.data);
     if (this.settings.position == "top") {
       setTimeout(() => {
@@ -40305,6 +40255,28 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
     return classes;
   }
+  normalizeSettings(settings) {
+    this.settings = Object.assign({}, this.defaultSettings, settings);
+    this.dropDownDirection = this.settings.position == "top" ? "top" : "bottom";
+  }
+  isDropdownOpenTowardsTop() {
+    return this.dropDownDirection == "top";
+  }
+  getDropdownPanelClasses() {
+    var classes = this.getDropdownClasses();
+    if (!this.isActive) {
+      return classes;
+    }
+    if (this.isBodyOverlayEnabled()) {
+      classes += " tagToBody";
+    }
+    if (this.isDropdownOpenTowardsTop()) {
+      classes += " opens-up";
+    } else {
+      classes += " opens-down";
+    }
+    return classes;
+  }
   isBodyOverlayEnabled() {
     return !!(this.settings && (this.settings.tagToBody || this.settings.appendToBody));
   }
@@ -40326,31 +40298,129 @@ var AngularMultiSelect = class _AngularMultiSelect {
   getDropdownMaxHeight() {
     return this.settings && this.settings.maxHeight ? this.settings.maxHeight : this.defaultSettings.maxHeight || 300;
   }
+  getDropdownPanelHeightForPositioning() {
+    var panel = this.getDropdownPanelElement();
+    if (panel && this.isActive) {
+      var panelBounds = panel.getBoundingClientRect();
+      var measuredHeight = Math.ceil(panelBounds.height || panel.offsetHeight || panel.scrollHeight || 0);
+      if (measuredHeight > 0) {
+        return measuredHeight;
+      }
+    }
+    var estimatedHeight = this.getDropdownMaxHeight() + 18;
+    if (this.settings && this.settings.enableSearchFilter) {
+      estimatedHeight += 52;
+    }
+    if (this.settings && this.settings.enableCheckAll && !this.settings.singleSelection && !this.settings.limitSelection && this.data && this.data.length > 0 && !this.isDisabledItemPresent) {
+      estimatedHeight += 44;
+    }
+    return estimatedHeight;
+  }
+  isEventInsideHostOrPanel(event) {
+    if (!event || !event.target) {
+      return false;
+    }
+    var target = event.target;
+    var host = this.stacklineDropdown && this.stacklineDropdown.nativeElement ? this.stacklineDropdown.nativeElement : this._elementRef && this._elementRef.nativeElement;
+    var panel = this.getDropdownPanelElement();
+    return !!(host && host.contains(target) || panel && panel.contains(target));
+  }
+  syncDropdownPanelThemeVariables() {
+    var panel = this.getDropdownPanelElement();
+    var root = this.stacklineDropdown && this.stacklineDropdown.nativeElement ? this.stacklineDropdown.nativeElement : null;
+    if (!panel || !root || typeof window === "undefined" || !window.getComputedStyle) {
+      return;
+    }
+    var rootStyles = window.getComputedStyle(root);
+    this.overlayThemeVariables.forEach((variableName) => {
+      var value = rootStyles.getPropertyValue(variableName);
+      if (value && value.trim()) {
+        panel.style.setProperty(variableName, value.trim());
+      }
+    });
+  }
+  clearDropdownPanelThemeVariables() {
+    var panel = this.getDropdownPanelElement();
+    if (!panel) {
+      return;
+    }
+    this.overlayThemeVariables.forEach((variableName) => {
+      panel.style.removeProperty(variableName);
+    });
+  }
+  syncOpenDropdownPanelState(panel) {
+    var dropdownPanel = panel || this.getDropdownPanelElement();
+    if (!dropdownPanel) {
+      return;
+    }
+    dropdownPanel.hidden = false;
+    dropdownPanel.setAttribute("aria-hidden", "false");
+    dropdownPanel.classList.add("is-open");
+    if (this.isBodyOverlayEnabled()) {
+      dropdownPanel.classList.add("tagToBody");
+    }
+    if (this.isDropdownOpenTowardsTop()) {
+      dropdownPanel.classList.add("opens-up");
+      dropdownPanel.classList.remove("opens-down");
+    } else {
+      dropdownPanel.classList.add("opens-down");
+      dropdownPanel.classList.remove("opens-up");
+    }
+  }
+  syncClosedDropdownPanelState(panel) {
+    var dropdownPanel = panel || this.getDropdownPanelElement();
+    if (!dropdownPanel) {
+      return;
+    }
+    dropdownPanel.hidden = true;
+    dropdownPanel.setAttribute("aria-hidden", "true");
+    dropdownPanel.classList.remove("is-open");
+    dropdownPanel.classList.remove("tagToBody");
+    dropdownPanel.classList.remove("opens-up");
+    dropdownPanel.classList.remove("opens-down");
+    dropdownPanel.style.removeProperty("top");
+    dropdownPanel.style.removeProperty("bottom");
+    dropdownPanel.style.removeProperty("left");
+    dropdownPanel.style.removeProperty("width");
+  }
+  resetDropdownPanelPosition() {
+    this.dropDownWidth = null;
+    this.dropDownTop = null;
+    this.dropDownBottom = null;
+    this.dropDownLeft = null;
+  }
   appendDropdownPanelToBody() {
     if (!this.isBodyOverlayEnabled() || !this.isActive || typeof document === "undefined") {
-      this.restoreDropdownPanel();
+      if (this.dropdownAppendedToBody) {
+        this.restoreDropdownPanel();
+      }
       return;
     }
     var panel = this.getDropdownPanelElement();
     if (!panel || !document.body) {
       return;
     }
+    this.syncDropdownPanelThemeVariables();
+    this.syncOpenDropdownPanelState(panel);
     if (!this.dropdownAppendedToBody) {
       this.dropdownOriginalParent = panel.parentNode;
       this.dropdownOriginalNextSibling = panel.nextSibling;
       document.body.appendChild(panel);
       this.dropdownAppendedToBody = true;
     }
-    this.bindOverlayListeners();
   }
   restoreDropdownPanel(removeFromDom = false) {
     this.unbindOverlayListeners();
     this.clearOverlayPositionTimer();
     var panel = this.getDropdownPanelElement();
+    if (panel && (!this.isActive || removeFromDom)) {
+      this.syncClosedDropdownPanelState(panel);
+    }
     if (!panel || !this.dropdownAppendedToBody) {
       this.dropdownAppendedToBody = false;
       return;
     }
+    this.clearDropdownPanelThemeVariables();
     if (removeFromDom) {
       if (panel.parentNode) {
         panel.parentNode.removeChild(panel);
@@ -40392,16 +40462,17 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
   }
   scheduleDropdownPositionUpdate() {
-    if (!this.isActive || !this.isBodyOverlayEnabled() || this.overlayPositionTimer !== null) {
+    if (!this.isActive || this.overlayPositionTimer !== null) {
       return;
     }
     this.overlayPositionTimer = setTimeout(() => {
       this.overlayPositionTimer = null;
-      if (!this.isActive || !this.isBodyOverlayEnabled()) {
+      if (!this.isActive) {
         return;
       }
       this.appendDropdownPanelToBody();
       this.calculateDropdownDirection();
+      this.syncOpenDropdownPanelState();
       this.cdr.detectChanges();
     }, 0);
   }
@@ -40827,13 +40898,15 @@ var AngularMultiSelect = class _AngularMultiSelect {
       this.cachedItems = this.cloneArray(this.data);
     }
     if (changes.settings && !changes.settings.firstChange) {
-      this.settings = Object.assign(this.defaultSettings, this.settings);
+      this.normalizeSettings(this.settings);
       if (this.isActive) {
         if (this.isBodyOverlayEnabled()) {
-          this.scheduleDropdownPositionUpdate();
-        } else {
+          this.appendDropdownPanelToBody();
+        } else if (this.dropdownAppendedToBody) {
           this.restoreDropdownPanel();
         }
+        this.bindOverlayListeners();
+        this.scheduleDropdownPositionUpdate();
       }
     }
     if (changes.loading) {
@@ -41005,8 +41078,10 @@ var AngularMultiSelect = class _AngularMultiSelect {
       return;
     }
     this.isActive = true;
-    this.appendDropdownPanelToBody();
     this.calculateDropdownDirection();
+    this.appendDropdownPanelToBody();
+    this.syncOpenDropdownPanelState();
+    this.bindOverlayListeners();
     this.scheduleDropdownPositionUpdate();
     if (this.settings.searchAutofocus && this.searchInput && this.settings.enableSearchFilter && !this.searchTempl) {
       setTimeout(() => {
@@ -41024,12 +41099,18 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
     this.filter = "";
     this.isActive = false;
+    this.activeDescendantId = null;
+    this.syncClosedDropdownPanelState();
     this.restoreDropdownPanel();
+    this.resetDropdownPanelPosition();
     this.searchTerm$.next("");
     this.onClose.emit(false);
   }
-  closeDropdownOnClickOut() {
+  closeDropdownOnClickOut(event) {
     if (this.isActive) {
+      if (this.isEventInsideHostOrPanel(event)) {
+        return;
+      }
       if (this.searchInput && this.settings.lazyLoading) {
         this.searchInput.nativeElement.value = "";
       }
@@ -41038,7 +41119,10 @@ var AngularMultiSelect = class _AngularMultiSelect {
       }
       this.filter = "";
       this.isActive = false;
+      this.activeDescendantId = null;
+      this.syncClosedDropdownPanelState();
       this.restoreDropdownPanel();
+      this.resetDropdownPanelPosition();
       this.clearSearch();
       this.searchTerm$.next("");
       this.onClose.emit(false);
@@ -41415,14 +41499,13 @@ var AngularMultiSelect = class _AngularMultiSelect {
     this.filterPipe.transform(this.data, this.filter, this.settings.searchBy);
   }
   calculateDropdownDirection() {
-    let shouldOpenTowardsTop = this.settings.position == "top";
     const elem = this.getAnchorElement();
     if (!elem) {
       return;
     }
     const elemBounds = elem.getBoundingClientRect();
     const dropdownWidth = Math.round(elemBounds.width || elem.clientWidth || 0);
-    if (this.isBodyOverlayEnabled()) {
+    if (this.isActive && typeof window !== "undefined" && typeof document !== "undefined") {
       const viewportWidth = window.innerWidth || document.documentElement.clientWidth || dropdownWidth;
       const maxWidth = Math.max(0, viewportWidth - 16);
       const safeWidth = Math.max(0, Math.min(dropdownWidth, maxWidth));
@@ -41439,7 +41522,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       this.openTowardsTop(false);
     }
     if (this.settings.autoPosition) {
-      const dropdownHeight = this.getDropdownMaxHeight() + 32;
+      const dropdownHeight = this.getDropdownPanelHeightForPositioning();
       const viewportHeight = document.documentElement.clientHeight;
       const selectedListBounds = this.selectedListElem.nativeElement.getBoundingClientRect();
       const spaceOnTop = selectedListBounds.top;
@@ -41457,27 +41540,17 @@ var AngularMultiSelect = class _AngularMultiSelect {
       return;
     }
     const elemBounds = elem.getBoundingClientRect();
-    const dropdownMaxHeight = this.getDropdownMaxHeight();
+    const dropdownPanelHeight = this.getDropdownPanelHeightForPositioning();
     if (value && this.selectedListElem.nativeElement.clientHeight) {
       this.dropdownListYOffset = 15 - this.selectedListElem.nativeElement.clientHeight;
-      if (this.isBodyOverlayEnabled()) {
-        this.dropDownTop = Math.max(8, elemBounds.top - dropdownMaxHeight - 15) + "px";
-        this.dropDownBottom = null;
-      } else {
-        this.dropDownTop = null;
-        this.dropDownBottom = this.selectedListElem.nativeElement.clientHeight + 15 + "px";
-      }
-      this.settings.position = "top";
+      this.dropDownTop = Math.round(elemBounds.top - dropdownPanelHeight - 1) + "px";
+      this.dropDownBottom = null;
+      this.dropDownDirection = "top";
     } else {
-      if (this.isBodyOverlayEnabled()) {
-        this.dropDownTop = elemBounds.bottom + 1 + "px";
-        this.dropDownBottom = null;
-      } else {
-        this.dropDownTop = null;
-        this.dropDownBottom = null;
-      }
+      this.dropDownTop = elemBounds.bottom + 1 + "px";
+      this.dropDownBottom = null;
       this.dropdownListYOffset = 0;
-      this.settings.position = "bottom";
+      this.dropDownDirection = "bottom";
     }
   }
   clearSelection(e) {
@@ -41546,6 +41619,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
       if (rf & 1) {
         \u0275\u0275listener("keyup.escape", function AngularMultiSelect_keyup_escape_HostBindingHandler($event) {
           return ctx.onEscapeDown($event);
+        }, \u0275\u0275resolveDocument)("click", function AngularMultiSelect_click_HostBindingHandler($event) {
+          return ctx.onDocumentClick($event);
         }, \u0275\u0275resolveDocument)("scroll", function AngularMultiSelect_scroll_HostBindingHandler($event) {
           return ctx.onScroll($event);
         }, \u0275\u0275resolveWindow)("resize", function AngularMultiSelect_resize_HostBindingHandler($event) {
@@ -41579,12 +41654,13 @@ var AngularMultiSelect = class _AngularMultiSelect {
     features: [\u0275\u0275ProvidersFeature([DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION]), \u0275\u0275NgOnChangesFeature],
     decls: 34,
     vars: 63,
-    consts: [["stacklineDropdown", ""], ["selectedList", ""], ["triggerButton", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "keydown", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["type", "button", "class", "c-remove clear-all", 3, "click", "keydown", 4, "ngIf"], ["type", "button", "class", "c-angle-down c-arrow-toggle", 3, "disabled", "click", "keydown", 4, "ngIf"], ["type", "button", "class", "c-angle-up c-arrow-toggle", 3, "disabled", "click", "keydown", 4, "ngIf"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "pointerdown", "touchstart", "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], ["type", "button", 1, "c-remove", 3, "click", "keydown"], [3, "name"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 4, "ngIf"], [1, "countplaceholder"], ["type", "button", 1, "c-remove", "clear-all", 3, "click", "keydown"], ["type", "button", 1, "c-angle-down", "c-arrow-toggle", 3, "click", "keydown", "disabled"], ["type", "button", 1, "c-angle-up", "c-arrow-toggle", 3, "click", "keydown", "disabled"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", "aria-hidden", "true", 1, "c-search"], ["type", "button", "class", "c-clear", 3, "hidden", "click", "keydown", 4, "ngIf"], ["class", "c-input", "type", "text", 3, "placeholder", "ngModel", "ngModelChange", "keyup", "keydown", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], ["type", "button", 1, "c-clear", 3, "click", "keydown", "hidden"], ["type", "text", 1, "c-input", 3, "ngModelChange", "keyup", "keydown", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", "tabindex", "0", "role", "checkbox", 3, "click", "keydown", 4, "ngIf"], ["tabindex", "0", "role", "checkbox", 1, "pure-checkbox", "select-all", 3, "click", "keydown"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "click", "change", "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], ["role", "listbox", 1, "lazyContainer", 3, "id"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "id", "ngClass", "click", "focus", "keydown", 4, "ngFor", "ngForOf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "id", "ngClass"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled"], ["virtualScroller", "", "role", "listbox", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle", "id"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "ngClass", "id", "click", "focus", "keydown", 4, "ngIf"], ["class", "pure-checkbox", "role", "presentation", 3, "ngClass", 4, "ngIf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "ngClass", "id"], ["role", "presentation", 1, "pure-checkbox", 3, "ngClass"], [1, "lazyContainer"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
+    consts: [["stacklineDropdown", ""], ["selectedList", ""], ["triggerButton", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "keydown", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["type", "button", "class", "c-remove clear-all", 3, "click", "keydown", 4, "ngIf"], ["type", "button", 1, "c-arrow-toggle", 3, "click", "keydown", "ngClass", "disabled"], [3, "name"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "pointerdown", "touchstart", "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], ["type", "button", 1, "c-remove", 3, "click", "keydown"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 4, "ngIf"], [1, "countplaceholder"], ["type", "button", 1, "c-remove", "clear-all", 3, "click", "keydown"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", "aria-hidden", "true", 1, "c-search"], ["type", "button", "class", "c-clear", 3, "hidden", "click", "keydown", 4, "ngIf"], ["class", "c-input", "type", "text", 3, "placeholder", "ngModel", "ngModelChange", "keyup", "keydown", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], ["type", "button", 1, "c-clear", 3, "click", "keydown", "hidden"], ["type", "text", 1, "c-input", 3, "ngModelChange", "keyup", "keydown", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", "tabindex", "0", "role", "checkbox", 3, "click", "keydown", 4, "ngIf"], ["tabindex", "0", "role", "checkbox", 1, "pure-checkbox", "select-all", 3, "click", "keydown"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "click", "change", "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], ["role", "listbox", 1, "lazyContainer", 3, "id"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "id", "ngClass", "click", "focus", "keydown", 4, "ngFor", "ngForOf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "id", "ngClass"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled"], ["virtualScroller", "", "role", "listbox", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle", "id"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "ngClass", "id", "click", "focus", "keydown", 4, "ngIf"], ["class", "pure-checkbox", "role", "presentation", 3, "ngClass", 4, "ngIf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "ngClass", "id"], ["role", "presentation", 1, "pure-checkbox", 3, "ngClass"], [1, "lazyContainer"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
     template: function AngularMultiSelect_Template(rf, ctx) {
       if (rf & 1) {
+        const _r1 = \u0275\u0275getCurrentView();
         \u0275\u0275elementStart(0, "div", 9, 0);
-        \u0275\u0275listener("clickOutside", function AngularMultiSelect_Template_div_clickOutside_0_listener() {
-          return ctx.closeDropdownOnClickOut();
+        \u0275\u0275listener("clickOutside", function AngularMultiSelect_Template_div_clickOutside_0_listener($event) {
+          return ctx.closeDropdownOnClickOut($event);
         });
         \u0275\u0275elementStart(2, "div", 10, 1)(4, "div", 11, 2);
         \u0275\u0275listener("click", function AngularMultiSelect_Template_div_click_4_listener($event) {
@@ -41592,8 +41668,17 @@ var AngularMultiSelect = class _AngularMultiSelect {
         })("keydown", function AngularMultiSelect_Template_div_keydown_4_listener($event) {
           return ctx.onTriggerKeydown($event);
         });
-        \u0275\u0275template(6, AngularMultiSelect_span_6_Template, 2, 1, "span", 12)(7, AngularMultiSelect_span_7_Template, 2, 2, "span", 13)(8, AngularMultiSelect_span_8_Template, 2, 2, "span", 14)(9, AngularMultiSelect_div_9_Template, 2, 2, "div", 14)(10, AngularMultiSelect_span_10_Template, 2, 1, "span", 15)(11, AngularMultiSelect_button_11_Template, 2, 2, "button", 16)(12, AngularMultiSelect_button_12_Template, 2, 5, "button", 17)(13, AngularMultiSelect_button_13_Template, 2, 5, "button", 18);
-        \u0275\u0275elementEnd()();
+        \u0275\u0275template(6, AngularMultiSelect_span_6_Template, 2, 1, "span", 12)(7, AngularMultiSelect_span_7_Template, 2, 2, "span", 13)(8, AngularMultiSelect_span_8_Template, 2, 2, "span", 14)(9, AngularMultiSelect_div_9_Template, 2, 2, "div", 14)(10, AngularMultiSelect_span_10_Template, 2, 1, "span", 15)(11, AngularMultiSelect_button_11_Template, 2, 2, "button", 16);
+        \u0275\u0275elementStart(12, "button", 17);
+        \u0275\u0275listener("click", function AngularMultiSelect_Template_button_click_12_listener($event) {
+          \u0275\u0275restoreView(_r1);
+          ctx.toggleDropdown($event);
+          return \u0275\u0275resetView($event.stopPropagation());
+        })("keydown", function AngularMultiSelect_Template_button_keydown_12_listener($event) {
+          return ctx.onArrowButtonKeydown($event);
+        });
+        \u0275\u0275element(13, "c-icon", 18);
+        \u0275\u0275elementEnd()()();
         \u0275\u0275elementStart(14, "div", 19, 3);
         \u0275\u0275listener("pointerdown", function AngularMultiSelect_Template_div_pointerdown_14_listener($event) {
           return ctx.onDropdownPanelPointerDown($event);
@@ -41608,7 +41693,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       if (rf & 2) {
         \u0275\u0275property("ngClass", ctx.getDropdownClasses());
         \u0275\u0275advance(4);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(46, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(50, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
         \u0275\u0275attribute("tabindex", ctx.settings.disabled ? -1 : 0)("aria-controls", ctx.listboxId)("aria-expanded", ctx.isActive)("aria-disabled", ctx.settings.disabled)("aria-activedescendant", ctx.activeDescendantId)("aria-label", ctx.settings.ariaLabelledBy ? null : ctx.getAriaLabel())("aria-labelledby", ctx.settings.ariaLabelledBy || null);
         \u0275\u0275advance(2);
         \u0275\u0275property("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) == 0);
@@ -41623,19 +41708,20 @@ var AngularMultiSelect = class _AngularMultiSelect {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.settings.clearAll && (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0 && !ctx.settings.disabled);
         \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.isActive);
+        \u0275\u0275property("ngClass", ctx.isActive ? "c-angle-up" : "c-angle-down")("disabled", ctx.settings.disabled);
+        \u0275\u0275attribute("aria-label", ctx.isActive ? ctx.getCloseDropdownAriaLabel() : ctx.getOpenDropdownAriaLabel())("aria-controls", ctx.listboxId)("aria-expanded", ctx.isActive);
         \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.isActive);
+        \u0275\u0275property("name", ctx.isActive ? "angle-up" : "angle-down");
         \u0275\u0275advance();
         \u0275\u0275styleProp("width", ctx.dropDownWidth !== null ? ctx.dropDownWidth + "px" : "auto")("top", ctx.dropDownTop)("bottom", ctx.dropDownBottom)("left", ctx.dropDownLeft, "px");
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(51, _c11, ctx.isBodyOverlayEnabled(), ctx.settings.position == "top", ctx.settings.position == "bottom"))("hidden", !ctx.isActive);
+        \u0275\u0275property("ngClass", ctx.getDropdownPanelClasses())("hidden", !ctx.isActive);
         \u0275\u0275attribute("aria-hidden", !ctx.isActive);
         \u0275\u0275advance(2);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(55, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(55, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(58, _c12, ctx.settings.position == "bottom", ctx.settings.position == "top"));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(58, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(61, _c13, ctx.settings.singleSelection));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(61, _c12, ctx.settings.singleSelection));
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.settings.enableCheckAll && !ctx.settings.singleSelection && !ctx.settings.limitSelection && (ctx.data == null ? null : ctx.data.length) > 0 && !ctx.isDisabledItemPresent);
         \u0275\u0275advance();
@@ -41669,7 +41755,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       }
     },
     dependencies: () => [NgClass, NgForOf, NgIf, NgStyle, DefaultValueAccessor, NgControlStatus, NgModel, VirtualScrollerComponent, ClickOutsideDirective, TemplateRenderer, CIcon],
-    styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n'],
+    styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n'],
     encapsulation: 2
   });
 };
@@ -41684,7 +41770,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
       providers: [DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION],
       encapsulation: ViewEncapsulation.None,
       standalone: false,
-      template: `<div class="stackline-dropdown" [ngClass]="getDropdownClasses()" (clickOutside)="closeDropdownOnClickOut()" #stacklineDropdown>
+      template: `<div class="stackline-dropdown" [ngClass]="getDropdownClasses()" (clickOutside)="closeDropdownOnClickOut($event)" #stacklineDropdown>
     <div class="selected-list" #selectedList>
         <div class="c-btn"
             #triggerButton
@@ -41736,17 +41822,13 @@ var AngularMultiSelect = class _AngularMultiSelect {
             <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
                 <c-icon [name]="'remove'"></c-icon>
             </button>
-            <button type="button" *ngIf="!isActive" class="c-angle-down c-arrow-toggle" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
-                <c-icon [name]="'angle-down'"></c-icon>
-            </button>
-            <button type="button" *ngIf="isActive" class="c-angle-up c-arrow-toggle" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="getCloseDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
-                <c-icon [name]="'angle-up'"></c-icon>
-
+            <button type="button" class="c-arrow-toggle" [ngClass]="isActive ? 'c-angle-up' : 'c-angle-down'" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="isActive ? getCloseDropdownAriaLabel() : getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
+                <c-icon [name]="isActive ? 'angle-up' : 'angle-down'"></c-icon>
             </button>
         </div>
     </div>
     <div #dropdownList class="dropdown-list animated fadeIn"
-    [ngClass]="{'tagToBody': isBodyOverlayEnabled(), 'opens-up': settings.position == 'top', 'opens-down': settings.position == 'bottom'}"
+    [ngClass]="getDropdownPanelClasses()"
     [style.width]="dropDownWidth !== null ? dropDownWidth + 'px' : 'auto'"
     [style.top]="dropDownTop" 
     [style.bottom]="dropDownBottom"
@@ -41756,8 +41838,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
         role="presentation"
         [attr.aria-hidden]="!isActive"
         [hidden]="!isActive">
-        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}" class="arrow-2"></div>
-        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}"></div>
+        <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}" class="arrow-2"></div>
+        <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}"></div>
         <div class="list-area" [ngClass]="{'single-select-mode': settings.singleSelection }">
             <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent"
                 >
@@ -41994,7 +42076,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     </div>
 </div>
 `,
-      styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);position:relative;display:block;width:100%;color:var(--ms-on-surface);font:inherit}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline);background:var(--ms-surface);box-shadow:var(--ms-shadow-soft);cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong)}.c-btn.is-active{border-color:var(--ms-primary);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft)}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg);color:var(--ms-chip-text);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface);border:1px solid var(--ms-outline);box-shadow:var(--ms-shadow)}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft)!important;color:var(--ms-primary)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong);border-radius:6px;background:var(--ms-surface);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary);background:var(--ms-primary)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n']
+      styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:5px;width:7px;height:3px;margin-top:-3px;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:4px;width:8px;height:3px;margin-top:-4px;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n']
     }]
   }], () => [{
     type: ElementRef
@@ -42111,6 +42193,10 @@ var AngularMultiSelect = class _AngularMultiSelect {
     onEscapeDown: [{
       type: HostListener,
       args: ["document:keyup.escape", ["$event"]]
+    }],
+    onDocumentClick: [{
+      type: HostListener,
+      args: ["document:click", ["$event"]]
     }],
     onScroll: [{
       type: HostListener,
@@ -47897,30 +47983,30 @@ function provideRouterInitializer() {
 var DOCS_META = {
   badge: "ANGULAR 21 \xB7 MATERIAL REFINED",
   angularVersion: "21.x",
-  packageVersion: "21.1.3",
-  packageRange: "21.1.3",
+  packageVersion: "21.1.13",
+  packageRange: "21.1.13",
   docsPath: "angular-21"
 };
 
 // src/app/app.component.ts
 var _c02 = (a0) => [a0];
-var _c110 = () => ({ exact: true });
-function AppComponent_a_30_Template(rf, ctx) {
+var _c19 = () => ({ exact: true });
+function AppComponent_a_32_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 38);
+    \u0275\u0275elementStart(0, "a", 39);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const link_r1 = ctx.$implicit;
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(3, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(5, _c110));
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(3, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(5, _c19));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", link_r1.data == null ? null : link_r1.data["label"], " ");
   }
 }
-function AppComponent_span_78_Template(rf, ctx) {
+function AppComponent_span_99_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 39);
+    \u0275\u0275elementStart(0, "span", 40);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -47930,9 +48016,9 @@ function AppComponent_span_78_Template(rf, ctx) {
     \u0275\u0275textInterpolate(pill_r2);
   }
 }
-function AppComponent_article_163_Template(rf, ctx) {
+function AppComponent_article_165_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "article", 40)(1, "div", 29);
+    \u0275\u0275elementStart(0, "article", 41)(1, "div", 22);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "h3");
@@ -48024,7 +48110,7 @@ var AppComponent = class _AppComponent {
       {
         kicker: "Dialogs",
         title: "tagToBody for dialogs",
-        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.3 the open list uses portal-style positioning, stays aligned to the trigger, keeps an opaque surface, and is cleaned up on close."
+        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.13 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind."
       },
       {
         kicker: "Styling",
@@ -48080,7 +48166,7 @@ var AppComponent = class _AppComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 164, vars: 21, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link", "routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "setup-label"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "status-pill"], [1, "preview-canvas"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 166, vars: 21, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "live/", "target", "_blank", "rel", "noopener", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link", "routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "setup-label"], [1, "status-pill"], [1, "preview-canvas"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "header", 1)(2, "div", 2)(3, "div", 3);
         \u0275\u0275text(4, "M");
@@ -48107,182 +48193,185 @@ var AppComponent = class _AppComponent {
         \u0275\u0275text(23, "Preview");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(24, "a", 14);
-        \u0275\u0275text(25, "API");
+        \u0275\u0275text(25, "Live project");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(26, "a", 15);
+        \u0275\u0275text(27, "API");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(26, "section", 10)(27, "div", 11);
-        \u0275\u0275text(28, "Examples");
+        \u0275\u0275elementStart(28, "section", 10)(29, "div", 11);
+        \u0275\u0275text(30, "Examples");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(29, "nav", 15);
-        \u0275\u0275template(30, AppComponent_a_30_Template, 2, 6, "a", 16);
+        \u0275\u0275elementStart(31, "nav", 16);
+        \u0275\u0275template(32, AppComponent_a_32_Template, 2, 6, "a", 17);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(31, "section", 10)(32, "div", 11);
-        \u0275\u0275text(33, "Release line");
+        \u0275\u0275elementStart(33, "section", 10)(34, "div", 11);
+        \u0275\u0275text(35, "Release line");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(34, "div", 17)(35, "strong");
-        \u0275\u0275text(36, "Package");
+        \u0275\u0275elementStart(36, "div", 18)(37, "strong");
+        \u0275\u0275text(38, "Package");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(37, "span");
-        \u0275\u0275text(38);
+        \u0275\u0275elementStart(39, "span");
+        \u0275\u0275text(40);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(39, "div", 17)(40, "strong");
-        \u0275\u0275text(41, "Angular");
+        \u0275\u0275elementStart(41, "div", 18)(42, "strong");
+        \u0275\u0275text(43, "Angular");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(42, "span");
-        \u0275\u0275text(43);
+        \u0275\u0275elementStart(44, "span");
+        \u0275\u0275text(45);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(44, "div", 17)(45, "strong");
-        \u0275\u0275text(46, "Docs path");
+        \u0275\u0275elementStart(46, "div", 18)(47, "strong");
+        \u0275\u0275text(48, "Docs path");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(47, "span");
-        \u0275\u0275text(48);
+        \u0275\u0275elementStart(49, "span");
+        \u0275\u0275text(50);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(49, "div", 17)(50, "strong");
-        \u0275\u0275text(51, "Promise");
+        \u0275\u0275elementStart(51, "div", 18)(52, "strong");
+        \u0275\u0275text(53, "Promise");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(52, "span");
-        \u0275\u0275text(53, "ADA-compliant keyboard/ARIA support");
+        \u0275\u0275elementStart(54, "span");
+        \u0275\u0275text(55, "ADA-compliant keyboard/ARIA support");
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275elementStart(54, "main", 18)(55, "section", 19)(56, "span", 20);
-        \u0275\u0275text(57);
+        \u0275\u0275elementStart(56, "main", 19)(57, "section", 20)(58, "div", 21)(59, "div")(60, "div", 22);
+        \u0275\u0275text(61, "Live preview");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(58, "h2");
-        \u0275\u0275text(59, "Material-inspired multiselect, without breaking the classic contract.");
+        \u0275\u0275elementStart(62, "h3");
+        \u0275\u0275text(63);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(60, "p", 21);
-        \u0275\u0275text(61, " This release line promotes ");
-        \u0275\u0275elementStart(62, "code");
-        \u0275\u0275text(63, "<angular-multiselect>");
+        \u0275\u0275elementStart(64, "p");
+        \u0275\u0275text(65, " Running against package line ");
+        \u0275\u0275elementStart(66, "code");
+        \u0275\u0275text(67);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(64, " as the primary selector, while still accepting the legacy ");
-        \u0275\u0275elementStart(65, "code");
-        \u0275\u0275text(66, "<angular2-multiselect>");
+        \u0275\u0275text(68, " and Angular ");
+        \u0275\u0275elementStart(69, "code");
+        \u0275\u0275text(70);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(67, " API, ");
-        \u0275\u0275elementStart(68, "code");
-        \u0275\u0275text(69, "ngModel");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(70, " binding, event outputs, and custom template hooks while refining the UI to feel much closer to Angular Material surfaces and field patterns. Version ");
-        \u0275\u0275elementStart(71, "code");
-        \u0275\u0275text(72);
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(73, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
-        \u0275\u0275elementStart(74, "code");
-        \u0275\u0275text(75, "tagToBody");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(76, ". ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(77, "div", 22);
-        \u0275\u0275template(78, AppComponent_span_78_Template, 2, 1, "span", 23);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(79, "div", 24)(80, "div", 25)(81, "strong");
-        \u0275\u0275text(82, "API stability first");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(83, " Inputs, outputs, settings keys, and template slots stay aligned with the code people already ship. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(84, "div", 25)(85, "strong");
-        \u0275\u0275text(86, "Material-like visual language");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(87, " Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(88, "div", 25)(89, "strong");
-        \u0275\u0275text(90, "ADA-compliant interactions");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(91, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(92, "div", 25)(93, "strong");
-        \u0275\u0275text(94, "Dialog-safe positioning");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(95, "code");
-        \u0275\u0275text(96, "tagToBody: true");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(97, " keeps the open list visible above Angular Material dialogs, drawers, and overflow containers. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(98, "div", 25)(99, "strong");
-        \u0275\u0275text(100, "Modern line foundation");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(101, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
-        \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(102, "section", 26)(103, "article", 27)(104, "div", 28)(105, "div")(106, "div", 29);
-        \u0275\u0275text(107, "Step 1");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(108, "h3");
-        \u0275\u0275text(109, "Install the package");
+        \u0275\u0275text(71, ". ");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(110, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_110_listener() {
+        \u0275\u0275elementStart(72, "span", 23);
+        \u0275\u0275text(73, "Classic selector preserved");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(74, "div", 24);
+        \u0275\u0275element(75, "router-outlet");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(76, "section", 25)(77, "span", 26);
+        \u0275\u0275text(78);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(79, "h2");
+        \u0275\u0275text(80, "Material-inspired multiselect, without breaking the classic contract.");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(81, "p", 27);
+        \u0275\u0275text(82, " This release line promotes ");
+        \u0275\u0275elementStart(83, "code");
+        \u0275\u0275text(84, "<angular-multiselect>");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(85, " as the primary selector, while still accepting the legacy ");
+        \u0275\u0275elementStart(86, "code");
+        \u0275\u0275text(87, "<angular2-multiselect>");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(88, " API, ");
+        \u0275\u0275elementStart(89, "code");
+        \u0275\u0275text(90, "ngModel");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(91, " binding, event outputs, and custom template hooks while refining the UI to feel much closer to Angular Material surfaces and field patterns. Version ");
+        \u0275\u0275elementStart(92, "code");
+        \u0275\u0275text(93);
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(94, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
+        \u0275\u0275elementStart(95, "code");
+        \u0275\u0275text(96, "tagToBody");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(97, ". ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(98, "div", 28);
+        \u0275\u0275template(99, AppComponent_span_99_Template, 2, 1, "span", 29);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(100, "div", 30)(101, "div", 31)(102, "strong");
+        \u0275\u0275text(103, "API stability first");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(104, " Inputs, outputs, settings keys, and template slots stay aligned with the code people already ship. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(105, "div", 31)(106, "strong");
+        \u0275\u0275text(107, "Material-like visual language");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(108, " Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(109, "div", 31)(110, "strong");
+        \u0275\u0275text(111, "ADA-compliant interactions");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(112, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(113, "div", 31)(114, "strong");
+        \u0275\u0275text(115, "Dialog-safe positioning");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(116, "code");
+        \u0275\u0275text(117, "tagToBody: true");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(118, " keeps the open list visible above Angular Material dialogs, drawers, and overflow containers. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(119, "div", 31)(120, "strong");
+        \u0275\u0275text(121, "Modern line foundation");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(122, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
+        \u0275\u0275elementEnd()()();
+        \u0275\u0275elementStart(123, "section", 32)(124, "article", 33)(125, "div", 34)(126, "div")(127, "div", 22);
+        \u0275\u0275text(128, "Step 1");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(129, "h3");
+        \u0275\u0275text(130, "Install the package");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(131, "button", 35);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_131_listener() {
           return ctx.copySnippet("install", ctx.installCode);
         });
-        \u0275\u0275text(111);
+        \u0275\u0275text(132);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(112, "pre", 31);
+        \u0275\u0275element(133, "pre", 36);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(113, "article", 27)(114, "div", 28)(115, "div")(116, "div", 29);
-        \u0275\u0275text(117, "Step 2");
+        \u0275\u0275elementStart(134, "article", 33)(135, "div", 34)(136, "div")(137, "div", 22);
+        \u0275\u0275text(138, "Step 2");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(118, "h3");
-        \u0275\u0275text(119, "Register the module");
+        \u0275\u0275elementStart(139, "h3");
+        \u0275\u0275text(140, "Register the module");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(120, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_120_listener() {
+        \u0275\u0275elementStart(141, "button", 35);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_141_listener() {
           return ctx.copySnippet("setup", ctx.setupCode);
         });
-        \u0275\u0275text(121);
+        \u0275\u0275text(142);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(122, "pre", 31);
+        \u0275\u0275element(143, "pre", 36);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(123, "article", 27)(124, "div", 28)(125, "div")(126, "div", 29);
-        \u0275\u0275text(127, "Step 3");
+        \u0275\u0275elementStart(144, "article", 33)(145, "div", 34)(146, "div")(147, "div", 22);
+        \u0275\u0275text(148, "Step 3");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(128, "h3");
-        \u0275\u0275text(129, "Customize the full theme");
+        \u0275\u0275elementStart(149, "h3");
+        \u0275\u0275text(150, "Customize the full theme");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(130, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_130_listener() {
+        \u0275\u0275elementStart(151, "button", 35);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_151_listener() {
           return ctx.copySnippet("customTheme", ctx.customThemeCode);
         });
-        \u0275\u0275text(131);
+        \u0275\u0275text(152);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(132, "pre", 31);
+        \u0275\u0275element(153, "pre", 36);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(133, "article", 27)(134, "div", 28)(135, "div")(136, "div", 29);
-        \u0275\u0275text(137, "Step 4");
+        \u0275\u0275elementStart(154, "article", 33)(155, "div", 34)(156, "div")(157, "div", 22);
+        \u0275\u0275text(158, "Step 4");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(138, "h3");
-        \u0275\u0275text(139, "Render the dropdown");
+        \u0275\u0275elementStart(159, "h3");
+        \u0275\u0275text(160, "Render the dropdown");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(140, "button", 30);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_140_listener() {
+        \u0275\u0275elementStart(161, "button", 35);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_161_listener() {
           return ctx.copySnippet("template", ctx.templateCode);
         });
-        \u0275\u0275text(141);
+        \u0275\u0275text(162);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(142, "pre", 31);
+        \u0275\u0275element(163, "pre", 36);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(143, "section", 32)(144, "div", 33)(145, "div")(146, "div", 29);
-        \u0275\u0275text(147, "Live preview");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(148, "h3");
-        \u0275\u0275text(149);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(150, "p");
-        \u0275\u0275text(151, " Running against package line ");
-        \u0275\u0275elementStart(152, "code");
-        \u0275\u0275text(153);
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(154, " and Angular ");
-        \u0275\u0275elementStart(155, "code");
-        \u0275\u0275text(156);
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(157, ". ");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(158, "span", 34);
-        \u0275\u0275text(159, "Classic selector preserved");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(160, "div", 35);
-        \u0275\u0275element(161, "router-outlet");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(162, "section", 36);
-        \u0275\u0275template(163, AppComponent_article_163_Template, 7, 3, "article", 37);
+        \u0275\u0275elementStart(164, "section", 37);
+        \u0275\u0275template(165, AppComponent_article_165_Template, 7, 3, "article", 38);
         \u0275\u0275elementEnd()()()();
       }
       if (rf & 2) {
@@ -48290,7 +48379,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate(ctx.docsMeta.angularVersion);
         \u0275\u0275advance(2);
         \u0275\u0275textInterpolate1("v", ctx.docsMeta.packageVersion);
-        \u0275\u0275advance(16);
+        \u0275\u0275advance(18);
         \u0275\u0275property("ngForOf", ctx.links);
         \u0275\u0275advance(8);
         \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
@@ -48298,7 +48387,13 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate(ctx.docsMeta.angularVersion);
         \u0275\u0275advance(5);
         \u0275\u0275textInterpolate1("/", ctx.docsMeta.docsPath, "/");
-        \u0275\u0275advance(9);
+        \u0275\u0275advance(13);
+        \u0275\u0275textInterpolate(ctx.currentLabel);
+        \u0275\u0275advance(4);
+        \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
+        \u0275\u0275advance(3);
+        \u0275\u0275textInterpolate(ctx.docsMeta.angularVersion);
+        \u0275\u0275advance(8);
         \u0275\u0275textInterpolate(ctx.docsMeta.badge);
         \u0275\u0275advance(15);
         \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
@@ -48320,16 +48415,10 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate(ctx.copyLabels.template);
         \u0275\u0275advance();
         \u0275\u0275property("textContent", ctx.templateCode);
-        \u0275\u0275advance(7);
-        \u0275\u0275textInterpolate(ctx.currentLabel);
-        \u0275\u0275advance(4);
-        \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
-        \u0275\u0275advance(3);
-        \u0275\u0275textInterpolate(ctx.docsMeta.angularVersion);
-        \u0275\u0275advance(7);
+        \u0275\u0275advance(2);
         \u0275\u0275property("ngForOf", ctx.apiCards);
       }
-    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n[_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n  [_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown.is-open, \n   [_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  [_nghost-%COMP%]     .modal-body angular-multiselect:has(.stackline-dropdown.is-open), \n   [_nghost-%COMP%]     .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
   }
 };
 (() => {
@@ -48357,6 +48446,7 @@ var AppComponent = class _AppComponent {
         <div class="rail-label">Overview</div>
         <a class="rail-link" href="#install">Install</a>
         <a class="rail-link" href="#preview">Preview</a>
+        <a class="rail-link" href="live/" target="_blank" rel="noopener">Live project</a>
         <a class="rail-link" href="#api">API</a>
       </section>
 
@@ -48384,6 +48474,24 @@ var AppComponent = class _AppComponent {
     </aside>
 
     <main class="docs-main">
+      <section class="preview-card" id="preview">
+        <div class="preview-head">
+          <div>
+            <div class="setup-label">Live preview</div>
+            <h3>{{ currentLabel }}</h3>
+            <p>
+              Running against package line <code>{{ docsMeta.packageVersion }}</code> and Angular
+              <code>{{ docsMeta.angularVersion }}</code>.
+            </p>
+          </div>
+          <span class="status-pill">Classic selector preserved</span>
+        </div>
+
+        <div class="preview-canvas">
+          <router-outlet></router-outlet>
+        </div>
+      </section>
+
       <section class="hero-card">
         <span class="hero-badge">{{ docsMeta.badge }}</span>
         <h2>Material-inspired multiselect, without breaking the classic contract.</h2>
@@ -48473,24 +48581,6 @@ var AppComponent = class _AppComponent {
         </article>
       </section>
 
-      <section class="preview-card" id="preview">
-        <div class="preview-head">
-          <div>
-            <div class="setup-label">Live preview</div>
-            <h3>{{ currentLabel }}</h3>
-            <p>
-              Running against package line <code>{{ docsMeta.packageVersion }}</code> and Angular
-              <code>{{ docsMeta.angularVersion }}</code>.
-            </p>
-          </div>
-          <span class="status-pill">Classic selector preserved</span>
-        </div>
-
-        <div class="preview-canvas">
-          <router-outlet></router-outlet>
-        </div>
-      </section>
-
       <section class="api-grid" id="api">
         <article class="api-card" *ngFor="let card of apiCards">
           <div class="setup-label">{{ card.kicker }}</div>
@@ -48501,7 +48591,7 @@ var AppComponent = class _AppComponent {
     </main>
   </div>
 </div>
-`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n:host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n  padding-bottom: clamp(13rem, 30vw, 18rem);\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n  margin-bottom: clamp(13rem, 30vw, 18rem);\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .docs-layout,\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: clamp(12rem, 40vw, 16rem);\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: clamp(12rem, 40vw, 16rem);\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .docs-layout,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n  :host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular-multiselect .stackline-dropdown.is-open,\n  :host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown.is-open {\n    margin-bottom: 13rem;\n  }\n  :host ::ng-deep .modal-body angular-multiselect:has(.stackline-dropdown.is-open),\n  :host ::ng-deep .modal-body angular2-multiselect:has(.stackline-dropdown.is-open) {\n    padding-bottom: 13rem;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
+`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
   }], () => [{ type: Router }, { type: ActivatedRoute }], null);
 })();
 (() => {
@@ -48529,19 +48619,19 @@ var BasicExample = class _BasicExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" }
+      { "countryId": 5, "itemName": "Colombia" }
     ];
     this.settings = {
       text: "Select Countries",
@@ -48625,15 +48715,15 @@ var SingleSelectionExample = class _SingleSelectionExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" },
-      { "id": 5, "itemName": "South Korea", "name": "SK" },
+      { "id": 5, "itemName": "Colombia", "name": "CO" },
       { "id": 6, "itemName": "Brazil", "name": "BR" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "name": "IN" }
+      { "id": 1, "itemName": "Brazil", "name": "BR" }
     ];
     this.settings = {
       enableSearchFilter: true,
@@ -48722,16 +48812,16 @@ var GroupByExample = class _GroupByExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 2, "itemName": "Singapore", "category": "asia pacific" },
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 2, "itemName": "Argentina", "category": "south america" },
       { "id": 3, "itemName": "Germany", "category": "Europe" },
       { "id": 4, "itemName": "France", "category": "Europe" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" },
       { "id": 6, "itemName": "Sweden", "category": "Europe" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" }
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" }
     ];
     this.settings = {
       singleSelection: false,
@@ -48781,11 +48871,11 @@ var GroupByExample = class _GroupByExample {
   loadDataSet2() {
     this.selectedItems = [];
     this.itemList = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 2, "itemName": "Singapore", "category": "asia pacific" },
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 2, "itemName": "Argentina", "category": "south america" },
       { "id": 3, "itemName": "Germany", "category": "Europe" },
       { "id": 4, "itemName": "France", "category": "Europe" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" },
       { "id": 6, "itemName": "Sweden", "category": "Europe" }
     ];
   }
@@ -48866,17 +48956,17 @@ var SearchFilterExample = class _SearchFilterExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" },
-      { "id": 5, "itemName": "South Korea", "name": "SK" },
+      { "id": 5, "itemName": "Colombia", "name": "CO" },
       { "id": 6, "itemName": "Brazil", "name": "BR" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" }
     ];
     this.settings = {
@@ -48994,16 +49084,16 @@ var TemplatingExample = class _TemplatingExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-      { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" },
+      { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+      { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" },
       { "category": "europe", "id": 3, "itemName": "United Kingdom", "capital": "London", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg" },
       { "category": "northamerica", "id": 4, "itemName": "Canada", "capital": "Ottawa", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg" },
-      { "category": "asia", "id": 5, "itemName": "South Korea", "capital": "Seoul", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg" },
-      { "category": "latinamerica", "id": 6, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" }
+      { "category": "south america", "id": 5, "itemName": "Colombia", "capital": "Bogota", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Colombia.jpg" },
+      { "category": "latin america", "id": 6, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" }
     ];
     this.selectedItems = [
-      { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-      { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" },
+      { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+      { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" },
       { "category": "europe", "id": 3, "itemName": "United Kingdom", "capital": "London", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg" },
       { "category": "northamerica", "id": 4, "itemName": "Canada", "capital": "Ottawa", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg" }
     ];
@@ -49105,17 +49195,17 @@ var ResetDropdownExample = class _ResetDropdownExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -49243,17 +49333,17 @@ var DisableModeExample = class _DisableModeExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -49389,17 +49479,17 @@ var LimitSelectionExample = class _LimitSelectionExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -49483,17 +49573,17 @@ var LimitBadgesExample = class _LimitBadgesExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -49577,17 +49667,17 @@ var CustomPlaceholderExample = class _CustomPlaceholderExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -49672,17 +49762,17 @@ var StylingExample = class _StylingExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -50223,7 +50313,7 @@ var LazyLoadingExample = class _LazyLoadingExample {
     this.itemList = [];
     this.selectedItems = [];
     this.settings = {};
-    this.categories = ["Indian", "American", "Canadian", "Chinese"];
+    this.categories = ["Brazilian", "Argentine", "Canadian", "Mexican"];
     this.namesList = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Wilson", "Martinez", "Anderson", "Taylor", "Thomas", "Hernandez", "Moore", "Martin", "Jackson", "Thompson", "White", "Lopez", "Lee", "Gonzalez", "Harris", "Clark", "Lewis", "Robinson", "Walker", "Perez", "Hall", "Young", "Allen", "Sanchez", "Wright", "King", "Scott", "Green", "Baker", "Adams", "Nelson", "Hill", "Ramirez", "Campbell", "Mitchell", "Roberts", "Carter", "Phillips", "Evans", "Turner", "Torres", "Parker", "Collins", "Edwards", "Stewart", "Flores", "Morris", "Nguyen", "Murphy", "Rivera", "Cook", "Rogers", "Morgan", "Peterson", "Cooper", "Reed", "Bailey", "Bell", "Gomez", "Kelly", "Howard", "Ward", "Cox", "Diaz", "Richardson", "Wood", "Watson", "Brooks", "Bennett", "Gray", "James", "Reyes", "Cruz", "Hughes", "Price", "Myers", "Long", "Foster", "Sanders", "Ross", "Morales", "Powell", "Sullivan", "Russell", "Ortiz", "Jenkins", "Gutierrez", "Perry", "Butler", "Barnes", "Fisher", "Henderson", "Coleman", "Simmons", "Patterson", "Jordan", "Reynolds", "Hamilton", "Graham", "Kim", "Gonzales", "Alexander", "Ramos", "Wallace", "Griffin", "West", "Cole", "Hayes", "Chavez", "Gibson", "Bryant", "Ellis", "Stevens", "Murray", "Ford", "Marshall", "Owens", "Mcdonald", "Harrison", "Ruiz", "Kennedy", "Wells", "Alvarez", "Woods", "Mendoza", "Castillo", "Olson", "Webb", "Washington", "Tucker", "Freeman", "Burns", "Henry", "Vasquez", "Snyder", "Simpson", "Crawford", "Jimenez", "Porter", "Mason", "Shaw", "Gordon", "Wagner", "Hunter", "Romero", "Hicks", "Dixon", "Hunt", "Palmer", "Robertson", "Black", "Holmes", "Stone", "Meyer", "Boyd", "Mills", "Warren", "Fox", "Rose", "Rice", "Moreno", "Schmidt", "Patel", "Ferguson", "Nichols", "Herrera", "Medina", "Ryan", "Fernandez", "Weaver", "Daniels", "Stephens", "Gardner", "Payne", "Kelley", "Dunn", "Pierce", "Arnold", "Tran", "Spencer", "Peters", "Hawkins", "Grant", "Hansen", "Castro", "Hoffman", "Hart", "Elliott", "Cunningham", "Knight", "Bradley", "Carroll", "Hudson", "Duncan", "Armstrong", "Berry", "Andrews", "Johnston", "Ray", "Lane", "Riley", "Carpenter", "Perkins", "Aguilar", "Silva", "Richards", "Willis", "Matthews", "Chapman", "Lawrence", "Garza", "Vargas", "Watkins", "Wheeler", "Larson", "Carlson", "Harper", "George", "Greene", "Burke", "Guzman", "Morrison", "Munoz", "Jacobs", "Obrien", "Lawson", "Franklin", "Lynch", "Bishop", "Carr", "Salazar", "Austin", "Mendez", "Gilbert", "Jensen", "Williamson", "Montgomery", "Harvey", "Oliver", "Howell", "Dean", "Hanson", "Weber", "Garrett", "Sims", "Burton", "Fuller", "Soto", "Mccoy", "Welch", "Chen", "Schultz", "Walters", "Reid", "Fields", "Walsh", "Little", "Fowler", "Bowman", "Davidson", "May", "Day", "Schneider", "Newman", "Brewer", "Lucas", "Holland", "Wong", "Banks", "Santos", "Curtis", "Pearson", "Delgado", "Valdez", "Pena", "Rios", "Douglas", "Sandoval", "Barrett", "Hopkins", "Keller", "Guerrero", "Stanley", "Bates", "Alvarado", "Beck", "Ortega", "Wade", "Estrada", "Contreras", "Barnett", "Caldwell", "Santiago", "Lambert", "Powers", "Chambers", "Nunez", "Craig", "Leonard", "Lowe", "Rhodes", "Byrd", "Gregory", "Shelton", "Frazier", "Becker", "Maldonado", "Fleming", "Vega", "Sutton", "Cohen", "Jennings", "Parks", "Mcdaniel", "Watts", "Barker", "Norris", "Vaughn", "Vazquez", "Holt", "Schwartz", "Steele", "Benson", "Neal", "Dominguez", "Horton", "Terry", "Wolfe", "Hale", "Lyons", "Graves", "Haynes", "Miles", "Park", "Warner", "Padilla", "Bush", "Thornton", "Mccarthy", "Mann", "Zimmerman", "Erickson", "Fletcher", "Mckinney", "Page", "Dawson", "Joseph", "Marquez", "Reeves", "Klein", "Espinoza", "Baldwin", "Moran", "Love", "Robbins", "Higgins", "Ball", "Cortez", "Le", "Griffith", "Bowen", "Sharp", "Cummings", "Ramsey", "Hardy", "Swanson", "Barber", "Acosta", "Luna", "Chandler", "Blair", "Daniel", "Cross", "Simon", "Dennis", "Oconnor", "Quinn", "Gross", "Navarro", "Moss", "Fitzgerald", "Doyle", "Mclaughlin", "Rojas", "Rodgers", "Stevenson", "Singh", "Yang", "Figueroa", "Harmon", "Newton", "Paul", "Manning", "Garner", "Mcgee", "Reese", "Francis", "Burgess", "Adkins", "Goodman", "Curry", "Brady", "Christensen", "Potter", "Walton", "Goodwin", "Mullins", "Molina", "Webster", "Fischer", "Campos", "Avila", "Sherman", "Todd", "Chang", "Blake", "Malone", "Wolf", "Hodges", "Juarez", "Gill", "Farmer", "Hines", "Gallagher", "Duran", "Hubbard", "Cannon", "Miranda", "Wang", "Saunders", "Tate", "Mack", "Hammond", "Carrillo", "Townsend", "Wise", "Ingram", "Barton", "Mejia", "Ayala", "Schroeder", "Hampton", "Rowe", "Parsons", "Frank", "Waters", "Strickland", "Osborne", "Maxwell", "Chan", "Deleon", "Norman", "Harrington", "Casey", "Patton", "Logan", "Bowers", "Mueller", "Glover", "Floyd", "Hartman", "Buchanan", "Cobb", "French", "Kramer", "Mccormick", "Clarke", "Tyler", "Gibbs", "Moody", "Conner", "Sparks", "Mcguire", "Leon", "Bauer", "Norton", "Pope", "Flynn", "Hogan", "Robles", "Salinas", "Yates", "Lindsey", "Lloyd", "Marsh", "Mcbride", "Owen", "Solis", "Pham", "Lang", "Pratt", "Lara", "Brock", "Ballard", "Trujillo", "Shaffer", "Drake", "Roman", "Aguirre", "Morton", "Stokes", "Lamb", "Pacheco", "Patrick", "Cochran", "Shepherd", "Cain", "Burnett", "Hess", "Li", "Cervantes", "Olsen", "Briggs", "Ochoa", "Cabrera", "Velasquez", "Montoya", "Roth", "Meyers", "Cardenas", "Fuentes", "Weiss", "Hoover", "Wilkins", "Nicholson", "Underwood", "Short", "Carson", "Morrow", "Colon", "Holloway", "Summers", "Bryan", "Petersen", "Mckenzie", "Serrano", "Wilcox", "Carey", "Clayton", "Poole", "Calderon", "Gallegos", "Greer", "Rivas", "Guerra", "Decker", "Collier", "Wall", "Whitaker", "Bass", "Flowers", "Davenport", "Conley", "Houston", "Huff", "Copeland", "Hood", "Monroe", "Massey", "Roberson", "Combs", "Franco", "Larsen", "Pittman", "Randall", "Skinner", "Wilkinson", "Kirby", "Cameron", "Bridges", "Anthony", "Richard", "Kirk", "Bruce", "Singleton", "Mathis", "Bradford", "Boone", "Abbott", "Charles", "Allison", "Sweeney", "Atkinson", "Horn", "Jefferson", "Rosales", "York", "Christian", "Phelps", "Farrell", "Castaneda", "Nash", "Dickerson", "Bond", "Wyatt", "Foley", "Chase", "Gates", "Vincent", "Mathews", "Hodge", "Garrison", "Trevino", "Villarreal", "Heath", "Dalton", "Valencia", "Callahan", "Hensley", "Atkins", "Huffman", "Roy", "Boyer", "Shields", "Lin", "Hancock", "Grimes", "Glenn", "Cline", "Delacruz", "Camacho", "Dillon", "Parrish", "Oneill", "Melton", "Booth", "Kane", "Berg", "Harrell", "Pitts", "Savage", "Wiggins", "Brennan", "Salas", "Marks", "Russo", "Sawyer", "Baxter", "Golden", "Hutchinson", "Liu", "Walter", "Mcdowell", "Wiley", "Rich", "Humphrey", "Johns", "Koch", "Suarez", "Hobbs", "Beard", "Gilmore", "Ibarra", "Keith", "Macias", "Khan", "Andrade", "Ware", "Stephenson", "Henson", "Wilkerson", "Dyer", "Mcclure", "Blackwell", "Mercado", "Tanner", "Eaton", "Clay", "Barron", "Beasley", "Oneal", "Preston", "Small", "Wu", "Zamora", "Macdonald", "Vance", "Snow", "Mcclain", "Stafford", "Orozco", "Barry", "English", "Shannon", "Kline", "Jacobson", "Woodard", "Huang", "Kemp", "Mosley", "Prince", "Merritt", "Hurst", "Villanueva", "Roach", "Nolan", "Lam", "Yoder", "Mccullough", "Lester", "Santana", "Valenzuela", "Winters", "Barrera", "Leach", "Orr", "Berger", "Mckee", "Strong", "Conway", "Stein", "Whitehead", "Bullock", "Escobar", "Knox", "Meadows", "Solomon", "Velez", "Odonnell", "Kerr", "Stout", "Blankenship", "Browning", "Kent", "Lozano", "Bartlett", "Pruitt", "Buck", "Barr", "Gaines", "Durham", "Gentry", "Mcintyre", "Sloan", "Melendez", "Rocha", "Herman", "Sexton", "Moon", "Hendricks", "Rangel", "Stark", "Lowery", "Hardin", "Hull", "Sellers", "Ellison", "Calhoun", "Gillespie", "Mora", "Knapp", "Mccall", "Morse", "Dorsey", "Weeks", "Nielsen", "Livingston", "Leblanc", "Mclean", "Bradshaw", "Glass", "Middleton", "Buckley", "Schaefer", "Frost", "Howe", "House", "Mcintosh", "Ho", "Pennington", "Reilly", "Hebert", "Mcfarland", "Hickman", "Noble", "Spears", "Conrad", "Arias", "Galvan", "Velazquez", "Huynh", "Frederick", "Randolph", "Cantu", "Fitzpatrick", "Mahoney", "Peck", "Villa", "Michael", "Donovan", "Mcconnell", "Walls", "Boyle", "Mayer", "Zuniga", "Giles", "Pineda", "Pace", "Hurley", "Mays", "Mcmillan", "Crosby", "Ayers", "Case", "Bentley", "Shepard", "Everett", "Pugh", "David", "Mcmahon", "Dunlap", "Bender", "Hahn", "Harding", "Acevedo", "Raymond", "Blackburn", "Duffy", "Landry", "Dougherty", "Bautista", "Shah", "Potts", "Arroyo", "Valentine", "Meza", "Gould", "Vaughan", "Fry", "Rush", "Avery", "Herring", "Dodson", "Clements", "Sampson", "Tapia", "Bean", "Lynn", "Crane", "Farley", "Cisneros", "Benton", "Ashley", "Mckay", "Finley", "Best", "Blevins", "Friedman", "Moses", "Sosa", "Blanchard", "Huber", "Frye", "Krueger", "Bernard", "Rosario", "Rubio", "Mullen", "Benjamin", "Haley", "Chung", "Moyer", "Choi", "Horne", "Yu", "Woodward", "Ali", "Nixon", "Hayden", "Rivers", "Estes", "Mccarty", "Richmond", "Stuart", "Maynard", "Brandt", "Oconnell", "Hanna", "Sanford", "Sheppard", "Church", "Burch", "Levy", "Rasmussen", "Coffey", "Ponce", "Faulkner", "Donaldson", "Schmitt", "Novak", "Costa", "Montes", "Booker", "Cordova", "Waller", "Arellano", "Maddox", "Mata", "Bonilla", "Stanton", "Compton", "Kaufman", "Dudley", "Mcpherson", "Beltran", "Dickson", "Mccann", "Villegas", "Proctor", "Hester", "Cantrell", "Daugherty", "Cherry", "Bray", "Davila", "Rowland", "Levine", "Madden", "Spence", "Good", "Irwin", "Werner", "Krause", "Petty", "Whitney", "Baird", "Hooper", "Pollard", "Zavala", "Jarvis", "Holden", "Haas", "Hendrix", "Mcgrath", "Bird", "Lucero", "Terrell", "Riggs", "Joyce", "Mercer", "Rollins", "Galloway", "Duke", "Odom", "Andersen", "Downs", "Hatfield", "Benitez", "Archer", "Huerta", "Travis", "Mcneil", "Hinton", "Zhang", "Hays", "Mayo", "Fritz", "Branch", "Mooney", "Ewing", "Ritter", "Esparza", "Frey", "Braun", "Gay", "Riddle", "Haney", "Kaiser", "Holder", "Chaney", "Mcknight", "Gamble", "Vang", "Cooley", "Carney", "Cowan", "Forbes", "Ferrell", "Davies", "Barajas", "Shea", "Osborn", "Bright", "Cuevas", "Bolton", "Murillo", "Lutz", "Duarte", "Kidd", "Key", "Cooke"];
     this.cssgist = false;
     this.title = "Virtual scrolling - Lazy load large data sets";
@@ -50337,7 +50427,7 @@ var MockService = class _MockService {
   constructor() {
     this.itemList = [];
     this.DATA = [{ "id": "PBMMedAdhr", "name": "PBM Medication Adherence" }, { "id": "GapsInCare", "name": "Gaps In Care" }, { "id": "UCTest1", "name": "Use Case Test1" }, { "id": "BASICSAVE", "name": "A generic alternative or 30-90 day dispense opport" }, { "id": "ADVSAVE", "name": "An advnaced generic alternative or 30-90 day dispe" }, { "id": "AttAlert", "name": "Attachment Alert" }, { "id": "PatSave", "name": "Patient savings" }, { "id": "UCTest2", "name": "Use Case Test 2" }, { "id": "UCTest3", "name": "Use Case Test 3" }, { "id": "UCTest4", "name": "Use Case Test 4" }, { "id": "UCTest5", "name": "Use Case Test 5" }, { "id": "UCTest6", "name": "Use Case Test 6" }, { "id": "UCTest7", "name": "Use Case Test 7" }, { "id": "UCTest9", "name": "Use Case Test 9" }, { "id": "UCTest#Ten", "name": "Use Case Test 10" }, { "id": "UCTest8", "name": "Use Case Test 8" }, { "id": "UCTest11", "name": "Test Use Case 11" }, { "id": "UCTest12", "name": "Test Use Case 12" }, { "id": "UCTest13", "name": "Test Use Case 13" }, { "id": "PNLIMMUN", "name": "PNL Immunization" }, { "id": "TrustBrkr", "name": "Identity Services" }, { "id": "RTBC", "name": "real time benefit check for 90 day at retail" }];
-    this.categories = ["Indian", "American", "Canadian", "Chinese"];
+    this.categories = ["Brazilian", "Argentine", "Canadian", "Mexican"];
     this.namesList = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Wilson", "Martinez", "Anderson", "Taylor", "Thomas", "Hernandez", "Moore", "Martin", "Jackson", "Thompson", "White", "Lopez", "Lee", "Gonzalez", "Harris", "Clark", "Lewis", "Robinson", "Walker", "Perez", "Hall", "Young", "Allen", "Sanchez", "Wright", "King", "Scott", "Green", "Baker", "Adams", "Nelson", "Hill", "Ramirez", "Campbell", "Mitchell", "Roberts", "Carter", "Phillips", "Evans", "Turner", "Torres", "Parker", "Collins", "Edwards", "Stewart", "Flores", "Morris", "Nguyen", "Murphy", "Rivera", "Cook", "Rogers", "Morgan", "Peterson", "Cooper", "Reed", "Bailey", "Bell", "Gomez", "Kelly", "Howard", "Ward", "Cox", "Diaz", "Richardson", "Wood", "Watson", "Brooks", "Bennett", "Gray", "James", "Reyes", "Cruz", "Hughes", "Price", "Myers", "Long", "Foster", "Sanders", "Ross", "Morales", "Powell", "Sullivan", "Russell", "Ortiz", "Jenkins", "Gutierrez", "Perry", "Butler", "Barnes", "Fisher", "Henderson", "Coleman", "Simmons", "Patterson", "Jordan", "Reynolds", "Hamilton", "Graham", "Kim", "Gonzales", "Alexander", "Ramos", "Wallace", "Griffin", "West", "Cole", "Hayes", "Chavez", "Gibson", "Bryant", "Ellis", "Stevens", "Murray", "Ford", "Marshall", "Owens", "Mcdonald", "Harrison", "Ruiz", "Kennedy", "Wells", "Alvarez", "Woods", "Mendoza", "Castillo", "Olson", "Webb", "Washington", "Tucker", "Freeman", "Burns", "Henry", "Vasquez", "Snyder", "Simpson", "Crawford", "Jimenez", "Porter", "Mason", "Shaw", "Gordon", "Wagner", "Hunter", "Romero", "Hicks", "Dixon", "Hunt", "Palmer", "Robertson", "Black", "Holmes", "Stone", "Meyer", "Boyd", "Mills", "Warren", "Fox", "Rose", "Rice", "Moreno", "Schmidt", "Patel", "Ferguson", "Nichols", "Herrera", "Medina", "Ryan", "Fernandez", "Weaver", "Daniels", "Stephens", "Gardner", "Payne", "Kelley", "Dunn", "Pierce", "Arnold", "Tran", "Spencer", "Peters", "Hawkins", "Grant", "Hansen", "Castro", "Hoffman", "Hart", "Elliott", "Cunningham", "Knight", "Bradley", "Carroll", "Hudson", "Duncan", "Armstrong", "Berry", "Andrews", "Johnston", "Ray", "Lane", "Riley", "Carpenter", "Perkins", "Aguilar", "Silva", "Richards", "Willis", "Matthews", "Chapman", "Lawrence", "Garza", "Vargas", "Watkins", "Wheeler", "Larson", "Carlson", "Harper", "George", "Greene", "Burke", "Guzman", "Morrison", "Munoz", "Jacobs", "Obrien", "Lawson", "Franklin", "Lynch", "Bishop", "Carr", "Salazar", "Austin", "Mendez", "Gilbert", "Jensen", "Williamson", "Montgomery", "Harvey", "Oliver", "Howell", "Dean", "Hanson", "Weber", "Garrett", "Sims", "Burton", "Fuller", "Soto", "Mccoy", "Welch", "Chen", "Schultz", "Walters", "Reid", "Fields", "Walsh", "Little", "Fowler", "Bowman", "Davidson", "May", "Day", "Schneider", "Newman", "Brewer", "Lucas", "Holland", "Wong", "Banks", "Santos", "Curtis", "Pearson", "Delgado", "Valdez", "Pena", "Rios", "Douglas", "Sandoval", "Barrett", "Hopkins", "Keller", "Guerrero", "Stanley", "Bates", "Alvarado", "Beck", "Ortega", "Wade", "Estrada", "Contreras", "Barnett", "Caldwell", "Santiago", "Lambert", "Powers", "Chambers", "Nunez", "Craig", "Leonard", "Lowe", "Rhodes", "Byrd", "Gregory", "Shelton", "Frazier", "Becker", "Maldonado", "Fleming", "Vega", "Sutton", "Cohen", "Jennings", "Parks", "Mcdaniel", "Watts", "Barker", "Norris", "Vaughn", "Vazquez", "Holt", "Schwartz", "Steele", "Benson", "Neal", "Dominguez", "Horton", "Terry", "Wolfe", "Hale", "Lyons", "Graves", "Haynes", "Miles", "Park", "Warner", "Padilla", "Bush", "Thornton", "Mccarthy", "Mann", "Zimmerman", "Erickson", "Fletcher", "Mckinney", "Page", "Dawson", "Joseph", "Marquez", "Reeves", "Klein", "Espinoza", "Baldwin", "Moran", "Love", "Robbins", "Higgins", "Ball", "Cortez", "Le", "Griffith", "Bowen", "Sharp", "Cummings", "Ramsey", "Hardy", "Swanson", "Barber", "Acosta", "Luna", "Chandler", "Blair", "Daniel", "Cross", "Simon", "Dennis", "Oconnor", "Quinn", "Gross", "Navarro", "Moss", "Fitzgerald", "Doyle", "Mclaughlin", "Rojas", "Rodgers", "Stevenson", "Singh", "Yang", "Figueroa", "Harmon", "Newton", "Paul", "Manning", "Garner", "Mcgee", "Reese", "Francis", "Burgess", "Adkins", "Goodman", "Curry", "Brady", "Christensen", "Potter", "Walton", "Goodwin", "Mullins", "Molina", "Webster", "Fischer", "Campos", "Avila", "Sherman", "Todd", "Chang", "Blake", "Malone", "Wolf", "Hodges", "Juarez", "Gill", "Farmer", "Hines", "Gallagher", "Duran", "Hubbard", "Cannon", "Miranda", "Wang", "Saunders", "Tate", "Mack", "Hammond", "Carrillo", "Townsend", "Wise", "Ingram", "Barton", "Mejia", "Ayala", "Schroeder", "Hampton", "Rowe", "Parsons", "Frank", "Waters", "Strickland", "Osborne", "Maxwell", "Chan", "Deleon", "Norman", "Harrington", "Casey", "Patton", "Logan", "Bowers", "Mueller", "Glover", "Floyd", "Hartman", "Buchanan", "Cobb", "French", "Kramer", "Mccormick", "Clarke", "Tyler", "Gibbs", "Moody", "Conner", "Sparks", "Mcguire", "Leon", "Bauer", "Norton", "Pope", "Flynn", "Hogan", "Robles", "Salinas", "Yates", "Lindsey", "Lloyd", "Marsh", "Mcbride", "Owen", "Solis", "Pham", "Lang", "Pratt", "Lara", "Brock", "Ballard", "Trujillo", "Shaffer", "Drake", "Roman", "Aguirre", "Morton", "Stokes", "Lamb", "Pacheco", "Patrick", "Cochran", "Shepherd", "Cain", "Burnett", "Hess", "Li", "Cervantes", "Olsen", "Briggs", "Ochoa", "Cabrera", "Velasquez", "Montoya", "Roth", "Meyers", "Cardenas", "Fuentes", "Weiss", "Hoover", "Wilkins", "Nicholson", "Underwood", "Short", "Carson", "Morrow", "Colon", "Holloway", "Summers", "Bryan", "Petersen", "Mckenzie", "Serrano", "Wilcox", "Carey", "Clayton", "Poole", "Calderon", "Gallegos", "Greer", "Rivas", "Guerra", "Decker", "Collier", "Wall", "Whitaker", "Bass", "Flowers", "Davenport", "Conley", "Houston", "Huff", "Copeland", "Hood", "Monroe", "Massey", "Roberson", "Combs", "Franco", "Larsen", "Pittman", "Randall", "Skinner", "Wilkinson", "Kirby", "Cameron", "Bridges", "Anthony", "Richard", "Kirk", "Bruce", "Singleton", "Mathis", "Bradford", "Boone", "Abbott", "Charles", "Allison", "Sweeney", "Atkinson", "Horn", "Jefferson", "Rosales", "York", "Christian", "Phelps", "Farrell", "Castaneda", "Nash", "Dickerson", "Bond", "Wyatt", "Foley", "Chase", "Gates", "Vincent", "Mathews", "Hodge", "Garrison", "Trevino", "Villarreal", "Heath", "Dalton", "Valencia", "Callahan", "Hensley", "Atkins", "Huffman", "Roy", "Boyer", "Shields", "Lin", "Hancock", "Grimes", "Glenn", "Cline", "Delacruz", "Camacho", "Dillon", "Parrish", "Oneill", "Melton", "Booth", "Kane", "Berg", "Harrell", "Pitts", "Savage", "Wiggins", "Brennan", "Salas", "Marks", "Russo", "Sawyer", "Baxter", "Golden", "Hutchinson", "Liu", "Walter", "Mcdowell", "Wiley", "Rich", "Humphrey", "Johns", "Koch", "Suarez", "Hobbs", "Beard", "Gilmore", "Ibarra", "Keith", "Macias", "Khan", "Andrade", "Ware", "Stephenson", "Henson", "Wilkerson", "Dyer", "Mcclure", "Blackwell", "Mercado", "Tanner", "Eaton", "Clay", "Barron", "Beasley", "Oneal", "Preston", "Small", "Wu", "Zamora", "Macdonald", "Vance", "Snow", "Mcclain", "Stafford", "Orozco", "Barry", "English", "Shannon", "Kline", "Jacobson", "Woodard", "Huang", "Kemp", "Mosley", "Prince", "Merritt", "Hurst", "Villanueva", "Roach", "Nolan", "Lam", "Yoder", "Mccullough", "Lester", "Santana", "Valenzuela", "Winters", "Barrera", "Leach", "Orr", "Berger", "Mckee", "Strong", "Conway", "Stein", "Whitehead", "Bullock", "Escobar", "Knox", "Meadows", "Solomon", "Velez", "Odonnell", "Kerr", "Stout", "Blankenship", "Browning", "Kent", "Lozano", "Bartlett", "Pruitt", "Buck", "Barr", "Gaines", "Durham", "Gentry", "Mcintyre", "Sloan", "Melendez", "Rocha", "Herman", "Sexton", "Moon", "Hendricks", "Rangel", "Stark", "Lowery", "Hardin", "Hull", "Sellers", "Ellison", "Calhoun", "Gillespie", "Mora", "Knapp", "Mccall", "Morse", "Dorsey", "Weeks", "Nielsen", "Livingston", "Leblanc", "Mclean", "Bradshaw", "Glass", "Middleton", "Buckley", "Schaefer", "Frost", "Howe", "House", "Mcintosh", "Ho", "Pennington", "Reilly", "Hebert", "Mcfarland", "Hickman", "Noble", "Spears", "Conrad", "Arias", "Galvan", "Velazquez", "Huynh", "Frederick", "Randolph", "Cantu", "Fitzpatrick", "Mahoney", "Peck", "Villa", "Michael", "Donovan", "Mcconnell", "Walls", "Boyle", "Mayer", "Zuniga", "Giles", "Pineda", "Pace", "Hurley", "Mays", "Mcmillan", "Crosby", "Ayers", "Case", "Bentley", "Shepard", "Everett", "Pugh", "David", "Mcmahon", "Dunlap", "Bender", "Hahn", "Harding", "Acevedo", "Raymond", "Blackburn", "Duffy", "Landry", "Dougherty", "Bautista", "Shah", "Potts", "Arroyo", "Valentine", "Meza", "Gould", "Vaughan", "Fry", "Rush", "Avery", "Herring", "Dodson", "Clements", "Sampson", "Tapia", "Bean", "Lynn", "Crane", "Farley", "Cisneros", "Benton", "Ashley", "Mckay", "Finley", "Best", "Blevins", "Friedman", "Moses", "Sosa", "Blanchard", "Huber", "Frye", "Krueger", "Bernard", "Rosario", "Rubio", "Mullen", "Benjamin", "Haley", "Chung", "Moyer", "Choi", "Horne", "Yu", "Woodward", "Ali", "Nixon", "Hayden", "Rivers", "Estes", "Mccarty", "Richmond", "Stuart", "Maynard", "Brandt", "Oconnell", "Hanna", "Sanford", "Sheppard", "Church", "Burch", "Levy", "Rasmussen", "Coffey", "Ponce", "Faulkner", "Donaldson", "Schmitt", "Novak", "Costa", "Montes", "Booker", "Cordova", "Waller", "Arellano", "Maddox", "Mata", "Bonilla", "Stanton", "Compton", "Kaufman", "Dudley", "Mcpherson", "Beltran", "Dickson", "Mccann", "Villegas", "Proctor", "Hester", "Cantrell", "Daugherty", "Cherry", "Bray", "Davila", "Rowland", "Levine", "Madden", "Spence", "Good", "Irwin", "Werner", "Krause", "Petty", "Whitney", "Baird", "Hooper", "Pollard", "Zavala", "Jarvis", "Holden", "Haas", "Hendrix", "Mcgrath", "Bird", "Lucero", "Terrell", "Riggs", "Joyce", "Mercer", "Rollins", "Galloway", "Duke", "Odom", "Andersen", "Downs", "Hatfield", "Benitez", "Archer", "Huerta", "Travis", "Mcneil", "Hinton", "Zhang", "Hays", "Mayo", "Fritz", "Branch", "Mooney", "Ewing", "Ritter", "Esparza", "Frey", "Braun", "Gay", "Riddle", "Haney", "Kaiser", "Holder", "Chaney", "Mcknight", "Gamble", "Vang", "Cooley", "Carney", "Cowan", "Forbes", "Ferrell", "Davies", "Barajas", "Shea", "Osborn", "Bright", "Cuevas", "Bolton", "Murillo", "Lutz", "Duarte", "Kidd", "Key", "Cooke"];
     for (var t = 1; t <= 100; t++) {
       var tempObj = { "id": 0, "name": "", "category": "" };
@@ -50398,11 +50488,11 @@ var MockService = class _MockService {
   }
   getCountries() {
     return [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 2, "itemName": "Singapore", "category": "asia pacific" },
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 2, "itemName": "Argentina", "category": "south america" },
       { "id": 3, "itemName": "Germany", "category": "Europe" },
       { "id": 4, "itemName": "France", "category": "Europe" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" },
       { "id": 6, "itemName": "Sweden", "category": "Europe" }
     ];
   }
@@ -50430,11 +50520,11 @@ var MultipleDropdownsExample = class _MultipleDropdownsExample {
     this.settings = {};
     this.directorySpecialties = [{ "id": "PBMMedAdhr", "name": "PBM Medication Adherence" }, { "id": "GapsInCare", "name": "Gaps In Care" }, { "id": "UCTest1", "name": "Use Case Test1" }, { "id": "BASICSAVE", "name": "A generic alternative or 30-90 day dispense opport" }, { "id": "ADVSAVE", "name": "An advnaced generic alternative or 30-90 day dispe" }, { "id": "AttAlert", "name": "Attachment Alert" }, { "id": "PatSave", "name": "Patient savings" }, { "id": "UCTest2", "name": "Use Case Test 2" }, { "id": "UCTest3", "name": "Use Case Test 3" }, { "id": "UCTest4", "name": "Use Case Test 4" }, { "id": "UCTest5", "name": "Use Case Test 5" }, { "id": "UCTest6", "name": "Use Case Test 6" }, { "id": "UCTest7", "name": "Use Case Test 7" }, { "id": "UCTest9", "name": "Use Case Test 9" }, { "id": "UCTest#Ten", "name": "Use Case Test 10" }, { "id": "UCTest8", "name": "Use Case Test 8" }, { "id": "UCTest11", "name": "Test Use Case 11" }, { "id": "UCTest12", "name": "Test Use Case 12" }, { "id": "UCTest13", "name": "Test Use Case 13" }, { "id": "PNLIMMUN", "name": "PNL Immunization" }, { "id": "TrustBrkr", "name": "Identity Services" }, { "id": "RTBC", "name": "real time benefit check for 90 day at retail" }];
     this.useCases = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" },
-      { "id": 5, "itemName": "South Korea", "name": "SK" },
+      { "id": 5, "itemName": "Colombia", "name": "CO" },
       { "id": 6, "itemName": "Brazil", "name": "BR" }
     ];
     this.dropdownSettings = {};
@@ -50982,17 +51072,17 @@ var SearchFilterByOnePropertyExample = class _SearchFilterByOnePropertyExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" },
-      { "id": 5, "itemName": "South Korea", "name": "SK" },
+      { "id": 5, "itemName": "Colombia", "name": "CO" },
       { "id": 6, "itemName": "Brazil", "name": "BR" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" }
     ];
     this.settings = {
@@ -51202,17 +51292,17 @@ var SearchFilterAddItemExample = class _SearchFilterAddItemExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" },
-      { "id": 5, "itemName": "South Korea", "name": "SK" },
+      { "id": 5, "itemName": "Colombia", "name": "CO" },
       { "id": 6, "itemName": "Brazil", "name": "BR" }
     ];
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "name": "IN" },
-      { "id": 2, "itemName": "Singapore", "name": "SN" },
-      { "id": 3, "itemName": "Australia", "name": "AU" },
+      { "id": 1, "itemName": "Brazil", "name": "BR" },
+      { "id": 2, "itemName": "Argentina", "name": "AR" },
+      { "id": 3, "itemName": "Chile", "name": "CL" },
       { "id": 4, "itemName": "Canada", "name": "CA" }
     ];
     this.settings = {
@@ -51339,17 +51429,17 @@ var EventsExample = class _EventsExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" }
     ];
     this.settings = {
@@ -51575,8 +51665,8 @@ var UsingInListExample = class _UsingInListExample {
       {
         name: "Toshiba",
         countries: [
-          { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-          { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" }
+          { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+          { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" }
         ]
       },
       { name: "Apple", countries: [] },
@@ -51584,23 +51674,23 @@ var UsingInListExample = class _UsingInListExample {
       {
         name: "MI",
         countries: [
-          { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-          { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" }
+          { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+          { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" }
         ]
       },
       { name: "Google", countries: [] }
     ];
     this.itemList = [
-      { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-      { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" },
+      { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+      { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" },
       { "category": "europe", "id": 3, "itemName": "United Kingdom", "capital": "London", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg" },
       { "category": "northamerica", "id": 4, "itemName": "Canada", "capital": "Ottawa", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg" },
-      { "category": "asia", "id": 5, "itemName": "South Korea", "capital": "Seoul", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg" },
-      { "category": "latinamerica", "id": 6, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" }
+      { "category": "south america", "id": 5, "itemName": "Colombia", "capital": "Bogota", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Colombia.jpg" },
+      { "category": "latin america", "id": 6, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" }
     ];
     this.selectedItems = [
-      { "category": "asia", "id": 1, "itemName": "India", "capital": "Delhi", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg" },
-      { "category": "asia", "id": 2, "itemName": "Singapore", "capital": "Singapore", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg" },
+      { "category": "south america", "id": 1, "itemName": "Brazil", "capital": "Brasilia", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg" },
+      { "category": "south america", "id": 2, "itemName": "Argentina", "capital": "Buenos Aires", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg" },
       { "category": "europe", "id": 3, "itemName": "United Kingdom", "capital": "London", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg" },
       { "category": "northamerica", "id": 4, "itemName": "Canada", "capital": "Ottawa", "image": "http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg" }
     ];
@@ -51707,19 +51797,19 @@ var UsingWithinDialog = class _UsingWithinDialog {
   }
   ngOnInit() {
     this.itemList = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.settings = {
@@ -51850,19 +51940,19 @@ var DialogContentExampleDialog = class _DialogContentExampleDialog {
   }
   ngOnInit() {
     this.itemList = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.settings = {
@@ -52463,17 +52553,17 @@ var ThemingExample = class _ThemingExample {
   }
   ngOnInit() {
     this.itemList = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" },
-      { "countryId": 5, "itemName": "South Korea" },
+      { "countryId": 5, "itemName": "Colombia" },
       { "countryId": 6, "itemName": "Brazil" }
     ];
     this.selectedItems = [
-      { "countryId": 1, "itemName": "India" },
-      { "countryId": 2, "itemName": "Singapore" },
-      { "countryId": 3, "itemName": "Australia" },
+      { "countryId": 1, "itemName": "Brazil" },
+      { "countryId": 2, "itemName": "Argentina" },
+      { "countryId": 3, "itemName": "Chile" },
       { "countryId": 4, "itemName": "Canada" }
     ];
     this.settings = {

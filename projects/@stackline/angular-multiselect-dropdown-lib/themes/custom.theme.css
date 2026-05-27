@@ -170,10 +170,10 @@
 }
 
 .stackline-dropdown .pure-checkbox input[type=checkbox] + label::after {
-  left: 5px;
-  width: 7px;
-  height: 3px;
-  margin-top: -3px;
+  left: 11px;
+  width: 8px;
+  height: 4px;
+  margin-top: 0;
   border-width: 0 0 2px 2px;
   border-color: #ffffff;
 }

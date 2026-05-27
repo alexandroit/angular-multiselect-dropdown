@@ -1,4 +1,4 @@
-<div class="stackline-dropdown" [ngClass]="getDropdownClasses()" (clickOutside)="closeDropdownOnClickOut()" #stacklineDropdown>
+<div class="stackline-dropdown" [ngClass]="getDropdownClasses()" (clickOutside)="closeDropdownOnClickOut($event)" #stacklineDropdown>
     <div class="selected-list" #selectedList>
         <div class="c-btn"
             #triggerButton
@@ -50,17 +50,13 @@
             <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
                 <c-icon [name]="'remove'"></c-icon>
             </button>
-            <button type="button" *ngIf="!isActive" class="c-angle-down c-arrow-toggle" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
-                <c-icon [name]="'angle-down'"></c-icon>
-            </button>
-            <button type="button" *ngIf="isActive" class="c-angle-up c-arrow-toggle" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="getCloseDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
-                <c-icon [name]="'angle-up'"></c-icon>
-
+            <button type="button" class="c-arrow-toggle" [ngClass]="isActive ? 'c-angle-up' : 'c-angle-down'" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="isActive ? getCloseDropdownAriaLabel() : getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
+                <c-icon [name]="isActive ? 'angle-up' : 'angle-down'"></c-icon>
             </button>
         </div>
     </div>
     <div #dropdownList class="dropdown-list animated fadeIn"
-    [ngClass]="{'tagToBody': isBodyOverlayEnabled(), 'opens-up': settings.position == 'top', 'opens-down': settings.position == 'bottom'}"
+    [ngClass]="getDropdownPanelClasses()"
     [style.width]="dropDownWidth !== null ? dropDownWidth + 'px' : 'auto'"
     [style.top]="dropDownTop" 
     [style.bottom]="dropDownBottom"
@@ -70,8 +66,8 @@
         role="presentation"
         [attr.aria-hidden]="!isActive"
         [hidden]="!isActive">
-        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}" class="arrow-2"></div>
-        <div [ngClass]="{'arrow-up': settings.position == 'bottom', 'arrow-down': settings.position == 'top'}"></div>
+        <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}" class="arrow-2"></div>
+        <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}"></div>
         <div class="list-area" [ngClass]="{'single-select-mode': settings.singleSelection }">
             <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent"
                 >

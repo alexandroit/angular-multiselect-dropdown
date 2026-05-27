@@ -17,18 +17,18 @@ export class SearchFilterExample implements OnInit {
 
 
     this.itemList = [
-      {"id":1,"itemName":"India","name":"IN"},
-                          {"id":2,"itemName":"Singapore","name":"SN"},
-                          {"id":3,"itemName":"Australia","name":"AU"},
+      {"id":1,"itemName":"Brazil","name":"BR"},
+                          {"id":2,"itemName":"Argentina","name":"AR"},
+                          {"id":3,"itemName":"Chile","name":"CL"},
                           {"id":4,"itemName":"Canada","name":"CA"},
-                          {"id":5,"itemName":"South Korea","name":"SK"},    
+                          {"id":5,"itemName":"Colombia","name":"CO"},    
                           {"id":6,"itemName":"Brazil","name":"BR"}    
     ];
 
     this.selectedItems = [
-      {"id":1,"itemName":"India","name":"IN"},
-                          {"id":2,"itemName":"Singapore","name":"SN"},
-                          {"id":3,"itemName":"Australia","name":"AU"},
+      {"id":1,"itemName":"Brazil","name":"BR"},
+                          {"id":2,"itemName":"Argentina","name":"AR"},
+                          {"id":3,"itemName":"Chile","name":"CL"},
                           {"id":4,"itemName":"Canada","name":"CA"}];
     this.settings = {
       singleSelection: false,

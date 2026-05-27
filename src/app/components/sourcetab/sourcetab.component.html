@@ -1,21 +1,11 @@
-<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-  <li [ngbNavItem]="1" >
-    <a ngbNavLink>{{ tstitle }}</a>
-    <ng-template ngbNavContent>
-      <ng2-gist [gistId]="tsgist"></ng2-gist>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="2">
-    <a ngbNavLink>{{ htmltitle }}</a>
-    <ng-template ngbNavContent>
-      <ng2-gist [gistId]="htmlgist"></ng2-gist>
-    </ng-template>
-  </li>
-  <li [ngbNavItem]="3" *ngIf="cssgist">
-    <a ngbNavLink>{{ csstitle }}</a>
-    <ng-template ngbNavContent>
-      <ng2-gist [gistId]="cssgist"></ng2-gist>
-    </ng-template>
-  </li>
-</ul> 
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
+<div class="nav nav-tabs">
+  <button type="button" class="nav-link" [class.active]="active === 1" (click)="active = 1">{{ tstitle }}</button>
+  <button type="button" class="nav-link" [class.active]="active === 2" (click)="active = 2">{{ htmltitle }}</button>
+  <button type="button" class="nav-link" [class.active]="active === 3" (click)="active = 3" *ngIf="cssgist">{{ csstitle }}</button>
+</div>
+
+<div class="mt-2">
+  <ng2-gist *ngIf="active === 1" [gistId]="tsgist"></ng2-gist>
+  <ng2-gist *ngIf="active === 2" [gistId]="htmlgist"></ng2-gist>
+  <ng2-gist *ngIf="active === 3 && cssgist" [gistId]="cssgist"></ng2-gist>
+</div>

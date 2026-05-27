@@ -17,17 +17,17 @@ export class TemplatingExample implements OnInit {
    
 
     this.itemList = [
-                          {"category":"asia","id":1,"itemName":"India","capital":"Delhi","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
-                          {"category":"asia","id":2,"itemName":"Singapore", "capital":"Singapore","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},
+                          {"category":"south america","id":1,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"},
+                          {"category":"south america","id":2,"itemName":"Argentina", "capital":"Buenos Aires","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg"},
                           {"category":"europe","id":3,"itemName":"United Kingdom", "capital":"London","image":"http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg"},
                           {"category":"northamerica","id":4,"itemName":"Canada","capital":"Ottawa","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg"},
-                          {"category":"asia","id":5,"itemName":"South Korea","capital":"Seoul","image":"http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg"},    
-                          {"category":"latinamerica","id":6,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"}                      
+                          {"category":"south america","id":5,"itemName":"Colombia","capital":"Bogota","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Colombia.jpg"},    
+                          {"category":"latin america","id":6,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"}                      
                         ];
     
     this.selectedItems = [
-                          {"category":"asia","id":1,"itemName":"India","capital":"Delhi","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
-                          {"category":"asia","id":2,"itemName":"Singapore", "capital":"Singapore","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},
+                          {"category":"south america","id":1,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"},
+                          {"category":"south america","id":2,"itemName":"Argentina", "capital":"Buenos Aires","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg"},
                           {"category":"europe","id":3,"itemName":"United Kingdom", "capital":"London","image":"http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg"},
                           {"category":"northamerica","id":4,"itemName":"Canada","capital":"Ottawa","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg"}]
     this.settings = { 

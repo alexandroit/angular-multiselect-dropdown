@@ -17,18 +17,18 @@ export class LimitSelectionExample implements OnInit {
 
 
     this.itemList = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" },
-      { "id": 5, "itemName": "South Korea" },
+      { "id": 5, "itemName": "Colombia" },
       { "id": 6, "itemName": "Brazil" }
     ];
 
     this.selectedItems = [
-      { "id": 1, "itemName": "India" },
-      { "id": 2, "itemName": "Singapore" },
-      { "id": 3, "itemName": "Australia" },
+      { "id": 1, "itemName": "Brazil" },
+      { "id": 2, "itemName": "Argentina" },
+      { "id": 3, "itemName": "Chile" },
       { "id": 4, "itemName": "Canada" }];
     this.settings = {
       text: "Select Countries",

@@ -17,17 +17,17 @@ export class GroupByExample implements OnInit {
 
 
     this.itemList = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 2, "itemName": "Singapore", "category": "asia pacific" },
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 2, "itemName": "Argentina", "category": "south america" },
       { "id": 3, "itemName": "Germany", "category": "Europe" },
       { "id": 4, "itemName": "France", "category": "Europe" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" },
       { "id": 6, "itemName": "Sweden", "category": "Europe" }
     ];
 
     this.selectedItems = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" }
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" }
     ]
     this.settings = {
       singleSelection: false,
@@ -75,11 +75,11 @@ console.log(e)
   loadDataSet2(){
     this.selectedItems = [];
     this.itemList = [
-      { "id": 1, "itemName": "India", "category": "asia" },
-      { "id": 2, "itemName": "Singapore", "category": "asia pacific" },
+      { "id": 1, "itemName": "Brazil", "category": "south america" },
+      { "id": 2, "itemName": "Argentina", "category": "south america" },
       { "id": 3, "itemName": "Germany", "category": "Europe" },
       { "id": 4, "itemName": "France", "category": "Europe" },
-      { "id": 5, "itemName": "South Korea", "category": "asia" },
+      { "id": 5, "itemName": "Colombia", "category": "south america" },
       { "id": 6, "itemName": "Sweden", "category": "Europe" }
     ];
   }

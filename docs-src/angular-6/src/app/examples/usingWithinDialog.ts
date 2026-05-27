@@ -10,6 +10,7 @@ export class UsingWithinDialog implements OnInit {
     itemList = [];
     selectedItems = [];
     settings = {};
+    modalOpen = false;
 
     constructor(public seotitle: Title, public meta: Meta) { 
         this.seotitle.setTitle('Basic example');

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { SwUpdate } from '@angular/service-worker';
 import { Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { CheckForUpdateService } from './check-for-update.service';
 @Component({
   standalone: false,
   selector: 'app-root',
@@ -22,6 +20,7 @@ export class AppComponent implements OnInit {
     cssgist: false
   };
   active = 1;
+  navbarOpen = false;
   links = []
   singleSelectionList = [];
   singleSelectionselectedItems = [];
@@ -57,15 +56,7 @@ export class AppComponent implements OnInit {
   templatingExampleSettings = {};
   routeData$: Observable<any>;
 
-  constructor(public updates: SwUpdate, private checkForUpdateService: CheckForUpdateService,
-     private router: Router, private activatedRoute: ActivatedRoute){
-    if (this.updates.isEnabled) {
-      this.updates.versionUpdates.subscribe((event) => {
-        if (event.type === 'VERSION_READY') {
-          this.updateToLatest();
-        }
-      });
-    }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute){
     console.log(this.router.config)
     this.links = this.router.config;
     this.routeData$ = router.events.pipe(
@@ -83,36 +74,32 @@ export class AppComponent implements OnInit {
   showInfo(link){
     console.log(link)
   }
-  updateToLatest(): void {
-    console.log('Updating to latest version.');
-    this.updates.activateUpdate().then(() => document.location.reload());
-  }
   ngOnInit(){
     this.singleSelectionList = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"}
+                          {"id":5,"itemName":"Colombia"}
                         ];
 
     this.singleSelectionselectedItems = [
-                          {"id":2,"itemName":"Singapore"}];
+                          {"id":2,"itemName":"Argentina"}];
     this.singleSelectionSettings = {singleSelection: true, text:"Select Country"};
 
     this.basicExampleList = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"},    
+                          {"id":5,"itemName":"Colombia"},    
                           {"id":6,"itemName":"Brazil"}                      
                         ];
     
     this.basicExampleSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"}];
     this.basicExampleSettings = { 
                               text:"Select Countries",
@@ -123,10 +110,10 @@ export class AppComponent implements OnInit {
                             };
 
     this.selectedItems3 = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"}];
+                          {"id":5,"itemName":"Colombia"}];
 
     
     this.dropdownSettings3 = { singleSelection: false, 
@@ -137,9 +124,9 @@ export class AppComponent implements OnInit {
                               badgeShowLimit: 3
                             };   
     this.limitSelectionSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"}];
     this.limitSelectionSettings = { 
                               text:"Select Countries",
@@ -150,9 +137,9 @@ export class AppComponent implements OnInit {
                               limitSelection: 4
                             };
     this.disableModeSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"}];
     this.disableModeSettings = { 
                               text:"Select Countries",
@@ -165,17 +152,17 @@ export class AppComponent implements OnInit {
                             };
 
     this.placeholderExampleList = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"}
+                          {"id":5,"itemName":"Colombia"}
                         ];
     
     this.placeholderExampleSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"}];
     this.placeholderExampleSettings = { 
                               text:"Select Countries",
@@ -186,17 +173,17 @@ export class AppComponent implements OnInit {
                               searchPlaceholderText: "Custom Placeholder text"
                             };
     this.resetExampleList = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"},
-                          {"id":5,"itemName":"South Korea"}
+                          {"id":5,"itemName":"Colombia"}
                         ];
     
     this.resetExampleSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
-                          {"id":3,"itemName":"Australia"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
+                          {"id":3,"itemName":"Chile"},
                           {"id":4,"itemName":"Canada"}];
     this.resetExampleSettings = { 
                               text:"Select Countries",
@@ -206,17 +193,17 @@ export class AppComponent implements OnInit {
                               classes:"myclass custom-class"
                             };      
     this.groupByExampleList = [
-                          {"id":1,"itemName":"India","category":"asia"},
-                          {"id":2,"itemName":"Singapore","category":"asia pacific"},
+                          {"id":1,"itemName":"Brazil","category":"south america"},
+                          {"id":2,"itemName":"Argentina","category":"south america"},
                           {"id":3,"itemName":"Germany","category":"Europe"},
                           {"id":4,"itemName":"France","category":"Europe"},
-                          {"id":5,"itemName":"South Korea","category":"asia"},    
+                          {"id":5,"itemName":"Colombia","category":"south america"},    
                           {"id":6,"itemName":"Sweden","category":"Europe"}                      
                         ];
     
     this.groupByExampleSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
                           {"id":3,"itemName":"Germany"},
                           {"id":4,"itemName":"France"}];
     this.groupByExampleSettings = { 
@@ -240,17 +227,17 @@ groupBy:"category"
 };         
 
 this.templatingExampleList = [
-                          {"id":1,"itemName":"India","capital":"Delhi","image":"http://www.sciencekids.co.nz/images/pictures/flags96/India.jpg"},
-                          {"id":2,"itemName":"Singapore", "capital":"Singapore","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Singapore.jpg"},
+                          {"id":1,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"},
+                          {"id":2,"itemName":"Argentina", "capital":"Buenos Aires","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Argentina.jpg"},
                           {"id":3,"itemName":"United Kingdom", "capital":"London","image":"http://www.sciencekids.co.nz/images/pictures/flags96/United_Kingdom.jpg"},
                           {"id":4,"itemName":"Canada","capital":"Ottawa","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Canada.jpg"},
-                          {"id":5,"itemName":"South Korea","capital":"Seoul","image":"http://www.sciencekids.co.nz/images/pictures/flags96/South_Korea.jpg"},    
+                          {"id":5,"itemName":"Colombia","capital":"Bogota","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Colombia.jpg"},    
                           {"id":6,"itemName":"Brazil","capital":"Brasilia","image":"http://www.sciencekids.co.nz/images/pictures/flags96/Brazil.jpg"}                      
                         ];
     
     this.templatingExampleSelectedItems = [
-                          {"id":1,"itemName":"India"},
-                          {"id":2,"itemName":"Singapore"},
+                          {"id":1,"itemName":"Brazil"},
+                          {"id":2,"itemName":"Argentina"},
                           {"id":3,"itemName":"United Kingdom"},
                           {"id":4,"itemName":"Canada"}];
     this.templatingExampleSettings = { 

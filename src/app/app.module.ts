@@ -31,16 +31,9 @@ import { SearchFilterByOnePropertyExample } from './examples/searchByOneProperty
 import {LazyLoadingRemoteDataExample } from './examples/lazyLoadingRemoteData';
 import {SearchFilterAddItemExample } from './examples/searchFilterAddNewItem';
 import { EventsExample } from './examples/events';
-import { HighlightModule } from 'ngx-highlightjs';
 import { UsingInListExample } from './examples/usingInList';
 import {SourceTab} from './components/sourcetab/sourcetab.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { CheckForUpdateService } from './check-for-update.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogContentExampleDialog, UsingWithinDialog } from './examples/usingWithinDialog';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -75,16 +68,8 @@ import { AdsenseModule } from 'ng2-adsense';
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         CommonModule,
-        AngularMultiSelectModule,
-        ReactiveFormsModule,
-        FormsModule,
-        NgbModule,
-        AdsenseModule.forRoot({
-            adClient: 'ca-pub-6353624842390947',
-            pageLevelAds: true
-        }),
-        AppRouterModule,
-        HighlightModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        BrowserAnimationsModule], providers: [MockService, CheckForUpdateService, provideHttpClient(withInterceptorsFromDi())] })
+	        AngularMultiSelectModule,
+	        ReactiveFormsModule,
+	        FormsModule,
+	        AppRouterModule], providers: [MockService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

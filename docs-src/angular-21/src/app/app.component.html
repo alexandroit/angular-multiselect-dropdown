@@ -20,6 +20,7 @@
         <div class="rail-label">Overview</div>
         <a class="rail-link" href="#install">Install</a>
         <a class="rail-link" href="#preview">Preview</a>
+        <a class="rail-link" href="live/" target="_blank" rel="noopener">Live project</a>
         <a class="rail-link" href="#api">API</a>
       </section>
 
@@ -47,6 +48,24 @@
     </aside>
 
     <main class="docs-main">
+      <section class="preview-card" id="preview">
+        <div class="preview-head">
+          <div>
+            <div class="setup-label">Live preview</div>
+            <h3>{{ currentLabel }}</h3>
+            <p>
+              Running against package line <code>{{ docsMeta.packageVersion }}</code> and Angular
+              <code>{{ docsMeta.angularVersion }}</code>.
+            </p>
+          </div>
+          <span class="status-pill">Classic selector preserved</span>
+        </div>
+
+        <div class="preview-canvas">
+          <router-outlet></router-outlet>
+        </div>
+      </section>
+
       <section class="hero-card">
         <span class="hero-badge">{{ docsMeta.badge }}</span>
         <h2>Material-inspired multiselect, without breaking the classic contract.</h2>
@@ -134,24 +153,6 @@
           </div>
           <pre [textContent]="templateCode"></pre>
         </article>
-      </section>
-
-      <section class="preview-card" id="preview">
-        <div class="preview-head">
-          <div>
-            <div class="setup-label">Live preview</div>
-            <h3>{{ currentLabel }}</h3>
-            <p>
-              Running against package line <code>{{ docsMeta.packageVersion }}</code> and Angular
-              <code>{{ docsMeta.angularVersion }}</code>.
-            </p>
-          </div>
-          <span class="status-pill">Classic selector preserved</span>
-        </div>
-
-        <div class="preview-canvas">
-          <router-outlet></router-outlet>
-        </div>
       </section>
 
       <section class="api-grid" id="api">

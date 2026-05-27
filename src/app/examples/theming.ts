@@ -14,18 +14,18 @@ export class ThemingExample implements OnInit {
     ngOnInit() {
 
         this.itemList = [
-            { "countryId": 1, "itemName": "India" },
-            { "countryId": 2, "itemName": "Singapore" },
-            { "countryId": 3, "itemName": "Australia" },
+            { "countryId": 1, "itemName": "Brazil" },
+            { "countryId": 2, "itemName": "Argentina" },
+            { "countryId": 3, "itemName": "Chile" },
             { "countryId": 4, "itemName": "Canada" },
-            { "countryId": 5, "itemName": "South Korea" },
+            { "countryId": 5, "itemName": "Colombia" },
             { "countryId": 6, "itemName": "Brazil" }
         ];
 
         this.selectedItems = [
-            { "countryId": 1, "itemName": "India" },
-            { "countryId": 2, "itemName": "Singapore" },
-            { "countryId": 3, "itemName": "Australia" },
+            { "countryId": 1, "itemName": "Brazil" },
+            { "countryId": 2, "itemName": "Argentina" },
+            { "countryId": 3, "itemName": "Chile" },
             { "countryId": 4, "itemName": "Canada" }];
 
         this.settings = {

@@ -363,7 +363,7 @@ function AppComponent_p_94_Template(rf, ctx) {
 class AppComponent {
   constructor() {
     this.angularVersion = '21.2.14';
-    this.packageVersion = '21.1.3';
+    this.packageVersion = '21.1.13';
     this.countries = [{
       id: 1,
       itemName: 'Brazil'
@@ -384,10 +384,10 @@ class AppComponent {
       itemName: 'Germany'
     }, {
       id: 7,
-      itemName: 'Japan'
+      itemName: 'Mexico'
     }, {
       id: 8,
-      itemName: 'South Africa'
+      itemName: 'Colombia'
     }];
     this.longCountries = [{
       id: 11,
@@ -426,12 +426,12 @@ class AppComponent {
       region: 'Europe'
     }, {
       id: 25,
-      itemName: 'Japan',
-      region: 'Asia'
+      itemName: 'Mexico',
+      region: 'Americas'
     }, {
       id: 26,
-      itemName: 'South Korea',
-      region: 'Asia'
+      itemName: 'Colombia',
+      region: 'Americas'
     }];
     this.templateItems = [{
       id: 31,
@@ -546,7 +546,7 @@ class AppComponent {
       itemName: 'Argentina'
     }, {
       id: 7,
-      itemName: 'Japan'
+      itemName: 'Mexico'
     }];
     this.materialLimit = [{
       id: 11,
@@ -575,7 +575,7 @@ class AppComponent {
     }];
     this.materialDisabled = [{
       id: 8,
-      itemName: 'South Africa'
+      itemName: 'Colombia'
     }];
     this.materialEmpty = [];
     this.materialScroll = [{
@@ -617,10 +617,10 @@ class AppComponent {
       itemName: 'Germany'
     }, {
       id: 47,
-      itemName: 'Japan'
+      itemName: 'Mexico'
     }, {
       id: 48,
-      itemName: 'South Africa'
+      itemName: 'Colombia'
     }, {
       id: 49,
       itemName: 'Italy'

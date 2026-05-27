@@ -12,11 +12,11 @@ export class MultipleDropdownsExample implements OnInit {
     selectedItems = [];
     settings = {};
     directorySpecialties = [{ "id": "PBMMedAdhr", "name": "PBM Medication Adherence" }, { "id": "GapsInCare", "name": "Gaps In Care" }, { "id": "UCTest1", "name": "Use Case Test1" }, { "id": "BASICSAVE", "name": "A generic alternative or 30-90 day dispense opport" }, { "id": "ADVSAVE", "name": "An advnaced generic alternative or 30-90 day dispe" }, { "id": "AttAlert", "name": "Attachment Alert" }, { "id": "PatSave", "name": "Patient savings" }, { "id": "UCTest2", "name": "Use Case Test 2" }, { "id": "UCTest3", "name": "Use Case Test 3" }, { "id": "UCTest4", "name": "Use Case Test 4" }, { "id": "UCTest5", "name": "Use Case Test 5" }, { "id": "UCTest6", "name": "Use Case Test 6" }, { "id": "UCTest7", "name": "Use Case Test 7" }, { "id": "UCTest9", "name": "Use Case Test 9" }, { "id": "UCTest#Ten", "name": "Use Case Test 10" }, { "id": "UCTest8", "name": "Use Case Test 8" }, { "id": "UCTest11", "name": "Test Use Case 11" }, { "id": "UCTest12", "name": "Test Use Case 12" }, { "id": "UCTest13", "name": "Test Use Case 13" }, { "id": "PNLIMMUN", "name": "PNL Immunization" }, { "id": "TrustBrkr", "name": "Identity Services" }, { "id": "RTBC", "name": "real time benefit check for 90 day at retail" }];
-    useCases = [{"id":1,"itemName":"India","name":"IN"},
-    {"id":2,"itemName":"Singapore","name":"SN"},
-    {"id":3,"itemName":"Australia","name":"AU"},
+    useCases = [{"id":1,"itemName":"Brazil","name":"BR"},
+    {"id":2,"itemName":"Argentina","name":"AR"},
+    {"id":3,"itemName":"Chile","name":"CL"},
     {"id":4,"itemName":"Canada","name":"CA"},
-    {"id":5,"itemName":"South Korea","name":"SK"},    
+    {"id":5,"itemName":"Colombia","name":"CO"},    
     {"id":6,"itemName":"Brazil","name":"BR"}];
     dropdownSettings = {};
     dropdownSettings2 = {};

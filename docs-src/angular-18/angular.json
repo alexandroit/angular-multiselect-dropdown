@@ -31,9 +31,7 @@
               "src/styles.scss",
               "node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.js"
-            ],
+            "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "."
