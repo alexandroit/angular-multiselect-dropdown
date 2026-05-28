@@ -19,9 +19,22 @@
 }
 
 .stackline-dropdown .c-btn {
+  align-content: center;
   background: var(--ms-surface);
   border-color: var(--ms-outline);
   color: var(--ms-on-surface);
+}
+
+.stackline-dropdown .c-placeholder,
+.stackline-dropdown .c-single-value {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.25;
+  text-align: left;
 }
 
 .stackline-dropdown .c-btn:hover {

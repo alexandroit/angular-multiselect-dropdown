@@ -16,9 +16,22 @@ $label-color: #000;
 $selected-background: #e9f4ff;
 
 .c-btn{
+    align-content: center;
     background: $btn-background;
     border: 1px solid $btn-border;
     color: $btn-text-color;
+}
+
+.c-placeholder,
+.c-single-value {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    justify-content: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    line-height: 1.25;
+    text-align: left;
 }
 .selected-list{
     .c-list{

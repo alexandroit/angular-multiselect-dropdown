@@ -1,10 +1,10 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "21.1.13",
+  "version": "21.1.14",
   "license": "MIT",
   "author": "Pradeep Terli (Original), Alexandro Paixao Marques (Maintainer)",
-  "description": "Angular multiselect dropdown for maintained release lines from Angular 2 through Angular 21, with search, grouping, custom templates, checkbox selection, reactive and template-driven forms support, Material-inspired theming, and ADA-compliant keyboard/ARIA accessibility support.",
+  "description": "Angular multiselect dropdown for Angular 21 with maintained release lines, ADA-compliant keyboard/ARIA accessibility, dialog-safe body overlays, Stackline skins, search, grouping, templates, and forms support.",
   "keywords": [
     "angular",
     "angular-library",
@@ -62,9 +62,9 @@
   ],
   "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
+    "@angular/common": ">=21.0.0 <22.0.0",
     "@angular/core": ">=21.0.0 <22.0.0",
-    "@angular/forms": ">=21.0.0 <22.0.0",
-    "@angular/common": ">=21.0.0 <22.0.0"
+    "@angular/forms": ">=21.0.0 <22.0.0"
   },
   "repository": {
     "type": "git",

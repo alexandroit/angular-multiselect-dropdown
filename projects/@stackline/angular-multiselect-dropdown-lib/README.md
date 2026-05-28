@@ -12,7 +12,7 @@
 
 **[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested package release:** `21.1.13` for Angular `21.x`
+**Latest tested package release:** `21.1.14` for Angular `21.x`
 
 ---
 
@@ -24,9 +24,9 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.13` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.14` for Angular 21.x applications.
 
-The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.13 patch keeps that behavior, fixes responsive dropdown width handling, makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list, and keeps the open menu surface opaque.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.14 patch keeps that behavior, fixes responsive dropdown width handling, makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list, and keeps the open menu surface opaque.
 
 ## Features
 
@@ -79,7 +79,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.13 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.14 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
 | **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
 | **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
@@ -102,10 +102,10 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.1.13 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.1.14 --save-exact
 ```
 
-Install `21.1.13` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, fixes responsive dropdown width handling, and keeps dropdown surfaces opaque in clipped containers.
+Install `21.1.14` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, fixes responsive dropdown width handling, and keeps dropdown surfaces opaque in clipped containers.
 
 ## Setup
 
@@ -201,7 +201,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.13`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.14`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
 
 Switch between skins through the settings object:
 
@@ -313,7 +313,7 @@ settings = {
 };
 ```
 
-In `21.1.13`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
+In `21.1.14`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
 ## Events
 

@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "21.1.13",
+  "version": "21.1.14",
   "scripts": {
     "ng": "ng",
     "start": "cd docs-src/angular-21 && npm start",
@@ -23,7 +23,7 @@
   "dependencies": {
     "@angular/common": "~21.2.7",
     "@angular/compiler": "~21.2.7",
-    "@angular/core": "~21.2.7",
+    "@angular/core": ">=21.0.0 <22.0.0",
     "@angular/forms": "~21.2.7",
     "@angular/platform-browser": "~21.2.7",
     "@angular/platform-browser-dynamic": "~21.2.7",
@@ -50,7 +50,7 @@
     "sass": "^1.83.0",
     "typescript": "~5.9.3"
   },
-  "description": "Angular multiselect dropdown with maintained release lines from Angular 2 through Angular 21 and ADA-compliant keyboard/ARIA accessibility support.",
+  "description": "Angular multiselect dropdown for Angular 21 with maintained release lines, ADA-compliant keyboard/ARIA accessibility, dialog-safe body overlays, Stackline skins, search, grouping, templates, and forms support.",
   "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
     "@angular/core": ">=21.0.0 <22.0.0"

@@ -38,6 +38,7 @@ virtual-scroll {
   position: relative;
   display: flex;
   align-items: center;
+  align-content: center;
   flex-wrap: wrap;
   gap: 8px;
   width: 100%;
@@ -77,8 +78,16 @@ virtual-scroll {
 
 .c-placeholder,
 .c-single-value {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 100%;
   color: var(--ms-on-surface-muted, #5f6368);
   font-size: 0.95rem;
+  line-height: 1.25;
+  text-align: left;
 }
 
 .c-btn.has-selection .c-single-value,
@@ -609,6 +618,7 @@ button.c-arrow-toggle:disabled {
 .stackline-dropdown.theme-classic .c-btn {
   display: flex;
   align-items: center;
+  align-content: center;
   flex-wrap: nowrap;
   gap: 6px;
   min-height: 42px;

@@ -23,6 +23,7 @@
 }
 
 .stackline-dropdown .c-btn {
+  align-content: center;
   min-height: 56px;
   padding: 11px 54px 11px 16px;
   border-radius: 18px;
@@ -48,6 +49,18 @@
 .stackline-dropdown .c-angle-up,
 .stackline-dropdown .clear-all {
   color: var(--ms-on-surface-muted);
+}
+
+.stackline-dropdown .c-placeholder,
+.stackline-dropdown .c-single-value {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.25;
+  text-align: left;
 }
 
 .stackline-dropdown .c-chip-list {
