@@ -10,7 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![GitHub stars](https://img.shields.io/github/stars/alexandroit/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/stargazers)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
+**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[StackBlitz Basic](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/basic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
 **Latest tested package release:** `21.1.14` for Angular `21.x`
 
@@ -51,18 +51,19 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 
 1. [Rename Note](#rename-note)
 2. [Angular Version Compatibility](#angular-version-compatibility)
-3. [Installation](#installation)
-4. [Setup](#setup)
-5. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
-6. [Basic Usage](#basic-usage)
-7. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
-8. [Custom Templates](#custom-templates)
-9. [Forms Integration](#forms-integration)
-10. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-11. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
-12. [Events](#events)
-13. [Run Locally](#run-locally)
-14. [License](#license)
+3. [StackBlitz Examples](#stackblitz-examples)
+4. [Installation](#installation)
+5. [Setup](#setup)
+6. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
+7. [Basic Usage](#basic-usage)
+8. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
+9. [Custom Templates](#custom-templates)
+10. [Forms Integration](#forms-integration)
+11. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
+12. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
+13. [Events](#events)
+14. [Run Locally](#run-locally)
+15. [License](#license)
 
 ## Rename Note
 
@@ -98,6 +99,14 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 | **5.x** | **Angular 5 only** | **`>=5.0.0 <6.0.0`** | **5.0.1 -> 5.2.11** | [Angular 5 family docs](https://alexandro.net/docs/angular/multiselect/angular-5/) |
 | **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.2 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
 | **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/multiselect/angular-2/) |
+
+## StackBlitz Examples
+
+The repository keeps official StackBlitz starters under `examples/stackblitz`, with one standalone Angular project per folder.
+
+| Example | StackBlitz |
+| :--- | :--- |
+| Angular 21 basic skin switcher | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/basic) |
 
 ## Installation
 

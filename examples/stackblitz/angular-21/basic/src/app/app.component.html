@@ -1,0 +1,51 @@
+<main class="page">
+  <header class="topbar">
+    <p class="eyebrow">Angular {{ angularLine }} StackBlitz starter</p>
+    <h1>@stackline/angular-multiselect-dropdown {{ packageVersion }}</h1>
+  </header>
+
+  <section class="skin-section skin-switcher-section">
+    <div class="section-heading">
+      <p class="eyebrow">Settings-only skin switch</p>
+      <h2>Skin switcher</h2>
+    </div>
+
+    <div class="skin-buttons" aria-label="Switch dropdown skin">
+      <button
+        *ngFor="let skin of skins"
+        type="button"
+        [class.active]="activeSkin === skin"
+        (click)="switchSkin(skin)">
+        {{ skin }}
+      </button>
+    </div>
+
+    <article class="example-row custom-skin-sample">
+      <div class="demo-cell">
+        <h3>Updates only settings.skin</h3>
+
+        <angular-multiselect
+          [data]="countries"
+          [(ngModel)]="selectedCountries"
+          [settings]="settings"
+          (onSelect)="record('select', $event)"
+          (onDeSelect)="record('deselect', $event)"
+          (onSelectAll)="record('selectAll', $event)"
+          (onDeSelectAll)="record('deselectAll', $event)">
+        </angular-multiselect>
+
+        <p class="settings-preview">skin: {{ settings.skin }}</p>
+      </div>
+
+      <div class="state-cell">
+        <h3>Selected model</h3>
+        <pre>{{ selectedCountries | json }}</pre>
+      </div>
+    </article>
+  </section>
+
+  <section class="activity">
+    <h2>Event log</h2>
+    <p *ngFor="let event of events">{{ event }}</p>
+  </section>
+</main>
