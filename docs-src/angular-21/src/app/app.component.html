@@ -27,14 +27,23 @@
       <section class="rail-card">
         <div class="rail-label">Examples</div>
         <nav class="example-nav" aria-label="Angular multiselect examples">
-          <a
-            *ngFor="let link of links"
-            class="example-link"
-            [routerLink]="[link.path]"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            {{ link.data?.['label'] }}
-          </a>
+          <div class="example-link-row" *ngFor="let link of links">
+            <a
+              class="example-link"
+              [routerLink]="[link.path]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              {{ link.data?.['label'] }}
+            </a>
+            <a
+              class="stackblitz-mini-link"
+              [href]="stackBlitzUrl(link.path)"
+              target="_blank"
+              rel="noopener"
+              [attr.aria-label]="'Open ' + link.data?.['label'] + ' in StackBlitz'">
+              StackBlitz
+            </a>
+          </div>
         </nav>
       </section>
 
@@ -58,7 +67,12 @@
               <code>{{ docsMeta.angularVersion }}</code>.
             </p>
           </div>
-          <span class="status-pill">Classic selector preserved</span>
+          <div class="preview-actions">
+            <span class="status-pill">Classic selector preserved</span>
+            <a class="stackblitz-button" [href]="currentStackBlitzUrl" target="_blank" rel="noopener">
+              Open in StackBlitz
+            </a>
+          </div>
         </div>
 
         <div class="preview-canvas">

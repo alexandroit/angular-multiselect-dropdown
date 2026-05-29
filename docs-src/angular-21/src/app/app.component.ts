@@ -92,6 +92,33 @@ export class AppComponent implements OnInit {
     customTheme: 'Copy',
     template: 'Copy'
   };
+  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21';
+  private readonly stackBlitzSlugs: { [path: string]: string } = {
+    basic: 'basic',
+    singleselection: 'single-selection',
+    searchfilter: 'search-filter',
+    customSearchAPI: 'custom-search-api',
+    searchFilterByOneProperty: 'search-filter-by-property',
+    searchfilterAddNewItem: 'search-add-new-item',
+    groupby: 'group-by',
+    templating: 'templating',
+    usinginform: 'template-driven-forms',
+    usinginreactiveform: 'reactive-forms',
+    lazyloading: 'virtual-scrolling',
+    lazyloadingRemoteData: 'lazy-loading-api',
+    remoteData: 'remote-data',
+    usingInList: 'list-loop',
+    usingInDialog: 'dialog',
+    multipledropdowns: 'multiple-dropdowns',
+    dynamicdatasets: 'dynamic-data',
+    dropdownMethods: 'methods',
+    events: 'events',
+    disablemode: 'disabled',
+    limitselection: 'limit-selection',
+    limitbadges: 'limit-badges',
+    customplaceholder: 'custom-placeholder',
+    styling: 'styling'
+  };
 
   links = this.router.config.filter((link) => !!link.path && !!link.data?.['label']);
   currentLabel = this.links[0]?.data?.['label'] || 'Basic example';
@@ -127,6 +154,15 @@ export class AppComponent implements OnInit {
         this.copyLabels[key] = 'Copy';
       }, 1600);
     }
+  }
+
+  stackBlitzUrl(path?: string) {
+    const slug = this.stackBlitzSlugs[path || 'basic'] || 'basic';
+    return `${this.stackBlitzBaseUrl}/${slug}`;
+  }
+
+  get currentStackBlitzUrl() {
+    return this.stackBlitzUrl(this.currentPath);
   }
 
   private syncCurrentRoute() {

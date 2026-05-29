@@ -144,6 +144,13 @@
   margin-top: 12px;
 }
 
+.example-link-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
 .example-link {
   display: block;
   padding: 12px 14px;
@@ -160,6 +167,45 @@
   border-color: rgba(63, 81, 181, 0.18);
   color: var(--mat-docs-primary);
   transform: translateY(-1px);
+}
+
+.stackblitz-mini-link,
+.stackblitz-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(63, 81, 181, 0.18);
+  background: var(--mat-docs-primary-soft);
+  color: var(--mat-docs-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.stackblitz-mini-link {
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.stackblitz-button {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.stackblitz-mini-link:hover,
+.stackblitz-button:hover {
+  border-color: rgba(63, 81, 181, 0.34);
+  background: #ffffff;
 }
 
 .release-item {

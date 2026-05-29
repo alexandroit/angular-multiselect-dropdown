@@ -47991,34 +47991,42 @@ var DOCS_META = {
 // src/app/app.component.ts
 var _c02 = (a0) => [a0];
 var _c19 = () => ({ exact: true });
-function AppComponent_a_32_Template(rf, ctx) {
+function AppComponent_div_32_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 39);
-    \u0275\u0275text(1);
+    \u0275\u0275elementStart(0, "div", 41)(1, "a", 42);
+    \u0275\u0275text(2);
     \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "a", 43);
+    \u0275\u0275text(4, " StackBlitz ");
+    \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     const link_r1 = ctx.$implicit;
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(3, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(5, _c19));
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275advance();
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(5, _c02, link_r1.path))("routerLinkActiveOptions", \u0275\u0275pureFunction0(7, _c19));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", link_r1.data == null ? null : link_r1.data["label"], " ");
+    \u0275\u0275advance();
+    \u0275\u0275property("href", ctx_r1.stackBlitzUrl(link_r1.path), \u0275\u0275sanitizeUrl);
+    \u0275\u0275attribute("aria-label", "Open " + (link_r1.data == null ? null : link_r1.data["label"]) + " in StackBlitz");
   }
 }
-function AppComponent_span_99_Template(rf, ctx) {
+function AppComponent_span_102_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 40);
+    \u0275\u0275elementStart(0, "span", 44);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const pill_r2 = ctx.$implicit;
+    const pill_r3 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(pill_r2);
+    \u0275\u0275textInterpolate(pill_r3);
   }
 }
-function AppComponent_article_165_Template(rf, ctx) {
+function AppComponent_article_168_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "article", 41)(1, "div", 22);
+    \u0275\u0275elementStart(0, "article", 45)(1, "div", 22);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "h3");
@@ -48029,13 +48037,13 @@ function AppComponent_article_165_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const card_r3 = ctx.$implicit;
+    const card_r4 = ctx.$implicit;
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(card_r3.kicker);
+    \u0275\u0275textInterpolate(card_r4.kicker);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(card_r3.title);
+    \u0275\u0275textInterpolate(card_r4.title);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(card_r3.copy);
+    \u0275\u0275textInterpolate(card_r4.copy);
   }
 }
 var AppComponent = class _AppComponent {
@@ -48124,6 +48132,33 @@ var AppComponent = class _AppComponent {
       customTheme: "Copy",
       template: "Copy"
     };
+    this.stackBlitzBaseUrl = "https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21";
+    this.stackBlitzSlugs = {
+      basic: "basic",
+      singleselection: "single-selection",
+      searchfilter: "search-filter",
+      customSearchAPI: "custom-search-api",
+      searchFilterByOneProperty: "search-filter-by-property",
+      searchfilterAddNewItem: "search-add-new-item",
+      groupby: "group-by",
+      templating: "templating",
+      usinginform: "template-driven-forms",
+      usinginreactiveform: "reactive-forms",
+      lazyloading: "virtual-scrolling",
+      lazyloadingRemoteData: "lazy-loading-api",
+      remoteData: "remote-data",
+      usingInList: "list-loop",
+      usingInDialog: "dialog",
+      multipledropdowns: "multiple-dropdowns",
+      dynamicdatasets: "dynamic-data",
+      dropdownMethods: "methods",
+      events: "events",
+      disablemode: "disabled",
+      limitselection: "limit-selection",
+      limitbadges: "limit-badges",
+      customplaceholder: "custom-placeholder",
+      styling: "styling"
+    };
     this.links = this.router.config.filter((link) => !!link.path && !!link.data?.["label"]);
     this.currentLabel = this.links[0]?.data?.["label"] || "Basic example";
     this.currentPath = this.links[0]?.path || "basic";
@@ -48152,6 +48187,13 @@ var AppComponent = class _AppComponent {
       }, 1600);
     }
   }
+  stackBlitzUrl(path) {
+    const slug = this.stackBlitzSlugs[path || "basic"] || "basic";
+    return `${this.stackBlitzBaseUrl}/${slug}`;
+  }
+  get currentStackBlitzUrl() {
+    return this.stackBlitzUrl(this.currentPath);
+  }
   syncCurrentRoute() {
     let route = this.activatedRoute.firstChild;
     while (route?.firstChild) {
@@ -48166,7 +48208,7 @@ var AppComponent = class _AppComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 166, vars: 21, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "live/", "target", "_blank", "rel", "noopener", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link", "routerLinkActive", "active", 3, "routerLink", "routerLinkActiveOptions", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "setup-label"], [1, "status-pill"], [1, "preview-canvas"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: false, decls: 169, vars: 22, consts: [[1, "docs-shell"], [1, "topbar"], [1, "brand"], [1, "brand-mark"], [1, "topbar-eyebrow"], [1, "topbar-meta"], [1, "meta-pill"], [1, "meta-pill", "primary"], [1, "docs-layout"], [1, "rail"], [1, "rail-card"], [1, "rail-label"], ["href", "#install", 1, "rail-link"], ["href", "#preview", 1, "rail-link"], ["href", "live/", "target", "_blank", "rel", "noopener", 1, "rail-link"], ["href", "#api", 1, "rail-link"], ["aria-label", "Angular multiselect examples", 1, "example-nav"], ["class", "example-link-row", 4, "ngFor", "ngForOf"], [1, "release-item"], [1, "docs-main"], ["id", "preview", 1, "preview-card"], [1, "preview-head"], [1, "setup-label"], [1, "preview-actions"], [1, "status-pill"], ["target", "_blank", "rel", "noopener", 1, "stackblitz-button", 3, "href"], [1, "preview-canvas"], [1, "hero-card"], [1, "hero-badge"], [1, "hero-copy"], [1, "pill-row"], ["class", "feature-pill", 4, "ngFor", "ngForOf"], [1, "compat-grid"], [1, "compat-card"], ["id", "install", 1, "setup-grid"], [1, "setup-card"], [1, "setup-head"], [1, "copy-button", 3, "click"], [3, "textContent"], ["id", "api", 1, "api-grid"], ["class", "api-card", 4, "ngFor", "ngForOf"], [1, "example-link-row"], ["routerLinkActive", "active", 1, "example-link", 3, "routerLink", "routerLinkActiveOptions"], ["target", "_blank", "rel", "noopener", 1, "stackblitz-mini-link", 3, "href"], [1, "feature-pill"], [1, "api-card"]], template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "div", 0)(1, "header", 1)(2, "div", 2)(3, "div", 3);
         \u0275\u0275text(4, "M");
@@ -48202,7 +48244,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275text(30, "Examples");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(31, "nav", 16);
-        \u0275\u0275template(32, AppComponent_a_32_Template, 2, 6, "a", 17);
+        \u0275\u0275template(32, AppComponent_div_32_Template, 5, 8, "div", 17);
         \u0275\u0275elementEnd()();
         \u0275\u0275elementStart(33, "section", 10)(34, "div", 11);
         \u0275\u0275text(35, "Release line");
@@ -48248,130 +48290,133 @@ var AppComponent = class _AppComponent {
         \u0275\u0275elementEnd();
         \u0275\u0275text(71, ". ");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(72, "span", 23);
-        \u0275\u0275text(73, "Classic selector preserved");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(74, "div", 24);
-        \u0275\u0275element(75, "router-outlet");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(76, "section", 25)(77, "span", 26);
-        \u0275\u0275text(78);
+        \u0275\u0275elementStart(72, "div", 23)(73, "span", 24);
+        \u0275\u0275text(74, "Classic selector preserved");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(79, "h2");
-        \u0275\u0275text(80, "Material-inspired multiselect, without breaking the classic contract.");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(81, "p", 27);
-        \u0275\u0275text(82, " This release line promotes ");
-        \u0275\u0275elementStart(83, "code");
-        \u0275\u0275text(84, "<angular-multiselect>");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(85, " as the primary selector, while still accepting the legacy ");
-        \u0275\u0275elementStart(86, "code");
-        \u0275\u0275text(87, "<angular2-multiselect>");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(88, " API, ");
-        \u0275\u0275elementStart(89, "code");
-        \u0275\u0275text(90, "ngModel");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(91, " binding, event outputs, and custom template hooks while refining the UI to feel much closer to Angular Material surfaces and field patterns. Version ");
-        \u0275\u0275elementStart(92, "code");
-        \u0275\u0275text(93);
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(94, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
-        \u0275\u0275elementStart(95, "code");
-        \u0275\u0275text(96, "tagToBody");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(97, ". ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(98, "div", 28);
-        \u0275\u0275template(99, AppComponent_span_99_Template, 2, 1, "span", 29);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(100, "div", 30)(101, "div", 31)(102, "strong");
-        \u0275\u0275text(103, "API stability first");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(104, " Inputs, outputs, settings keys, and template slots stay aligned with the code people already ship. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(105, "div", 31)(106, "strong");
-        \u0275\u0275text(107, "Material-like visual language");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(108, " Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(109, "div", 31)(110, "strong");
-        \u0275\u0275text(111, "ADA-compliant interactions");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(112, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(113, "div", 31)(114, "strong");
-        \u0275\u0275text(115, "Dialog-safe positioning");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(116, "code");
-        \u0275\u0275text(117, "tagToBody: true");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(118, " keeps the open list visible above Angular Material dialogs, drawers, and overflow containers. ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(119, "div", 31)(120, "strong");
-        \u0275\u0275text(121, "Modern line foundation");
-        \u0275\u0275elementEnd();
-        \u0275\u0275text(122, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
+        \u0275\u0275elementStart(75, "a", 25);
+        \u0275\u0275text(76, " Open in StackBlitz ");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(123, "section", 32)(124, "article", 33)(125, "div", 34)(126, "div")(127, "div", 22);
-        \u0275\u0275text(128, "Step 1");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(129, "h3");
-        \u0275\u0275text(130, "Install the package");
+        \u0275\u0275elementStart(77, "div", 26);
+        \u0275\u0275element(78, "router-outlet");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(131, "button", 35);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_131_listener() {
+        \u0275\u0275elementStart(79, "section", 27)(80, "span", 28);
+        \u0275\u0275text(81);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(82, "h2");
+        \u0275\u0275text(83, "Material-inspired multiselect, without breaking the classic contract.");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(84, "p", 29);
+        \u0275\u0275text(85, " This release line promotes ");
+        \u0275\u0275elementStart(86, "code");
+        \u0275\u0275text(87, "<angular-multiselect>");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(88, " as the primary selector, while still accepting the legacy ");
+        \u0275\u0275elementStart(89, "code");
+        \u0275\u0275text(90, "<angular2-multiselect>");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(91, " API, ");
+        \u0275\u0275elementStart(92, "code");
+        \u0275\u0275text(93, "ngModel");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(94, " binding, event outputs, and custom template hooks while refining the UI to feel much closer to Angular Material surfaces and field patterns. Version ");
+        \u0275\u0275elementStart(95, "code");
+        \u0275\u0275text(96);
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(97, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
+        \u0275\u0275elementStart(98, "code");
+        \u0275\u0275text(99, "tagToBody");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(100, ". ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(101, "div", 30);
+        \u0275\u0275template(102, AppComponent_span_102_Template, 2, 1, "span", 31);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(103, "div", 32)(104, "div", 33)(105, "strong");
+        \u0275\u0275text(106, "API stability first");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(107, " Inputs, outputs, settings keys, and template slots stay aligned with the code people already ship. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(108, "div", 33)(109, "strong");
+        \u0275\u0275text(110, "Material-like visual language");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(111, " Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(112, "div", 33)(113, "strong");
+        \u0275\u0275text(114, "ADA-compliant interactions");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(115, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(116, "div", 33)(117, "strong");
+        \u0275\u0275text(118, "Dialog-safe positioning");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(119, "code");
+        \u0275\u0275text(120, "tagToBody: true");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(121, " keeps the open list visible above Angular Material dialogs, drawers, and overflow containers. ");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(122, "div", 33)(123, "strong");
+        \u0275\u0275text(124, "Modern line foundation");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(125, " This shell powers the remodulated lines from Angular 14 through Angular 21 while keeping the legacy selector contract intact. ");
+        \u0275\u0275elementEnd()()();
+        \u0275\u0275elementStart(126, "section", 34)(127, "article", 35)(128, "div", 36)(129, "div")(130, "div", 22);
+        \u0275\u0275text(131, "Step 1");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(132, "h3");
+        \u0275\u0275text(133, "Install the package");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(134, "button", 37);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_134_listener() {
           return ctx.copySnippet("install", ctx.installCode);
         });
-        \u0275\u0275text(132);
+        \u0275\u0275text(135);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(133, "pre", 36);
+        \u0275\u0275element(136, "pre", 38);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(134, "article", 33)(135, "div", 34)(136, "div")(137, "div", 22);
-        \u0275\u0275text(138, "Step 2");
+        \u0275\u0275elementStart(137, "article", 35)(138, "div", 36)(139, "div")(140, "div", 22);
+        \u0275\u0275text(141, "Step 2");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(139, "h3");
-        \u0275\u0275text(140, "Register the module");
+        \u0275\u0275elementStart(142, "h3");
+        \u0275\u0275text(143, "Register the module");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(141, "button", 35);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_141_listener() {
+        \u0275\u0275elementStart(144, "button", 37);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_144_listener() {
           return ctx.copySnippet("setup", ctx.setupCode);
         });
-        \u0275\u0275text(142);
+        \u0275\u0275text(145);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(143, "pre", 36);
+        \u0275\u0275element(146, "pre", 38);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(144, "article", 33)(145, "div", 34)(146, "div")(147, "div", 22);
-        \u0275\u0275text(148, "Step 3");
+        \u0275\u0275elementStart(147, "article", 35)(148, "div", 36)(149, "div")(150, "div", 22);
+        \u0275\u0275text(151, "Step 3");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(149, "h3");
-        \u0275\u0275text(150, "Customize the full theme");
+        \u0275\u0275elementStart(152, "h3");
+        \u0275\u0275text(153, "Customize the full theme");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(151, "button", 35);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_151_listener() {
+        \u0275\u0275elementStart(154, "button", 37);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_154_listener() {
           return ctx.copySnippet("customTheme", ctx.customThemeCode);
         });
-        \u0275\u0275text(152);
+        \u0275\u0275text(155);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(153, "pre", 36);
+        \u0275\u0275element(156, "pre", 38);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(154, "article", 33)(155, "div", 34)(156, "div")(157, "div", 22);
-        \u0275\u0275text(158, "Step 4");
+        \u0275\u0275elementStart(157, "article", 35)(158, "div", 36)(159, "div")(160, "div", 22);
+        \u0275\u0275text(161, "Step 4");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(159, "h3");
-        \u0275\u0275text(160, "Render the dropdown");
+        \u0275\u0275elementStart(162, "h3");
+        \u0275\u0275text(163, "Render the dropdown");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(161, "button", 35);
-        \u0275\u0275listener("click", function AppComponent_Template_button_click_161_listener() {
+        \u0275\u0275elementStart(164, "button", 37);
+        \u0275\u0275listener("click", function AppComponent_Template_button_click_164_listener() {
           return ctx.copySnippet("template", ctx.templateCode);
         });
-        \u0275\u0275text(162);
+        \u0275\u0275text(165);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(163, "pre", 36);
+        \u0275\u0275element(166, "pre", 38);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(164, "section", 37);
-        \u0275\u0275template(165, AppComponent_article_165_Template, 7, 3, "article", 38);
+        \u0275\u0275elementStart(167, "section", 39);
+        \u0275\u0275template(168, AppComponent_article_168_Template, 7, 3, "article", 40);
         \u0275\u0275elementEnd()()()();
       }
       if (rf & 2) {
@@ -48393,7 +48438,9 @@ var AppComponent = class _AppComponent {
         \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
         \u0275\u0275advance(3);
         \u0275\u0275textInterpolate(ctx.docsMeta.angularVersion);
-        \u0275\u0275advance(8);
+        \u0275\u0275advance(5);
+        \u0275\u0275property("href", ctx.currentStackBlitzUrl, \u0275\u0275sanitizeUrl);
+        \u0275\u0275advance(6);
         \u0275\u0275textInterpolate(ctx.docsMeta.badge);
         \u0275\u0275advance(15);
         \u0275\u0275textInterpolate(ctx.docsMeta.packageVersion);
@@ -48418,7 +48465,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275advance(2);
         \u0275\u0275property("ngForOf", ctx.apiCards);
       }
-    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+    }, dependencies: [NgForOf, RouterOutlet, RouterLink, RouterLinkActive], styles: ["\n[_nghost-%COMP%] {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.topbar[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow[_ngcontent-%COMP%], \n.setup-label[_ngcontent-%COMP%], \n.rail-label[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill[_ngcontent-%COMP%], \n.feature-pill[_ngcontent-%COMP%], \n.status-pill[_ngcontent-%COMP%] {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail[_ngcontent-%COMP%] {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%] {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card[_ngcontent-%COMP%] {\n  padding: 20px;\n}\n.rail-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link[_ngcontent-%COMP%]    + .rail-link[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link-row[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) auto;\n  align-items: center;\n  gap: 8px;\n}\n.example-link[_ngcontent-%COMP%] {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link[_ngcontent-%COMP%]:hover, \n.example-link.active[_ngcontent-%COMP%] {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.stackblitz-mini-link[_ngcontent-%COMP%], \n.stackblitz-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  font-weight: 700;\n  text-decoration: none;\n}\n.stackblitz-mini-link[_ngcontent-%COMP%] {\n  min-height: 34px;\n  padding: 0 10px;\n  border-radius: 999px;\n  font-size: 11px;\n}\n.preview-actions[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.stackblitz-button[_ngcontent-%COMP%] {\n  min-height: 38px;\n  padding: 0 14px;\n  border-radius: 999px;\n  font-size: 12px;\n}\n.stackblitz-mini-link[_ngcontent-%COMP%]:hover, \n.stackblitz-button[_ngcontent-%COMP%]:hover {\n  border-color: rgba(63, 81, 181, 0.34);\n  background: #ffffff;\n}\n.release-item[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item[_ngcontent-%COMP%]    + .release-item[_ngcontent-%COMP%] {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 32px;\n}\n.hero-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%] {\n  padding: 34px;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.setup-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%], \n.compat-card[_ngcontent-%COMP%] {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row[_ngcontent-%COMP%], \n.compat-grid[_ngcontent-%COMP%], \n.setup-grid[_ngcontent-%COMP%], \n.api-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.pill-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card[_ngcontent-%COMP%] {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.setup-head[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%], \n.preview-head[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n}\n.setup-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button[_ngcontent-%COMP%]:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre[_ngcontent-%COMP%] {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.preview-head[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas[_ngcontent-%COMP%] {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .modal-body angular-multiselect, \n[_nghost-%COMP%]     .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n[_nghost-%COMP%]     .preview-canvas angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .preview-canvas angular2-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular-multiselect .stackline-dropdown, \n[_nghost-%COMP%]     .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas[_ngcontent-%COMP%]   form[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .table[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .modal-content[_ngcontent-%COMP%], \n.preview-canvas[_ngcontent-%COMP%]   .alert[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.api-grid[_ngcontent-%COMP%] {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card[_ngcontent-%COMP%] {\n  padding: 22px;\n}\n.api-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode[_ngcontent-%COMP%] {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid[_ngcontent-%COMP%], \n   .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .setup-card[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .rail-card[_ngcontent-%COMP%] {\n    border-radius: 22px;\n  }\n  .topbar[_ngcontent-%COMP%], \n   .setup-head[_ngcontent-%COMP%], \n   .preview-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta[_ngcontent-%COMP%] {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .rail[_ngcontent-%COMP%] {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta[_ngcontent-%COMP%], \n   .pill-row[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .meta-pill[_ngcontent-%COMP%], \n   .feature-pill[_ngcontent-%COMP%], \n   .status-pill[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .rail-link[_ngcontent-%COMP%], \n   .example-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .setup-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .brand[_ngcontent-%COMP%] {\n    align-items: flex-start;\n  }\n  .preview-canvas[_ngcontent-%COMP%] {\n    min-height: 360px;\n  }\n}\n.hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n.docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \narticle[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \narticle[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout[_ngcontent-%COMP%], \n.docs-layout[_ngcontent-%COMP%], \n.hero[_ngcontent-%COMP%], \n.hero-grid[_ngcontent-%COMP%], \n.content-grid[_ngcontent-%COMP%], \n.playground-shell[_ngcontent-%COMP%], \n.playground__grid[_ngcontent-%COMP%], \n.example-shell[_ngcontent-%COMP%], \n.example-explorer[_ngcontent-%COMP%], \n.quickstart-grid[_ngcontent-%COMP%], \n.workbench-grid[_ngcontent-%COMP%], \n.release-links[_ngcontent-%COMP%], \n.cta-row[_ngcontent-%COMP%], \n.controls[_ngcontent-%COMP%], \n.hero-actions[_ngcontent-%COMP%], \n.inline-actions[_ngcontent-%COMP%], \n.playground-actions[_ngcontent-%COMP%], \n.playground-preview-tabs[_ngcontent-%COMP%], \n.field[_ngcontent-%COMP%], \n.field.two-up[_ngcontent-%COMP%], \n.sidebar[_ngcontent-%COMP%], \n.sidebar-card[_ngcontent-%COMP%], \n.panel[_ngcontent-%COMP%], \n.demo-card[_ngcontent-%COMP%], \n.playground-card[_ngcontent-%COMP%], \n.playground-controls[_ngcontent-%COMP%], \n.playground-preview[_ngcontent-%COMP%], \n.result-card[_ngcontent-%COMP%], \n.controls-card[_ngcontent-%COMP%], \n.release-card[_ngcontent-%COMP%], \n.api-card[_ngcontent-%COMP%], \n.preview-card[_ngcontent-%COMP%], \n.example-stage[_ngcontent-%COMP%], \n.demo-stage[_ngcontent-%COMP%], \n.docs-panel[_ngcontent-%COMP%], \n.docs-card[_ngcontent-%COMP%], \n.table-shell[_ngcontent-%COMP%], \n.surface-card[_ngcontent-%COMP%], \n.copy-card[_ngcontent-%COMP%], \n.install-card[_ngcontent-%COMP%], \n.card-shell[_ngcontent-%COMP%], \n.hero-copy[_ngcontent-%COMP%], \n.hero-setup[_ngcontent-%COMP%] {\n  min-width: 0;\n}\n.badge[_ngcontent-%COMP%], \n.hero-badge[_ngcontent-%COMP%], \n.version-pill[_ngcontent-%COMP%], \n.release-pill[_ngcontent-%COMP%], \n.meta-pill[_ngcontent-%COMP%], \n.release-link[_ngcontent-%COMP%] {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre[_ngcontent-%COMP%], \n.code[_ngcontent-%COMP%], \n.code-block[_ngcontent-%COMP%], \n.code-preview[_ngcontent-%COMP%], \n.snippet[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%], \n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links[_ngcontent-%COMP%], \n   .cta-row[_ngcontent-%COMP%], \n   .controls[_ngcontent-%COMP%], \n   .hero-actions[_ngcontent-%COMP%], \n   .inline-actions[_ngcontent-%COMP%], \n   .playground-actions[_ngcontent-%COMP%], \n   .toolbar[_ngcontent-%COMP%], \n   .example-stage-header[_ngcontent-%COMP%], \n   .playground-preview-tabs[_ngcontent-%COMP%] {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link[_ngcontent-%COMP%], \n   .btn[_ngcontent-%COMP%], \n   .button[_ngcontent-%COMP%], \n   .ghost-button[_ngcontent-%COMP%], \n   button[_ngcontent-%COMP%], \n   .copy-button[_ngcontent-%COMP%], \n   .clear-btn[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .playground-shell[_ngcontent-%COMP%], \n   .playground__grid[_ngcontent-%COMP%], \n   .example-shell[_ngcontent-%COMP%], \n   .example-explorer[_ngcontent-%COMP%], \n   .quickstart-grid[_ngcontent-%COMP%], \n   .workbench-grid[_ngcontent-%COMP%], \n   .demo-grid[_ngcontent-%COMP%], \n   .api-grid[_ngcontent-%COMP%], \n   .feature-grid[_ngcontent-%COMP%], \n   .results-grid[_ngcontent-%COMP%], \n   .control-grid[_ngcontent-%COMP%], \n   .toggle-grid[_ngcontent-%COMP%], \n   .meta-grid[_ngcontent-%COMP%], \n   .page-grid[_ngcontent-%COMP%], \n   .surface-card-grid[_ngcontent-%COMP%], \n   .hero-grid[_ngcontent-%COMP%], \n   .content-grid[_ngcontent-%COMP%], \n   .layout[_ngcontent-%COMP%], \n   .docs-layout[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up[_ngcontent-%COMP%], \n   .playground-table-head[_ngcontent-%COMP%], \n   .playground-table-row[_ngcontent-%COMP%], \n   .table-head[_ngcontent-%COMP%], \n   .table-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-main[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .page-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%], \n   .docs-hero[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], \n   article[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%]:first-child, \n   article[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell[_ngcontent-%COMP%], \n   .shell[_ngcontent-%COMP%], \n   .docs-page[_ngcontent-%COMP%], \n   .page-shell[_ngcontent-%COMP%], \n   #app[_ngcontent-%COMP%], \n   .docs-shell[_ngcontent-%COMP%] {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card[_ngcontent-%COMP%], \n   .panel[_ngcontent-%COMP%], \n   .log-panel[_ngcontent-%COMP%], \n   .sidebar-card[_ngcontent-%COMP%], \n   .demo-card[_ngcontent-%COMP%], \n   .ref-card[_ngcontent-%COMP%], \n   .release-card[_ngcontent-%COMP%], \n   .demo-stage[_ngcontent-%COMP%], \n   .example-stage[_ngcontent-%COMP%], \n   .playground-controls[_ngcontent-%COMP%], \n   .playground-preview[_ngcontent-%COMP%], \n   .api-card[_ngcontent-%COMP%], \n   .preview-card[_ngcontent-%COMP%], \n   .surface-card[_ngcontent-%COMP%], \n   .table-shell[_ngcontent-%COMP%], \n   .docs-card[_ngcontent-%COMP%], \n   .docs-panel[_ngcontent-%COMP%] {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge[_ngcontent-%COMP%], \n   .hero-badge[_ngcontent-%COMP%], \n   .version-pill[_ngcontent-%COMP%], \n   .release-pill[_ngcontent-%COMP%], \n   .meta-pill[_ngcontent-%COMP%], \n   .release-link[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: center;\n  }\n  pre[_ngcontent-%COMP%], \n   .code[_ngcontent-%COMP%], \n   .code-block[_ngcontent-%COMP%], \n   .code-preview[_ngcontent-%COMP%] {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
   }
 };
 (() => {
@@ -48453,14 +48500,23 @@ var AppComponent = class _AppComponent {
       <section class="rail-card">
         <div class="rail-label">Examples</div>
         <nav class="example-nav" aria-label="Angular multiselect examples">
-          <a
-            *ngFor="let link of links"
-            class="example-link"
-            [routerLink]="[link.path]"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            {{ link.data?.['label'] }}
-          </a>
+          <div class="example-link-row" *ngFor="let link of links">
+            <a
+              class="example-link"
+              [routerLink]="[link.path]"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              {{ link.data?.['label'] }}
+            </a>
+            <a
+              class="stackblitz-mini-link"
+              [href]="stackBlitzUrl(link.path)"
+              target="_blank"
+              rel="noopener"
+              [attr.aria-label]="'Open ' + link.data?.['label'] + ' in StackBlitz'">
+              StackBlitz
+            </a>
+          </div>
         </nav>
       </section>
 
@@ -48484,7 +48540,12 @@ var AppComponent = class _AppComponent {
               <code>{{ docsMeta.angularVersion }}</code>.
             </p>
           </div>
-          <span class="status-pill">Classic selector preserved</span>
+          <div class="preview-actions">
+            <span class="status-pill">Classic selector preserved</span>
+            <a class="stackblitz-button" [href]="currentStackBlitzUrl" target="_blank" rel="noopener">
+              Open in StackBlitz
+            </a>
+          </div>
         </div>
 
         <div class="preview-canvas">
@@ -48591,7 +48652,7 @@ var AppComponent = class _AppComponent {
     </main>
   </div>
 </div>
-`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
+`, styles: ["/* src/app/app.component.scss */\n:host {\n  display: block;\n  color: var(--mat-docs-text);\n}\n.docs-shell {\n  padding: 24px;\n}\n.topbar {\n  position: sticky;\n  top: 0;\n  z-index: 30;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 20px;\n  padding: 18px 22px;\n  margin: 0 auto 24px;\n  max-width: 1480px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  border-radius: 28px;\n  background: rgba(255, 255, 255, 0.82);\n  -webkit-backdrop-filter: blur(16px);\n  backdrop-filter: blur(16px);\n  box-shadow: var(--mat-docs-shadow);\n}\n.brand {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  min-width: 0;\n}\n.brand-mark {\n  display: inline-grid;\n  place-items: center;\n  width: 56px;\n  height: 56px;\n  border-radius: 20px;\n  background:\n    linear-gradient(\n      135deg,\n      var(--mat-docs-primary),\n      #5c6bc0);\n  color: #ffffff;\n  font-size: 24px;\n  font-weight: 800;\n  box-shadow: 0 16px 32px rgba(63, 81, 181, 0.28);\n}\n.topbar-eyebrow,\n.setup-label,\n.rail-label {\n  color: var(--mat-docs-text-muted);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n.topbar h1 {\n  margin: 4px 0 0;\n  font-size: clamp(1.4rem, 3vw, 2.15rem);\n  letter-spacing: -0.03em;\n}\n.topbar-meta {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.meta-pill,\n.hero-badge,\n.status-pill,\n.feature-pill {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 999px;\n  padding: 8px 14px;\n  font-size: 12px;\n  font-weight: 700;\n}\n.meta-pill,\n.feature-pill,\n.status-pill {\n  background: var(--mat-docs-surface-3);\n  color: var(--mat-docs-text-muted);\n  border: 1px solid var(--mat-docs-outline);\n}\n.meta-pill.primary,\n.hero-badge {\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  border: 1px solid rgba(63, 81, 181, 0.24);\n}\n.docs-layout {\n  display: grid;\n  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);\n  gap: 32px;\n  align-items: start;\n  margin: 0 auto;\n  max-width: 1480px;\n}\n.rail {\n  position: sticky;\n  top: 112px;\n  display: grid;\n  gap: 16px;\n}\n.rail-card,\n.hero-card,\n.setup-card,\n.preview-card,\n.api-card {\n  border-radius: 28px;\n  border: 1px solid rgba(63, 81, 181, 0.14);\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: var(--mat-docs-shadow);\n}\n.rail-card {\n  padding: 20px;\n}\n.rail-link {\n  display: block;\n  padding: 10px 0;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n}\n.rail-link + .rail-link {\n  border-top: 1px solid rgba(103, 80, 164, 0.1);\n}\n.example-nav {\n  display: grid;\n  gap: 8px;\n  margin-top: 12px;\n}\n.example-link-row {\n  display: grid;\n  grid-template-columns: minmax(0, 1fr) auto;\n  align-items: center;\n  gap: 8px;\n}\n.example-link {\n  display: block;\n  padding: 12px 14px;\n  border-radius: 16px;\n  color: var(--mat-docs-text-muted);\n  text-decoration: none;\n  border: 1px solid transparent;\n  transition:\n    background-color 0.2s ease,\n    border-color 0.2s ease,\n    color 0.2s ease,\n    transform 0.2s ease;\n}\n.example-link:hover,\n.example-link.active {\n  background: var(--mat-docs-primary-soft);\n  border-color: rgba(63, 81, 181, 0.18);\n  color: var(--mat-docs-primary);\n  transform: translateY(-1px);\n}\n.stackblitz-mini-link,\n.stackblitz-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background: var(--mat-docs-primary-soft);\n  color: var(--mat-docs-primary);\n  font-weight: 700;\n  text-decoration: none;\n}\n.stackblitz-mini-link {\n  min-height: 34px;\n  padding: 0 10px;\n  border-radius: 999px;\n  font-size: 11px;\n}\n.preview-actions {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.stackblitz-button {\n  min-height: 38px;\n  padding: 0 14px;\n  border-radius: 999px;\n  font-size: 12px;\n}\n.stackblitz-mini-link:hover,\n.stackblitz-button:hover {\n  border-color: rgba(63, 81, 181, 0.34);\n  background: #ffffff;\n}\n.release-item {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  color: var(--mat-docs-text-muted);\n  padding: 10px 0;\n}\n.release-item + .release-item {\n  border-top: 1px solid rgba(63, 81, 181, 0.1);\n}\n.release-item strong {\n  color: var(--mat-docs-text);\n  font-weight: 600;\n}\n.docs-main {\n  display: grid;\n  gap: 32px;\n}\n.hero-card,\n.preview-card {\n  padding: 34px;\n}\n.hero-card h2,\n.setup-card h3,\n.preview-card h3,\n.api-card h3 {\n  margin: 0;\n  letter-spacing: -0.03em;\n}\n.hero-card h2 {\n  margin-top: 16px;\n  font-size: clamp(1.8rem, 3vw, 3rem);\n  line-height: 1.04;\n}\n.hero-copy,\n.preview-head p,\n.api-card p,\n.compat-card {\n  color: var(--mat-docs-text-muted);\n  line-height: 1.7;\n}\n.pill-row,\n.compat-grid,\n.setup-grid,\n.api-grid {\n  display: grid;\n  gap: 18px;\n}\n.pill-row {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 20px;\n}\n.compat-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  margin-top: 22px;\n}\n.compat-card {\n  padding: 18px;\n  border-radius: 22px;\n  background: var(--mat-docs-surface-2);\n  border: 1px solid rgba(63, 81, 181, 0.1);\n}\n.compat-card strong {\n  display: block;\n  margin-bottom: 8px;\n  color: var(--mat-docs-text);\n}\n.setup-grid {\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n}\n.setup-card {\n  padding: 24px;\n}\n.setup-head,\n.preview-head {\n  display: flex;\n  align-items: start;\n  justify-content: space-between;\n  gap: 18px;\n}\n.setup-head > div,\n.preview-head > div {\n  display: grid;\n  gap: 4px;\n}\n.setup-head h3 {\n  margin-top: 6px;\n  font-size: 1.1rem;\n}\n.copy-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 88px;\n  padding: 10px 14px;\n  border-radius: 999px;\n  border: 1px solid rgba(63, 81, 181, 0.18);\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      var(--mat-docs-primary-soft));\n  color: var(--mat-docs-primary-strong);\n  cursor: pointer;\n  font: inherit;\n  font-size: 13px;\n  font-weight: 700;\n}\n.copy-button:hover {\n  background:\n    linear-gradient(\n      180deg,\n      #ffffff,\n      #d9def7);\n}\npre {\n  overflow: auto;\n  margin: 18px 0 0;\n  padding: 18px;\n  border-radius: 22px;\n  background: #1f2438;\n  color: #eef3ff;\n  line-height: 1.65;\n  font-size: 13px;\n}\n.preview-head {\n  margin-bottom: 24px;\n}\n.preview-head h3 {\n  margin-top: 8px;\n  font-size: 1.45rem;\n}\n.preview-canvas {\n  min-height: 540px;\n  padding: 26px;\n  border-radius: 24px;\n  border: 1px solid rgba(63, 81, 181, 0.12);\n  background:\n    linear-gradient(\n      180deg,\n      rgba(250, 251, 255, 0.96),\n      rgba(243, 246, 252, 0.92));\n  overflow: visible;\n}\n:host ::ng-deep .preview-canvas angular-multiselect,\n:host ::ng-deep .preview-canvas angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .modal-body angular-multiselect,\n:host ::ng-deep .modal-body angular2-multiselect {\n  display: block;\n  max-width: 100%;\n}\n:host ::ng-deep .preview-canvas angular-multiselect .stackline-dropdown,\n:host ::ng-deep .preview-canvas angular2-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular-multiselect .stackline-dropdown,\n:host ::ng-deep .modal-body angular2-multiselect .stackline-dropdown {\n  display: block;\n  max-width: 100%;\n}\n.preview-canvas form,\n.preview-canvas .table,\n.preview-canvas .modal-content,\n.preview-canvas .alert {\n  margin-top: 20px;\n}\n.api-grid {\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n}\n.api-card {\n  padding: 22px;\n}\n.api-card h3 {\n  margin-top: 8px;\n  font-size: 1.12rem;\n}\ncode {\n  padding: 0.15rem 0.38rem;\n  border-radius: 8px;\n  background: rgba(63, 81, 181, 0.08);\n  color: var(--mat-docs-primary);\n}\n@media (max-width: 1180px) {\n  .setup-grid,\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: 1fr;\n  }\n  .docs-layout {\n    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);\n    gap: 24px;\n  }\n  .rail {\n    position: sticky;\n    top: 112px;\n  }\n}\n@media (max-width: 780px) {\n  .docs-shell {\n    padding: 16px;\n  }\n  .topbar,\n  .hero-card,\n  .preview-card,\n  .setup-card,\n  .api-card,\n  .rail-card {\n    border-radius: 22px;\n  }\n  .topbar,\n  .setup-head,\n  .preview-head {\n    flex-direction: column;\n  }\n  .topbar {\n    padding: 18px;\n  }\n  .preview-canvas {\n    min-height: 420px;\n    padding: 18px;\n  }\n}\n@media (max-width: 980px) {\n  .compat-grid,\n  .api-grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .topbar-meta {\n    justify-content: flex-start;\n  }\n}\n@media (max-width: 900px) {\n  .docs-layout {\n    grid-template-columns: 1fr;\n  }\n  .rail {\n    position: static;\n    order: 2;\n  }\n}\n@media (max-width: 760px) {\n  .topbar-meta,\n  .pill-row {\n    width: 100%;\n  }\n  .meta-pill,\n  .feature-pill,\n  .status-pill,\n  .copy-button,\n  .rail-link,\n  .example-link {\n    width: 100%;\n    justify-content: center;\n  }\n  .compat-grid,\n  .api-grid,\n  .setup-grid {\n    grid-template-columns: 1fr;\n  }\n  .brand {\n    align-items: flex-start;\n  }\n  .preview-canvas {\n    min-height: 360px;\n  }\n}\n.hero-main h1,\n.hero-main h2,\n.hero-card h1,\n.hero-card h2,\n.hero h1,\n.hero h2,\n.page-header h1,\n.page-header h2,\n.docs-hero h1,\n.docs-hero h2,\narticle h1:first-child,\narticle h2:first-child {\n  max-width: 100%;\n  overflow-wrap: anywhere;\n  word-break: break-word;\n}\n.layout,\n.docs-layout,\n.hero,\n.hero-grid,\n.content-grid,\n.playground-shell,\n.playground__grid,\n.example-shell,\n.example-explorer,\n.quickstart-grid,\n.workbench-grid,\n.release-links,\n.cta-row,\n.controls,\n.hero-actions,\n.inline-actions,\n.playground-actions,\n.playground-preview-tabs,\n.field,\n.field.two-up,\n.sidebar,\n.sidebar-card,\n.panel,\n.demo-card,\n.playground-card,\n.playground-controls,\n.playground-preview,\n.result-card,\n.controls-card,\n.release-card,\n.api-card,\n.preview-card,\n.example-stage,\n.demo-stage,\n.docs-panel,\n.docs-card,\n.table-shell,\n.surface-card,\n.copy-card,\n.install-card,\n.card-shell,\n.hero-copy,\n.hero-setup {\n  min-width: 0;\n}\n.badge,\n.hero-badge,\n.version-pill,\n.release-pill,\n.meta-pill,\n.release-link {\n  max-width: 100%;\n  white-space: normal;\n  overflow-wrap: anywhere;\n}\npre,\n.code,\n.code-block,\n.code-preview,\n.snippet pre,\n.code-card pre {\n  max-width: 100%;\n}\n@media (max-width: 760px) {\n  .release-links,\n  .cta-row,\n  .controls,\n  .hero-actions,\n  .inline-actions,\n  .playground-actions,\n  .toolbar,\n  .example-stage-header,\n  .playground-preview-tabs {\n    display: grid !important;\n    grid-template-columns: 1fr !important;\n    align-items: stretch;\n  }\n  .release-link,\n  .btn,\n  .button,\n  .ghost-button,\n  button,\n  .copy-button,\n  .clear-btn {\n    width: 100%;\n  }\n  .playground-shell,\n  .playground__grid,\n  .example-shell,\n  .example-explorer,\n  .quickstart-grid,\n  .workbench-grid,\n  .demo-grid,\n  .api-grid,\n  .feature-grid,\n  .results-grid,\n  .control-grid,\n  .toggle-grid,\n  .meta-grid,\n  .page-grid,\n  .surface-card-grid,\n  .hero-grid,\n  .content-grid,\n  .layout,\n  .docs-layout,\n  .hero {\n    grid-template-columns: 1fr !important;\n  }\n  .field.two-up,\n  .playground-table-head,\n  .playground-table-row,\n  .table-head,\n  .table-row {\n    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;\n  }\n}\n@media (max-width: 640px) {\n  .hero-main h1,\n  .hero-main h2,\n  .hero-card h1,\n  .hero-card h2,\n  .hero h1,\n  .hero h2,\n  .page-header h1,\n  .page-header h2,\n  .docs-hero h1,\n  .docs-hero h2,\n  article h1:first-child,\n  article h2:first-child {\n    font-size: clamp(1.55rem, 7vw, 2.35rem) !important;\n    line-height: 1.03 !important;\n    letter-spacing: -0.03em !important;\n  }\n  .app-shell,\n  .shell,\n  .docs-page,\n  .page-shell,\n  #app,\n  .docs-shell {\n    padding-left: 14px !important;\n    padding-right: 14px !important;\n  }\n  .hero-card,\n  .panel,\n  .log-panel,\n  .sidebar-card,\n  .demo-card,\n  .ref-card,\n  .release-card,\n  .demo-stage,\n  .example-stage,\n  .playground-controls,\n  .playground-preview,\n  .api-card,\n  .preview-card,\n  .surface-card,\n  .table-shell,\n  .docs-card,\n  .docs-panel {\n    padding: 18px !important;\n    border-radius: 22px;\n  }\n  .badge,\n  .hero-badge,\n  .version-pill,\n  .release-pill,\n  .meta-pill,\n  .release-link {\n    width: 100%;\n    justify-content: center;\n  }\n  pre,\n  .code,\n  .code-block,\n  .code-preview {\n    font-size: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n"] }]
   }], () => [{ type: Router }, { type: ActivatedRoute }], null);
 })();
 (() => {
