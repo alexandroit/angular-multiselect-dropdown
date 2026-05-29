@@ -166,6 +166,8 @@ function writeDocsIndex(lines) {
     classic: lines.filter((line) => line.base === 'classic'),
     modern: lines.filter((line) => line.base === 'modern')
   };
+  const latestLine = lines.find((line) => line.angular === 21) || lines[0];
+  const stackBlitzUrl = 'https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fbasic';
 
   const renderGroup = (title, subtitle, items) => `
     <section class="group">
@@ -264,6 +266,7 @@ function writeDocsIndex(lines) {
       }
       .card.modern { background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(232,234,246,0.78)); }
       .card.classic { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,244,251,0.96)); }
+      .card.resource { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,247,251,0.96)); }
       .card strong { font-size: 1.28rem; }
       .group-head { display: grid; gap: 8px; }
       @media (max-width: 720px) {
@@ -281,6 +284,34 @@ function writeDocsIndex(lines) {
           Angular 2 through 13 follow the classic compatibility shell.
           Angular 14 through 21 use the remodulated Material-inspired shell.
         </p>
+      </section>
+      <section class="group">
+        <div class="group-head">
+          <h2>Current Angular 21 release</h2>
+          <p>Fast entry points for the maintained package, live tests, editable StackBlitz playground, and npm install target.</p>
+        </div>
+        <div class="cards">
+          <a class="card resource" href="./angular-21/">
+            <span class="eyebrow">Docs</span>
+            <strong>Angular 21</strong>
+            <span>@stackline/angular-multiselect-dropdown ${latestLine.packageVersion}</span>
+          </a>
+          <a class="card resource" href="./angular-21/live/">
+            <span class="eyebrow">Live tests</span>
+            <strong>Full matrix</strong>
+            <span>Skins, forms, dialogs, lazy loading, keyboard, and ADA checks.</span>
+          </a>
+          <a class="card resource" href="${stackBlitzUrl}" target="_blank" rel="noopener">
+            <span class="eyebrow">StackBlitz</span>
+            <strong>Editable examples</strong>
+            <span>Dedicated GitHub-backed Angular 21 playground.</span>
+          </a>
+          <a class="card resource" href="https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown" target="_blank" rel="noopener">
+            <span class="eyebrow">npm</span>
+            <strong>${latestLine.packageVersion}</strong>
+            <span>Install the latest tested Angular 21 package line.</span>
+          </a>
+        </div>
       </section>
       ${renderGroup(
         'Angular 21 down to 14',
