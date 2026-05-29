@@ -48132,7 +48132,7 @@ var AppComponent = class _AppComponent {
       customTheme: "Copy",
       template: "Copy"
     };
-    this.stackBlitzBaseUrl = "https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/";
+    this.stackBlitzBaseUrl = "https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground";
     this.stackBlitzSlugs = {
       basic: "basic",
       singleselection: "single-selection",

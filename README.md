@@ -10,7 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![GitHub stars](https://img.shields.io/github/stars/alexandroit/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/stargazers)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[StackBlitz Playground](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fbasic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
+**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[StackBlitz Playground](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fbasic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
 **Latest tested package release:** `21.1.14` for Angular `21.x`
 
@@ -106,30 +106,30 @@ The editable StackBlitz entry is one Angular 21 playground with isolated lazy ro
 
 | Example | StackBlitz |
 | :--- | :--- |
-| Basic example | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fbasic) |
-| Single selection | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fsingle-selection) |
-| Search filter | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fsearch-filter) |
-| Custom Search from API | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fcustom-search-api) |
-| Search Filter By Property | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fsearch-filter-by-property) |
-| Search and Add New Item | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fsearch-add-new-item) |
-| Group By | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fgroup-by) |
-| Templating | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Ftemplating) |
-| Using in Forms | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Ftemplate-driven-forms) |
-| Using in Reactive Forms | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Freactive-forms) |
-| Virtual Scrolling | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fvirtual-scrolling) |
-| Lazy Loading from API | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Flazy-loading-api) |
-| Data from remote API | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fremote-data) |
-| Using in List for loop | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Flist-loop) |
-| Using Inside Dialog | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fdialog) |
-| Multiple dropdowns | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fmultiple-dropdowns) |
-| Load dynamic data | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fdynamic-data) |
-| Methods | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fmethods) |
-| Events | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fevents) |
-| Disabled mode | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fdisabled) |
-| Limit selection | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Flimit-selection) |
-| Limit badges | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Flimit-badges) |
-| Custom placeholder | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fcustom-placeholder) |
-| Styling | [Open](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start&initialpath=%2Fstyling) |
+| Basic example | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fbasic) |
+| Single selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fsingle-selection) |
+| Search filter | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fsearch-filter) |
+| Custom Search from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fcustom-search-api) |
+| Search Filter By Property | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fsearch-filter-by-property) |
+| Search and Add New Item | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fsearch-add-new-item) |
+| Group By | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fgroup-by) |
+| Templating | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Ftemplating) |
+| Using in Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Ftemplate-driven-forms) |
+| Using in Reactive Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Freactive-forms) |
+| Virtual Scrolling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fvirtual-scrolling) |
+| Lazy Loading from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Flazy-loading-api) |
+| Data from remote API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fremote-data) |
+| Using in List for loop | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Flist-loop) |
+| Using Inside Dialog | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fdialog) |
+| Multiple dropdowns | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fmultiple-dropdowns) |
+| Load dynamic data | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fdynamic-data) |
+| Methods | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fmethods) |
+| Events | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fevents) |
+| Disabled mode | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fdisabled) |
+| Limit selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Flimit-selection) |
+| Limit badges | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Flimit-badges) |
+| Custom placeholder | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fcustom-placeholder) |
+| Styling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fstyling) |
 
 ## Installation
 

@@ -374,7 +374,7 @@ class AppComponent {
   constructor() {
     this.angularVersion = '21.2.14';
     this.packageVersion = '21.1.14';
-    this.stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/';
+    this.stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground';
     this.countries = [{
       id: 1,
       itemName: 'Brazil'
