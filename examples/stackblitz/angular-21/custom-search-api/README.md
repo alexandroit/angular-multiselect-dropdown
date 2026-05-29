@@ -5,7 +5,7 @@ Angular 21 StackBlitz starter for `@stackline/angular-multiselect-dropdown`.
 Open it in StackBlitz:
 
 ```text
-https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21/custom-search-api?startScript=start
+https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/?startScript=start
 ```
 
 ## What it shows

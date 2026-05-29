@@ -92,7 +92,7 @@ export class AppComponent implements OnInit {
     customTheme: 'Copy',
     template: 'Copy'
   };
-  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21';
+  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/';
   private readonly stackBlitzSlugs: { [path: string]: string } = {
     basic: 'basic',
     singleselection: 'single-selection',
@@ -157,8 +157,7 @@ export class AppComponent implements OnInit {
   }
 
   stackBlitzUrl(path?: string) {
-    const slug = this.stackBlitzSlugs[path || 'basic'] || 'basic';
-    return `${this.stackBlitzBaseUrl}/${slug}?startScript=start`;
+    return `${this.stackBlitzBaseUrl}?startScript=start`;
   }
 
   get currentStackBlitzUrl() {

@@ -157,7 +157,7 @@ function AppComponent_article_86_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Open this example in StackBlitz");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Open Angular 21 playground in StackBlitz");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, AppComponent_article_86_angular_multiselect_6_Template, 1, 3, "angular-multiselect", 29)(7, AppComponent_article_86_angular_multiselect_7_Template, 5, 3, "angular-multiselect", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -186,7 +186,7 @@ function AppComponent_article_86_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", test_r5.number, ". ", test_r5.title);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx_r2.stackBlitzUrl(test_r5), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx_r2.stackBlitzUrl(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !test_r5.template);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
@@ -316,7 +316,7 @@ function AppComponent_article_94_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Open this example in StackBlitz");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Open Angular 21 playground in StackBlitz");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, AppComponent_article_94_angular_multiselect_6_Template, 1, 3, "angular-multiselect", 29)(7, AppComponent_article_94_angular_multiselect_7_Template, 5, 3, "angular-multiselect", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -345,7 +345,7 @@ function AppComponent_article_94_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", test_r10.number, ". ", test_r10.title);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx_r2.stackBlitzUrl(test_r10), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx_r2.stackBlitzUrl(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !test_r10.template);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
@@ -374,7 +374,7 @@ class AppComponent {
   constructor() {
     this.angularVersion = '21.2.14';
     this.packageVersion = '21.1.14';
-    this.stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21';
+    this.stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/stackblitz-angular-21-playground/';
     this.countries = [{
       id: 1,
       itemName: 'Brazil'
@@ -824,8 +824,8 @@ class AppComponent {
   skinLabel(skin) {
     return skin.charAt(0).toUpperCase() + skin.slice(1);
   }
-  stackBlitzUrl(test) {
-    return this.stackBlitzBaseUrl + '/' + this.stackBlitzSlug(test) + '?startScript=start';
+  stackBlitzUrl() {
+    return this.stackBlitzBaseUrl + '?startScript=start';
   }
   stackBlitzSlug(test) {
     var title = test && test.title ? String(test.title).toLowerCase() : '';
@@ -964,7 +964,7 @@ class AppComponent {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Updates only settings.skin");
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "a", 9);
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Open this example in StackBlitz");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Open Angular 21 playground in StackBlitz");
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "angular-multiselect", 10);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtwoWayListener"]("ngModelChange", function AppComponent_Template_angular_multiselect_ngModelChange_20_listener($event) {
@@ -1008,7 +1008,7 @@ class AppComponent {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, "Clipping-safe dropdown with tagToBody");
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "a", 9);
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Open this example in StackBlitz");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, "Open Angular 21 playground in StackBlitz");
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "div", 17)(53, "div", 18)(54, "div", 19)(55, "strong");
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56, "Simulated mat-mdc-dialog-surface");
@@ -1084,7 +1084,7 @@ class AppComponent {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.availableSkins);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx.stackBlitzUrl(ctx.skinSwitchCase), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx.stackBlitzUrl(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx.skinSwitchCase.data);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtwoWayProperty"]("ngModel", ctx.skinSwitchCase.model);
@@ -1098,7 +1098,7 @@ class AppComponent {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.jsonCode(ctx.skinSwitchCase));
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx.stackBlitzUrl(ctx.overlayCase), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("href", ctx.stackBlitzUrl(), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("data", ctx.overlayCountries);
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtwoWayProperty"]("ngModel", ctx.overlaySelected);
