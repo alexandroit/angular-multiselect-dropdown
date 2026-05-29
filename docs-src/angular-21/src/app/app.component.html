@@ -76,6 +76,16 @@
         </div>
 
         <div class="preview-canvas">
+          <div class="preview-example-link-row">
+            <span>StackBlitz example</span>
+            <a
+              [href]="currentStackBlitzUrl"
+              target="_blank"
+              rel="noopener"
+              [attr.aria-label]="'Open ' + currentLabel + ' in StackBlitz'">
+              {{ currentLabel }}
+            </a>
+          </div>
           <router-outlet></router-outlet>
         </div>
       </section>

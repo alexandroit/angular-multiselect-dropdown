@@ -208,6 +208,39 @@
   background: #ffffff;
 }
 
+.preview-example-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(63, 81, 181, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--mat-docs-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.preview-example-link-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(63, 81, 181, 0.18);
+  border-radius: 999px;
+  background: var(--mat-docs-primary-soft);
+  color: var(--mat-docs-primary);
+  text-decoration: none;
+}
+
+.preview-example-link-row a:hover {
+  border-color: rgba(63, 81, 181, 0.34);
+  background: #ffffff;
+}
+
 .release-item {
   display: flex;
   justify-content: space-between;
@@ -496,9 +529,15 @@ code {
   .status-pill,
   .copy-button,
   .rail-link,
-  .example-link {
+  .example-link,
+  .preview-example-link-row a {
     width: 100%;
     justify-content: center;
+  }
+
+  .preview-example-link-row {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .compat-grid,
