@@ -48132,7 +48132,7 @@ var AppComponent = class _AppComponent {
       customTheme: "Copy",
       template: "Copy"
     };
-    this.stackBlitzBaseUrl = "https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21";
+    this.stackBlitzBaseUrl = "https://stackblitz.com/fork/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21";
     this.stackBlitzSlugs = {
       basic: "basic",
       singleselection: "single-selection",
@@ -48189,7 +48189,7 @@ var AppComponent = class _AppComponent {
   }
   stackBlitzUrl(path) {
     const slug = this.stackBlitzSlugs[path || "basic"] || "basic";
-    return `${this.stackBlitzBaseUrl}/${slug}`;
+    return `${this.stackBlitzBaseUrl}/${slug}?startScript=start`;
   }
   get currentStackBlitzUrl() {
     return this.stackBlitzUrl(this.currentPath);

@@ -374,7 +374,7 @@ class AppComponent {
   constructor() {
     this.angularVersion = '21.2.14';
     this.packageVersion = '21.1.14';
-    this.stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21';
+    this.stackBlitzBaseUrl = 'https://stackblitz.com/fork/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21';
     this.countries = [{
       id: 1,
       itemName: 'Brazil'
@@ -825,7 +825,7 @@ class AppComponent {
     return skin.charAt(0).toUpperCase() + skin.slice(1);
   }
   stackBlitzUrl(test) {
-    return this.stackBlitzBaseUrl + '/' + this.stackBlitzSlug(test);
+    return this.stackBlitzBaseUrl + '/' + this.stackBlitzSlug(test) + '?startScript=start';
   }
   stackBlitzSlug(test) {
     var title = test && test.title ? String(test.title).toLowerCase() : '';
