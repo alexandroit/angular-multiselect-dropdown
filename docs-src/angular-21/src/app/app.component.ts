@@ -92,7 +92,7 @@ export class AppComponent implements OnInit {
     customTheme: 'Copy',
     template: 'Copy'
   };
-  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/fork/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21';
+  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/fork/github/alexandroit/angular-multiselect-dropdown/tree/32366299b4e6fd3216be0089b016c18feccf06ed/examples/stackblitz/angular-21';
   private readonly stackBlitzSlugs: { [path: string]: string } = {
     basic: 'basic',
     singleselection: 'single-selection',
