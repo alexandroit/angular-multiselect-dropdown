@@ -107,6 +107,29 @@ The repository keeps official StackBlitz starters under `examples/stackblitz`, w
 | Example | StackBlitz |
 | :--- | :--- |
 | Angular 21 basic skin switcher | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/basic) |
+| Angular 21 single selection | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/single-selection) |
+| Angular 21 search filter | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/search-filter) |
+| Angular 21 custom search API | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/custom-search-api) |
+| Angular 21 search by property | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/search-filter-by-property) |
+| Angular 21 search and add item | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/search-add-new-item) |
+| Angular 21 group by | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/group-by) |
+| Angular 21 templating | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/templating) |
+| Angular 21 template-driven forms | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/template-driven-forms) |
+| Angular 21 reactive forms | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/reactive-forms) |
+| Angular 21 virtual scrolling | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/virtual-scrolling) |
+| Angular 21 lazy loading API | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/lazy-loading-api) |
+| Angular 21 remote data | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/remote-data) |
+| Angular 21 list loop | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/list-loop) |
+| Angular 21 dialog overlay | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/dialog) |
+| Angular 21 multiple dropdowns | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/multiple-dropdowns) |
+| Angular 21 dynamic data | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/dynamic-data) |
+| Angular 21 methods | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/methods) |
+| Angular 21 events | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/events) |
+| Angular 21 disabled state | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/disabled) |
+| Angular 21 limit selection | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/limit-selection) |
+| Angular 21 limit badges | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/limit-badges) |
+| Angular 21 custom placeholder | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/custom-placeholder) |
+| Angular 21 CSS styling | [Open in StackBlitz](https://stackblitz.com/github/alexandroit/angular-multiselect-dropdown/tree/master/examples/stackblitz/angular-21/styling) |
 
 ## Installation
 

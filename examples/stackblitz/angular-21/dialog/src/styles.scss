@@ -1,0 +1,41 @@
+:root {
+  color-scheme: light;
+  --page-bg: #eef2f7;
+  --page-surface: #ffffff;
+  --page-outline: #d9dee8;
+  --page-text: #202124;
+  --page-muted: #475569;
+  --page-primary: #0f766e;
+  --page-shadow: 0 10px 30px rgba(32, 33, 36, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--page-text);
+  background: var(--page-bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+code,
+pre {
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+}

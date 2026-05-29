@@ -1,0 +1,390 @@
+<main class="page">
+  <header class="topbar">
+    <p class="eyebrow">Angular {{ angularLine }} StackBlitz starter</p>
+    <h1>@stackline/angular-multiselect-dropdown {{ packageVersion }}</h1>
+  </header>
+
+  <section class="example-card">
+    <p class="eyebrow">{{ example.label }}</p>
+    <h2>{{ example.title }}</h2>
+    <p class="lead">{{ example.description }}</p>
+
+    <div class="skin-buttons" aria-label="Switch dropdown skin">
+      <button
+        *ngFor="let skin of skins"
+        type="button"
+        [class.active]="activeSkin === skin"
+        (click)="switchSkin(skin)">
+        {{ skin }}
+      </button>
+    </div>
+
+    <div class="demo-surface" [class.styling-sample]="mode === 'styling'" [ngSwitch]="mode">
+      <ng-container *ngSwitchCase="'single'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onAddFilterNewItem)="onAddItem($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'custom-search'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onClose)="onClose($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+          <c-search>
+            <ng-template>
+              <input class="custom-search-input" type="text" [(ngModel)]="filter" (keyup)="onSearch()" placeholder="Search countries" />
+            </ng-template>
+          </c-search>
+          <c-item>
+            <ng-template let-item="item">
+              <span class="option-template">
+                <span>{{ item.name }}</span>
+                <img [src]="item.flag" alt="" />
+                <small>{{ item.capital }}</small>
+              </span>
+            </ng-template>
+          </c-item>
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'add-new'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onAddFilterNewItem)="onAddItem($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'group'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)"
+          (onGroupSelect)="record('groupSelect', $event)"
+          (onGroupDeSelect)="record('groupDeSelect', $event)">
+        </angular-multiselect>
+        <div class="action-row">
+          <button type="button" (click)="loadDataSet1()">Load fruits</button>
+          <button type="button" (click)="loadDataSet2()">Load countries</button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'templating'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+          <c-badge>
+            <ng-template let-item="item">
+              <span class="badge-template"><span>{{ item.itemName }}</span><img [src]="item.image" alt="" /></span>
+            </ng-template>
+          </c-badge>
+          <c-item>
+            <ng-template let-item="item">
+              <span class="option-template"><img [src]="item.image" alt="" /><span>{{ item.itemName }}</span><small>Capital - {{ item.capital }}</small></span>
+            </ng-template>
+          </c-item>
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'template-form'">
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" pattern="[a-zA-Z][a-zA-Z ]+" [(ngModel)]="formModel.name" #name="ngModel" />
+            <span class="error" [hidden]="name.valid || name.pristine">Only alphabetic names are accepted.</span>
+          </div>
+          <div class="form-field">
+            <label for="emailaddress">Email Address <span class="required">* required</span></label>
+            <input id="emailaddress" name="email" type="text" required [(ngModel)]="formModel.email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" />
+            <span class="error" [hidden]="email.valid || email.pristine">Enter a valid email address.</span>
+          </div>
+          <div class="form-field">
+            <label for="skills">Skills <span class="required">* required</span></label>
+            <angular-multiselect
+              [data]="itemList"
+              [(ngModel)]="formModel.skills"
+              [settings]="settings"
+              (onSelect)="onItemSelect($event)"
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"
+              name="skills"
+              #skills="ngModel"
+              required>
+            </angular-multiselect>
+            <span class="error" [hidden]="skills.valid">Select at least one skill.</span>
+          </div>
+          <button class="primary-action" type="submit" [disabled]="!loginForm.form.valid">Submit</button>
+        </form>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'reactive-form'">
+        <form [formGroup]="userForm" novalidate>
+          <div class="form-field">
+            <label for="reactiveName">Name</label>
+            <input id="reactiveName" formControlName="name" />
+          </div>
+          <div class="form-field">
+            <label for="reactiveEmail">Email Address <span class="required">* required</span></label>
+            <input id="reactiveEmail" formControlName="email" />
+          </div>
+          <div class="form-field">
+            <label>Skills <span class="required">* required</span></label>
+            <angular-multiselect
+              [data]="itemList"
+              [(ngModel)]="selectedItems"
+              [settings]="settings"
+              (onSelect)="onItemSelect($event)"
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)"
+              formControlName="skills">
+            </angular-multiselect>
+          </div>
+          <button class="primary-action" type="button" (click)="submitForm()" [disabled]="!userForm.valid">Submit</button>
+        </form>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'lazy'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+        <p class="meta-line">Total records: {{ itemList.length }}</p>
+        <div class="action-row"><button type="button" (click)="changeData()">Reset</button></div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'lazy-remote'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          [loading]="loading"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)"
+          (onOpen)="onOpen($event)"
+          (onScrollToEnd)="fetchMore($event)">
+        </angular-multiselect>
+        <p class="meta-line">Total records: {{ itemList.length }}</p>
+        <div class="action-row"><button type="button" (click)="fetchMore({ endIndex: itemList.length - 1 })">Fetch more</button><button type="button" (click)="changeData()">Reset</button></div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'remote-data'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+          <c-item>
+            <ng-template let-item="item">
+              <span class="option-template"><span>{{ item.name }}</span><img [src]="item.flag" alt="" /><small>{{ item.capital }}</small></span>
+            </ng-template>
+          </c-item>
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'list-loop'">
+        <table class="data-table">
+          <thead><tr><th>Customer</th><th>Countries</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{ customer.name }}</td>
+              <td>
+                <angular-multiselect
+                  [data]="itemList"
+                  [(ngModel)]="customer.countries"
+                  [settings]="settings"
+                  (onSelect)="onItemSelect($event)"
+                  (onDeSelect)="OnItemDeSelect($event)"
+                  (onSelectAll)="onSelectAll($event)"
+                  (onDeSelectAll)="onDeSelectAll($event)">
+                </angular-multiselect>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'dialog'">
+        <div class="dialog-launch"><button class="primary-action" type="button" (click)="modalOpen = true">Launch demo modal</button></div>
+        <div class="fake-modal-backdrop" *ngIf="modalOpen" (click)="modalOpen = false"></div>
+        <div class="fake-modal" *ngIf="modalOpen" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+          <div class="fake-modal-header"><h3 id="dialogTitle">Dropdown in modal</h3><button class="close-button" type="button" (click)="modalOpen = false" aria-label="Close">x</button></div>
+          <div class="fake-modal-body">
+            <angular-multiselect
+              [data]="itemList"
+              [(ngModel)]="selectedItems"
+              [settings]="settings"
+              (onSelect)="onItemSelect($event)"
+              (onDeSelect)="OnItemDeSelect($event)"
+              (onSelectAll)="onSelectAll($event)"
+              (onDeSelectAll)="onDeSelectAll($event)">
+            </angular-multiselect>
+            <p class="help-text">The modal body uses overflow hidden; tagToBody keeps the panel visible.</p>
+          </div>
+          <div class="fake-modal-footer"><button type="button" (click)="modalOpen = false">Close</button></div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'multiple'">
+        <div class="form-row">
+          <label for="directorySpecialties">Directory Specialties</label>
+          <p class="meta-line">Directory dropdown status: <b>{{ directoriesDropdownStatus }}</b></p>
+          <angular-multiselect
+            id="directorySpecialties"
+            name="directorySpecialties"
+            [(ngModel)]="selectedDirectorySpecialties"
+            [data]="directorySpecialties"
+            [settings]="dropdownSettings"
+            (onOpen)="onDirectoriesOpen($event)"
+            (onClose)="onDirectoriesClose($event)"
+            (onSelectAll)="onSelectAll($event)"
+            (onDeSelectAll)="onDeSelectAll($event)">
+          </angular-multiselect>
+        </div>
+        <div class="form-row">
+          <label for="useCases">Use Cases</label>
+          <p class="meta-line">Cases dropdown status: <b>{{ casesDropdownStatus }}</b></p>
+          <angular-multiselect
+            id="useCases"
+            name="useCases"
+            [(ngModel)]="selectedUseCases"
+            [data]="useCases"
+            [settings]="dropdownSettings2"
+            (onOpen)="onCasesOpen($event)"
+            (onClose)="onCasesClose($event)"
+            (onSelectAll)="onSelectAll($event)"
+            (onDeSelectAll)="onDeSelectAll($event)">
+          </angular-multiselect>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'dynamic'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+        <div class="action-row"><button type="button" (click)="loadDataSet1()">Load fruits</button><button type="button" (click)="loadDataSet2()">Load countries</button></div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'methods'">
+        <div class="action-row"><button type="button" (click)="changeData()">Reset</button><button type="button" (click)="open($event)">Open</button><button type="button" (click)="close($event)">Close</button></div>
+        <angular-multiselect
+          #dropdownElem
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'events'">
+        <angular-multiselect
+          #dropdownElem
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)"
+          (onOpen)="onOpen($event)"
+          (onClose)="onClose($event)">
+        </angular-multiselect>
+        <div class="event-grid">
+          <label>On Select<textarea [(ngModel)]="selectedItemString"></textarea></label>
+          <label>On Un-select<textarea [(ngModel)]="unSelectedItemString"></textarea></label>
+          <label>On Open<textarea [(ngModel)]="openString"></textarea></label>
+          <label>On Close<textarea [(ngModel)]="closeString"></textarea></label>
+          <label>On Select All<textarea [(ngModel)]="selectAllString"></textarea></label>
+          <label>On Un-Select All<textarea [(ngModel)]="unSelectAllString"></textarea></label>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'disabled'">
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+        <div class="action-row"><button type="button" (click)="disable()">Disable</button><button type="button" (click)="enable()">Enable</button></div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <angular-multiselect
+          [data]="itemList"
+          [(ngModel)]="selectedItems"
+          [settings]="settings"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </angular-multiselect>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="output-grid">
+    <article class="output-card">
+      <h3>Selected model</h3>
+      <pre>{{ currentSelection() | json }}</pre>
+    </article>
+    <article class="output-card">
+      <h3>Settings</h3>
+      <pre>{{ currentSettings() | json }}</pre>
+    </article>
+    <article class="output-card">
+      <h3>Event log</h3>
+      <pre>{{ events | json }}</pre>
+    </article>
+  </section>
+</main>
