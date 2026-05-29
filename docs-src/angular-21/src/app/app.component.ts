@@ -157,7 +157,8 @@ export class AppComponent implements OnInit {
   }
 
   stackBlitzUrl(path?: string) {
-    return `${this.stackBlitzBaseUrl}?startScript=start`;
+    const slug = this.stackBlitzSlugs[path || 'basic'] || 'basic';
+    return `${this.stackBlitzBaseUrl}?startScript=start&initialpath=%2F${encodeURIComponent(slug)}`;
   }
 
   get currentStackBlitzUrl() {

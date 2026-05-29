@@ -48188,7 +48188,8 @@ var AppComponent = class _AppComponent {
     }
   }
   stackBlitzUrl(path) {
-    return `${this.stackBlitzBaseUrl}?startScript=start`;
+    const slug = this.stackBlitzSlugs[path || "basic"] || "basic";
+    return `${this.stackBlitzBaseUrl}?startScript=start&initialpath=%2F${encodeURIComponent(slug)}`;
   }
   get currentStackBlitzUrl() {
     return this.stackBlitzUrl(this.currentPath);
