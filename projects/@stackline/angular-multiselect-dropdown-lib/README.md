@@ -10,9 +10,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![GitHub stars](https://img.shields.io/github/stars/alexandroit/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/stargazers)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
+**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[StackBlitz Playground](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fbasic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested package release:** `21.1.14` for Angular `21.x`
+**Latest tested package release:** `21.1.15` for Angular `21.x`
 
 ---
 
@@ -24,9 +24,9 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current package release is `21.1.14` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current tested package release is `21.1.15` for Angular 21.x applications.
 
-The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.14 patch keeps that behavior, fixes responsive dropdown width handling, makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list, and keeps the open menu surface opaque.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.15 patch keeps the tested runtime behavior, documents the dedicated GitHub-backed StackBlitz playground URLs, fixes responsive dropdown width handling, makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list, and keeps the open menu surface opaque.
 
 ## Features
 
@@ -51,18 +51,19 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 
 1. [Rename Note](#rename-note)
 2. [Angular Version Compatibility](#angular-version-compatibility)
-3. [Installation](#installation)
-4. [Setup](#setup)
-5. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
-6. [Basic Usage](#basic-usage)
-7. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
-8. [Custom Templates](#custom-templates)
-9. [Forms Integration](#forms-integration)
-10. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-11. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
-12. [Events](#events)
-13. [Run Locally](#run-locally)
-14. [License](#license)
+3. [StackBlitz Playground](#stackblitz-playground)
+4. [Installation](#installation)
+5. [Setup](#setup)
+6. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
+7. [Basic Usage](#basic-usage)
+8. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
+9. [Custom Templates](#custom-templates)
+10. [Forms Integration](#forms-integration)
+11. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
+12. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
+13. [Events](#events)
+14. [Run Locally](#run-locally)
+15. [License](#license)
 
 ## Rename Note
 
@@ -79,7 +80,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.14 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.15 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
 | **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
 | **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
@@ -99,13 +100,44 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 | **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.2 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
 | **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/multiselect/angular-2/) |
 
+## StackBlitz Playground
+
+The editable StackBlitz entry is one Angular 21 playground with isolated lazy routes. Official links use `stackblitz.com/github` against the maintained GitHub repository, so they stay tied to the latest pushed source instead of creating stale forked copies for every example. Each example has its own folder, Angular module, data object, and URL.
+
+| Example | StackBlitz |
+| :--- | :--- |
+| Basic example | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fbasic) |
+| Single selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fsingle-selection) |
+| Search filter | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fsearch-filter) |
+| Custom Search from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fcustom-search-api) |
+| Search Filter By Property | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fsearch-filter-by-property) |
+| Search and Add New Item | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fsearch-add-new-item) |
+| Group By | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fgroup-by) |
+| Templating | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Ftemplating) |
+| Using in Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Ftemplate-driven-forms) |
+| Using in Reactive Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Freactive-forms) |
+| Virtual Scrolling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fvirtual-scrolling) |
+| Lazy Loading from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Flazy-loading-api) |
+| Data from remote API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fremote-data) |
+| Using in List for loop | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Flist-loop) |
+| Using Inside Dialog | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fdialog) |
+| Multiple dropdowns | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fmultiple-dropdowns) |
+| Load dynamic data | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fdynamic-data) |
+| Methods | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fmethods) |
+| Events | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fevents) |
+| Disabled mode | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fdisabled) |
+| Limit selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Flimit-selection) |
+| Limit badges | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Flimit-badges) |
+| Custom placeholder | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fcustom-placeholder) |
+| Styling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fstyling) |
+
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.1.14 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.1.15 --save-exact
 ```
 
-Install `21.1.14` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, fixes responsive dropdown width handling, and keeps dropdown surfaces opaque in clipped containers.
+Install `21.1.15` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, fixes responsive dropdown width handling, and keeps dropdown surfaces opaque in clipped containers.
 
 ## Setup
 
@@ -201,7 +233,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.14`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.15`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
 
 Switch between skins through the settings object:
 
@@ -313,7 +345,7 @@ settings = {
 };
 ```
 
-In `21.1.14`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
+In `21.1.15`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
 ## Events
 
