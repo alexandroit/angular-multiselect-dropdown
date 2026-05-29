@@ -5,7 +5,7 @@ A small Angular 21 StackBlitz starter for `@stackline/angular-multiselect-dropdo
 Open it in StackBlitz:
 
 ```text
-https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground?startScript=start&initialpath=%2Fbasic
+https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fbasic
 ```
 
 ## What it shows

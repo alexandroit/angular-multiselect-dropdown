@@ -92,7 +92,7 @@ export class AppComponent implements OnInit {
     customTheme: 'Copy',
     template: 'Copy'
   };
-  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-playground';
+  private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21';
   private readonly stackBlitzSlugs: { [path: string]: string } = {
     basic: 'basic',
     singleselection: 'single-selection',
