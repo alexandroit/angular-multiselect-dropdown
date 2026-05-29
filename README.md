@@ -102,7 +102,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 ## StackBlitz Playground
 
-The editable StackBlitz entry is one Angular 21 playground with isolated lazy routes. Each example has its own folder, Angular module, data object, and URL, so documentation links open the shared playground directly on the matching route without repeating GitHub imports and installs.
+The editable StackBlitz entry is one Angular 21 playground with isolated lazy routes. Official links use `stackblitz.com/github` against the maintained GitHub repository, so they stay tied to the latest pushed source instead of creating stale forked copies for every example. Each example has its own folder, Angular module, data object, and URL.
 
 | Example | StackBlitz |
 | :--- | :--- |

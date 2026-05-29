@@ -4,7 +4,7 @@ Official runnable examples for `@stackline/angular-multiselect-dropdown`.
 
 ## StackBlitz
 
-Each folder under `examples/stackblitz` is a standalone project that can be opened directly in StackBlitz from GitHub.
+The official StackBlitz examples open from the maintained GitHub playground with `stackblitz.com/github`. Use those GitHub-backed links when documenting examples so StackBlitz follows the latest pushed source instead of creating stale per-example forks.
 
 | Example | Angular | Purpose |
 | --- | --- | --- |

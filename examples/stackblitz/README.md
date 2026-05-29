@@ -2,7 +2,7 @@
 
 Standalone StackBlitz projects for the maintained Angular release lines.
 
-Use the single Angular 21 playground for documentation links. Each example has its own lazy route, Angular module, folder, and data object inside the playground branch, so every documentation row opens a direct URL without cloning a separate project.
+Use the single Angular 21 playground for documentation links. Every official URL must use `https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21` with `initialpath`, avoiding forked URLs and pinned commit hashes. That keeps StackBlitz attached to the maintained GitHub source while each example still opens on its own lazy route, Angular module, folder, and data object.
 
 ## Angular 21
 
