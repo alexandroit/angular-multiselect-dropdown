@@ -94,7 +94,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     @HostListener('document:keyup.escape', ['$event'])
     onEscapeDown(event: Event) {
-        if (this.settings && this.settings.escapeToClose) {
+        if (this.settings && this.settings.escapeToClose && this.isKeyboardEnabled('escape')) {
             this.closeDropdown();
         }
     }
@@ -234,7 +234,17 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         removeItemAriaLabel: 'Remove selected option',
         openDropdownAriaLabel: 'Open options',
         closeDropdownAriaLabel: 'Close options',
-        loadingText: 'Loading options'
+        loadingText: 'Loading options',
+        keyboard: {
+            space: true,
+            spaceOptionAction: 'toggle',
+            tab: true,
+            arrows: true,
+            escape: true,
+            backspaceRemovesLastWhenSearchEmpty: false,
+            deleteRemovesFocusedBadge: true,
+            backspace: false
+        }
     }
     randomSize: boolean = true;
     public parseError: boolean;
@@ -256,6 +266,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     ngOnInit() {
         this.normalizeSettings(this.settings);
 
+        this.data = this.mergeSelectedIntoData(this.data || []);
         this.cachedItems = this.cloneArray(this.data);
         if (this.settings.position == 'top') {
             setTimeout(() => {
@@ -303,8 +314,68 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
 
     private normalizeSettings(settings?: DropdownSettings) {
-        this.settings = Object.assign({}, this.defaultSettings, settings);
+        var keyboardSettings = Object.assign(
+            {},
+            this.defaultSettings.keyboard || {},
+            settings && settings.keyboard ? settings.keyboard : {}
+        );
+
+        this.settings = Object.assign({}, this.defaultSettings, settings, {
+            keyboard: keyboardSettings
+        });
         this.dropDownDirection = this.settings.position == 'top' ? 'top' : 'bottom';
+    }
+
+    private isKeyboardEnabled(settingName: string) {
+        var keyboard: any = this.settings && this.settings.keyboard ? this.settings.keyboard : {};
+        var value = keyboard[settingName];
+
+        if (value === undefined && settingName === 'backspaceRemovesLastWhenSearchEmpty') {
+            value = keyboard.backspace;
+        }
+
+        return value !== false;
+    }
+
+    private getSpaceOptionAction() {
+        var keyboard = this.settings && this.settings.keyboard ? this.settings.keyboard : {};
+        return keyboard.spaceOptionAction || 'toggle';
+    }
+
+    private getPrimaryKey() {
+        return this.settings && this.settings.primaryKey ? this.settings.primaryKey : 'id';
+    }
+
+    private getLabelKey() {
+        return this.settings && this.settings.labelKey ? this.settings.labelKey : 'itemName';
+    }
+
+    private getItemKey(item: any) {
+        if (!item) {
+            return '';
+        }
+
+        var key = item[this.getPrimaryKey()];
+        return key === undefined || key === null ? '' : String(key);
+    }
+
+    private mergeSelectedIntoData(items: any[]) {
+        var source = Array.isArray(items) ? items.slice() : [];
+        var selected = Array.isArray(this.selectedItems) ? this.selectedItems : [];
+        var keys = source.reduce((map, item) => {
+            map[this.getItemKey(item)] = true;
+            return map;
+        }, {});
+
+        selected.forEach((item) => {
+            var key = this.getItemKey(item);
+            if (key && !keys[key]) {
+                source.push(item);
+                keys[key] = true;
+            }
+        });
+
+        return source;
     }
 
     isDropdownOpenTowardsTop() {
@@ -378,11 +449,33 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             estimatedHeight += 52;
         }
 
-        if (this.settings && this.settings.enableCheckAll && !this.settings.singleSelection && !this.settings.limitSelection && this.data && this.data.length > 0 && !this.isDisabledItemPresent) {
+        if (this.settings && this.settings.enableCheckAll && !this.settings.singleSelection && !this.settings.limitSelection && this.hasSelectableItems()) {
             estimatedHeight += 44;
         }
 
         return estimatedHeight;
+    }
+
+    hasSelectableItems() {
+        return this.getSelectableItems(this.data).length > 0;
+    }
+
+    private getSelectableItems(items: Array<any> = []) {
+        return (items || []).filter((item: any) => item && !item.disabled && !item.grpTitle);
+    }
+
+    private areAllSelectableItemsSelected(items: Array<any> = []) {
+        var selectableItems = this.getSelectableItems(items);
+
+        if (!selectableItems.length || !this.selectedItems || this.selectedItems.length !== selectableItems.length) {
+            return false;
+        }
+
+        return selectableItems.every((item: any) => this.isSelected(item));
+    }
+
+    private syncSelectAllState() {
+        this.isSelectAll = this.areAllSelectableItemsSelected(this.data);
     }
 
     private isEventInsideHostOrPanel(event?: Event) {
@@ -631,7 +724,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             return '';
         }
 
-        var label = item[this.settings.labelKey];
+        var label = item[this.getLabelKey()];
         if (label === undefined || label === null) {
             return '';
         }
@@ -643,6 +736,29 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         var label = this.getItemLabel(item);
         var base = this.settings && this.settings.removeItemAriaLabel ? this.settings.removeItemAriaLabel : 'Remove selected option';
         return label ? base + ': ' + label : base;
+    }
+
+    getTemplateContext(item: any, index: number, prefix: string = 'option', group?: any) {
+        var selected = item && item.grpTitle ? !!item.selected : this.isSelected(item);
+        var disabled = this.isOptionDisabled(item);
+
+        return {
+            item: item,
+            label: this.getItemLabel(item),
+            selected: selected,
+            disabled: disabled,
+            index: index,
+            group: group || null,
+            optionId: this.getOptionId(item, index, prefix),
+            ariaSelected: selected,
+            ariaChecked: selected,
+            ariaDisabled: disabled,
+            isOpen: this.isActive,
+            settings: this.settings,
+            select: () => this.onItemClick(item, index, new Event('template-select')),
+            remove: () => this.removeSelected(item),
+            clear: () => this.clearSelection()
+        };
     }
 
     getOptionId(item: any, index: number, prefix: string = 'option') {
@@ -719,12 +835,21 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
         switch (evt.key) {
             case 'Enter':
+                evt.preventDefault();
+                this.toggleDropdown(evt);
+                break;
             case ' ':
             case 'Spacebar':
+                if (!this.isKeyboardEnabled('space')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.toggleDropdown(evt);
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 if (!this.isActive) {
                     this.openDropdown();
@@ -732,6 +857,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusFirstOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 if (!this.isActive) {
                     this.openDropdown();
@@ -739,6 +867,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.closeDropdown();
                 break;
@@ -748,37 +879,59 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     onOptionKeydown(item: any, index: number, evt: KeyboardEvent, prefix: string = 'option', scroller?: VirtualScrollerComponent) {
         switch (evt.key) {
             case 'Enter':
-            case ' ':
-            case 'Spacebar':
                 evt.preventDefault();
                 if (!this.isOptionDisabled(item)) {
-                    this.onItemClick(item, index, evt);
-                    this.setActiveDescendant(item, index, prefix);
+                    this.toggleOptionFromKeyboard(item, index, prefix);
+                }
+                break;
+            case ' ':
+            case 'Spacebar':
+                if (!this.isKeyboardEnabled('space')) {
+                    return;
+                }
+                evt.preventDefault();
+                if (!this.isOptionDisabled(item)) {
+                    this.toggleOptionFromKeyboard(item, index, prefix);
                 }
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusNextOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusPreviousOption();
                 break;
             case 'Home':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusFirstOption();
                 break;
             case 'End':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.closeDropdown();
                 this.focusTrigger();
                 break;
             case 'Tab':
-                if (this.focusVirtualOptionByDirection(item, evt.shiftKey ? -1 : 1, prefix, scroller)) {
+                if (!this.isKeyboardEnabled('tab')) {
                     evt.preventDefault();
                     evt.stopPropagation();
                 }
@@ -789,8 +942,17 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     onGroupKeydown(item: any, index: number, evt: KeyboardEvent, prefix: string = 'group') {
         switch (evt.key) {
             case 'Enter':
+                evt.preventDefault();
+                if (!this.isOptionDisabled(item)) {
+                    this.selectGroup(item);
+                    this.setActiveDescendant(item, index, prefix);
+                }
+                break;
             case ' ':
             case 'Spacebar':
+                if (!this.isKeyboardEnabled('space')) {
+                    return;
+                }
                 evt.preventDefault();
                 if (!this.isOptionDisabled(item)) {
                     this.selectGroup(item);
@@ -798,22 +960,37 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 }
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusNextOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusPreviousOption();
                 break;
             case 'Home':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusFirstOption();
                 break;
             case 'End':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.closeDropdown();
                 this.focusTrigger();
@@ -829,6 +1006,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 evt.stopPropagation();
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 if (!this.isActive) {
@@ -837,6 +1017,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusFirstOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 if (!this.isActive) {
@@ -845,6 +1028,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.closeDropdown();
@@ -856,13 +1042,23 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     onArrowButtonKeydown(evt: KeyboardEvent) {
         switch (evt.key) {
             case 'Enter':
+                evt.preventDefault();
+                evt.stopPropagation();
+                this.toggleDropdown(evt);
+                break;
             case ' ':
             case 'Spacebar':
+                if (!this.isKeyboardEnabled('space')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.toggleDropdown(evt);
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 if (!this.isActive) {
@@ -871,6 +1067,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusFirstOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 if (!this.isActive) {
@@ -879,6 +1078,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.closeDropdown();
@@ -890,20 +1092,36 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     onSearchKeydown(evt: KeyboardEvent) {
         switch (evt.key) {
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.focusFirstOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.focusLastOption();
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 evt.stopPropagation();
                 this.closeDropdown();
                 this.focusTrigger();
+                break;
+            case 'Backspace':
+                if (this.shouldBackspaceRemoveLast(evt)) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    this.removeLastSelectedItem();
+                }
                 break;
         }
     }
@@ -922,18 +1140,82 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 }
                 break;
             case 'Escape':
+                if (!this.isKeyboardEnabled('escape')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.closeDropdown();
                 this.focusTrigger();
                 break;
             case 'ArrowDown':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusFirstOption();
                 break;
             case 'ArrowUp':
+                if (!this.isKeyboardEnabled('arrows')) {
+                    return;
+                }
                 evt.preventDefault();
                 this.focusLastOption();
                 break;
+        }
+    }
+
+    onRemoveButtonKeydown(item: any, index: number, evt: KeyboardEvent) {
+        if ((evt.key === 'Backspace' || evt.key === 'Delete') && this.isKeyboardEnabled('deleteRemovesFocusedBadge')) {
+            evt.preventDefault();
+            evt.stopPropagation();
+            this.onItemClick(item, index, evt);
+            return;
+        }
+
+        this.onInlineActionKeydown(evt);
+    }
+
+    onClearAllKeydown(evt: KeyboardEvent) {
+        if ((evt.key === 'Backspace' || evt.key === 'Delete') && this.isKeyboardEnabled('deleteRemovesFocusedBadge')) {
+            evt.preventDefault();
+            evt.stopPropagation();
+            this.clearSelection(evt);
+            return;
+        }
+
+        this.onInlineActionKeydown(evt);
+    }
+
+    private shouldBackspaceRemoveLast(evt: KeyboardEvent) {
+        var target = evt.target as HTMLInputElement;
+        var value = target && target.value !== undefined ? target.value : this.filter;
+
+        return this.isKeyboardEnabled('backspaceRemovesLastWhenSearchEmpty')
+            && (!value || String(value).length === 0)
+            && this.selectedItems
+            && this.selectedItems.length > 0;
+    }
+
+    private removeLastSelectedItem() {
+        if (!this.selectedItems || !this.selectedItems.length) {
+            return;
+        }
+
+        var lastItem = this.selectedItems[this.selectedItems.length - 1];
+        this.removeSelected(lastItem);
+        this.onDeSelect.emit(lastItem);
+        this.scheduleDropdownPositionUpdate();
+    }
+
+    private toggleOptionFromKeyboard(item: any, index: number, prefix: string) {
+        this.onItemClick(item, index, new KeyboardEvent('keydown'));
+        this.setActiveDescendant(item, index, prefix);
+
+        if (this.getSpaceOptionAction() === 'toggle-and-next') {
+            this.focusNextOption();
+        }
+        else {
+            this.focusOptionById(this.getOptionId(item, index, prefix));
         }
     }
 
@@ -963,6 +1245,20 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             var nextIndex = Math.max(0, Math.min(index, options.length - 1));
             options[nextIndex].focus();
             this.activeDescendantId = options[nextIndex].id || null;
+        }, 0);
+    }
+
+    private focusOptionById(optionId: string) {
+        setTimeout(() => {
+            if (!this.dropdownListElem || !this.dropdownListElem.nativeElement) {
+                return;
+            }
+
+            var option = document.getElementById(optionId) as HTMLElement;
+            if (option) {
+                option.focus();
+                this.activeDescendantId = option.id || optionId;
+            }
         }, 0);
     }
 
@@ -1059,11 +1355,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
     ngOnChanges(changes: SimpleChanges) {
         if (changes.data && !changes.data.firstChange) {
+            this.data = this.mergeSelectedIntoData(this.data || []);
             if (this.settings.groupBy) {
                 this.groupedData = this.transformData(this.data, this.settings.groupBy);
-                if (this.data.length == 0) {
-                    this.selectedItems = [];
-                }
                 this.groupCachedItems = this.cloneArray(this.groupedData);
             }
             this.cachedItems = this.cloneArray(this.data);
@@ -1088,11 +1382,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
     }
     ngDoCheck() {
-        if (this.selectedItems) {
-            if (this.selectedItems.length == 0 || this.data.length == 0 || this.selectedItems.length < this.data.length) {
-                this.isSelectAll = false;
-            }
-        }
+        this.syncSelectAllState();
     }
     ngAfterViewInit() {
         if (this.settings.lazyLoading) {
@@ -1138,19 +1428,30 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.removeSelected(item);
             this.onDeSelect.emit(item);
         }
-        if (this.isSelectAll || this.data.length > this.selectedItems.length) {
-            this.isSelectAll = false;
-        }
-
-        if (this.data.length == this.selectedItems.length) {
-            this.isSelectAll = true;
-        }
+        this.syncSelectAllState();
         if (this.settings.groupBy) {
             this.updateGroupInfo(item);
         }
+        this.focusClickedOption(evt);
         this.scheduleDropdownPositionUpdate();
 
 
+    }
+
+    private focusClickedOption(evt: Event) {
+        if (!evt || !this.isActive) {
+            return;
+        }
+
+        var currentTarget = evt.currentTarget as HTMLElement;
+        if (!currentTarget || !currentTarget.classList || !currentTarget.classList.contains('dropdown-option')) {
+            return;
+        }
+
+        setTimeout(() => {
+            currentTarget.focus();
+            this.activeDescendantId = currentTarget.id || null;
+        }, 0);
     }
     public validate(c: UntypedFormControl): any {
         return null;
@@ -1189,9 +1490,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 else {
                     this.selectedItems = value;
                 }
-                if (this.selectedItems!=null && this.selectedItems.length === this.data.length && this.data.length > 0) {
-                    this.isSelectAll = true;
-                }
+                this.syncSelectAllState();
                 if (this.settings.groupBy) {
                     this.groupedData = this.transformData(this.data, this.settings.groupBy);
                     this.groupCachedItems = this.cloneArray(this.groupedData);
@@ -1200,6 +1499,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         } else {
             this.selectedItems = [];
         }
+
+        this.data = this.mergeSelectedIntoData(this.data || []);
+        this.cachedItems = this.cloneArray(this.data);
     }
 
     //From ControlValueAccessor interface
@@ -1212,7 +1514,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         this.onTouchedCallback = fn;
     }
     trackByFn(index: number, item: any) {
-        return item[this.settings.primaryKey];
+        return item[this.getPrimaryKey()];
     }
     isSelected(clickedItem: any) {
         if (clickedItem.disabled) {
@@ -1220,7 +1522,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
         let found = false;
         this.selectedItems && this.selectedItems.forEach(item => {
-            if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+            if (clickedItem[this.getPrimaryKey()] === item[this.getPrimaryKey()]) {
                 found = true;
             }
         });
@@ -1242,7 +1544,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
     removeSelected(clickedItem: any) {
         this.selectedItems && this.selectedItems.forEach(item => {
-            if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+            if (clickedItem[this.getPrimaryKey()] === item[this.getPrimaryKey()]) {
                 this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
             }
         });
@@ -1276,9 +1578,11 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         this.syncOpenDropdownPanelState();
         this.bindOverlayListeners();
         this.scheduleDropdownPositionUpdate();
-        if (this.settings.searchAutofocus && this.searchInput && this.settings.enableSearchFilter && !this.searchTempl) {
+        if (this.settings.searchAutofocus && this.settings.enableSearchFilter && !this.searchTempl) {
             setTimeout(() => {
-                this.searchInput.nativeElement.focus();
+                if (this.searchInput && this.searchInput.nativeElement) {
+                    this.searchInput.nativeElement.focus();
+                }
             }, 0);
         }
         this.onOpen.emit(true);
@@ -1323,7 +1627,9 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         }
     }
     toggleSelectAll(event) {
-        if (!this.isSelectAll) {
+        var shouldSelect = !this.areAllSelectableItemsSelected(this.data);
+
+        if (shouldSelect) {
             this.selectedItems = [];
             if (this.settings.groupBy) {
                 this.groupedData.forEach((obj) => {
@@ -1334,8 +1640,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 })
             }
             // this.selectedItems = this.data.slice();
-            this.selectedItems = this.data.filter((individualData) => !individualData.disabled);
-            this.isSelectAll = true;
+            this.selectedItems = this.getSelectableItems(this.data);
+            this.isSelectAll = this.selectedItems.length > 0;
             this.onChangeCallback(this.selectedItems);
             this.onTouchedCallback(this.selectedItems);
 

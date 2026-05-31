@@ -1,6 +1,6 @@
 # @stackline/angular-multiselect-dropdown
 
-> A maintained Angular multiselect dropdown for classic Angular forms workflows, with search, grouping, custom item and badge templates, lazy loading, custom CSS/SCSS theming, ADA-compliant keyboard/ARIA support, and support for both template-driven and reactive forms.
+> A maintained Angular multiselect dropdown for classic Angular forms workflows, with search, grouping, custom item and badge templates, lazy loading, custom CSS/SCSS theming, accessibility-focused and keyboard/ARIA tested support, and support for both template-driven and reactive forms.
 
 [![npm version](https://img.shields.io/npm/v/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
 [![npm downloads](https://img.shields.io/npm/dt/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
@@ -12,7 +12,7 @@
 
 **[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 21 Demo](https://alexandro.net/docs/angular/multiselect/angular-21/)** | **[StackBlitz Playground](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21?startScript=start&initialpath=%2Fbasic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-**Latest tested package release:** `21.1.15` for Angular `21.x`
+**Latest tested package release:** `21.2.0` for Angular `21.x`
 
 ---
 
@@ -24,9 +24,9 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 21. The current tested package release is `21.1.15` for Angular 21.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 21. The current tested package release is `21.2.0` for Angular 21.x applications.
 
-The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.1.x line adds ADA-compliant keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. The 21.1.15 patch keeps the tested runtime behavior, documents the dedicated GitHub-backed StackBlitz playground URLs, fixes responsive dropdown width handling, makes tagToBody/appendToBody use portal-style positioning so dialogs and overflow containers do not clip the open list, and keeps the open menu surface opaque.
+The Angular 21 package is compatible with Angular 21.x and was tested in a real Angular 21.2.14 application before npm publication. The 21.2.0 release includes accessibility-focused keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. It ports the React 19.1.x combobox contract into Angular patterns: configurable keyboard behavior, matching `aria-selected` plus `aria-checked`, selected-object preservation across async data refreshes, richer template contexts, and renderless state helpers for custom Angular HTML.
 
 ## Features
 
@@ -36,13 +36,15 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 | Multi-select and single-select modes | ✅ |
 | Search and filter | ✅ |
 | Group by field | ✅ |
-| Custom item templates (`<c-item>`) | ✅ |
+| Custom item templates (`<c-item>`) with selected/ARIA context | ✅ |
 | Custom badge templates (`<c-badge>`) | ✅ |
+| Renderless Angular state helper for custom HTML | ✅ |
 | Template-driven forms (`ngModel`) | ✅ |
 | Reactive forms (`formControlName`) | ✅ |
 | Lazy loading and remote-data hooks | ✅ |
 | Theming via bundled CSS/SCSS | ✅ |
-| ADA-compliant keyboard navigation, focus states, and ARIA labels | ✅ |
+| Accessibility-focused keyboard navigation, focus states, and ARIA labels | ✅ |
+| Matching `aria-selected` and `aria-checked` option state | ✅ |
 | Primary selector `<angular-multiselect>` | ✅ |
 | Legacy compatibility alias `<angular2-multiselect>` | ✅ |
 | Versioned docs builds per Angular line | ✅ |
@@ -57,13 +59,15 @@ The Angular 21 package is compatible with Angular 21.x and was tested in a real 
 6. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
 7. [Basic Usage](#basic-usage)
 8. [Official Angular 21 Test Matrix](#official-angular-21-test-matrix)
-9. [Custom Templates](#custom-templates)
-10. [Forms Integration](#forms-integration)
-11. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-12. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
-13. [Events](#events)
-14. [Run Locally](#run-locally)
-15. [License](#license)
+9. [Keyboard and ARIA Contract](#keyboard-and-aria-contract)
+10. [Custom Templates](#custom-templates)
+11. [Renderless State Helper](#renderless-state-helper)
+12. [Forms Integration](#forms-integration)
+13. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
+14. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
+15. [Events](#events)
+16. [Run Locally](#run-locally)
+17. [License](#license)
 
 ## Rename Note
 
@@ -80,7 +84,7 @@ Peer ranges are intentionally bounded to the tested Angular major. The Angular 2
 
 | Package family | Framework family | Peer range | Tested release window | Demo link |
 | :---: | :---: | :---: | :---: | :--- |
-| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.1.15 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
+| **21.x** | **Angular 21 only** | **`>=21.0.0 <22.0.0`** | **21.2.0 -> 21.2.14** | [Angular 21 family docs](https://alexandro.net/docs/angular/multiselect/angular-21/) |
 | **20.x** | **Angular 20 only** | **`>=20.0.0 <21.0.0`** | **20.0.1 -> 20.3.21** | [Angular 20 family docs](https://alexandro.net/docs/angular/multiselect/angular-20/) |
 | **19.x** | **Angular 19 only** | **`>=19.0.0 <20.0.0`** | **19.0.1 -> 19.2.22** | [Angular 19 family docs](https://alexandro.net/docs/angular/multiselect/angular-19/) |
 | **18.x** | **Angular 18 only** | **`>=18.0.0 <19.0.0`** | **18.0.1 -> 18.2.14** | [Angular 18 family docs](https://alexandro.net/docs/angular/multiselect/angular-18/) |
@@ -134,10 +138,10 @@ The editable StackBlitz entry is one Angular 21 playground with isolated lazy ro
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@21.1.15 --save-exact
+npm install @stackline/angular-multiselect-dropdown@21.2.0 --save-exact
 ```
 
-Install `21.1.15` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the ADA-compliant keyboard/ARIA accessibility patch, fixes responsive dropdown width handling, and keeps dropdown surfaces opaque in clipped containers.
+Install `21.2.0` for Angular 21.x applications. This line keeps the tested Angular 21 behavior, makes `<angular-multiselect>` the documented standard selector, keeps `<angular2-multiselect>` only as a legacy compatibility alias, adds the accessibility-focused and keyboard/ARIA tested interaction contract, fixes responsive dropdown width handling, preserves selected objects during async refreshes, and keeps dropdown surfaces opaque in clipped containers.
 
 ## Setup
 
@@ -233,7 +237,7 @@ dropdownSettings = {
 
 ## Official Angular 21 Test Matrix
 
-The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.1.15`. The docs now use the same examples from that test app, including the ADA-compliant keyboard, focus, ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
+The published Angular 21 release was tested in a real Angular `21.2.14` application with `@stackline/angular-multiselect-dropdown@21.2.0`. The docs now use the same examples from that test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning added in this release line.
 
 Switch between skins through the settings object:
 
@@ -268,6 +272,38 @@ The same twelve scenarios are validated for both `classic` and `material`:
 | 11 | Local lazy loading | `{ lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 }` |
 | 12 | Item + chip template | `<c-badge>` and `<c-item>` custom templates |
 
+## Keyboard and ARIA Contract
+
+The Angular line follows the same combobox contract validated in the React 19.1.x work, but exposed through Angular settings:
+
+```ts
+dropdownSettings = {
+  text: 'Keyboard-tested countries',
+  enableSearchFilter: true,
+  searchAutofocus: false,
+  keyboard: {
+    space: true,
+    spaceOptionAction: 'toggle',
+    tab: true,
+    arrows: true,
+    escape: true,
+    backspaceRemovesLastWhenSearchEmpty: false,
+    deleteRemovesFocusedBadge: true
+  }
+};
+```
+
+Default behavior:
+
+- Space on the trigger opens or closes the dropdown.
+- Space on an option toggles that option and keeps focus on it.
+- Search inputs type a normal space.
+- Tab moves focus and never selects an option.
+- Escape closes the list without clearing selected values.
+- Empty-search Backspace does not remove selected values by default.
+- Focused badge/remove buttons can remove intentionally with Backspace/Delete.
+- Options expose matching `aria-selected` and `aria-checked` values.
+
 ## Custom Templates
 
 ```html
@@ -276,15 +312,54 @@ The same twelve scenarios are validated for both `classic` and `material`:
   [(ngModel)]="selectedItems"
   [settings]="dropdownSettings">
   <c-item>
-    <ng-template let-item="item">
-      <label>{{ item.itemName }}</label>
-      <img [src]="item.image" style="width: 24px; margin-left: 8px;" />
+    <ng-template
+      let-item="item"
+      let-label="label"
+      let-selected="selected"
+      let-ariaChecked="ariaChecked">
+      <span [attr.data-aria-checked]="ariaChecked">
+        {{ label }}
+        <strong *ngIf="selected">Selected</strong>
+      </span>
     </ng-template>
   </c-item>
 </angular-multiselect>
 ```
 
 `<angular2-multiselect>` remains available only as a legacy compatibility alias for applications migrating from the old outdated plugin. New code and all current examples should use `<angular-multiselect>`.
+
+## Renderless State Helper
+
+Use `AngularMultiselectState` when you want Stackline selection, filtering, item identity, object preservation, and ARIA state while owning all HTML yourself.
+
+```ts
+import {
+  AngularMultiselectState,
+  defineAngularMultiselectSettings
+} from '@stackline/angular-multiselect-dropdown';
+
+interface CountryOption {
+  id: number;
+  itemName: string;
+  region: string;
+}
+
+state = new AngularMultiselectState<CountryOption>({
+  data: countries,
+  selectedItems: [countries[0]],
+  settings: defineAngularMultiselectSettings<CountryOption>({
+    primaryKey: 'id',
+    labelKey: 'itemName',
+    searchBy: ['itemName', 'region'],
+    ariaLabel: 'Headless country picker'
+  }),
+  onChange: (items) => {
+    selectedItems = items;
+  }
+});
+```
+
+The docs include a `Headless + ARIA` route that binds the returned trigger, listbox, and option state into fully custom Angular HTML.
 
 ## Forms Integration
 
@@ -345,7 +420,7 @@ settings = {
 };
 ```
 
-In `21.1.15`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
+In `21.2.0`, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
 ## Events
 

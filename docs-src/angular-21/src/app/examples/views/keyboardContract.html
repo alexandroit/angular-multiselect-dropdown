@@ -1,0 +1,28 @@
+<section class="contract-grid">
+  <div>
+    <h3>Keyboard contract</h3>
+    <p>Space, Tab, arrows, Escape, Backspace, and focused badge removal are explicit settings.</p>
+  </div>
+
+  <div class="setting-row" aria-label="Keyboard behavior toggles">
+    <button type="button" [class.active]="settings.keyboard?.space !== false" (click)="toggleKeyboard('space')">Space</button>
+    <button type="button" [class.active]="settings.keyboard?.tab !== false" (click)="toggleKeyboard('tab')">Tab</button>
+    <button type="button" [class.active]="settings.keyboard?.arrows !== false" (click)="toggleKeyboard('arrows')">Arrows</button>
+    <button type="button" [class.active]="settings.keyboard?.escape !== false" (click)="toggleKeyboard('escape')">Escape</button>
+    <button type="button" [class.active]="settings.keyboard?.backspaceRemovesLastWhenSearchEmpty" (click)="toggleKeyboard('backspaceRemovesLastWhenSearchEmpty')">Search Backspace</button>
+    <button type="button" [class.active]="settings.keyboard?.deleteRemovesFocusedBadge !== false" (click)="toggleKeyboard('deleteRemovesFocusedBadge')">Badge Delete</button>
+    <button type="button" [class.active]="spaceMode === 'toggle'" (click)="setSpaceMode('toggle')">Toggle only</button>
+    <button type="button" [class.active]="spaceMode === 'toggle-and-next'" (click)="setSpaceMode('toggle-and-next')">Toggle and next</button>
+  </div>
+
+  <angular-multiselect
+    [data]="itemList"
+    [(ngModel)]="selectedItems"
+    [settings]="settings">
+  </angular-multiselect>
+
+  <div class="code-note">
+    <strong>Current keyboard settings</strong>
+    <pre>{{ settingsJson }}</pre>
+  </div>
+</section>

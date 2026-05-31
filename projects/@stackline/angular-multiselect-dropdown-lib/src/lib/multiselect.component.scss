@@ -39,6 +39,7 @@ virtual-scroll {
   display: flex;
   align-items: center;
   align-content: center;
+  box-sizing: border-box;
   flex-wrap: wrap;
   gap: 8px;
   width: 100%;
@@ -55,6 +56,10 @@ virtual-scroll {
     box-shadow 160ms ease,
     background-color 160ms ease,
     transform 160ms ease;
+}
+
+.c-btn.has-selection {
+  padding-right: 104px;
 }
 
 .c-btn:hover {
@@ -203,10 +208,17 @@ button.c-arrow-toggle:disabled {
   position: absolute;
   top: 50%;
   right: 76px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
   transform: translateY(-50%);
   color: var(--ms-on-surface-muted, #5f6368);
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 .c-angle-down,
@@ -630,6 +642,10 @@ button.c-arrow-toggle:disabled {
   color: #333333;
   font-size: 14px;
   line-height: 1.35;
+}
+
+.stackline-dropdown.theme-classic .c-btn.has-selection {
+  padding-right: 104px;
 }
 
 .stackline-dropdown.theme-classic .c-btn.is-active,

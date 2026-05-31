@@ -36770,7 +36770,7 @@ var _c18 = (a0, a1, a2, a3) => ({
 });
 function AngularMultiSelect_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 29);
+    \u0275\u0275elementStart(0, "span", 23);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -36795,8 +36795,8 @@ function AngularMultiSelect_span_7_span_1_Template(rf, ctx) {
 }
 function AngularMultiSelect_span_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 30);
-    \u0275\u0275template(1, AngularMultiSelect_span_7_span_1_Template, 2, 1, "span", 31);
+    \u0275\u0275elementStart(0, "span", 24);
+    \u0275\u0275template(1, AngularMultiSelect_span_7_span_1_Template, 2, 1, "span", 25);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -36807,7 +36807,7 @@ function AngularMultiSelect_span_7_Template(rf, ctx) {
 }
 function AngularMultiSelect_span_8_div_1_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 37);
+    \u0275\u0275elementStart(0, "span", 31);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -36820,34 +36820,38 @@ function AngularMultiSelect_span_8_div_1_span_1_Template(rf, ctx) {
 }
 function AngularMultiSelect_span_8_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 37);
-    \u0275\u0275element(1, "c-templateRenderer", 38);
+    \u0275\u0275elementStart(0, "span", 31);
+    \u0275\u0275element(1, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r5 = \u0275\u0275nextContext().$implicit;
+    const ctx_r5 = \u0275\u0275nextContext();
+    const item_r5 = ctx_r5.$implicit;
+    const k_r7 = ctx_r5.index;
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r5);
+    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r5)("context", ctx_r1.getTemplateContext(item_r5, k_r7, "badge"));
   }
 }
 function AngularMultiSelect_span_8_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 34);
-    \u0275\u0275template(1, AngularMultiSelect_span_8_div_1_span_1_Template, 2, 1, "span", 35)(2, AngularMultiSelect_span_8_div_1_span_2_Template, 2, 2, "span", 35);
-    \u0275\u0275elementStart(3, "button", 36);
+    \u0275\u0275elementStart(0, "div", 28);
+    \u0275\u0275template(1, AngularMultiSelect_span_8_div_1_span_1_Template, 2, 1, "span", 29)(2, AngularMultiSelect_span_8_div_1_span_2_Template, 2, 3, "span", 29);
+    \u0275\u0275elementStart(3, "button", 30);
     \u0275\u0275listener("click", function AngularMultiSelect_span_8_div_1_Template_button_click_3_listener($event) {
-      const ctx_r5 = \u0275\u0275restoreView(_r4);
-      const item_r5 = ctx_r5.$implicit;
-      const k_r7 = ctx_r5.index;
+      const ctx_r7 = \u0275\u0275restoreView(_r4);
+      const item_r5 = ctx_r7.$implicit;
+      const k_r7 = ctx_r7.index;
       const ctx_r1 = \u0275\u0275nextContext(2);
       ctx_r1.onItemClick(item_r5, k_r7, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_span_8_div_1_Template_button_keydown_3_listener($event) {
-      \u0275\u0275restoreView(_r4);
+      const ctx_r8 = \u0275\u0275restoreView(_r4);
+      const item_r5 = ctx_r8.$implicit;
+      const k_r7 = ctx_r8.index;
       const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
+      return \u0275\u0275resetView(ctx_r1.onRemoveButtonKeydown(item_r5, k_r7, $event));
     });
     \u0275\u0275element(4, "c-icon", 18);
     \u0275\u0275elementEnd()();
@@ -36867,8 +36871,8 @@ function AngularMultiSelect_span_8_div_1_Template(rf, ctx) {
 }
 function AngularMultiSelect_span_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 32);
-    \u0275\u0275template(1, AngularMultiSelect_span_8_div_1_Template, 5, 4, "div", 33);
+    \u0275\u0275elementStart(0, "span", 26);
+    \u0275\u0275template(1, AngularMultiSelect_span_8_div_1_Template, 5, 4, "div", 27);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -36879,61 +36883,66 @@ function AngularMultiSelect_span_8_Template(rf, ctx) {
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 37);
+    \u0275\u0275elementStart(0, "span", 31);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r9 = \u0275\u0275nextContext(2).$implicit;
+    const item_r11 = \u0275\u0275nextContext(2).$implicit;
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(item_r9[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r11[ctx_r1.settings.labelKey]);
   }
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 37);
-    \u0275\u0275element(1, "c-templateRenderer", 38);
+    \u0275\u0275elementStart(0, "span", 31);
+    \u0275\u0275element(1, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r9 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r11 = \u0275\u0275nextContext(2);
+    const item_r11 = ctx_r11.$implicit;
+    const k_r13 = ctx_r11.index;
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r9);
+    \u0275\u0275property("data", ctx_r1.badgeTempl)("item", item_r11)("context", ctx_r1.getTemplateContext(item_r11, k_r13, "badge"));
   }
 }
 function AngularMultiSelect_div_9_ng_container_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r8 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 34);
-    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_span_1_Template, 2, 1, "span", 35)(2, AngularMultiSelect_div_9_ng_container_1_div_1_span_2_Template, 2, 2, "span", 35);
-    \u0275\u0275elementStart(3, "button", 36);
+    const _r10 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 28);
+    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_span_1_Template, 2, 1, "span", 29)(2, AngularMultiSelect_div_9_ng_container_1_div_1_span_2_Template, 2, 3, "span", 29);
+    \u0275\u0275elementStart(3, "button", 30);
     \u0275\u0275listener("click", function AngularMultiSelect_div_9_ng_container_1_div_1_Template_button_click_3_listener($event) {
-      \u0275\u0275restoreView(_r8);
-      const ctx_r9 = \u0275\u0275nextContext();
-      const item_r9 = ctx_r9.$implicit;
-      const k_r11 = ctx_r9.index;
+      \u0275\u0275restoreView(_r10);
+      const ctx_r11 = \u0275\u0275nextContext();
+      const item_r11 = ctx_r11.$implicit;
+      const k_r13 = ctx_r11.index;
       const ctx_r1 = \u0275\u0275nextContext(2);
-      ctx_r1.onItemClick(item_r9, k_r11, $event);
+      ctx_r1.onItemClick(item_r11, k_r13, $event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_div_9_ng_container_1_div_1_Template_button_keydown_3_listener($event) {
-      \u0275\u0275restoreView(_r8);
-      const ctx_r1 = \u0275\u0275nextContext(3);
-      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
+      \u0275\u0275restoreView(_r10);
+      const ctx_r11 = \u0275\u0275nextContext();
+      const item_r11 = ctx_r11.$implicit;
+      const k_r13 = ctx_r11.index;
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onRemoveButtonKeydown(item_r11, k_r13, $event));
     });
     \u0275\u0275element(4, "c-icon", 18);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r9 = \u0275\u0275nextContext().$implicit;
+    const item_r11 = \u0275\u0275nextContext().$implicit;
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.badgeTempl);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.badgeTempl);
     \u0275\u0275advance();
-    \u0275\u0275attribute("aria-label", ctx_r1.getRemoveItemAriaLabel(item_r9));
+    \u0275\u0275attribute("aria-label", ctx_r1.getRemoveItemAriaLabel(item_r11));
     \u0275\u0275advance();
     \u0275\u0275property("name", "remove");
   }
@@ -36941,20 +36950,20 @@ function AngularMultiSelect_div_9_ng_container_1_div_1_Template(rf, ctx) {
 function AngularMultiSelect_div_9_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_Template, 5, 4, "div", 39);
+    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_div_1_Template, 5, 4, "div", 33);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const k_r11 = ctx.index;
+    const k_r13 = ctx.index;
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.shouldShowSelectedBadge(k_r11));
+    \u0275\u0275property("ngIf", ctx_r1.shouldShowSelectedBadge(k_r13));
   }
 }
 function AngularMultiSelect_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 32);
-    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_Template, 2, 1, "ng-container", 31);
+    \u0275\u0275elementStart(0, "div", 26);
+    \u0275\u0275template(1, AngularMultiSelect_div_9_ng_container_1_Template, 2, 1, "ng-container", 25);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -36965,7 +36974,7 @@ function AngularMultiSelect_div_9_Template(rf, ctx) {
 }
 function AngularMultiSelect_span_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 40);
+    \u0275\u0275elementStart(0, "span", 34);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -36977,17 +36986,17 @@ function AngularMultiSelect_span_10_Template(rf, ctx) {
 }
 function AngularMultiSelect_button_11_Template(rf, ctx) {
   if (rf & 1) {
-    const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 41);
+    const _r14 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 35);
     \u0275\u0275listener("click", function AngularMultiSelect_button_11_Template_button_click_0_listener($event) {
-      \u0275\u0275restoreView(_r12);
+      \u0275\u0275restoreView(_r14);
       const ctx_r1 = \u0275\u0275nextContext();
       ctx_r1.clearSelection($event);
       return \u0275\u0275resetView($event.stopPropagation());
     })("keydown", function AngularMultiSelect_button_11_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r12);
+      \u0275\u0275restoreView(_r14);
       const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
+      return \u0275\u0275resetView(ctx_r1.onClearAllKeydown($event));
     });
     \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
@@ -36999,35 +37008,35 @@ function AngularMultiSelect_button_11_Template(rf, ctx) {
     \u0275\u0275property("name", "remove");
   }
 }
-function AngularMultiSelect_div_19_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r13 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 46);
-    \u0275\u0275listener("change", function AngularMultiSelect_div_19_input_1_Template_input_change_0_listener($event) {
-      \u0275\u0275restoreView(_r13);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    const _r15 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 47);
+    \u0275\u0275listener("change", function AngularMultiSelect_div_18_div_1_input_1_Template_input_change_0_listener($event) {
+      \u0275\u0275restoreView(_r15);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleSelectAll($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275property("checked", ctx_r1.isSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length))("id", ctx_r1.id);
   }
 }
-function AngularMultiSelect_div_19_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 42);
-    \u0275\u0275template(1, AngularMultiSelect_div_19_input_1_Template, 1, 3, "input", 43);
-    \u0275\u0275elementStart(2, "label", 44)(3, "span", 45);
+    \u0275\u0275elementStart(0, "div", 43);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_1_input_1_Template, 1, 3, "input", 44);
+    \u0275\u0275elementStart(2, "label", 45)(3, "span", 46);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 45);
+    \u0275\u0275elementStart(5, "span", 46);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance();
@@ -37042,166 +37051,166 @@ function AngularMultiSelect_div_19_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r1.settings.unSelectAllText);
   }
 }
-function AngularMultiSelect_img_20_Template(rf, ctx) {
+function AngularMultiSelect_div_18_img_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "img", 47);
+    \u0275\u0275element(0, "img", 48);
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275attribute("alt", ctx_r1.settings.loadingText);
   }
 }
-function AngularMultiSelect_div_21_button_3_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r14 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 53);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_21_button_3_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r14);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.clearSearch());
-    })("keydown", function AngularMultiSelect_div_21_button_3_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r14);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
-    });
-    \u0275\u0275element(1, "c-icon", 18);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
-    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
-    \u0275\u0275advance();
-    \u0275\u0275property("name", "clear");
-  }
-}
-function AngularMultiSelect_div_21_button_4_Template(rf, ctx) {
-  if (rf & 1) {
-    const _r15 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 53);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_21_button_4_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r15);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.resetInfiniteSearch());
-    })("keydown", function AngularMultiSelect_div_21_button_4_Template_button_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r15);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
-    });
-    \u0275\u0275element(1, "c-icon", 18);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
-    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
-    \u0275\u0275advance();
-    \u0275\u0275property("name", "clear");
-  }
-}
-function AngularMultiSelect_div_21_input_5_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_3_button_3_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 54, 4);
-    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_5_Template_input_ngModelChange_0_listener($event) {
+    \u0275\u0275elementStart(0, "button", 54);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_3_button_3_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r16);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
-      return \u0275\u0275resetView($event);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.clearSearch());
+    })("keydown", function AngularMultiSelect_div_18_div_3_button_3_Template_button_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r16);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_5_Template_input_keyup_0_listener() {
-      \u0275\u0275restoreView(_r16);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.filterGroupedList());
-    })("keydown", function AngularMultiSelect_div_21_input_5_Template_input_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r16);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
-    });
+    \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
-    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
+    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
+    \u0275\u0275advance();
+    \u0275\u0275property("name", "clear");
   }
 }
-function AngularMultiSelect_div_21_input_6_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_3_button_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 54, 4);
-    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_6_Template_input_ngModelChange_0_listener($event) {
+    \u0275\u0275elementStart(0, "button", 54);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_3_button_4_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r17);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
-      return \u0275\u0275resetView($event);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.resetInfiniteSearch());
+    })("keydown", function AngularMultiSelect_div_18_div_3_button_4_Template_button_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onInlineActionKeydown($event));
     });
-    \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_6_Template_input_keyup_0_listener($event) {
-      \u0275\u0275restoreView(_r17);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.filteritems($event));
-    })("keydown", function AngularMultiSelect_div_21_input_6_Template_input_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r17);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
-    });
+    \u0275\u0275element(1, "c-icon", 18);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
-    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("hidden", ctx_r1.filter == void 0 || (ctx_r1.filter == null ? null : ctx_r1.filter.length) == 0);
+    \u0275\u0275attribute("aria-label", ctx_r1.getClearSearchAriaLabel());
+    \u0275\u0275advance();
+    \u0275\u0275property("name", "clear");
   }
 }
-function AngularMultiSelect_div_21_input_7_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_3_input_5_Template(rf, ctx) {
   if (rf & 1) {
     const _r18 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "input", 54, 4);
-    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_21_input_7_Template_input_ngModelChange_0_listener($event) {
+    \u0275\u0275elementStart(0, "input", 55, 4);
+    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_18_div_3_input_5_Template_input_ngModelChange_0_listener($event) {
       \u0275\u0275restoreView(_r18);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
       return \u0275\u0275resetView($event);
     });
-    \u0275\u0275listener("keyup", function AngularMultiSelect_div_21_input_7_Template_input_keyup_0_listener($event) {
+    \u0275\u0275listener("keyup", function AngularMultiSelect_div_18_div_3_input_5_Template_input_keyup_0_listener() {
       \u0275\u0275restoreView(_r18);
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onKeyUp($event));
-    })("keydown", function AngularMultiSelect_div_21_input_7_Template_input_keydown_0_listener($event) {
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.filterGroupedList());
+    })("keydown", function AngularMultiSelect_div_18_div_3_input_5_Template_input_keydown_0_listener($event) {
       \u0275\u0275restoreView(_r18);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
     \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
     \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
   }
 }
-function AngularMultiSelect_div_21_c_templateRenderer_8_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_3_input_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "c-templateRenderer", 38);
+    const _r19 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 55, 4);
+    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_18_div_3_input_6_Template_input_ngModelChange_0_listener($event) {
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275listener("keyup", function AngularMultiSelect_div_18_div_3_input_6_Template_input_keyup_0_listener($event) {
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.filteritems($event));
+    })("keydown", function AngularMultiSelect_div_18_div_3_input_6_Template_input_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r19);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
+    });
+    \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
+    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
+  }
+}
+function AngularMultiSelect_div_18_div_3_input_7_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r20 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "input", 55, 4);
+    \u0275\u0275twoWayListener("ngModelChange", function AngularMultiSelect_div_18_div_3_input_7_Template_input_ngModelChange_0_listener($event) {
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.filter, $event) || (ctx_r1.filter = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275listener("keyup", function AngularMultiSelect_div_18_div_3_input_7_Template_input_keyup_0_listener($event) {
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onKeyUp($event));
+    })("keydown", function AngularMultiSelect_div_18_div_3_input_7_Template_input_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r20);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onSearchKeydown($event));
+    });
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("placeholder", ctx_r1.settings.searchPlaceholderText);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.filter);
+    \u0275\u0275attribute("aria-label", ctx_r1.getSearchAriaLabel());
+  }
+}
+function AngularMultiSelect_div_18_div_3_c_templateRenderer_8_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "c-templateRenderer", 56);
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275property("data", ctx_r1.searchTempl)("item", ctx_r1.item);
   }
 }
-function AngularMultiSelect_div_21_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 48)(1, "span", 49);
+    \u0275\u0275elementStart(0, "div", 49)(1, "span", 50);
     \u0275\u0275element(2, "c-icon", 18);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, AngularMultiSelect_div_21_button_3_Template, 2, 3, "button", 50)(4, AngularMultiSelect_div_21_button_4_Template, 2, 3, "button", 50)(5, AngularMultiSelect_div_21_input_5_Template, 2, 3, "input", 51)(6, AngularMultiSelect_div_21_input_6_Template, 2, 3, "input", 51)(7, AngularMultiSelect_div_21_input_7_Template, 2, 3, "input", 51)(8, AngularMultiSelect_div_21_c_templateRenderer_8_Template, 1, 2, "c-templateRenderer", 52);
+    \u0275\u0275template(3, AngularMultiSelect_div_18_div_3_button_3_Template, 2, 3, "button", 51)(4, AngularMultiSelect_div_18_div_3_button_4_Template, 2, 3, "button", 51)(5, AngularMultiSelect_div_18_div_3_input_5_Template, 2, 3, "input", 52)(6, AngularMultiSelect_div_18_div_3_input_6_Template, 2, 3, "input", 52)(7, AngularMultiSelect_div_18_div_3_input_7_Template, 2, 3, "input", 52)(8, AngularMultiSelect_div_18_div_3_c_templateRenderer_8_Template, 1, 2, "c-templateRenderer", 53);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
     \u0275\u0275property("name", "search");
     \u0275\u0275advance();
@@ -37218,37 +37227,37 @@ function AngularMultiSelect_div_21_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r1.searchTempl);
   }
 }
-function AngularMultiSelect_div_22_div_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_4_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r19 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 57);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_1_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    const _r21 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 59);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_4_div_1_Template_div_click_0_listener() {
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
-    })("keydown", function AngularMultiSelect_div_22_div_1_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("keydown", function AngularMultiSelect_div_18_div_4_div_1_Template_div_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "filter"));
     });
-    \u0275\u0275elementStart(1, "input", 58);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_1_Template_input_click_1_listener($event) {
+    \u0275\u0275elementStart(1, "input", 60);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_4_div_1_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
-    })("change", function AngularMultiSelect_div_22_div_1_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r19);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("change", function AngularMultiSelect_div_18_div_4_div_1_Template_input_change_1_listener() {
+      \u0275\u0275restoreView(_r21);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 45);
+    \u0275\u0275elementStart(2, "label")(3, "span", 46);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 45);
+    \u0275\u0275elementStart(5, "span", 46);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275attribute("aria-checked", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
     \u0275\u0275property("checked", ctx_r1.isFilterSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
@@ -37262,37 +37271,37 @@ function AngularMultiSelect_div_22_div_1_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
-function AngularMultiSelect_div_22_div_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_4_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 57);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_2_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    const _r22 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 59);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_4_div_2_Template_div_click_0_listener() {
+      \u0275\u0275restoreView(_r22);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
-    })("keydown", function AngularMultiSelect_div_22_div_2_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("keydown", function AngularMultiSelect_div_18_div_4_div_2_Template_div_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r22);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "filter"));
     });
-    \u0275\u0275elementStart(1, "input", 58);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_22_div_2_Template_input_click_1_listener($event) {
+    \u0275\u0275elementStart(1, "input", 60);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_4_div_2_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
-    })("change", function AngularMultiSelect_div_22_div_2_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("change", function AngularMultiSelect_div_18_div_4_div_2_Template_input_change_1_listener() {
+      \u0275\u0275restoreView(_r22);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 45);
+    \u0275\u0275elementStart(2, "label")(3, "span", 46);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 45);
+    \u0275\u0275elementStart(5, "span", 46);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275attribute("aria-checked", ctx_r1.isFilterSelectAll);
     \u0275\u0275advance();
     \u0275\u0275property("checked", ctx_r1.isFilterSelectAll && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
@@ -37306,51 +37315,51 @@ function AngularMultiSelect_div_22_div_2_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
-function AngularMultiSelect_div_22_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 55);
-    \u0275\u0275template(1, AngularMultiSelect_div_22_div_1_Template, 7, 7, "div", 56)(2, AngularMultiSelect_div_22_div_2_Template, 7, 7, "div", 56);
+    \u0275\u0275elementStart(0, "div", 57);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_4_div_1_Template, 7, 7, "div", 58)(2, AngularMultiSelect_div_18_div_4_div_2_Template, 7, 7, "div", 58);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && ctx_r1.filterLength > 0 && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && (ctx_r1.groupedData == null ? null : ctx_r1.groupedData.length) > 0 && !ctx_r1.settings.singleSelection);
   }
 }
-function AngularMultiSelect_div_23_div_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_5_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r21 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 57);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_23_div_1_Template_div_click_0_listener() {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    const _r23 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 59);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_5_div_1_Template_div_click_0_listener() {
+      \u0275\u0275restoreView(_r23);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleInfiniteFilterSelectAll());
-    })("keydown", function AngularMultiSelect_div_23_div_1_Template_div_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("keydown", function AngularMultiSelect_div_18_div_5_div_1_Template_div_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r23);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onSelectAllKeydown($event, "infinite-filter"));
     });
-    \u0275\u0275elementStart(1, "input", 58);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_23_div_1_Template_input_click_1_listener($event) {
+    \u0275\u0275elementStart(1, "input", 60);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_5_div_1_Template_input_click_1_listener($event) {
       return $event.stopPropagation();
-    })("change", function AngularMultiSelect_div_23_div_1_Template_input_change_1_listener() {
-      \u0275\u0275restoreView(_r21);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    })("change", function AngularMultiSelect_div_18_div_5_div_1_Template_input_change_1_listener() {
+      \u0275\u0275restoreView(_r23);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.toggleInfiniteFilterSelectAll());
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "label")(3, "span", 45);
+    \u0275\u0275elementStart(2, "label")(3, "span", 46);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 45);
+    \u0275\u0275elementStart(5, "span", 46);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275attribute("aria-checked", ctx_r1.isInfiniteFilterSelectAll);
     \u0275\u0275advance();
     \u0275\u0275property("checked", ctx_r1.isInfiniteFilterSelectAll)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length));
@@ -37364,106 +37373,106 @@ function AngularMultiSelect_div_23_div_1_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r1.settings.filterUnSelectAllText);
   }
 }
-function AngularMultiSelect_div_23_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 55);
-    \u0275\u0275template(1, AngularMultiSelect_div_23_div_1_Template, 7, 7, "div", 56);
+    \u0275\u0275elementStart(0, "div", 57);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_5_div_1_Template, 7, 7, "div", 58);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", (ctx_r1.filter == null ? null : ctx_r1.filter.length) > 0 && ctx_r1.infiniteFilterLength > 0);
   }
 }
-function AngularMultiSelect_div_24_div_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_6_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 60)(1, "button", 61);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_24_div_1_Template_button_click_1_listener() {
-      \u0275\u0275restoreView(_r22);
-      const ctx_r1 = \u0275\u0275nextContext(2);
+    const _r24 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 62)(1, "button", 63);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_6_div_1_Template_button_click_1_listener() {
+      \u0275\u0275restoreView(_r24);
+      const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.addFilterNewItem());
     });
     \u0275\u0275text(2);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r1.settings.addNewButtonText);
   }
 }
-function AngularMultiSelect_div_24_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 55);
-    \u0275\u0275template(1, AngularMultiSelect_div_24_div_1_Template, 3, 1, "div", 59);
+    \u0275\u0275elementStart(0, "div", 57);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_6_div_1_Template, 3, 1, "div", 61);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.addNewItemOnFilter);
   }
 }
-function AngularMultiSelect_div_25_li_2_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_7_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r25 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r25))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r25) || item_r25.disabled);
+    const item_r27 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r27))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r27) || item_r27.disabled);
   }
 }
-function AngularMultiSelect_div_25_li_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_7_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r23 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 65);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_25_li_2_Template_li_click_0_listener($event) {
-      const ctx_r23 = \u0275\u0275restoreView(_r23);
-      const item_r25 = ctx_r23.$implicit;
-      const i_r26 = ctx_r23.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r25, i_r26, $event));
-    })("focus", function AngularMultiSelect_div_25_li_2_Template_li_focus_0_listener() {
-      const ctx_r26 = \u0275\u0275restoreView(_r23);
-      const item_r25 = ctx_r26.$implicit;
-      const i_r26 = ctx_r26.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r25, i_r26, "default"));
-    })("keydown", function AngularMultiSelect_div_25_li_2_Template_li_keydown_0_listener($event) {
-      const ctx_r27 = \u0275\u0275restoreView(_r23);
-      const item_r25 = ctx_r27.$implicit;
-      const i_r26 = ctx_r27.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r25, i_r26, $event, "default"));
+    const _r25 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 67);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_7_li_2_Template_li_click_0_listener($event) {
+      const ctx_r25 = \u0275\u0275restoreView(_r25);
+      const item_r27 = ctx_r25.$implicit;
+      const i_r28 = ctx_r25.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r27, i_r28, $event));
+    })("focus", function AngularMultiSelect_div_18_div_7_li_2_Template_li_focus_0_listener() {
+      const ctx_r28 = \u0275\u0275restoreView(_r25);
+      const item_r27 = ctx_r28.$implicit;
+      const i_r28 = ctx_r28.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r27, i_r28, "default"));
+    })("keydown", function AngularMultiSelect_div_18_div_7_li_2_Template_li_keydown_0_listener($event) {
+      const ctx_r29 = \u0275\u0275restoreView(_r25);
+      const item_r27 = ctx_r29.$implicit;
+      const i_r28 = ctx_r29.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r27, i_r28, $event, "default"));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_25_li_2_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_7_li_2_input_1_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r25 = ctx.$implicit;
-    const i_r26 = ctx.index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("id", ctx_r1.getOptionId(item_r25, i_r26, "default"))("ngClass", \u0275\u0275pureFunction2(7, _c13, ctx_r1.isSelected(item_r25) == true, ctx_r1.isOptionDisabled(item_r25)));
-    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r25))("aria-disabled", ctx_r1.isOptionDisabled(item_r25))("tabindex", ctx_r1.isOptionDisabled(item_r25) ? -1 : 0);
+    const item_r27 = ctx.$implicit;
+    const i_r28 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r27, i_r28, "default"))("ngClass", \u0275\u0275pureFunction2(8, _c13, ctx_r1.isSelected(item_r27) == true, ctx_r1.isOptionDisabled(item_r27)));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r27))("aria-checked", ctx_r1.isSelected(item_r27))("aria-disabled", ctx_r1.isOptionDisabled(item_r27))("tabindex", ctx_r1.isOptionDisabled(item_r27) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r25[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r27[ctx_r1.settings.labelKey]);
   }
 }
-function AngularMultiSelect_div_25_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
-    \u0275\u0275template(2, AngularMultiSelect_div_25_li_2_Template, 4, 10, "li", 64);
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 65);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_7_li_2_Template, 4, 11, "li", 66);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("id", ctx_r1.listboxId);
@@ -37472,148 +37481,148 @@ function AngularMultiSelect_div_25_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r1.data);
   }
 }
-function AngularMultiSelect_div_26_li_3_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_8_li_3_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r32 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r32))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r32) || item_r32.disabled);
+    const item_r34 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r34))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r34) || item_r34.disabled);
   }
 }
-function AngularMultiSelect_div_26_li_3_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_8_li_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r30 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 65);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_26_li_3_Template_li_click_0_listener($event) {
-      const ctx_r30 = \u0275\u0275restoreView(_r30);
-      const item_r32 = ctx_r30.$implicit;
-      const i_r33 = ctx_r30.index;
+    const _r32 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 67);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_8_li_3_Template_li_click_0_listener($event) {
+      const ctx_r32 = \u0275\u0275restoreView(_r32);
+      const item_r34 = ctx_r32.$implicit;
+      const i_r35 = ctx_r32.index;
       \u0275\u0275nextContext();
-      const scroll_r34 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), $event));
-    })("focus", function AngularMultiSelect_div_26_li_3_Template_li_focus_0_listener() {
-      const ctx_r34 = \u0275\u0275restoreView(_r30);
-      const item_r32 = ctx_r34.$implicit;
-      const i_r33 = ctx_r34.index;
+      const scroll_r36 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r34, ctx_r1.getVirtualItemIndex(item_r34, i_r35, scroll_r36), $event));
+    })("focus", function AngularMultiSelect_div_18_div_8_li_3_Template_li_focus_0_listener() {
+      const ctx_r36 = \u0275\u0275restoreView(_r32);
+      const item_r34 = ctx_r36.$implicit;
+      const i_r35 = ctx_r36.index;
       \u0275\u0275nextContext();
-      const scroll_r34 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), "lazy"));
-    })("keydown", function AngularMultiSelect_div_26_li_3_Template_li_keydown_0_listener($event) {
-      const ctx_r35 = \u0275\u0275restoreView(_r30);
-      const item_r32 = ctx_r35.$implicit;
-      const i_r33 = ctx_r35.index;
+      const scroll_r36 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r34, ctx_r1.getVirtualItemIndex(item_r34, i_r35, scroll_r36), "lazy"));
+    })("keydown", function AngularMultiSelect_div_18_div_8_li_3_Template_li_keydown_0_listener($event) {
+      const ctx_r37 = \u0275\u0275restoreView(_r32);
+      const item_r34 = ctx_r37.$implicit;
+      const i_r35 = ctx_r37.index;
       \u0275\u0275nextContext();
-      const scroll_r34 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), $event, "lazy", scroll_r34));
+      const scroll_r36 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r34, ctx_r1.getVirtualItemIndex(item_r34, i_r35, scroll_r36), $event, "lazy", scroll_r36));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_26_li_3_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_8_li_3_input_1_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r32 = ctx.$implicit;
-    const i_r33 = ctx.index;
+    const item_r34 = ctx.$implicit;
+    const i_r35 = ctx.index;
     \u0275\u0275nextContext();
-    const scroll_r34 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275property("id", ctx_r1.getOptionId(item_r32, ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34), "lazy"))("ngClass", \u0275\u0275pureFunction2(8, _c13, ctx_r1.isSelected(item_r32) == true, ctx_r1.isOptionDisabled(item_r32)));
-    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r32, i_r33, scroll_r34))("aria-selected", ctx_r1.isSelected(item_r32))("aria-disabled", ctx_r1.isOptionDisabled(item_r32))("tabindex", ctx_r1.isOptionDisabled(item_r32) ? -1 : 0);
+    const scroll_r36 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r34, ctx_r1.getVirtualItemIndex(item_r34, i_r35, scroll_r36), "lazy"))("ngClass", \u0275\u0275pureFunction2(9, _c13, ctx_r1.isSelected(item_r34) == true, ctx_r1.isOptionDisabled(item_r34)));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r34, i_r35, scroll_r36))("aria-selected", ctx_r1.isSelected(item_r34))("aria-checked", ctx_r1.isSelected(item_r34))("aria-disabled", ctx_r1.isOptionDisabled(item_r34))("tabindex", ctx_r1.isOptionDisabled(item_r34) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r32[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r34[ctx_r1.settings.labelKey]);
   }
 }
-function AngularMultiSelect_div_26_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    const _r29 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 5);
-    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_26_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r29);
-      const ctx_r1 = \u0275\u0275nextContext();
+    const _r31 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 70, 5);
+    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_18_div_8_Template_ul_vsStart_1_listener($event) {
+      \u0275\u0275restoreView(_r31);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
-    })("vsEnd", function AngularMultiSelect_div_26_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r29);
-      const ctx_r1 = \u0275\u0275nextContext();
+    })("vsEnd", function AngularMultiSelect_div_18_div_8_Template_ul_vsEnd_1_listener($event) {
+      \u0275\u0275restoreView(_r31);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_26_li_3_Template, 4, 11, "li", 64);
+    \u0275\u0275template(3, AngularMultiSelect_div_18_div_8_li_3_Template, 4, 12, "li", 66);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll_r34 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
+    const scroll_r36 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
     \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll_r34.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll_r36.viewPortItems);
   }
 }
-function AngularMultiSelect_div_27_li_2_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_9_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r39 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r39))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r39) || item_r39.disabled);
+    const item_r41 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r41))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r41) || item_r41.disabled);
   }
 }
-function AngularMultiSelect_div_27_li_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_9_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r37 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 65);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_27_li_2_Template_li_click_0_listener($event) {
-      const ctx_r37 = \u0275\u0275restoreView(_r37);
-      const item_r39 = ctx_r37.$implicit;
-      const i_r40 = ctx_r37.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r39, i_r40, $event));
-    })("focus", function AngularMultiSelect_div_27_li_2_Template_li_focus_0_listener() {
-      const ctx_r40 = \u0275\u0275restoreView(_r37);
-      const item_r39 = ctx_r40.$implicit;
-      const i_r40 = ctx_r40.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r39, i_r40, "custom"));
-    })("keydown", function AngularMultiSelect_div_27_li_2_Template_li_keydown_0_listener($event) {
-      const ctx_r41 = \u0275\u0275restoreView(_r37);
-      const item_r39 = ctx_r41.$implicit;
-      const i_r40 = ctx_r41.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r39, i_r40, $event, "custom"));
+    const _r39 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 67);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_9_li_2_Template_li_click_0_listener($event) {
+      const ctx_r39 = \u0275\u0275restoreView(_r39);
+      const item_r41 = ctx_r39.$implicit;
+      const i_r42 = ctx_r39.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r41, i_r42, $event));
+    })("focus", function AngularMultiSelect_div_18_div_9_li_2_Template_li_focus_0_listener() {
+      const ctx_r42 = \u0275\u0275restoreView(_r39);
+      const item_r41 = ctx_r42.$implicit;
+      const i_r42 = ctx_r42.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r41, i_r42, "custom"));
+    })("keydown", function AngularMultiSelect_div_18_div_9_li_2_Template_li_keydown_0_listener($event) {
+      const ctx_r43 = \u0275\u0275restoreView(_r39);
+      const item_r41 = ctx_r43.$implicit;
+      const i_r42 = ctx_r43.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r41, i_r42, $event, "custom"));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_27_li_2_input_1_Template, 1, 2, "input", 66);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_9_li_2_input_1_Template, 1, 2, "input", 68);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r39 = ctx.$implicit;
-    const i_r40 = ctx.index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("id", ctx_r1.getOptionId(item_r39, i_r40, "custom"))("ngClass", \u0275\u0275pureFunction2(8, _c13, ctx_r1.isSelected(item_r39) == true, ctx_r1.isOptionDisabled(item_r39)));
-    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r39))("aria-disabled", ctx_r1.isOptionDisabled(item_r39))("tabindex", ctx_r1.isOptionDisabled(item_r39) ? -1 : 0);
+    const item_r41 = ctx.$implicit;
+    const i_r42 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r41, i_r42, "custom"))("ngClass", \u0275\u0275pureFunction2(10, _c13, ctx_r1.isSelected(item_r41) == true, ctx_r1.isOptionDisabled(item_r41)));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(item_r41))("aria-checked", ctx_r1.isSelected(item_r41))("aria-disabled", ctx_r1.isOptionDisabled(item_r41))("tabindex", ctx_r1.isOptionDisabled(item_r41) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r39);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r41)("context", ctx_r1.getTemplateContext(item_r41, i_r42, "custom"));
   }
 }
-function AngularMultiSelect_div_27_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
-    \u0275\u0275template(2, AngularMultiSelect_div_27_li_2_Template, 4, 11, "li", 64);
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 65);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_9_li_2_Template, 4, 13, "li", 66);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("id", ctx_r1.listboxId);
@@ -37622,335 +37631,339 @@ function AngularMultiSelect_div_27_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r1.data);
   }
 }
-function AngularMultiSelect_div_28_li_3_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_10_li_3_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r46 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r46))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r46) || item_r46.disabled);
+    const item_r48 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r48))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r48) || item_r48.disabled);
   }
 }
-function AngularMultiSelect_div_28_li_3_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_10_li_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r44 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 65);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_28_li_3_Template_li_click_0_listener($event) {
-      const ctx_r44 = \u0275\u0275restoreView(_r44);
-      const item_r46 = ctx_r44.$implicit;
-      const i_r47 = ctx_r44.index;
+    const _r46 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 67);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_10_li_3_Template_li_click_0_listener($event) {
+      const ctx_r46 = \u0275\u0275restoreView(_r46);
+      const item_r48 = ctx_r46.$implicit;
+      const i_r49 = ctx_r46.index;
       \u0275\u0275nextContext();
-      const scroll2_r48 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), $event));
-    })("focus", function AngularMultiSelect_div_28_li_3_Template_li_focus_0_listener() {
-      const ctx_r48 = \u0275\u0275restoreView(_r44);
-      const item_r46 = ctx_r48.$implicit;
-      const i_r47 = ctx_r48.index;
+      const scroll2_r50 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r48, ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50), $event));
+    })("focus", function AngularMultiSelect_div_18_div_10_li_3_Template_li_focus_0_listener() {
+      const ctx_r50 = \u0275\u0275restoreView(_r46);
+      const item_r48 = ctx_r50.$implicit;
+      const i_r49 = ctx_r50.index;
       \u0275\u0275nextContext();
-      const scroll2_r48 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), "lazy-custom"));
-    })("keydown", function AngularMultiSelect_div_28_li_3_Template_li_keydown_0_listener($event) {
-      const ctx_r49 = \u0275\u0275restoreView(_r44);
-      const item_r46 = ctx_r49.$implicit;
-      const i_r47 = ctx_r49.index;
+      const scroll2_r50 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r48, ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50), "lazy-custom"));
+    })("keydown", function AngularMultiSelect_div_18_div_10_li_3_Template_li_keydown_0_listener($event) {
+      const ctx_r51 = \u0275\u0275restoreView(_r46);
+      const item_r48 = ctx_r51.$implicit;
+      const i_r49 = ctx_r51.index;
       \u0275\u0275nextContext();
-      const scroll2_r48 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), $event, "lazy-custom", scroll2_r48));
+      const scroll2_r50 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r48, ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50), $event, "lazy-custom", scroll2_r50));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_28_li_3_input_1_Template, 1, 2, "input", 66);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_10_li_3_input_1_Template, 1, 2, "input", 68);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r46 = ctx.$implicit;
-    const i_r47 = ctx.index;
+    const item_r48 = ctx.$implicit;
+    const i_r49 = ctx.index;
     \u0275\u0275nextContext();
-    const scroll2_r48 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275property("id", ctx_r1.getOptionId(item_r46, ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48), "lazy-custom"))("ngClass", \u0275\u0275pureFunction2(9, _c13, ctx_r1.isSelected(item_r46) == true, ctx_r1.isOptionDisabled(item_r46)));
-    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r46, i_r47, scroll2_r48))("aria-selected", ctx_r1.isSelected(item_r46))("aria-disabled", ctx_r1.isOptionDisabled(item_r46))("tabindex", ctx_r1.isOptionDisabled(item_r46) ? -1 : 0);
+    const scroll2_r50 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("id", ctx_r1.getOptionId(item_r48, ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50), "lazy-custom"))("ngClass", \u0275\u0275pureFunction2(11, _c13, ctx_r1.isSelected(item_r48) == true, ctx_r1.isOptionDisabled(item_r48)));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50))("aria-selected", ctx_r1.isSelected(item_r48))("aria-checked", ctx_r1.isSelected(item_r48))("aria-disabled", ctx_r1.isOptionDisabled(item_r48))("tabindex", ctx_r1.isOptionDisabled(item_r48) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r46);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r48)("context", ctx_r1.getTemplateContext(item_r48, ctx_r1.getVirtualItemIndex(item_r48, i_r49, scroll2_r50), "lazy-custom"));
   }
 }
-function AngularMultiSelect_div_28_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r43 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 6);
-    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_28_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r43);
-      const ctx_r1 = \u0275\u0275nextContext();
+    const _r45 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 70, 6);
+    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_18_div_10_Template_ul_vsStart_1_listener($event) {
+      \u0275\u0275restoreView(_r45);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
-    })("vsEnd", function AngularMultiSelect_div_28_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r43);
-      const ctx_r1 = \u0275\u0275nextContext();
+    })("vsEnd", function AngularMultiSelect_div_18_div_10_Template_ul_vsEnd_1_listener($event) {
+      \u0275\u0275restoreView(_r45);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_28_li_3_Template, 4, 12, "li", 64);
+    \u0275\u0275template(3, AngularMultiSelect_div_18_div_10_li_3_Template, 4, 14, "li", 66);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll2_r48 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
+    const scroll2_r50 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
     \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll2_r48.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll2_r50.viewPortItems);
   }
 }
-function AngularMultiSelect_div_29_span_3_li_1_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_span_3_li_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r54 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r54))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r54) || item_r54.disabled);
+    const item_r56 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r56))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r56) || item_r56.disabled);
   }
 }
-function AngularMultiSelect_div_29_span_3_li_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_span_3_li_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r52 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_29_span_3_li_1_Template_li_click_0_listener($event) {
-      \u0275\u0275restoreView(_r52);
-      const ctx_r52 = \u0275\u0275nextContext();
-      const item_r54 = ctx_r52.$implicit;
-      const i_r55 = ctx_r52.index;
+    const _r54 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_11_span_3_li_1_Template_li_click_0_listener($event) {
+      \u0275\u0275restoreView(_r54);
+      const ctx_r54 = \u0275\u0275nextContext();
+      const item_r56 = ctx_r54.$implicit;
+      const i_r57 = ctx_r54.index;
       \u0275\u0275nextContext();
-      const scroll3_r56 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), $event));
-    })("focus", function AngularMultiSelect_div_29_span_3_li_1_Template_li_focus_0_listener() {
-      \u0275\u0275restoreView(_r52);
-      const ctx_r52 = \u0275\u0275nextContext();
-      const item_r54 = ctx_r52.$implicit;
-      const i_r55 = ctx_r52.index;
+      const scroll3_r58 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r56, ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58), $event));
+    })("focus", function AngularMultiSelect_div_18_div_11_span_3_li_1_Template_li_focus_0_listener() {
+      \u0275\u0275restoreView(_r54);
+      const ctx_r54 = \u0275\u0275nextContext();
+      const item_r56 = ctx_r54.$implicit;
+      const i_r57 = ctx_r54.index;
       \u0275\u0275nextContext();
-      const scroll3_r56 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), "lazy-group-custom"));
-    })("keydown", function AngularMultiSelect_div_29_span_3_li_1_Template_li_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r52);
-      const ctx_r52 = \u0275\u0275nextContext();
-      const item_r54 = ctx_r52.$implicit;
-      const i_r55 = ctx_r52.index;
+      const scroll3_r58 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r56, ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58), "lazy-group-custom"));
+    })("keydown", function AngularMultiSelect_div_18_div_11_span_3_li_1_Template_li_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r54);
+      const ctx_r54 = \u0275\u0275nextContext();
+      const item_r56 = ctx_r54.$implicit;
+      const i_r57 = ctx_r54.index;
       \u0275\u0275nextContext();
-      const scroll3_r56 = \u0275\u0275reference(2);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), $event, "lazy-group-custom", scroll3_r56));
+      const scroll3_r58 = \u0275\u0275reference(2);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r56, ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58), $event, "lazy-group-custom", scroll3_r58));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_input_1_Template, 1, 2, "input", 66);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_11_span_3_li_1_input_1_Template, 1, 2, "input", 68);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r52 = \u0275\u0275nextContext();
-    const item_r54 = ctx_r52.$implicit;
-    const i_r55 = ctx_r52.index;
+    const ctx_r54 = \u0275\u0275nextContext();
+    const item_r56 = ctx_r54.$implicit;
+    const i_r57 = ctx_r54.index;
     \u0275\u0275nextContext();
-    const scroll3_r56 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c15, item_r54.grpTitle, !item_r54.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r54) == true, ctx_r1.isOptionDisabled(item_r54)))("id", ctx_r1.getOptionId(item_r54, ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56), "lazy-group-custom"));
-    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r54, i_r55, scroll3_r56))("aria-selected", ctx_r1.isSelected(item_r54))("aria-disabled", ctx_r1.isOptionDisabled(item_r54))("tabindex", ctx_r1.isOptionDisabled(item_r54) ? -1 : 0);
+    const scroll3_r58 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(11, _c15, item_r56.grpTitle, !item_r56.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r56) == true, ctx_r1.isOptionDisabled(item_r56)))("id", ctx_r1.getOptionId(item_r56, ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58), "lazy-group-custom"));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58))("aria-selected", ctx_r1.isSelected(item_r56))("aria-checked", ctx_r1.isSelected(item_r56))("aria-disabled", ctx_r1.isOptionDisabled(item_r56))("tabindex", ctx_r1.isOptionDisabled(item_r56) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r54);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r56)("context", ctx_r1.getTemplateContext(item_r56, ctx_r1.getVirtualItemIndex(item_r56, i_r57, scroll3_r58), "lazy-group-custom"));
   }
 }
-function AngularMultiSelect_div_29_span_3_li_2_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_span_3_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r54 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r54))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r54) || item_r54.disabled);
+    const item_r56 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r56))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r56) || item_r56.disabled);
   }
 }
-function AngularMultiSelect_div_29_span_3_li_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_span_3_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "li", 73);
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_2_input_1_Template, 1, 2, "input", 66);
-    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 38);
+    \u0275\u0275elementStart(0, "li", 75);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_11_span_3_li_2_input_1_Template, 1, 2, "input", 68);
+    \u0275\u0275element(2, "label")(3, "c-templateRenderer", 32);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r54 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(4, _c16, item_r54.grpTitle, !item_r54.grpTitle && !ctx_r1.settings.singleSelection));
+    const ctx_r54 = \u0275\u0275nextContext();
+    const item_r56 = ctx_r54.$implicit;
+    const i_r57 = ctx_r54.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(5, _c16, item_r56.grpTitle, !item_r56.grpTitle && !ctx_r1.settings.singleSelection));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r54);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", item_r56)("context", ctx_r1.getTemplateContext(item_r56, i_r57, "lazy-group-heading"));
   }
 }
-function AngularMultiSelect_div_29_span_3_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_span_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275template(1, AngularMultiSelect_div_29_span_3_li_1_Template, 4, 14, "li", 70)(2, AngularMultiSelect_div_29_span_3_li_2_Template, 4, 7, "li", 71);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_11_span_3_li_1_Template, 4, 16, "li", 72)(2, AngularMultiSelect_div_18_div_11_span_3_li_2_Template, 4, 8, "li", 73);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r54 = ctx.$implicit;
+    const item_r56 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !item_r54.grpTitle);
+    \u0275\u0275property("ngIf", !item_r56.grpTitle);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", item_r54.grpTitle);
+    \u0275\u0275property("ngIf", item_r56.grpTitle);
   }
 }
-function AngularMultiSelect_div_29_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    const _r51 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 68, 7);
-    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_29_Template_ul_vsStart_1_listener($event) {
-      \u0275\u0275restoreView(_r51);
-      const ctx_r1 = \u0275\u0275nextContext();
+    const _r53 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 70, 7);
+    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_18_div_11_Template_ul_vsStart_1_listener($event) {
+      \u0275\u0275restoreView(_r53);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
-    })("vsEnd", function AngularMultiSelect_div_29_Template_ul_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r51);
-      const ctx_r1 = \u0275\u0275nextContext();
+    })("vsEnd", function AngularMultiSelect_div_18_div_11_Template_ul_vsEnd_1_listener($event) {
+      \u0275\u0275restoreView(_r53);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(3, AngularMultiSelect_div_29_span_3_Template, 3, 2, "span", 69);
+    \u0275\u0275template(3, AngularMultiSelect_div_18_div_11_span_3_Template, 3, 2, "span", 71);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const scroll3_r56 = \u0275\u0275reference(2);
-    const ctx_r1 = \u0275\u0275nextContext();
+    const scroll3_r58 = \u0275\u0275reference(2);
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(9, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
     \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll3_r56.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll3_r58.viewPortItems);
   }
 }
-function AngularMultiSelect_div_30_span_2_input_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_12_span_2_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r58 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", item_r58.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r58) || item_r58.disabled);
-  }
-}
-function AngularMultiSelect_div_30_span_2_span_6_input_2_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
-  }
-  if (rf & 2) {
-    const val_r64 = \u0275\u0275nextContext().$implicit;
+    const item_r60 = \u0275\u0275nextContext().$implicit;
     const ctx_r1 = \u0275\u0275nextContext(3);
-    \u0275\u0275property("checked", ctx_r1.isSelected(val_r64))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r64) || val_r64.disabled);
+    \u0275\u0275property("checked", item_r60.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r60) || item_r60.disabled);
   }
 }
-function AngularMultiSelect_div_30_span_2_span_6_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_12_span_2_span_6_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r62 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_30_span_2_span_6_Template_li_click_1_listener($event) {
-      const ctx_r62 = \u0275\u0275restoreView(_r62);
-      const val_r64 = ctx_r62.$implicit;
-      const j_r65 = ctx_r62.index;
-      const ctx_r1 = \u0275\u0275nextContext(3);
-      ctx_r1.onItemClick(val_r64, j_r65, $event);
+    \u0275\u0275element(0, "input", 69);
+  }
+  if (rf & 2) {
+    const val_r66 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(4);
+    \u0275\u0275property("checked", ctx_r1.isSelected(val_r66))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r66) || val_r66.disabled);
+  }
+}
+function AngularMultiSelect_div_18_div_12_span_2_span_6_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r64 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_12_span_2_span_6_Template_li_click_1_listener($event) {
+      const ctx_r64 = \u0275\u0275restoreView(_r64);
+      const val_r66 = ctx_r64.$implicit;
+      const j_r67 = ctx_r64.index;
+      const ctx_r1 = \u0275\u0275nextContext(4);
+      ctx_r1.onItemClick(val_r66, j_r67, $event);
       return \u0275\u0275resetView($event.stopPropagation());
-    })("focus", function AngularMultiSelect_div_30_span_2_span_6_Template_li_focus_1_listener() {
-      const ctx_r65 = \u0275\u0275restoreView(_r62);
-      const val_r64 = ctx_r65.$implicit;
-      const j_r65 = ctx_r65.index;
-      const i_r60 = \u0275\u0275nextContext().index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r64, j_r65, "group-custom-" + i_r60));
-    })("keydown", function AngularMultiSelect_div_30_span_2_span_6_Template_li_keydown_1_listener($event) {
-      const ctx_r66 = \u0275\u0275restoreView(_r62);
-      const val_r64 = ctx_r66.$implicit;
-      const j_r65 = ctx_r66.index;
-      const i_r60 = \u0275\u0275nextContext().index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r64, j_r65, $event, "group-custom-" + i_r60));
+    })("focus", function AngularMultiSelect_div_18_div_12_span_2_span_6_Template_li_focus_1_listener() {
+      const ctx_r67 = \u0275\u0275restoreView(_r64);
+      const val_r66 = ctx_r67.$implicit;
+      const j_r67 = ctx_r67.index;
+      const i_r62 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r66, j_r67, "group-custom-" + i_r62));
+    })("keydown", function AngularMultiSelect_div_18_div_12_span_2_span_6_Template_li_keydown_1_listener($event) {
+      const ctx_r68 = \u0275\u0275restoreView(_r64);
+      const val_r66 = ctx_r68.$implicit;
+      const j_r67 = ctx_r68.index;
+      const i_r62 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r66, j_r67, $event, "group-custom-" + i_r62));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_span_6_input_2_Template, 1, 2, "input", 66);
-    \u0275\u0275element(3, "label")(4, "c-templateRenderer", 38);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_12_span_2_span_6_input_2_Template, 1, 2, "input", 68);
+    \u0275\u0275element(3, "label")(4, "c-templateRenderer", 32);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const val_r64 = ctx.$implicit;
-    const j_r65 = ctx.index;
-    const i_r60 = \u0275\u0275nextContext().index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const val_r66 = ctx.$implicit;
+    const j_r67 = ctx.index;
+    const ctx_r69 = \u0275\u0275nextContext();
+    const item_r60 = ctx_r69.$implicit;
+    const i_r62 = ctx_r69.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, val_r64.grpTitle, !val_r64.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(val_r64) == true, ctx_r1.isOptionDisabled(val_r64)))("id", ctx_r1.getOptionId(val_r64, j_r65, "group-custom-" + i_r60));
-    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r64))("aria-disabled", ctx_r1.isOptionDisabled(val_r64))("tabindex", ctx_r1.isOptionDisabled(val_r64) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(10, _c15, val_r66.grpTitle, !val_r66.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(val_r66) == true, ctx_r1.isOptionDisabled(val_r66)))("id", ctx_r1.getOptionId(val_r66, j_r67, "group-custom-" + i_r62));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r66))("aria-checked", ctx_r1.isSelected(val_r66))("aria-disabled", ctx_r1.isOptionDisabled(val_r66))("tabindex", ctx_r1.isOptionDisabled(val_r66) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275property("data", ctx_r1.itemTempl)("item", val_r64);
+    \u0275\u0275property("data", ctx_r1.itemTempl)("item", val_r66)("context", ctx_r1.getTemplateContext(val_r66, j_r67, "group-custom-" + i_r62, item_r60));
   }
 }
-function AngularMultiSelect_div_30_span_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_12_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r57 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_30_span_2_Template_li_click_1_listener() {
-      const item_r58 = \u0275\u0275restoreView(_r57).$implicit;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r58));
-    })("focus", function AngularMultiSelect_div_30_span_2_Template_li_focus_1_listener() {
-      const ctx_r58 = \u0275\u0275restoreView(_r57);
-      const item_r58 = ctx_r58.$implicit;
-      const i_r60 = ctx_r58.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r58, i_r60, "group-custom"));
-    })("keydown", function AngularMultiSelect_div_30_span_2_Template_li_keydown_1_listener($event) {
-      const ctx_r60 = \u0275\u0275restoreView(_r57);
-      const item_r58 = ctx_r60.$implicit;
-      const i_r60 = ctx_r60.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r58, i_r60, $event, "group-custom"));
+    const _r59 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_12_span_2_Template_li_click_1_listener() {
+      const item_r60 = \u0275\u0275restoreView(_r59).$implicit;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r60));
+    })("focus", function AngularMultiSelect_div_18_div_12_span_2_Template_li_focus_1_listener() {
+      const ctx_r60 = \u0275\u0275restoreView(_r59);
+      const item_r60 = ctx_r60.$implicit;
+      const i_r62 = ctx_r60.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r60, i_r62, "group-custom"));
+    })("keydown", function AngularMultiSelect_div_18_div_12_span_2_Template_li_keydown_1_listener($event) {
+      const ctx_r62 = \u0275\u0275restoreView(_r59);
+      const item_r60 = ctx_r62.$implicit;
+      const i_r62 = ctx_r62.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r60, i_r62, $event, "group-custom"));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_input_2_Template, 1, 2, "input", 66);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_12_span_2_input_2_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "ul", 74);
-    \u0275\u0275template(6, AngularMultiSelect_div_30_span_2_span_6_Template, 5, 13, "span", 69);
+    \u0275\u0275elementStart(5, "ul", 76);
+    \u0275\u0275template(6, AngularMultiSelect_div_18_div_12_span_2_span_6_Template, 5, 15, "span", 71);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r58 = ctx.$implicit;
-    const i_r60 = ctx.index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const item_r60 = ctx.$implicit;
+    const i_r62 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r58.grpTitle, !item_r58.grpTitle && !ctx_r1.settings.singleSelection, item_r58.selected == true, ctx_r1.isOptionDisabled(item_r58)))("id", ctx_r1.getOptionId(item_r58, i_r60, "group-custom"));
-    \u0275\u0275attribute("aria-selected", item_r58.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r58))("tabindex", ctx_r1.isOptionDisabled(item_r58) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c15, item_r60.grpTitle, !item_r60.grpTitle && !ctx_r1.settings.singleSelection, item_r60.selected == true, ctx_r1.isOptionDisabled(item_r60)))("id", ctx_r1.getOptionId(item_r60, i_r62, "group-custom"));
+    \u0275\u0275attribute("aria-selected", item_r60.selected)("aria-checked", item_r60.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r60))("tabindex", ctx_r1.isOptionDisabled(item_r60) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r58[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r60[ctx_r1.settings.labelKey]);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", item_r58.list);
+    \u0275\u0275property("ngForOf", item_r60.list);
   }
 }
-function AngularMultiSelect_div_30_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
-    \u0275\u0275template(2, AngularMultiSelect_div_30_span_2_Template, 7, 13, "span", 69);
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 65);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_12_span_2_Template, 7, 14, "span", 71);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("id", ctx_r1.listboxId);
@@ -37959,139 +37972,139 @@ function AngularMultiSelect_div_30_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r1.groupedData);
   }
 }
-function AngularMultiSelect_div_31_span_4_li_1_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_span_4_li_1_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r69 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r69))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r69) || item_r69.disabled);
+    const item_r72 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r72))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r72) || item_r72.disabled);
   }
 }
-function AngularMultiSelect_div_31_span_4_li_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_span_4_li_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "li", 73);
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275elementStart(0, "li", 75);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_13_span_4_li_1_input_1_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const item_r69 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, item_r69.grpTitle, !item_r69.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r69) == true));
+    const item_r72 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction3(3, _c17, item_r72.grpTitle, !item_r72.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r72) == true));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r69.grpTitle && !ctx_r1.settings.singleSelection);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r72.grpTitle && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r69[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r72[ctx_r1.settings.labelKey]);
   }
 }
-function AngularMultiSelect_div_31_span_4_li_2_input_1_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_span_4_li_2_input_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r69 = \u0275\u0275nextContext(2).$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", ctx_r1.isSelected(item_r69))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r69) || item_r69.disabled);
+    const item_r72 = \u0275\u0275nextContext(2).$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275property("checked", ctx_r1.isSelected(item_r72))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r72) || item_r72.disabled);
   }
 }
-function AngularMultiSelect_div_31_span_4_li_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_span_4_li_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r70 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_31_span_4_li_2_Template_li_click_0_listener($event) {
-      \u0275\u0275restoreView(_r70);
-      const ctx_r70 = \u0275\u0275nextContext();
-      const item_r69 = ctx_r70.$implicit;
-      const i_r72 = ctx_r70.index;
+    const _r73 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_13_span_4_li_2_Template_li_click_0_listener($event) {
+      \u0275\u0275restoreView(_r73);
+      const ctx_r73 = \u0275\u0275nextContext();
+      const item_r72 = ctx_r73.$implicit;
+      const i_r75 = ctx_r73.index;
       \u0275\u0275nextContext();
-      const scroll4_r73 = \u0275\u0275reference(3);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), $event));
-    })("focus", function AngularMultiSelect_div_31_span_4_li_2_Template_li_focus_0_listener() {
-      \u0275\u0275restoreView(_r70);
-      const ctx_r70 = \u0275\u0275nextContext();
-      const item_r69 = ctx_r70.$implicit;
-      const i_r72 = ctx_r70.index;
+      const scroll4_r76 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onItemClick(item_r72, ctx_r1.getVirtualItemIndex(item_r72, i_r75, scroll4_r76), $event));
+    })("focus", function AngularMultiSelect_div_18_div_13_span_4_li_2_Template_li_focus_0_listener() {
+      \u0275\u0275restoreView(_r73);
+      const ctx_r73 = \u0275\u0275nextContext();
+      const item_r72 = ctx_r73.$implicit;
+      const i_r75 = ctx_r73.index;
       \u0275\u0275nextContext();
-      const scroll4_r73 = \u0275\u0275reference(3);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), "lazy-group"));
-    })("keydown", function AngularMultiSelect_div_31_span_4_li_2_Template_li_keydown_0_listener($event) {
-      \u0275\u0275restoreView(_r70);
-      const ctx_r70 = \u0275\u0275nextContext();
-      const item_r69 = ctx_r70.$implicit;
-      const i_r72 = ctx_r70.index;
+      const scroll4_r76 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r72, ctx_r1.getVirtualItemIndex(item_r72, i_r75, scroll4_r76), "lazy-group"));
+    })("keydown", function AngularMultiSelect_div_18_div_13_span_4_li_2_Template_li_keydown_0_listener($event) {
+      \u0275\u0275restoreView(_r73);
+      const ctx_r73 = \u0275\u0275nextContext();
+      const item_r72 = ctx_r73.$implicit;
+      const i_r75 = ctx_r73.index;
       \u0275\u0275nextContext();
-      const scroll4_r73 = \u0275\u0275reference(3);
-      const ctx_r1 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), $event, "lazy-group", scroll4_r73));
+      const scroll4_r76 = \u0275\u0275reference(3);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(item_r72, ctx_r1.getVirtualItemIndex(item_r72, i_r75, scroll4_r76), $event, "lazy-group", scroll4_r76));
     });
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_2_input_1_Template, 1, 2, "input", 66);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_13_span_4_li_2_input_1_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(2, "label");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r70 = \u0275\u0275nextContext();
-    const item_r69 = ctx_r70.$implicit;
-    const i_r72 = ctx_r70.index;
+    const ctx_r73 = \u0275\u0275nextContext();
+    const item_r72 = ctx_r73.$implicit;
+    const i_r75 = ctx_r73.index;
     \u0275\u0275nextContext();
-    const scroll4_r73 = \u0275\u0275reference(3);
-    const ctx_r1 = \u0275\u0275nextContext();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r69.grpTitle, !item_r69.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r69) == true, ctx_r1.isOptionDisabled(item_r69)))("id", ctx_r1.getOptionId(item_r69, ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73), "lazy-group"));
-    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r69, i_r72, scroll4_r73))("aria-selected", ctx_r1.isSelected(item_r69))("aria-disabled", ctx_r1.isOptionDisabled(item_r69))("tabindex", ctx_r1.isOptionDisabled(item_r69) ? -1 : 0);
+    const scroll4_r76 = \u0275\u0275reference(3);
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c15, item_r72.grpTitle, !item_r72.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isSelected(item_r72) == true, ctx_r1.isOptionDisabled(item_r72)))("id", ctx_r1.getOptionId(item_r72, ctx_r1.getVirtualItemIndex(item_r72, i_r75, scroll4_r76), "lazy-group"));
+    \u0275\u0275attribute("data-virtual-index", ctx_r1.getVirtualItemIndex(item_r72, i_r75, scroll4_r76))("aria-selected", ctx_r1.isSelected(item_r72))("aria-checked", ctx_r1.isSelected(item_r72))("aria-disabled", ctx_r1.isOptionDisabled(item_r72))("tabindex", ctx_r1.isOptionDisabled(item_r72) ? -1 : 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r69.grpTitle);
+    \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !item_r72.grpTitle);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r69[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r72[ctx_r1.settings.labelKey]);
   }
 }
-function AngularMultiSelect_div_31_span_4_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_span_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275template(1, AngularMultiSelect_div_31_span_4_li_1_Template, 4, 7, "li", 71)(2, AngularMultiSelect_div_31_span_4_li_2_Template, 4, 13, "li", 70);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_13_span_4_li_1_Template, 4, 7, "li", 73)(2, AngularMultiSelect_div_18_div_13_span_4_li_2_Template, 4, 14, "li", 72);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r69 = ctx.$implicit;
+    const item_r72 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", item_r69.grpTitle);
+    \u0275\u0275property("ngIf", item_r72.grpTitle);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !item_r69.grpTitle);
+    \u0275\u0275property("ngIf", !item_r72.grpTitle);
   }
 }
-function AngularMultiSelect_div_31_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_13_Template(rf, ctx) {
   if (rf & 1) {
-    const _r68 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 62)(1, "virtual-scroller", 75);
-    \u0275\u0275listener("vsUpdate", function AngularMultiSelect_div_31_Template_virtual_scroller_vsUpdate_1_listener($event) {
-      \u0275\u0275restoreView(_r68);
-      const ctx_r1 = \u0275\u0275nextContext();
+    const _r71 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 64)(1, "virtual-scroller", 77);
+    \u0275\u0275listener("vsUpdate", function AngularMultiSelect_div_18_div_13_Template_virtual_scroller_vsUpdate_1_listener($event) {
+      \u0275\u0275restoreView(_r71);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.viewPortItems = $event);
-    })("vsEnd", function AngularMultiSelect_div_31_Template_virtual_scroller_vsEnd_1_listener($event) {
-      \u0275\u0275restoreView(_r68);
-      const ctx_r1 = \u0275\u0275nextContext();
+    })("vsEnd", function AngularMultiSelect_div_18_div_13_Template_virtual_scroller_vsEnd_1_listener($event) {
+      \u0275\u0275restoreView(_r71);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275elementStart(2, "ul", 68, 8);
-    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_31_Template_ul_vsStart_2_listener($event) {
-      \u0275\u0275restoreView(_r68);
-      const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275elementStart(2, "ul", 70, 8);
+    \u0275\u0275listener("vsStart", function AngularMultiSelect_div_18_div_13_Template_ul_vsStart_2_listener($event) {
+      \u0275\u0275restoreView(_r71);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
-    })("vsEnd", function AngularMultiSelect_div_31_Template_ul_vsEnd_2_listener($event) {
-      \u0275\u0275restoreView(_r68);
-      const ctx_r1 = \u0275\u0275nextContext();
+    })("vsEnd", function AngularMultiSelect_div_18_div_13_Template_ul_vsEnd_2_listener($event) {
+      \u0275\u0275restoreView(_r71);
+      const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScrollEnd($event));
     });
-    \u0275\u0275template(4, AngularMultiSelect_div_31_span_4_Template, 3, 2, "span", 69);
+    \u0275\u0275template(4, AngularMultiSelect_div_18_div_13_span_4_Template, 3, 2, "span", 71);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const scroll4_r73 = \u0275\u0275reference(3);
-    const ctx_r1 = \u0275\u0275nextContext();
+    const scroll4_r76 = \u0275\u0275reference(3);
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("items", ctx_r1.groupedData)("ngStyle", \u0275\u0275pureFunction1(11, _c14, ctx_r1.settings.maxHeight + "px"));
@@ -38099,126 +38112,126 @@ function AngularMultiSelect_div_31_Template(rf, ctx) {
     \u0275\u0275property("enableUnequalChildrenSizes", ctx_r1.randomSize)("items", ctx_r1.virtualdata)("ngStyle", \u0275\u0275pureFunction1(13, _c14, ctx_r1.settings.maxHeight + "px"))("id", ctx_r1.listboxId);
     \u0275\u0275attribute("aria-multiselectable", !ctx_r1.settings.singleSelection)("aria-label", ctx_r1.getListboxAriaLabel());
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", scroll4_r73.viewPortItems);
+    \u0275\u0275property("ngForOf", scroll4_r76.viewPortItems);
   }
 }
-function AngularMultiSelect_div_32_span_2_input_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_14_span_2_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
+    \u0275\u0275element(0, "input", 69);
   }
   if (rf & 2) {
-    const item_r75 = \u0275\u0275nextContext().$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("checked", item_r75.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r75) || item_r75.disabled);
-  }
-}
-function AngularMultiSelect_div_32_span_2_span_6_input_2_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275element(0, "input", 67);
-  }
-  if (rf & 2) {
-    const val_r81 = \u0275\u0275nextContext().$implicit;
+    const item_r78 = \u0275\u0275nextContext().$implicit;
     const ctx_r1 = \u0275\u0275nextContext(3);
-    \u0275\u0275property("checked", ctx_r1.isSelected(val_r81))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r81) || val_r81.disabled);
+    \u0275\u0275property("checked", item_r78.selected)("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(item_r78) || item_r78.disabled);
   }
 }
-function AngularMultiSelect_div_32_span_2_span_6_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_14_span_2_span_6_input_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r79 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_32_span_2_span_6_Template_li_click_1_listener($event) {
-      const ctx_r79 = \u0275\u0275restoreView(_r79);
-      const val_r81 = ctx_r79.$implicit;
-      const j_r82 = ctx_r79.index;
-      const ctx_r1 = \u0275\u0275nextContext(3);
-      ctx_r1.onItemClick(val_r81, j_r82, $event);
+    \u0275\u0275element(0, "input", 69);
+  }
+  if (rf & 2) {
+    const val_r84 = \u0275\u0275nextContext().$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(4);
+    \u0275\u0275property("checked", ctx_r1.isSelected(val_r84))("disabled", ctx_r1.settings.limitSelection == (ctx_r1.selectedItems == null ? null : ctx_r1.selectedItems.length) && !ctx_r1.isSelected(val_r84) || val_r84.disabled);
+  }
+}
+function AngularMultiSelect_div_18_div_14_span_2_span_6_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r82 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_14_span_2_span_6_Template_li_click_1_listener($event) {
+      const ctx_r82 = \u0275\u0275restoreView(_r82);
+      const val_r84 = ctx_r82.$implicit;
+      const j_r85 = ctx_r82.index;
+      const ctx_r1 = \u0275\u0275nextContext(4);
+      ctx_r1.onItemClick(val_r84, j_r85, $event);
       return \u0275\u0275resetView($event.stopPropagation());
-    })("focus", function AngularMultiSelect_div_32_span_2_span_6_Template_li_focus_1_listener() {
-      const ctx_r82 = \u0275\u0275restoreView(_r79);
-      const val_r81 = ctx_r82.$implicit;
-      const j_r82 = ctx_r82.index;
-      const i_r77 = \u0275\u0275nextContext().index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r81, j_r82, "group-" + i_r77));
-    })("keydown", function AngularMultiSelect_div_32_span_2_span_6_Template_li_keydown_1_listener($event) {
-      const ctx_r83 = \u0275\u0275restoreView(_r79);
-      const val_r81 = ctx_r83.$implicit;
-      const j_r82 = ctx_r83.index;
-      const i_r77 = \u0275\u0275nextContext().index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r81, j_r82, $event, "group-" + i_r77));
+    })("focus", function AngularMultiSelect_div_18_div_14_span_2_span_6_Template_li_focus_1_listener() {
+      const ctx_r85 = \u0275\u0275restoreView(_r82);
+      const val_r84 = ctx_r85.$implicit;
+      const j_r85 = ctx_r85.index;
+      const i_r80 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(val_r84, j_r85, "group-" + i_r80));
+    })("keydown", function AngularMultiSelect_div_18_div_14_span_2_span_6_Template_li_keydown_1_listener($event) {
+      const ctx_r86 = \u0275\u0275restoreView(_r82);
+      const val_r84 = ctx_r86.$implicit;
+      const j_r85 = ctx_r86.index;
+      const i_r80 = \u0275\u0275nextContext().index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onOptionKeydown(val_r84, j_r85, $event, "group-" + i_r80));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_span_6_input_2_Template, 1, 2, "input", 66);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_14_span_2_span_6_input_2_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const val_r81 = ctx.$implicit;
-    const j_r82 = ctx.index;
-    const i_r77 = \u0275\u0275nextContext().index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const val_r84 = ctx.$implicit;
+    const j_r85 = ctx.index;
+    const i_r80 = \u0275\u0275nextContext().index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(7, _c18, ctx_r1.isSelected(val_r81) == true, val_r81.grpTitle, !val_r81.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isOptionDisabled(val_r81)))("id", ctx_r1.getOptionId(val_r81, j_r82, "group-" + i_r77));
-    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r81))("aria-disabled", ctx_r1.isOptionDisabled(val_r81))("tabindex", ctx_r1.isOptionDisabled(val_r81) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c18, ctx_r1.isSelected(val_r84) == true, val_r84.grpTitle, !val_r84.grpTitle && !ctx_r1.settings.singleSelection, ctx_r1.isOptionDisabled(val_r84)))("id", ctx_r1.getOptionId(val_r84, j_r85, "group-" + i_r80));
+    \u0275\u0275attribute("aria-selected", ctx_r1.isSelected(val_r84))("aria-checked", ctx_r1.isSelected(val_r84))("aria-disabled", ctx_r1.isOptionDisabled(val_r84))("tabindex", ctx_r1.isOptionDisabled(val_r84) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(val_r81[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(val_r84[ctx_r1.settings.labelKey]);
   }
 }
-function AngularMultiSelect_div_32_span_2_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_14_span_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r74 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span")(1, "li", 72);
-    \u0275\u0275listener("click", function AngularMultiSelect_div_32_span_2_Template_li_click_1_listener() {
-      const item_r75 = \u0275\u0275restoreView(_r74).$implicit;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r75));
-    })("focus", function AngularMultiSelect_div_32_span_2_Template_li_focus_1_listener() {
-      const ctx_r75 = \u0275\u0275restoreView(_r74);
-      const item_r75 = ctx_r75.$implicit;
-      const i_r77 = ctx_r75.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r75, i_r77, "group"));
-    })("keydown", function AngularMultiSelect_div_32_span_2_Template_li_keydown_1_listener($event) {
-      const ctx_r77 = \u0275\u0275restoreView(_r74);
-      const item_r75 = ctx_r77.$implicit;
-      const i_r77 = ctx_r77.index;
-      const ctx_r1 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r75, i_r77, $event, "group"));
+    const _r77 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span")(1, "li", 74);
+    \u0275\u0275listener("click", function AngularMultiSelect_div_18_div_14_span_2_Template_li_click_1_listener() {
+      const item_r78 = \u0275\u0275restoreView(_r77).$implicit;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.selectGroup(item_r78));
+    })("focus", function AngularMultiSelect_div_18_div_14_span_2_Template_li_focus_1_listener() {
+      const ctx_r78 = \u0275\u0275restoreView(_r77);
+      const item_r78 = ctx_r78.$implicit;
+      const i_r80 = ctx_r78.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.setActiveDescendant(item_r78, i_r80, "group"));
+    })("keydown", function AngularMultiSelect_div_18_div_14_span_2_Template_li_keydown_1_listener($event) {
+      const ctx_r80 = \u0275\u0275restoreView(_r77);
+      const item_r78 = ctx_r80.$implicit;
+      const i_r80 = ctx_r80.index;
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      return \u0275\u0275resetView(ctx_r1.onGroupKeydown(item_r78, i_r80, $event, "group"));
     });
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_input_2_Template, 1, 2, "input", 66);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_14_span_2_input_2_Template, 1, 2, "input", 68);
     \u0275\u0275elementStart(3, "label");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "ul", 74);
-    \u0275\u0275template(6, AngularMultiSelect_div_32_span_2_span_6_Template, 5, 12, "span", 69);
+    \u0275\u0275elementStart(5, "ul", 76);
+    \u0275\u0275template(6, AngularMultiSelect_div_18_div_14_span_2_span_6_Template, 5, 13, "span", 71);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r75 = ctx.$implicit;
-    const i_r77 = ctx.index;
-    const ctx_r1 = \u0275\u0275nextContext(2);
+    const item_r78 = ctx.$implicit;
+    const i_r80 = ctx.index;
+    const ctx_r1 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(8, _c15, item_r75.grpTitle, !item_r75.grpTitle && !ctx_r1.settings.singleSelection, item_r75.selected == true, ctx_r1.isOptionDisabled(item_r75)))("id", ctx_r1.getOptionId(item_r75, i_r77, "group"));
-    \u0275\u0275attribute("aria-selected", item_r75.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r75))("tabindex", ctx_r1.isOptionDisabled(item_r75) ? -1 : 0);
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(9, _c15, item_r78.grpTitle, !item_r78.grpTitle && !ctx_r1.settings.singleSelection, item_r78.selected == true, ctx_r1.isOptionDisabled(item_r78)))("id", ctx_r1.getOptionId(item_r78, i_r80, "group"));
+    \u0275\u0275attribute("aria-selected", item_r78.selected)("aria-checked", item_r78.selected)("aria-disabled", ctx_r1.isOptionDisabled(item_r78))("tabindex", ctx_r1.isOptionDisabled(item_r78) ? -1 : 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.settings.showCheckbox && !ctx_r1.settings.singleSelection);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r75[ctx_r1.settings.labelKey]);
+    \u0275\u0275textInterpolate(item_r78[ctx_r1.settings.labelKey]);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", item_r75.list);
+    \u0275\u0275property("ngForOf", item_r78.list);
   }
 }
-function AngularMultiSelect_div_32_Template(rf, ctx) {
+function AngularMultiSelect_div_18_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 62)(1, "ul", 63);
-    \u0275\u0275template(2, AngularMultiSelect_div_32_span_2_Template, 7, 13, "span", 69);
+    \u0275\u0275elementStart(0, "div", 64)(1, "ul", 65);
+    \u0275\u0275template(2, AngularMultiSelect_div_18_div_14_span_2_Template, 7, 14, "span", 71);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275styleProp("max-height", ctx_r1.settings.maxHeight + "px");
     \u0275\u0275advance();
     \u0275\u0275property("id", ctx_r1.listboxId);
@@ -38227,16 +38240,57 @@ function AngularMultiSelect_div_32_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r1.groupedData);
   }
 }
-function AngularMultiSelect_h5_33_Template(rf, ctx) {
+function AngularMultiSelect_div_18_h5_15_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "h5", 76);
+    \u0275\u0275elementStart(0, "h5", 78);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r1.settings.noDataLabel);
+  }
+}
+function AngularMultiSelect_div_18_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 36);
+    \u0275\u0275template(1, AngularMultiSelect_div_18_div_1_Template, 7, 6, "div", 37)(2, AngularMultiSelect_div_18_img_2_Template, 1, 1, "img", 38)(3, AngularMultiSelect_div_18_div_3_Template, 9, 7, "div", 39)(4, AngularMultiSelect_div_18_div_4_Template, 3, 2, "div", 40)(5, AngularMultiSelect_div_18_div_5_Template, 2, 1, "div", 40)(6, AngularMultiSelect_div_18_div_6_Template, 2, 1, "div", 40)(7, AngularMultiSelect_div_18_div_7_Template, 3, 6, "div", 41)(8, AngularMultiSelect_div_18_div_8_Template, 4, 11, "div", 41)(9, AngularMultiSelect_div_18_div_9_Template, 3, 6, "div", 41)(10, AngularMultiSelect_div_18_div_10_Template, 4, 11, "div", 41)(11, AngularMultiSelect_div_18_div_11_Template, 4, 11, "div", 41)(12, AngularMultiSelect_div_18_div_12_Template, 3, 6, "div", 41)(13, AngularMultiSelect_div_18_div_13_Template, 5, 15, "div", 41)(14, AngularMultiSelect_div_18_div_14_Template, 3, 6, "div", 41)(15, AngularMultiSelect_div_18_h5_15_Template, 2, 1, "h5", 42);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(16, _c12, ctx_r1.settings.singleSelection));
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.enableCheckAll && !ctx_r1.settings.singleSelection && !ctx_r1.settings.limitSelection && ctx_r1.hasSelectableItems());
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.loading);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.enableSearchFilter);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", !ctx_r1.settings.lazyLoading && ctx_r1.settings.enableFilterSelectAll && !ctx_r1.isDisabledItemPresent);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.lazyLoading && ctx_r1.settings.enableFilterSelectAll && !ctx_r1.isDisabledItemPresent && !ctx_r1.settings.singleSelection);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.filter == null ? null : ctx_r1.filter.length);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && ctx_r1.itemTempl == void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && ctx_r1.settings.lazyLoading && ctx_r1.itemTempl == void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && ctx_r1.itemTempl != void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", !ctx_r1.settings.groupBy && ctx_r1.settings.lazyLoading && ctx_r1.itemTempl != void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && ctx_r1.settings.lazyLoading && ctx_r1.itemTempl != void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && ctx_r1.itemTempl != void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && ctx_r1.settings.lazyLoading && ctx_r1.itemTempl == void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.settings.groupBy && !ctx_r1.settings.lazyLoading && ctx_r1.itemTempl == void 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", (ctx_r1.data == null ? null : ctx_r1.data.length) == 0);
   }
 }
 var MyException = class {
@@ -38668,15 +38722,17 @@ var TemplateRenderer = class _TemplateRenderer {
   viewContainer;
   data;
   item;
+  context;
   view;
   constructor(viewContainer) {
     this.viewContainer = viewContainer;
   }
   ngOnInit() {
-    this.view = this.viewContainer.createEmbeddedView(this.data.template, {
-      "$implicit": this.data,
+    const templateContext = Object.assign({
+      "$implicit": this.item,
       "item": this.item
-    });
+    }, this.context || {});
+    this.view = this.viewContainer.createEmbeddedView(this.data.template, templateContext);
   }
   ngOnDestroy() {
     this.view.destroy();
@@ -38689,7 +38745,8 @@ var TemplateRenderer = class _TemplateRenderer {
     selectors: [["c-templateRenderer"]],
     inputs: {
       data: "data",
-      item: "item"
+      item: "item",
+      context: "context"
     },
     standalone: false,
     decls: 0,
@@ -38714,6 +38771,9 @@ var TemplateRenderer = class _TemplateRenderer {
       type: Input
     }],
     item: [{
+      type: Input
+    }],
+    context: [{
       type: Input
     }]
   });
@@ -40094,7 +40154,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
   stacklineDropdown;
   triggerButton;
   onEscapeDown(event) {
-    if (this.settings && this.settings.escapeToClose) {
+    if (this.settings && this.settings.escapeToClose && this.isKeyboardEnabled("escape")) {
       this.closeDropdown();
     }
   }
@@ -40197,7 +40257,17 @@ var AngularMultiSelect = class _AngularMultiSelect {
     removeItemAriaLabel: "Remove selected option",
     openDropdownAriaLabel: "Open options",
     closeDropdownAriaLabel: "Close options",
-    loadingText: "Loading options"
+    loadingText: "Loading options",
+    keyboard: {
+      space: true,
+      spaceOptionAction: "toggle",
+      tab: true,
+      arrows: true,
+      escape: true,
+      backspaceRemovesLastWhenSearchEmpty: false,
+      deleteRemovesFocusedBadge: true,
+      backspace: false
+    }
   };
   randomSize = true;
   parseError;
@@ -40215,6 +40285,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   ngOnInit() {
     this.normalizeSettings(this.settings);
+    this.data = this.mergeSelectedIntoData(this.data || []);
     this.cachedItems = this.cloneArray(this.data);
     if (this.settings.position == "top") {
       setTimeout(() => {
@@ -40256,8 +40327,52 @@ var AngularMultiSelect = class _AngularMultiSelect {
     return classes;
   }
   normalizeSettings(settings) {
-    this.settings = Object.assign({}, this.defaultSettings, settings);
+    var keyboardSettings = Object.assign({}, this.defaultSettings.keyboard || {}, settings && settings.keyboard ? settings.keyboard : {});
+    this.settings = Object.assign({}, this.defaultSettings, settings, {
+      keyboard: keyboardSettings
+    });
     this.dropDownDirection = this.settings.position == "top" ? "top" : "bottom";
+  }
+  isKeyboardEnabled(settingName) {
+    var keyboard = this.settings && this.settings.keyboard ? this.settings.keyboard : {};
+    var value = keyboard[settingName];
+    if (value === void 0 && settingName === "backspaceRemovesLastWhenSearchEmpty") {
+      value = keyboard.backspace;
+    }
+    return value !== false;
+  }
+  getSpaceOptionAction() {
+    var keyboard = this.settings && this.settings.keyboard ? this.settings.keyboard : {};
+    return keyboard.spaceOptionAction || "toggle";
+  }
+  getPrimaryKey() {
+    return this.settings && this.settings.primaryKey ? this.settings.primaryKey : "id";
+  }
+  getLabelKey() {
+    return this.settings && this.settings.labelKey ? this.settings.labelKey : "itemName";
+  }
+  getItemKey(item) {
+    if (!item) {
+      return "";
+    }
+    var key = item[this.getPrimaryKey()];
+    return key === void 0 || key === null ? "" : String(key);
+  }
+  mergeSelectedIntoData(items) {
+    var source = Array.isArray(items) ? items.slice() : [];
+    var selected = Array.isArray(this.selectedItems) ? this.selectedItems : [];
+    var keys = source.reduce((map2, item) => {
+      map2[this.getItemKey(item)] = true;
+      return map2;
+    }, {});
+    selected.forEach((item) => {
+      var key = this.getItemKey(item);
+      if (key && !keys[key]) {
+        source.push(item);
+        keys[key] = true;
+      }
+    });
+    return source;
   }
   isDropdownOpenTowardsTop() {
     return this.dropDownDirection == "top";
@@ -40311,10 +40426,26 @@ var AngularMultiSelect = class _AngularMultiSelect {
     if (this.settings && this.settings.enableSearchFilter) {
       estimatedHeight += 52;
     }
-    if (this.settings && this.settings.enableCheckAll && !this.settings.singleSelection && !this.settings.limitSelection && this.data && this.data.length > 0 && !this.isDisabledItemPresent) {
+    if (this.settings && this.settings.enableCheckAll && !this.settings.singleSelection && !this.settings.limitSelection && this.hasSelectableItems()) {
       estimatedHeight += 44;
     }
     return estimatedHeight;
+  }
+  hasSelectableItems() {
+    return this.getSelectableItems(this.data).length > 0;
+  }
+  getSelectableItems(items = []) {
+    return (items || []).filter((item) => item && !item.disabled && !item.grpTitle);
+  }
+  areAllSelectableItemsSelected(items = []) {
+    var selectableItems = this.getSelectableItems(items);
+    if (!selectableItems.length || !this.selectedItems || this.selectedItems.length !== selectableItems.length) {
+      return false;
+    }
+    return selectableItems.every((item) => this.isSelected(item));
+  }
+  syncSelectAllState() {
+    this.isSelectAll = this.areAllSelectableItemsSelected(this.data);
   }
   isEventInsideHostOrPanel(event) {
     if (!event || !event.target) {
@@ -40509,7 +40640,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     if (!item || !this.settings) {
       return "";
     }
-    var label = item[this.settings.labelKey];
+    var label = item[this.getLabelKey()];
     if (label === void 0 || label === null) {
       return "";
     }
@@ -40520,11 +40651,32 @@ var AngularMultiSelect = class _AngularMultiSelect {
     var base = this.settings && this.settings.removeItemAriaLabel ? this.settings.removeItemAriaLabel : "Remove selected option";
     return label ? base + ": " + label : base;
   }
+  getTemplateContext(item, index, prefix = "option", group) {
+    var selected = item && item.grpTitle ? !!item.selected : this.isSelected(item);
+    var disabled = this.isOptionDisabled(item);
+    return {
+      item,
+      label: this.getItemLabel(item),
+      selected,
+      disabled,
+      index,
+      group: group || null,
+      optionId: this.getOptionId(item, index, prefix),
+      ariaSelected: selected,
+      ariaChecked: selected,
+      ariaDisabled: disabled,
+      isOpen: this.isActive,
+      settings: this.settings,
+      select: () => this.onItemClick(item, index, new Event("template-select")),
+      remove: () => this.removeSelected(item),
+      clear: () => this.clearSelection()
+    };
+  }
   getOptionId(item, index, prefix = "option") {
     var rawId = item && this.settings && item[this.settings.primaryKey] !== void 0 ? item[this.settings.primaryKey] : index;
-    var cleanId = String(rawId).toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
+    var cleanId2 = String(rawId).toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
     var cleanPrefix = String(prefix || "option").toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
-    return this.id + "-" + (cleanPrefix || "option") + "-" + (cleanId || index);
+    return this.id + "-" + (cleanPrefix || "option") + "-" + (cleanId2 || index);
   }
   isOptionDisabled(item) {
     if (!item || item.disabled || this.settings && this.settings.disabled) {
@@ -40578,12 +40730,21 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
     switch (evt.key) {
       case "Enter":
+        evt.preventDefault();
+        this.toggleDropdown(evt);
+        break;
       case " ":
       case "Spacebar":
+        if (!this.isKeyboardEnabled("space")) {
+          return;
+        }
         evt.preventDefault();
         this.toggleDropdown(evt);
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         if (!this.isActive) {
           this.openDropdown();
@@ -40591,6 +40752,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusFirstOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         if (!this.isActive) {
           this.openDropdown();
@@ -40598,6 +40762,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         this.closeDropdown();
         break;
@@ -40606,37 +40773,59 @@ var AngularMultiSelect = class _AngularMultiSelect {
   onOptionKeydown(item, index, evt, prefix = "option", scroller) {
     switch (evt.key) {
       case "Enter":
-      case " ":
-      case "Spacebar":
         evt.preventDefault();
         if (!this.isOptionDisabled(item)) {
-          this.onItemClick(item, index, evt);
-          this.setActiveDescendant(item, index, prefix);
+          this.toggleOptionFromKeyboard(item, index, prefix);
+        }
+        break;
+      case " ":
+      case "Spacebar":
+        if (!this.isKeyboardEnabled("space")) {
+          return;
+        }
+        evt.preventDefault();
+        if (!this.isOptionDisabled(item)) {
+          this.toggleOptionFromKeyboard(item, index, prefix);
         }
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusNextOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusPreviousOption();
         break;
       case "Home":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusFirstOption();
         break;
       case "End":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         this.closeDropdown();
         this.focusTrigger();
         break;
       case "Tab":
-        if (this.focusVirtualOptionByDirection(item, evt.shiftKey ? -1 : 1, prefix, scroller)) {
+        if (!this.isKeyboardEnabled("tab")) {
           evt.preventDefault();
           evt.stopPropagation();
         }
@@ -40646,8 +40835,17 @@ var AngularMultiSelect = class _AngularMultiSelect {
   onGroupKeydown(item, index, evt, prefix = "group") {
     switch (evt.key) {
       case "Enter":
+        evt.preventDefault();
+        if (!this.isOptionDisabled(item)) {
+          this.selectGroup(item);
+          this.setActiveDescendant(item, index, prefix);
+        }
+        break;
       case " ":
       case "Spacebar":
+        if (!this.isKeyboardEnabled("space")) {
+          return;
+        }
         evt.preventDefault();
         if (!this.isOptionDisabled(item)) {
           this.selectGroup(item);
@@ -40655,22 +40853,37 @@ var AngularMultiSelect = class _AngularMultiSelect {
         }
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusNextOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusPreviousOption();
         break;
       case "Home":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusFirstOption();
         break;
       case "End":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         this.closeDropdown();
         this.focusTrigger();
@@ -40685,6 +40898,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         evt.stopPropagation();
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         if (!this.isActive) {
@@ -40693,6 +40909,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusFirstOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         if (!this.isActive) {
@@ -40701,6 +40920,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.closeDropdown();
@@ -40711,13 +40933,23 @@ var AngularMultiSelect = class _AngularMultiSelect {
   onArrowButtonKeydown(evt) {
     switch (evt.key) {
       case "Enter":
+        evt.preventDefault();
+        evt.stopPropagation();
+        this.toggleDropdown(evt);
+        break;
       case " ":
       case "Spacebar":
+        if (!this.isKeyboardEnabled("space")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.toggleDropdown(evt);
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         if (!this.isActive) {
@@ -40726,6 +40958,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusFirstOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         if (!this.isActive) {
@@ -40734,6 +40969,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.closeDropdown();
@@ -40744,20 +40982,36 @@ var AngularMultiSelect = class _AngularMultiSelect {
   onSearchKeydown(evt) {
     switch (evt.key) {
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.focusFirstOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.focusLastOption();
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         evt.stopPropagation();
         this.closeDropdown();
         this.focusTrigger();
+        break;
+      case "Backspace":
+        if (this.shouldBackspaceRemoveLast(evt)) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          this.removeLastSelectedItem();
+        }
         break;
     }
   }
@@ -40774,18 +41028,68 @@ var AngularMultiSelect = class _AngularMultiSelect {
         }
         break;
       case "Escape":
+        if (!this.isKeyboardEnabled("escape")) {
+          return;
+        }
         evt.preventDefault();
         this.closeDropdown();
         this.focusTrigger();
         break;
       case "ArrowDown":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusFirstOption();
         break;
       case "ArrowUp":
+        if (!this.isKeyboardEnabled("arrows")) {
+          return;
+        }
         evt.preventDefault();
         this.focusLastOption();
         break;
+    }
+  }
+  onRemoveButtonKeydown(item, index, evt) {
+    if ((evt.key === "Backspace" || evt.key === "Delete") && this.isKeyboardEnabled("deleteRemovesFocusedBadge")) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      this.onItemClick(item, index, evt);
+      return;
+    }
+    this.onInlineActionKeydown(evt);
+  }
+  onClearAllKeydown(evt) {
+    if ((evt.key === "Backspace" || evt.key === "Delete") && this.isKeyboardEnabled("deleteRemovesFocusedBadge")) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      this.clearSelection(evt);
+      return;
+    }
+    this.onInlineActionKeydown(evt);
+  }
+  shouldBackspaceRemoveLast(evt) {
+    var target = evt.target;
+    var value = target && target.value !== void 0 ? target.value : this.filter;
+    return this.isKeyboardEnabled("backspaceRemovesLastWhenSearchEmpty") && (!value || String(value).length === 0) && this.selectedItems && this.selectedItems.length > 0;
+  }
+  removeLastSelectedItem() {
+    if (!this.selectedItems || !this.selectedItems.length) {
+      return;
+    }
+    var lastItem = this.selectedItems[this.selectedItems.length - 1];
+    this.removeSelected(lastItem);
+    this.onDeSelect.emit(lastItem);
+    this.scheduleDropdownPositionUpdate();
+  }
+  toggleOptionFromKeyboard(item, index, prefix) {
+    this.onItemClick(item, index, new KeyboardEvent("keydown"));
+    this.setActiveDescendant(item, index, prefix);
+    if (this.getSpaceOptionAction() === "toggle-and-next") {
+      this.focusNextOption();
+    } else {
+      this.focusOptionById(this.getOptionId(item, index, prefix));
     }
   }
   focusTrigger() {
@@ -40810,6 +41114,18 @@ var AngularMultiSelect = class _AngularMultiSelect {
       var nextIndex = Math.max(0, Math.min(index, options.length - 1));
       options[nextIndex].focus();
       this.activeDescendantId = options[nextIndex].id || null;
+    }, 0);
+  }
+  focusOptionById(optionId) {
+    setTimeout(() => {
+      if (!this.dropdownListElem || !this.dropdownListElem.nativeElement) {
+        return;
+      }
+      var option = document.getElementById(optionId);
+      if (option) {
+        option.focus();
+        this.activeDescendantId = option.id || optionId;
+      }
     }, 0);
   }
   focusFirstOption() {
@@ -40888,11 +41204,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   ngOnChanges(changes) {
     if (changes.data && !changes.data.firstChange) {
+      this.data = this.mergeSelectedIntoData(this.data || []);
       if (this.settings.groupBy) {
         this.groupedData = this.transformData(this.data, this.settings.groupBy);
-        if (this.data.length == 0) {
-          this.selectedItems = [];
-        }
         this.groupCachedItems = this.cloneArray(this.groupedData);
       }
       this.cachedItems = this.cloneArray(this.data);
@@ -40916,11 +41230,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
   }
   ngDoCheck() {
-    if (this.selectedItems) {
-      if (this.selectedItems.length == 0 || this.data.length == 0 || this.selectedItems.length < this.data.length) {
-        this.isSelectAll = false;
-      }
-    }
+    this.syncSelectAllState();
   }
   ngAfterViewInit() {
     if (this.settings.lazyLoading) {
@@ -40958,16 +41268,25 @@ var AngularMultiSelect = class _AngularMultiSelect {
       this.removeSelected(item);
       this.onDeSelect.emit(item);
     }
-    if (this.isSelectAll || this.data.length > this.selectedItems.length) {
-      this.isSelectAll = false;
-    }
-    if (this.data.length == this.selectedItems.length) {
-      this.isSelectAll = true;
-    }
+    this.syncSelectAllState();
     if (this.settings.groupBy) {
       this.updateGroupInfo(item);
     }
+    this.focusClickedOption(evt);
     this.scheduleDropdownPositionUpdate();
+  }
+  focusClickedOption(evt) {
+    if (!evt || !this.isActive) {
+      return;
+    }
+    var currentTarget = evt.currentTarget;
+    if (!currentTarget || !currentTarget.classList || !currentTarget.classList.contains("dropdown-option")) {
+      return;
+    }
+    setTimeout(() => {
+      currentTarget.focus();
+      this.activeDescendantId = currentTarget.id || null;
+    }, 0);
   }
   validate(c) {
     return null;
@@ -41001,9 +41320,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
         } else {
           this.selectedItems = value;
         }
-        if (this.selectedItems != null && this.selectedItems.length === this.data.length && this.data.length > 0) {
-          this.isSelectAll = true;
-        }
+        this.syncSelectAllState();
         if (this.settings.groupBy) {
           this.groupedData = this.transformData(this.data, this.settings.groupBy);
           this.groupCachedItems = this.cloneArray(this.groupedData);
@@ -41012,6 +41329,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
     } else {
       this.selectedItems = [];
     }
+    this.data = this.mergeSelectedIntoData(this.data || []);
+    this.cachedItems = this.cloneArray(this.data);
   }
   //From ControlValueAccessor interface
   registerOnChange(fn) {
@@ -41022,7 +41341,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     this.onTouchedCallback = fn;
   }
   trackByFn(index, item) {
-    return item[this.settings.primaryKey];
+    return item[this.getPrimaryKey()];
   }
   isSelected(clickedItem) {
     if (clickedItem.disabled) {
@@ -41030,7 +41349,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
     let found = false;
     this.selectedItems && this.selectedItems.forEach((item) => {
-      if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+      if (clickedItem[this.getPrimaryKey()] === item[this.getPrimaryKey()]) {
         found = true;
       }
     });
@@ -41050,7 +41369,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   removeSelected(clickedItem) {
     this.selectedItems && this.selectedItems.forEach((item) => {
-      if (clickedItem[this.settings.primaryKey] === item[this.settings.primaryKey]) {
+      if (clickedItem[this.getPrimaryKey()] === item[this.getPrimaryKey()]) {
         this.selectedItems.splice(this.selectedItems.indexOf(item), 1);
       }
     });
@@ -41083,9 +41402,11 @@ var AngularMultiSelect = class _AngularMultiSelect {
     this.syncOpenDropdownPanelState();
     this.bindOverlayListeners();
     this.scheduleDropdownPositionUpdate();
-    if (this.settings.searchAutofocus && this.searchInput && this.settings.enableSearchFilter && !this.searchTempl) {
+    if (this.settings.searchAutofocus && this.settings.enableSearchFilter && !this.searchTempl) {
       setTimeout(() => {
-        this.searchInput.nativeElement.focus();
+        if (this.searchInput && this.searchInput.nativeElement) {
+          this.searchInput.nativeElement.focus();
+        }
       }, 0);
     }
     this.onOpen.emit(true);
@@ -41129,7 +41450,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
   }
   toggleSelectAll(event) {
-    if (!this.isSelectAll) {
+    var shouldSelect = !this.areAllSelectableItemsSelected(this.data);
+    if (shouldSelect) {
       this.selectedItems = [];
       if (this.settings.groupBy) {
         this.groupedData.forEach((obj) => {
@@ -41139,8 +41461,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
           obj.selected = !obj.disabled;
         });
       }
-      this.selectedItems = this.data.filter((individualData) => !individualData.disabled);
-      this.isSelectAll = true;
+      this.selectedItems = this.getSelectableItems(this.data);
+      this.isSelectAll = this.selectedItems.length > 0;
       this.onChangeCallback(this.selectedItems);
       this.onTouchedCallback(this.selectedItems);
       this.onSelectAll.emit(this.selectedItems);
@@ -41652,9 +41974,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
     },
     standalone: false,
     features: [\u0275\u0275ProvidersFeature([DROPDOWN_CONTROL_VALUE_ACCESSOR, DROPDOWN_CONTROL_VALIDATION]), \u0275\u0275NgOnChangesFeature],
-    decls: 34,
-    vars: 63,
-    consts: [["stacklineDropdown", ""], ["selectedList", ""], ["triggerButton", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "keydown", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["type", "button", "class", "c-remove clear-all", 3, "click", "keydown", 4, "ngIf"], ["type", "button", 1, "c-arrow-toggle", 3, "click", "keydown", "ngClass", "disabled"], [3, "name"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "pointerdown", "touchstart", "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], ["type", "button", 1, "c-remove", 3, "click", "keydown"], [1, "c-label"], [3, "data", "item"], ["class", "c-token", 4, "ngIf"], [1, "countplaceholder"], ["type", "button", 1, "c-remove", "clear-all", 3, "click", "keydown"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", "aria-hidden", "true", 1, "c-search"], ["type", "button", "class", "c-clear", 3, "hidden", "click", "keydown", 4, "ngIf"], ["class", "c-input", "type", "text", 3, "placeholder", "ngModel", "ngModelChange", "keyup", "keydown", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], ["type", "button", 1, "c-clear", 3, "click", "keydown", "hidden"], ["type", "text", 1, "c-input", 3, "ngModelChange", "keyup", "keydown", "placeholder", "ngModel"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", "tabindex", "0", "role", "checkbox", 3, "click", "keydown", 4, "ngIf"], ["tabindex", "0", "role", "checkbox", 1, "pure-checkbox", "select-all", 3, "click", "keydown"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "click", "change", "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], ["role", "listbox", 1, "lazyContainer", 3, "id"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "id", "ngClass", "click", "focus", "keydown", 4, "ngFor", "ngForOf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "id", "ngClass"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled"], ["virtualScroller", "", "role", "listbox", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle", "id"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "ngClass", "id", "click", "focus", "keydown", 4, "ngIf"], ["class", "pure-checkbox", "role", "presentation", 3, "ngClass", 4, "ngIf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "ngClass", "id"], ["role", "presentation", 1, "pure-checkbox", 3, "ngClass"], [1, "lazyContainer"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
+    decls: 19,
+    vars: 46,
+    consts: [["stacklineDropdown", ""], ["selectedList", ""], ["triggerButton", ""], ["dropdownList", ""], ["searchInput", ""], ["scroll", ""], ["scroll2", ""], ["scroll3", ""], ["scroll4", ""], [1, "stackline-dropdown", 3, "clickOutside", "ngClass"], [1, "selected-list"], ["role", "combobox", "aria-haspopup", "listbox", 1, "c-btn", 3, "click", "keydown", "ngClass"], ["class", "c-placeholder", 4, "ngIf"], ["class", "c-single-value", 4, "ngIf"], ["class", "c-list c-chip-list", 4, "ngIf"], ["class", "countplaceholder", 4, "ngIf"], ["type", "button", "class", "c-remove clear-all", 3, "click", "keydown", 4, "ngIf"], ["type", "button", 1, "c-arrow-toggle", 3, "click", "keydown", "ngClass", "disabled"], [3, "name"], ["role", "presentation", 1, "dropdown-list", "animated", "fadeIn", 3, "pointerdown", "touchstart", "ngClass", "hidden"], [1, "arrow-2", 3, "ngClass"], [3, "ngClass"], ["class", "list-area", 3, "ngClass", 4, "ngIf"], [1, "c-placeholder"], [1, "c-single-value"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-list", "c-chip-list"], ["class", "c-token", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "c-token"], ["class", "c-label", 4, "ngIf"], ["type", "button", 1, "c-remove", 3, "click", "keydown"], [1, "c-label"], [3, "data", "item", "context"], ["class", "c-token", 4, "ngIf"], [1, "countplaceholder"], ["type", "button", 1, "c-remove", "clear-all", 3, "click", "keydown"], [1, "list-area", 3, "ngClass"], ["class", "pure-checkbox select-all", 4, "ngIf"], ["class", "loading-icon", "src", "assets/img/loading.gif", 4, "ngIf"], ["class", "list-filter", 4, "ngIf"], ["class", "filter-select-all", 4, "ngIf"], ["style", "overflow: auto;", 3, "maxHeight", 4, "ngIf"], ["class", "list-message", 4, "ngIf"], [1, "pure-checkbox", "select-all"], ["type", "checkbox", 3, "checked", "disabled", "id", "change", 4, "ngIf"], [3, "for"], [3, "hidden"], ["type", "checkbox", 3, "change", "checked", "disabled", "id"], ["src", "assets/img/loading.gif", 1, "loading-icon"], [1, "list-filter"], ["id", "searchIcon", "aria-hidden", "true", 1, "c-search"], ["type", "button", "class", "c-clear", 3, "hidden", "click", "keydown", 4, "ngIf"], ["class", "c-input", "type", "text", 3, "placeholder", "ngModel", "ngModelChange", "keyup", "keydown", 4, "ngIf"], [3, "data", "item", 4, "ngIf"], ["type", "button", 1, "c-clear", 3, "click", "keydown", "hidden"], ["type", "text", 1, "c-input", 3, "ngModelChange", "keyup", "keydown", "placeholder", "ngModel"], [3, "data", "item"], [1, "filter-select-all"], ["class", "pure-checkbox select-all", "tabindex", "0", "role", "checkbox", 3, "click", "keydown", 4, "ngIf"], ["tabindex", "0", "role", "checkbox", 1, "pure-checkbox", "select-all", 3, "click", "keydown"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "click", "change", "checked", "disabled"], ["class", "btn-container", 4, "ngIf"], [1, "btn-container"], [1, "c-btn", "btn-iceblue", 3, "click"], [2, "overflow", "auto"], ["role", "listbox", 1, "lazyContainer", 3, "id"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "id", "ngClass", "click", "focus", "keydown", 4, "ngFor", "ngForOf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "id", "ngClass"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled", 4, "ngIf"], ["type", "checkbox", "aria-hidden", "true", "tabindex", "-1", 3, "checked", "disabled"], ["virtualScroller", "", "role", "listbox", 1, "lazyContainer", 3, "vsStart", "vsEnd", "enableUnequalChildrenSizes", "items", "ngStyle", "id"], [4, "ngFor", "ngForOf"], ["class", "pure-checkbox dropdown-option", "role", "option", 3, "ngClass", "id", "click", "focus", "keydown", 4, "ngIf"], ["class", "pure-checkbox", "role", "presentation", 3, "ngClass", 4, "ngIf"], ["role", "option", 1, "pure-checkbox", "dropdown-option", 3, "click", "focus", "keydown", "ngClass", "id"], ["role", "presentation", 1, "pure-checkbox", 3, "ngClass"], [1, "lazyContainer"], [3, "vsUpdate", "vsEnd", "items", "ngStyle"], [1, "list-message"]],
     template: function AngularMultiSelect_Template(rf, ctx) {
       if (rf & 1) {
         const _r1 = \u0275\u0275getCurrentView();
@@ -41686,14 +42008,13 @@ var AngularMultiSelect = class _AngularMultiSelect {
           return ctx.onDropdownPanelPointerDown($event);
         });
         \u0275\u0275element(16, "div", 20)(17, "div", 21);
-        \u0275\u0275elementStart(18, "div", 22);
-        \u0275\u0275template(19, AngularMultiSelect_div_19_Template, 7, 6, "div", 23)(20, AngularMultiSelect_img_20_Template, 1, 1, "img", 24)(21, AngularMultiSelect_div_21_Template, 9, 7, "div", 25)(22, AngularMultiSelect_div_22_Template, 3, 2, "div", 26)(23, AngularMultiSelect_div_23_Template, 2, 1, "div", 26)(24, AngularMultiSelect_div_24_Template, 2, 1, "div", 26)(25, AngularMultiSelect_div_25_Template, 3, 6, "div", 27)(26, AngularMultiSelect_div_26_Template, 4, 11, "div", 27)(27, AngularMultiSelect_div_27_Template, 3, 6, "div", 27)(28, AngularMultiSelect_div_28_Template, 4, 11, "div", 27)(29, AngularMultiSelect_div_29_Template, 4, 11, "div", 27)(30, AngularMultiSelect_div_30_Template, 3, 6, "div", 27)(31, AngularMultiSelect_div_31_Template, 5, 15, "div", 27)(32, AngularMultiSelect_div_32_Template, 3, 6, "div", 27)(33, AngularMultiSelect_h5_33_Template, 2, 1, "h5", 28);
-        \u0275\u0275elementEnd()()();
+        \u0275\u0275template(18, AngularMultiSelect_div_18_Template, 16, 18, "div", 22);
+        \u0275\u0275elementEnd()();
       }
       if (rf & 2) {
         \u0275\u0275property("ngClass", ctx.getDropdownClasses());
         \u0275\u0275advance(4);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(50, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction4(35, _c10, ctx.settings.disabled, ctx.isActive, (ctx.selectedItems == null ? null : ctx.selectedItems.length) > 0, ctx.settings.singleSelection));
         \u0275\u0275attribute("tabindex", ctx.settings.disabled ? -1 : 0)("aria-controls", ctx.listboxId)("aria-expanded", ctx.isActive)("aria-disabled", ctx.settings.disabled)("aria-activedescendant", ctx.activeDescendantId)("aria-label", ctx.settings.ariaLabelledBy ? null : ctx.getAriaLabel())("aria-labelledby", ctx.settings.ariaLabelledBy || null);
         \u0275\u0275advance(2);
         \u0275\u0275property("ngIf", (ctx.selectedItems == null ? null : ctx.selectedItems.length) == 0);
@@ -41717,45 +42038,15 @@ var AngularMultiSelect = class _AngularMultiSelect {
         \u0275\u0275property("ngClass", ctx.getDropdownPanelClasses())("hidden", !ctx.isActive);
         \u0275\u0275attribute("aria-hidden", !ctx.isActive);
         \u0275\u0275advance(2);
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(55, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(40, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(58, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
+        \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(43, _c11, !ctx.isDropdownOpenTowardsTop(), ctx.isDropdownOpenTowardsTop()));
         \u0275\u0275advance();
-        \u0275\u0275property("ngClass", \u0275\u0275pureFunction1(61, _c12, ctx.settings.singleSelection));
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.enableCheckAll && !ctx.settings.singleSelection && !ctx.settings.limitSelection && (ctx.data == null ? null : ctx.data.length) > 0 && !ctx.isDisabledItemPresent);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.loading);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.enableSearchFilter);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.settings.lazyLoading && ctx.settings.enableFilterSelectAll && !ctx.isDisabledItemPresent);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.lazyLoading && ctx.settings.enableFilterSelectAll && !ctx.isDisabledItemPresent && !ctx.settings.singleSelection);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.filter == null ? null : ctx.filter.length);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.settings.groupBy && !ctx.settings.lazyLoading && ctx.itemTempl == void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.settings.groupBy && ctx.settings.lazyLoading && ctx.itemTempl == void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.settings.groupBy && !ctx.settings.lazyLoading && ctx.itemTempl != void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", !ctx.settings.groupBy && ctx.settings.lazyLoading && ctx.itemTempl != void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.groupBy && ctx.settings.lazyLoading && ctx.itemTempl != void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.groupBy && !ctx.settings.lazyLoading && ctx.itemTempl != void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.groupBy && ctx.settings.lazyLoading && ctx.itemTempl == void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", ctx.settings.groupBy && !ctx.settings.lazyLoading && ctx.itemTempl == void 0);
-        \u0275\u0275advance();
-        \u0275\u0275property("ngIf", (ctx.data == null ? null : ctx.data.length) == 0);
+        \u0275\u0275property("ngIf", ctx.isActive);
       }
     },
     dependencies: () => [NgClass, NgForOf, NgIf, NgStyle, DefaultValueAccessor, NgControlStatus, NgModel, VirtualScrollerComponent, ClickOutsideDirective, TemplateRenderer, CIcon],
-    styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;align-content:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{display:inline-flex;align-items:center;align-self:center;justify-content:flex-start;min-width:0;max-width:100%;color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem;line-height:1.25;text-align:left}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:11px;width:8px;height:4px;margin-top:0;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:translate(-50%,-58%) rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:translate(-50%,-58%) rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n'],
+    styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;align-content:center;box-sizing:border-box;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn.has-selection{padding-right:104px}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{display:inline-flex;align-items:center;align-self:center;justify-content:flex-start;min-width:0;max-width:100%;color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem;line-height:1.25;text-align:left}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;display:inline-flex;align-items:center;justify-content:center;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600;line-height:1;white-space:nowrap;pointer-events:none}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:11px;width:8px;height:4px;margin-top:0;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:translate(-50%,-58%) rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:translate(-50%,-58%) rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.has-selection{padding-right:104px}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n'],
     encapsulation: 2
   });
 };
@@ -41798,9 +42089,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
                     <span *ngIf="!badgeTempl" class="c-label">{{item[settings.labelKey]}}</span>
 
                     <span *ngIf="badgeTempl" class="c-label">
-                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="badgeTempl" [item]="item" [context]="getTemplateContext(item,k,'badge')"></c-templateRenderer>
                     </span>
-                    <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
+                    <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onRemoveButtonKeydown(item,k,$event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
                         <c-icon [name]="'remove'"></c-icon>
                     </button>
                 </div>
@@ -41810,16 +42101,16 @@ var AngularMultiSelect = class _AngularMultiSelect {
                     <div class="c-token" *ngIf="shouldShowSelectedBadge(k)">
                         <span *ngIf="!badgeTempl" class="c-label">{{item[settings.labelKey]}}</span>
                         <span *ngIf="badgeTempl" class="c-label">
-                            <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="badgeTempl" [item]="item" [context]="getTemplateContext(item,k,'badge')"></c-templateRenderer>
                         </span>
-                        <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
+                        <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onRemoveButtonKeydown(item,k,$event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
                             <c-icon [name]="'remove'"></c-icon>
                         </button>
                     </div>
                 </ng-container>
             </div>
             <span class="countplaceholder" *ngIf="getHiddenSelectedCount() > 0">+{{getHiddenSelectedCount()}}</span>
-            <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
+            <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onClearAllKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
                 <c-icon [name]="'remove'"></c-icon>
             </button>
             <button type="button" class="c-arrow-toggle" [ngClass]="isActive ? 'c-angle-up' : 'c-angle-down'" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="isActive ? getCloseDropdownAriaLabel() : getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
@@ -41840,8 +42131,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
         [hidden]="!isActive">
         <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}" class="arrow-2"></div>
         <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}"></div>
-        <div class="list-area" [ngClass]="{'single-select-mode': settings.singleSelection }">
-            <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent"
+        <div class="list-area" *ngIf="isActive" [ngClass]="{'single-select-mode': settings.singleSelection }">
+            <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && hasSelectableItems()"
                 >
                 <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelectAll" [disabled]="settings.limitSelection == selectedItems?.length"
                 [id]="id" (change)="toggleSelectAll($event)"/>
@@ -41910,7 +42201,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 style="overflow: auto;">
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of data; let i = index;" (click)="onItemClick(item,i,$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'default')" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'default')" (keydown)="onOptionKeydown(item,i,$event,'default')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'default')" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'default')" (keydown)="onOptionKeydown(item,i,$event,'default')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label>{{item[settings.labelKey]}}</label>
@@ -41923,7 +42214,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 <ul virtualScroller #scroll [enableUnequalChildrenSizes]="randomSize" [items]="virtualdata" (vsStart)="onScrollEnd($event)"
                     (vsEnd)="onScrollEnd($event)" [ngStyle]="{'height': settings.maxHeight+'px'}" class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of scroll.viewPortItems; let i = index;" (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll),$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll),'lazy')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll),'lazy')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll),$event,'lazy',scroll)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll),'lazy')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll),'lazy')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll),$event,'lazy',scroll)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label>{{item[settings.labelKey]}}</label>
@@ -41935,11 +42226,11 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 style="overflow: auto;">
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of data; let i = index;" (click)="onItemClick(item,i,$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'custom')" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'custom')" (keydown)="onOptionKeydown(item,i,$event,'custom')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'custom')" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'custom')" (keydown)="onOptionKeydown(item,i,$event,'custom')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label></label>
-                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,i,'custom')"></c-templateRenderer>
                     </li>
                 </ul>
             </div>
@@ -41949,11 +42240,11 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 <ul virtualScroller #scroll2 [enableUnequalChildrenSizes]="randomSize" [items]="virtualdata" (vsStart)="onScrollEnd($event)"
                     (vsEnd)="onScrollEnd($event)" class="lazyContainer" [ngStyle]="{'height': settings.maxHeight+'px'}" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of scroll2.viewPortItems; let i = index;" (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll2),$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll2)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll2),$event,'lazy-custom',scroll2)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll2)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll2),$event,'lazy-custom',scroll2)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label></label>
-                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')"></c-templateRenderer>
                     </li>
                 </ul>
             </div>
@@ -41964,18 +42255,18 @@ var AngularMultiSelect = class _AngularMultiSelect {
                     (vsEnd)="onScrollEnd($event)" [ngStyle]="{'height': settings.maxHeight+'px'}" class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of scroll3.viewPortItems; let i = index;">
                         <li (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll3),$event)" *ngIf="!item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll3)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll3),$event,'lazy-group-custom',scroll3)">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll3)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll3),$event,'lazy-group-custom',scroll3)">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label></label>
-                            <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')"></c-templateRenderer>
                         </li>
                         <li *ngIf="item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}"
                             class="pure-checkbox" role="presentation">
                             <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label></label>
-                            <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,i,'lazy-group-heading')"></c-templateRenderer>
                         </li>
                     </span>
                 </ul>
@@ -41986,18 +42277,18 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of groupedData; let i = index;">
                         <li (click)="selectGroup(item)" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': item.selected == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group-custom')" [attr.aria-selected]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group-custom')" (keydown)="onGroupKeydown(item,i,$event,'group-custom')">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group-custom')" [attr.aria-selected]="item.selected" [attr.aria-checked]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group-custom')" (keydown)="onGroupKeydown(item,i,$event,'group-custom')">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="item.selected" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label>{{item[settings.labelKey]}}</label>
                             <ul class="lazyContainer">
                                 <span *ngFor="let val of item.list ; let j = index;">
                                     <li (click)="onItemClick(val,j,$event); $event.stopPropagation()" [ngClass]="{'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection, 'selected-item': isSelected(val) == true, 'is-disabled': isOptionDisabled(val)}"
-                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-custom-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-custom-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-custom-'+i)">
+                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-custom-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-checked]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-custom-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-custom-'+i)">
                                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(val)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled"
                                         aria-hidden="true" tabindex="-1"/>
                                         <label></label>
-                                        <c-templateRenderer [data]="itemTempl" [item]="val"></c-templateRenderer>
+                                        <c-templateRenderer [data]="itemTempl" [item]="val" [context]="getTemplateContext(val,j,'group-custom-'+i,item)"></c-templateRenderer>
                                     </li>
                                 </span>
                             </ul>
@@ -42021,7 +42312,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
                                 <label>{{item[settings.labelKey]}}</label>
                             </li>
                             <li (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll4),$event)" *ngIf="!item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }"
-                                class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll4)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll4),$event,'lazy-group',scroll4)">
+                                class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll4)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll4),$event,'lazy-group',scroll4)">
                                 <input *ngIf="settings.showCheckbox && !item.grpTitle" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                                 aria-hidden="true" tabindex="-1"/>
                                 <label>{{item[settings.labelKey]}}</label>
@@ -42036,14 +42327,14 @@ var AngularMultiSelect = class _AngularMultiSelect {
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of groupedData ; let i = index;">
                         <li (click)="selectGroup(item)" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': item.selected == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group')" [attr.aria-selected]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group')" (keydown)="onGroupKeydown(item,i,$event,'group')">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group')" [attr.aria-selected]="item.selected" [attr.aria-checked]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group')" (keydown)="onGroupKeydown(item,i,$event,'group')">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="item.selected" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label>{{item[settings.labelKey]}}</label>
                             <ul class="lazyContainer">
                                 <span *ngFor="let val of item.list ; let j = index;">
                                     <li (click)="onItemClick(val,j,$event); $event.stopPropagation()" [ngClass]="{'selected-item': isSelected(val) == true,'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection, 'is-disabled': isOptionDisabled(val)}"
-                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-'+i)">
+                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-checked]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-'+i)">
                                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(val)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled"
                                         aria-hidden="true" tabindex="-1"/>
                                         <label>{{val[settings.labelKey]}}</label>
@@ -42076,7 +42367,7 @@ var AngularMultiSelect = class _AngularMultiSelect {
     </div>
 </div>
 `,
-      styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;align-content:center;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{display:inline-flex;align-items:center;align-self:center;justify-content:flex-start;min-width:0;max-width:100%;color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem;line-height:1.25;text-align:left}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:11px;width:8px;height:4px;margin-top:0;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:translate(-50%,-58%) rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:translate(-50%,-58%) rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n']
+      styles: ['virtual-scroll{display:block;width:100%}.stackline-dropdown,.dropdown-list.skin-material,.dropdown-list.theme-material{--ms-primary: #3f51b5;--ms-primary-soft: rgba(63, 81, 181, .12);--ms-surface: #ffffff;--ms-surface-soft: #f5f7fb;--ms-surface-muted: #e8eaf6;--ms-outline: #c5cae9;--ms-outline-strong: #7986cb;--ms-on-surface: #212121;--ms-on-surface-muted: #5f6368;--ms-chip-bg: #e8eaf6;--ms-chip-text: #303f9f;--ms-chip-remove: #303f9f;--ms-shadow: 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12);--ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08);color:var(--ms-on-surface, #212121);font:inherit}.stackline-dropdown{position:relative;display:block;width:100%}.selected-list{width:100%}.c-btn{position:relative;display:flex;align-items:center;align-content:center;box-sizing:border-box;flex-wrap:wrap;gap:8px;width:100%;min-height:56px;padding:11px 54px 11px 16px;border-radius:18px;border:1px solid var(--ms-outline, #c5cae9);background:var(--ms-surface, #ffffff);box-shadow:var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08));cursor:pointer;line-height:1.45;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease,transform .16s ease}.c-btn.has-selection{padding-right:104px}.c-btn:hover{border-color:var(--ms-outline-strong, #7986cb)}.c-btn.is-active{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 3px #6750a424,var(--ms-shadow-soft, 0 1px 2px rgba(33, 33, 33, .12), 0 4px 12px rgba(33, 33, 33, .08))}.c-btn:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-btn.disabled{cursor:not-allowed;opacity:.72}.c-placeholder,.c-single-value{display:inline-flex;align-items:center;align-self:center;justify-content:flex-start;min-width:0;max-width:100%;color:var(--ms-on-surface-muted, #5f6368);font-size:.95rem;line-height:1.25;text-align:left}.c-btn.has-selection .c-single-value,.c-btn.has-selection .c-placeholder{color:var(--ms-on-surface, #212121);font-weight:500}.c-list{display:flex;flex:1 1 auto;flex-wrap:wrap;gap:8px;margin:0;padding:0;min-width:0}.c-chip-list{padding-right:8px}.c-token{position:relative;display:inline-block;vertical-align:middle;min-height:32px;max-width:100%;padding:6px 30px 6px 12px;border-radius:999px;background:var(--ms-chip-bg, #e8eaf6);color:var(--ms-chip-text, #303f9f);box-shadow:inset 0 0 0 1px #6750a414;line-height:1.35;white-space:normal;overflow-wrap:anywhere}.c-token .c-label{display:inline-flex;align-items:center;min-width:0;max-width:100%;line-height:1.3;font-weight:500;white-space:normal;overflow-wrap:anywhere}.c-remove{position:absolute;right:10px;top:50%;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transform:translateY(-50%);color:var(--ms-chip-remove, #303f9f)}button.c-remove,button.c-clear,button.c-arrow-toggle{border:0;padding:0;background:transparent;font:inherit;cursor:pointer}button.c-arrow-toggle:disabled{cursor:not-allowed}.c-remove:focus-visible,.list-filter .c-clear:focus-visible,.c-arrow-toggle:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.c-remove svg,.c-angle-down svg,.c-angle-up svg{fill:currentColor}.c-remove c-icon{display:inline-flex;width:10px;height:10px;line-height:0}.clear-all c-icon{width:12px;height:12px}.clear-all{position:absolute;top:50%;right:42px;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.countplaceholder{position:absolute;top:50%;right:76px;display:inline-flex;align-items:center;justify-content:center;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);font-size:.8rem;font-weight:600;line-height:1;white-space:nowrap;pointer-events:none}.c-angle-down,.c-angle-up{position:absolute;top:50%;right:16px;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368);pointer-events:auto}.dropdown-list{position:absolute;right:0;left:0;box-sizing:border-box;width:auto;min-width:0;max-width:100%;padding-top:8px;z-index:99999}.dropdown-list[hidden]{display:none!important}.dropdown-list.is-open,.dropdown-list.tagToBody{position:fixed;right:auto;max-width:calc(100vw - 16px);z-index:100000}.arrow-up,.arrow-down,.arrow-2{display:none}.list-area{box-sizing:border-box;max-width:100%;overflow:hidden;border-radius:22px;background:var(--ms-surface, #ffffff);border:1px solid var(--ms-outline, #c5cae9);box-shadow:var(--ms-shadow, 0 1px 2px rgba(33, 33, 33, .16), 0 12px 32px rgba(63, 81, 181, .12))}.select-all,.filter-select-all{padding:10px 14px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface-soft, #f5f7fb)}.list-filter{position:relative;display:flex;align-items:center;min-height:52px;padding-left:48px;padding-right:44px;border-bottom:1px solid rgba(125,119,134,.16);background:var(--ms-surface, #ffffff)}.list-filter .c-input,.list-filter input{width:100%;height:100%;border:0;background:transparent;color:var(--ms-on-surface, #212121);font:inherit}.list-filter .c-input::placeholder,.list-filter input::placeholder{color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-input:focus,.list-filter input:focus{outline:none}.list-filter .c-search,.list-filter .c-clear{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;transform:translateY(-50%);color:var(--ms-on-surface-muted, #5f6368)}.list-filter .c-search{left:16px}.list-filter .c-clear{right:16px;cursor:pointer}.btn-container{padding:10px 14px 14px;text-align:center}.btn-iceblue{width:100%;min-height:40px;border-radius:999px;border:1px solid transparent;background:var(--ms-primary, #3f51b5);color:#fff;font-weight:600}.dropdown-list ul{list-style:none;margin:0;padding:8px;overflow:auto;background:var(--ms-surface, #ffffff)}.dropdown-list ul li{align-items:center;min-height:0;margin:4px;padding:12px 14px;border-radius:14px;cursor:pointer;text-align:left;line-height:1.35;transition:background-color .16s ease,color .16s ease}.dropdown-list ul li:hover{background:var(--ms-surface-soft, #f5f7fb)}.dropdown-list ul li:focus-visible{outline:3px solid rgba(63,81,181,.32);outline-offset:2px}.dropdown-option.is-disabled{cursor:not-allowed;opacity:.58}.selected-item{background:var(--ms-primary-soft, rgba(63, 81, 181, .12))!important;color:var(--ms-primary, #3f51b5)}.selected-item:hover{background:#6750a42e!important}.grp-item{padding-left:42px!important}.grp-title{margin-top:6px;padding-top:10px!important;padding-bottom:8px!important;background:transparent!important;color:var(--ms-on-surface-muted, #5f6368);cursor:default!important}.grp-title label{margin-bottom:0!important;font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.grp-title:hover{background:transparent!important}.pure-checkbox{position:relative}.pure-checkbox input[type=checkbox]{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.pure-checkbox input[type=checkbox]+label{position:relative;display:block;width:100%;margin:0;padding-left:32px;color:inherit;cursor:pointer;font-weight:500;-webkit-user-select:none;user-select:none}.pure-checkbox input[type=checkbox]+label:before{box-sizing:content-box;content:"";position:absolute;top:50%;left:0;width:18px;height:18px;margin-top:-10px;border:2px solid var(--ms-outline-strong, #7986cb);border-radius:6px;background:var(--ms-surface, #ffffff);transition:all .18s ease}.pure-checkbox input[type=checkbox]+label:after{box-sizing:content-box;content:"";position:absolute;top:50%;left:11px;width:8px;height:4px;margin-top:0;border-style:solid;border-width:0 0 2px 2px;border-color:#fff;transform:translate(-50%,-58%) rotate(-45deg) scale(0);transform-origin:50%;transition:transform .16s ease-out}.pure-checkbox input[type=checkbox]:focus+label:before,.pure-checkbox input[type=checkbox]:hover+label:before{border-color:var(--ms-primary, #3f51b5);box-shadow:0 0 0 4px #3f51b51f}.pure-checkbox input[type=checkbox]:checked+label:before{border-color:var(--ms-primary, #3f51b5);background:var(--ms-primary, #3f51b5)}.pure-checkbox input[type=checkbox]:checked+label:after{transform:translate(-50%,-58%) rotate(-45deg) scale(1)}.pure-checkbox input[type=checkbox]:disabled+label{color:#b1acb8;cursor:not-allowed}.pure-checkbox input[type=checkbox]:disabled+label:before{border-color:#d5d0db;background:#f2edf7;box-shadow:none}.single-select-mode .pure-checkbox input[type=checkbox]+label:before,.single-select-mode .pure-checkbox input[type=checkbox]+label:after{opacity:0}.single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.list-message,.nodata-label{margin:0;padding:22px 16px 24px;color:var(--ms-on-surface-muted, #5f6368);text-align:center;font-size:.95rem;font-weight:500}.list-grp{padding:0 15px!important}.list-grp h4{margin:16px 0 6px;color:var(--ms-on-surface, #212121);font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.list-grp>li{padding-left:15px!important}.loading-icon{position:absolute;top:18px;right:16px;width:18px;z-index:2}.dropdown-list ::-webkit-scrollbar{width:10px}.dropdown-list ::-webkit-scrollbar-thumb{background:#7d778657;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.dropdown-list ::-webkit-scrollbar-track{background:transparent}.stackline-dropdown.theme-dark,.dropdown-list.theme-dark{--ms-primary: #8ab4f8;--ms-primary-soft: rgba(138, 180, 248, .18);--ms-surface: #151a23;--ms-surface-soft: #202736;--ms-surface-muted: #111722;--ms-outline: #384456;--ms-outline-strong: #8ab4f8;--ms-on-surface: #edf2f7;--ms-on-surface-muted: #aab6c5;--ms-chip-bg: #263247;--ms-chip-text: #d7e6ff;--ms-chip-remove: #d7e6ff;--ms-shadow: 0 20px 50px rgba(0, 0, 0, .42);--ms-shadow-soft: 0 1px 2px rgba(0, 0, 0, .45), 0 10px 24px rgba(0, 0, 0, .28)}.stackline-dropdown.theme-custom,.dropdown-list.theme-custom{--ms-primary: var(--stackline-ms-primary, #0f766e);--ms-primary-soft: var(--stackline-ms-primary-soft, rgba(15, 118, 110, .14));--ms-surface: var(--stackline-ms-surface, #ffffff);--ms-surface-soft: var(--stackline-ms-surface-soft, #ecfdf5);--ms-surface-muted: var(--stackline-ms-surface-muted, #d1fae5);--ms-outline: var(--stackline-ms-outline, #99f6e4);--ms-outline-strong: var(--stackline-ms-outline-strong, #0f766e);--ms-on-surface: var(--stackline-ms-on-surface, #102a2a);--ms-on-surface-muted: var(--stackline-ms-on-surface-muted, #47615f);--ms-chip-bg: var(--stackline-ms-chip-bg, #ccfbf1);--ms-chip-text: var(--stackline-ms-chip-text, #115e59);--ms-chip-remove: var(--stackline-ms-chip-remove, #115e59);--ms-shadow: var(--stackline-ms-shadow, 0 18px 42px rgba(15, 118, 110, .15));--ms-shadow-soft: var(--stackline-ms-shadow-soft, 0 1px 2px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .09))}.stackline-dropdown.theme-classic,.dropdown-list.theme-classic{--ms-primary: #0079fe;--ms-primary-soft: #e9f4ff;--ms-surface: #ffffff;--ms-surface-soft: #f5f5f5;--ms-outline: #cccccc;--ms-outline-strong: #0079fe;--ms-on-surface: #333333;--ms-on-surface-muted: #333333;--ms-chip-bg: #0079fe;--ms-chip-text: #ffffff;--ms-chip-remove: #ffffff;--ms-shadow: 0 1px 5px #959595;--ms-shadow-soft: 0 1px 5px #959595;color:#333}.stackline-dropdown.theme-classic .selected-list{width:100%}.stackline-dropdown.theme-classic .c-btn{display:flex;align-items:center;align-content:center;flex-wrap:nowrap;gap:6px;min-height:42px;padding:10px 68px 10px 10px;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595;color:#333;font-size:14px;line-height:1.35}.stackline-dropdown.theme-classic .c-btn.has-selection{padding-right:104px}.stackline-dropdown.theme-classic .c-btn.is-active,.stackline-dropdown.theme-classic .c-btn:hover{border-color:#ccc;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .c-btn.disabled{background:#ccc;opacity:1}.stackline-dropdown.theme-classic .c-placeholder,.stackline-dropdown.theme-classic .c-single-value{color:#333;font-size:14px}.stackline-dropdown.theme-classic .c-list{display:flex;flex:1 1 auto;align-items:center;flex-wrap:wrap;gap:4px;width:auto;min-width:0;margin:0;padding:0}.stackline-dropdown.theme-classic .c-chip-list{padding-right:0}.stackline-dropdown.theme-classic .c-token{display:inline-block;min-height:0;margin:2px 0 0;padding:2px 24px 2px 6px;border-radius:2px;background:#0079fe;box-shadow:none;color:#fff;line-height:1.4}.stackline-dropdown.theme-classic .c-token .c-label{display:inline;color:#fff;font-size:14px;font-weight:400;line-height:1.4}.stackline-dropdown.theme-classic .c-remove{right:5px;width:14px;height:14px;color:#fff}.stackline-dropdown.theme-classic .c-remove c-icon{width:9px;height:9px}.stackline-dropdown.theme-classic .clear-all{right:42px;width:18px;height:18px;color:#333}.stackline-dropdown.theme-classic .clear-all c-icon{width:11px;height:11px}.stackline-dropdown.theme-classic .countplaceholder{right:76px;color:#333;font-size:14px;font-weight:400}.stackline-dropdown.theme-classic .c-angle-down,.stackline-dropdown.theme-classic .c-angle-up{right:10px;width:20px;height:20px;color:#333}.stackline-dropdown.theme-classic .dropdown-list{padding-top:14px;padding-bottom:0;z-index:9999}.stackline-dropdown.theme-classic .dropdown-list.opens-up{padding-top:0;padding-bottom:14px}.stackline-dropdown.theme-classic .dropdown-list.opens-down{padding-top:14px;padding-bottom:0}.stackline-dropdown.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.stackline-dropdown.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.stackline-dropdown.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.stackline-dropdown.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.stackline-dropdown.theme-classic .select-all,.stackline-dropdown.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.stackline-dropdown.theme-classic .list-filter .c-input,.stackline-dropdown.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.stackline-dropdown.theme-classic .list-filter .c-search{left:13px}.stackline-dropdown.theme-classic .list-filter .c-clear{right:13px}.stackline-dropdown.theme-classic .btn-container{padding:10px}.stackline-dropdown.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.stackline-dropdown.theme-classic .dropdown-list ul{margin:0;padding:0}.stackline-dropdown.theme-classic .dropdown-list ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.stackline-dropdown.theme-classic .dropdown-list ul li:hover{background:#f5f5f5}.stackline-dropdown.theme-classic .selected-item,.stackline-dropdown.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.stackline-dropdown.theme-classic .grp-item{padding-left:30px!important}.stackline-dropdown.theme-classic .grp-title{color:#000}.stackline-dropdown.theme-classic .grp-title label,.stackline-dropdown.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.stackline-dropdown.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.stackline-dropdown.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}.dropdown-list.theme-classic{padding-top:14px;padding-bottom:0;z-index:100000}.dropdown-list.theme-classic.opens-up{padding-top:0;padding-bottom:14px}.dropdown-list.theme-classic.opens-down{padding-top:14px;padding-bottom:0}.dropdown-list.theme-classic .arrow-up{display:block;position:absolute;top:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-bottom:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-2{top:-1px;border-bottom-color:#ccc}.dropdown-list.theme-classic .arrow-down{display:block;position:absolute;top:auto;bottom:0;width:0;height:0;margin-left:15px;border-right:13px solid transparent;border-top:15px solid #ffffff;border-left:13px solid transparent}.dropdown-list.theme-classic .arrow-down.arrow-2{top:auto;bottom:-1px;border-top-color:#ccc}.dropdown-list.theme-classic .list-area{overflow:hidden;margin:0;border:1px solid #cccccc;border-radius:3px;background:#fff;box-shadow:0 1px 5px #959595}.dropdown-list.theme-classic .select-all,.dropdown-list.theme-classic .filter-select-all{padding:10px;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter{display:block;min-height:35px;padding:0;border-bottom:1px solid #cccccc;background:#fff}.dropdown-list.theme-classic .list-filter .c-input,.dropdown-list.theme-classic .list-filter input{height:35px;padding:0 35px;color:#333}.dropdown-list.theme-classic .list-filter .c-search{left:13px}.dropdown-list.theme-classic .list-filter .c-clear{right:13px}.dropdown-list.theme-classic .btn-container{padding:10px}.dropdown-list.theme-classic .btn-iceblue{min-height:35px;border-radius:3px;background:#0079fe}.dropdown-list.theme-classic ul{margin:0;padding:0}.dropdown-list.theme-classic ul li{min-height:0;margin:0;padding:10px;border-radius:0;color:#333;line-height:1.35}.dropdown-list.theme-classic ul li:hover{background:#f5f5f5}.dropdown-list.theme-classic .selected-item,.dropdown-list.theme-classic .selected-item:hover{background:#e9f4ff!important;color:#333}.dropdown-list.theme-classic .grp-item{padding-left:30px!important}.dropdown-list.theme-classic .grp-title{color:#000}.dropdown-list.theme-classic .grp-title label,.dropdown-list.theme-classic .list-grp h4{font-size:14px;font-weight:700;letter-spacing:0;text-transform:capitalize}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label{padding-left:2em;color:#000;font-weight:300}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:before{width:14px;height:14px;margin-top:-9px;border:2px solid #0079fe;border-radius:0;background:#fff}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]+label:after{top:50%;left:9px;width:8px;height:3px;margin-top:0;border-width:0 0 3px 3px;border-color:#fff;background:transparent}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:focus+label:before,.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:hover+label:before{border-color:#0079fe;background-color:#f2f2f2;box-shadow:none}.dropdown-list.theme-classic .pure-checkbox input[type=checkbox]:checked+label:before{border-color:#0079fe;background:#0079fe}.dropdown-list.theme-classic .single-select-mode .pure-checkbox input[type=checkbox]+label{padding-left:0}\n']
     }]
   }], () => [{
     type: ElementRef
@@ -42240,6 +42531,165 @@ var AngularMultiSelectModule = class _AngularMultiSelectModule {
     }]
   }], null, null);
 })();
+var defaultSettings = {
+  singleSelection: false,
+  text: "Select",
+  primaryKey: "id",
+  labelKey: "itemName",
+  listboxAriaLabel: "Available options",
+  ariaLabel: "Select options"
+};
+function cleanId(value) {
+  return String(value === void 0 || value === null ? "" : value).toLowerCase().replace(/[^a-z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
+}
+var AngularMultiselectState = class {
+  data;
+  selectedItems;
+  settings;
+  filter = "";
+  isOpen = false;
+  activeKey = null;
+  id;
+  onChange;
+  constructor(config2) {
+    this.id = config2.id || Math.random().toString(36).slice(2);
+    this.data = config2.data || [];
+    this.selectedItems = config2.selectedItems ? config2.selectedItems.slice() : [];
+    this.settings = Object.assign({}, defaultSettings, config2.settings || {});
+    this.onChange = config2.onChange;
+  }
+  setData(data) {
+    this.data = data || [];
+  }
+  setSelectedItems(items) {
+    this.selectedItems = items ? items.slice() : [];
+    this.emitChange();
+  }
+  setFilter(value) {
+    this.filter = value || "";
+  }
+  open() {
+    this.isOpen = true;
+  }
+  close() {
+    this.isOpen = false;
+    this.activeKey = null;
+  }
+  toggleOpen() {
+    this.isOpen = !this.isOpen;
+    if (!this.isOpen) {
+      this.activeKey = null;
+    }
+  }
+  getKey(item) {
+    return String(item[this.settings.primaryKey || "id"]);
+  }
+  getLabel(item) {
+    var label = item[this.settings.labelKey || "itemName"];
+    return label === void 0 || label === null ? "" : String(label);
+  }
+  isSelected(item) {
+    var key = this.getKey(item);
+    return this.selectedItems.some((selected) => this.getKey(selected) === key);
+  }
+  isDisabled(item) {
+    return !!(item && item.disabled);
+  }
+  getVisibleOptions() {
+    var query = this.filter.toLowerCase();
+    if (!query) {
+      return this.data.slice();
+    }
+    var searchBy = this.settings.searchBy && this.settings.searchBy.length ? this.settings.searchBy : [this.settings.labelKey || "itemName"];
+    return this.data.filter((item) => {
+      return searchBy.some((field) => {
+        var value = item[field];
+        return value !== void 0 && value !== null && String(value).toLowerCase().indexOf(query) >= 0;
+      });
+    });
+  }
+  getOptionState(item, index) {
+    var key = this.getKey(item);
+    var selected = this.isSelected(item);
+    var disabled = this.isDisabled(item);
+    return {
+      item,
+      key,
+      label: this.getLabel(item),
+      selected,
+      disabled,
+      id: this.id + "-option-" + (cleanId(key) || index),
+      role: "option",
+      ariaSelected: selected ? "true" : "false",
+      ariaChecked: selected ? "true" : "false",
+      ariaDisabled: disabled ? "true" : "false"
+    };
+  }
+  getOptionStates() {
+    return this.getVisibleOptions().map((item, index) => this.getOptionState(item, index));
+  }
+  getListboxState() {
+    return {
+      id: this.id + "-listbox",
+      role: "listbox",
+      ariaMultiselectable: this.settings.singleSelection ? "false" : "true",
+      ariaLabel: this.settings.listboxAriaLabel || this.settings.ariaLabel || "Available options"
+    };
+  }
+  getTriggerState() {
+    return {
+      role: "combobox",
+      ariaHaspopup: "listbox",
+      ariaControls: this.getListboxState().id,
+      ariaExpanded: this.isOpen ? "true" : "false",
+      ariaActivedescendant: this.activeKey,
+      ariaLabel: this.settings.ariaLabel || this.settings.text || "Select options"
+    };
+  }
+  toggleItem(item) {
+    if (this.isDisabled(item)) {
+      return;
+    }
+    if (this.isSelected(item)) {
+      this.removeItem(item);
+      return;
+    }
+    if (this.settings.singleSelection) {
+      this.selectedItems = [item];
+      this.close();
+    } else {
+      this.selectedItems = this.selectedItems.concat(item);
+    }
+    this.emitChange();
+  }
+  removeItem(item) {
+    var key = this.getKey(item);
+    this.selectedItems = this.selectedItems.filter((selected) => this.getKey(selected) !== key);
+    this.emitChange();
+  }
+  clearSelection() {
+    this.selectedItems = [];
+    this.emitChange();
+  }
+  selectAll() {
+    if (this.settings.singleSelection) {
+      return;
+    }
+    this.selectedItems = this.getVisibleOptions().filter((item) => !this.isDisabled(item));
+    this.emitChange();
+  }
+  deSelectAll() {
+    this.clearSelection();
+  }
+  emitChange() {
+    if (this.onChange) {
+      this.onChange(this.selectedItems.slice());
+    }
+  }
+};
+function defineAngularMultiselectSettings(settings) {
+  return settings;
+}
 
 // node_modules/@angular/router/fesm2022/_router-chunk.mjs
 /**
@@ -47983,8 +48433,8 @@ function provideRouterInitializer() {
 var DOCS_META = {
   badge: "ANGULAR 21 \xB7 MATERIAL REFINED",
   angularVersion: "21.x",
-  packageVersion: "21.1.14",
-  packageRange: "21.1.14",
+  packageVersion: "21.2.0",
+  packageRange: "21.2.0",
   docsPath: "angular-21"
 };
 
@@ -48090,7 +48540,7 @@ var AppComponent = class _AppComponent {
       "Custom templates",
       "Lazy loading",
       "Material-like theme",
-      "ADA-compliant keyboard/ARIA",
+      "Accessibility-focused keyboard/ARIA",
       "Dialog overflow support",
       "Custom CSS/SCSS theme"
     ];
@@ -48112,13 +48562,13 @@ var AppComponent = class _AppComponent {
       },
       {
         kicker: "Accessibility",
-        title: "ADA-compliant keyboard and ARIA support",
+        title: "Accessibility-focused keyboard and ARIA support",
         copy: "The trigger, clear-all action, chips, listbox, and lazy-loaded results expose keyboard flow, visible focus, and ARIA labels for accessible use."
       },
       {
         kicker: "Dialogs",
         title: "tagToBody for dialogs",
-        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.14 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind."
+        copy: "Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.2.0 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind."
       },
       {
         kicker: "Styling",
@@ -48135,6 +48585,10 @@ var AppComponent = class _AppComponent {
     this.stackBlitzBaseUrl = "https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21";
     this.stackBlitzSlugs = {
       basic: "basic",
+      "keyboard-contract": "keyboard-contract",
+      "aria-state": "aria-state",
+      "template-slots": "template-slots",
+      "headless-aria": "headless-aria",
       singleselection: "single-selection",
       searchfilter: "search-filter",
       customSearchAPI: "custom-search-api",
@@ -48160,7 +48614,7 @@ var AppComponent = class _AppComponent {
       styling: "styling"
     };
     this.links = this.router.config.filter((link) => !!link.path && !!link.data?.["label"]);
-    this.currentLabel = this.links[0]?.data?.["label"] || "Basic example";
+    this.currentLabel = this.links[0]?.data?.["label"] || "Basic usage";
     this.currentPath = this.links[0]?.path || "basic";
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => this.syncCurrentRoute());
   }
@@ -48199,7 +48653,7 @@ var AppComponent = class _AppComponent {
     while (route?.firstChild) {
       route = route.firstChild;
     }
-    this.currentLabel = route?.snapshot.data?.["label"] || "Basic example";
+    this.currentLabel = route?.snapshot.data?.["label"] || "Basic usage";
     this.currentPath = route?.routeConfig?.path || "basic";
   }
   static {
@@ -48271,7 +48725,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275text(53, "Promise");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(54, "span");
-        \u0275\u0275text(55, "ADA-compliant keyboard/ARIA support");
+        \u0275\u0275text(55, "Accessibility-focused keyboard/ARIA support");
         \u0275\u0275elementEnd()()()();
         \u0275\u0275elementStart(56, "main", 19)(57, "section", 20)(58, "div", 21)(59, "div")(60, "div", 22);
         \u0275\u0275text(61, "Live preview");
@@ -48330,7 +48784,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275elementStart(102, "code");
         \u0275\u0275text(103);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(104, " adds ADA-compliant keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
+        \u0275\u0275text(104, " adds accessibility-focused keyboard navigation, focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action, and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers through ");
         \u0275\u0275elementStart(105, "code");
         \u0275\u0275text(106, "tagToBody");
         \u0275\u0275elementEnd();
@@ -48350,7 +48804,7 @@ var AppComponent = class _AppComponent {
         \u0275\u0275text(118, " Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states. ");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(119, "div", 36)(120, "strong");
-        \u0275\u0275text(121, "ADA-compliant interactions");
+        \u0275\u0275text(121, "Keyboard/ARIA tested interactions");
         \u0275\u0275elementEnd();
         \u0275\u0275text(122, " Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata. ");
         \u0275\u0275elementEnd();
@@ -48538,7 +48992,7 @@ var AppComponent = class _AppComponent {
         <div class="release-item"><strong>Package</strong><span>{{ docsMeta.packageVersion }}</span></div>
         <div class="release-item"><strong>Angular</strong><span>{{ docsMeta.angularVersion }}</span></div>
         <div class="release-item"><strong>Docs path</strong><span>/{{ docsMeta.docsPath }}/</span></div>
-        <div class="release-item"><strong>Promise</strong><span>ADA-compliant keyboard/ARIA support</span></div>
+        <div class="release-item"><strong>Promise</strong><span>Accessibility-focused keyboard/ARIA support</span></div>
       </section>
     </aside>
 
@@ -48585,7 +49039,7 @@ var AppComponent = class _AppComponent {
           while still accepting the legacy <code>&lt;angular2-multiselect&gt;</code> API,
           <code>ngModel</code> binding, event outputs, and custom template hooks while refining the
           UI to feel much closer to Angular Material surfaces and field patterns. Version
-          <code>{{ docsMeta.packageVersion }}</code> adds ADA-compliant keyboard navigation,
+          <code>{{ docsMeta.packageVersion }}</code> adds accessibility-focused keyboard navigation,
           focus handling, and ARIA labels across the trigger, chips, listbox, clear-all action,
           and lazy-loaded results, plus dialog-safe dropdown positioning for overflow containers
           through <code>tagToBody</code>.
@@ -48605,7 +49059,7 @@ var AppComponent = class _AppComponent {
             Surface elevation, rounded outlines, calmer color tokens, and cleaner dropdown states.
           </div>
           <div class="compat-card">
-            <strong>ADA-compliant interactions</strong>
+            <strong>Keyboard/ARIA tested interactions</strong>
             Tab, Enter, Space, and arrow behavior work with clear focus states and ARIA metadata.
           </div>
           <div class="compat-card">
@@ -52223,6 +52677,732 @@ var DialogContentExampleDialog = class _DialogContentExampleDialog {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(DialogContentExampleDialog, { className: "DialogContentExampleDialog", filePath: "src/app/examples/usingWithinDialog.ts", lineNumber: 78 });
 })();
 
+// src/app/examples/keyboardContract.ts
+var KeyboardContractExample = class _KeyboardContractExample {
+  constructor() {
+    this.itemList = [];
+    this.selectedItems = [];
+    this.settings = {};
+    this.spaceMode = "toggle";
+  }
+  ngOnInit() {
+    this.itemList = [
+      { id: 1, itemName: "Brazil", region: "Americas" },
+      { id: 2, itemName: "Canada", region: "Americas" },
+      { id: 3, itemName: "Portugal", region: "Europe" },
+      { id: 4, itemName: "Colombia", region: "Americas" },
+      { id: 5, itemName: "Germany", region: "Europe" },
+      { id: 6, itemName: "Mexico", region: "Americas" }
+    ];
+    this.selectedItems = [{ id: 1, itemName: "Brazil", region: "Americas" }];
+    this.settings = this.makeSettings();
+  }
+  toggleKeyboard(key) {
+    const keyboard = Object.assign({}, this.settings.keyboard || {});
+    keyboard[key] = keyboard[key] === false;
+    this.settings = Object.assign({}, this.settings, { keyboard });
+  }
+  setSpaceMode(mode) {
+    this.spaceMode = mode;
+    this.settings = this.makeSettings();
+  }
+  makeSettings() {
+    return {
+      text: "Keyboard-tested countries",
+      enableSearchFilter: true,
+      searchAutofocus: false,
+      badgeShowLimit: 3,
+      maxHeight: 220,
+      skin: "classic",
+      keyboard: {
+        space: this.settings.keyboard?.space !== false,
+        spaceOptionAction: this.spaceMode,
+        tab: this.settings.keyboard?.tab !== false,
+        arrows: this.settings.keyboard?.arrows !== false,
+        escape: this.settings.keyboard?.escape !== false,
+        backspaceRemovesLastWhenSearchEmpty: !!this.settings.keyboard?.backspaceRemovesLastWhenSearchEmpty,
+        deleteRemovesFocusedBadge: this.settings.keyboard?.deleteRemovesFocusedBadge !== false
+      }
+    };
+  }
+  get settingsJson() {
+    return JSON.stringify({ keyboard: this.settings.keyboard }, null, 2);
+  }
+  static {
+    this.\u0275fac = function KeyboardContractExample_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _KeyboardContractExample)();
+    };
+  }
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _KeyboardContractExample, selectors: [["ng-component"]], standalone: false, decls: 29, vars: 20, consts: [[1, "contract-grid"], ["aria-label", "Keyboard behavior toggles", 1, "setting-row"], ["type", "button", 3, "click"], [3, "ngModelChange", "data", "ngModel", "settings"], [1, "code-note"]], template: function KeyboardContractExample_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "section", 0)(1, "div")(2, "h3");
+        \u0275\u0275text(3, "Keyboard contract");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(4, "p");
+        \u0275\u0275text(5, "Space, Tab, arrows, Escape, Backspace, and focused badge removal are explicit settings.");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(6, "div", 1)(7, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_7_listener() {
+          return ctx.toggleKeyboard("space");
+        });
+        \u0275\u0275text(8, "Space");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(9, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_9_listener() {
+          return ctx.toggleKeyboard("tab");
+        });
+        \u0275\u0275text(10, "Tab");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(11, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_11_listener() {
+          return ctx.toggleKeyboard("arrows");
+        });
+        \u0275\u0275text(12, "Arrows");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(13, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_13_listener() {
+          return ctx.toggleKeyboard("escape");
+        });
+        \u0275\u0275text(14, "Escape");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(15, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_15_listener() {
+          return ctx.toggleKeyboard("backspaceRemovesLastWhenSearchEmpty");
+        });
+        \u0275\u0275text(16, "Search Backspace");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(17, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_17_listener() {
+          return ctx.toggleKeyboard("deleteRemovesFocusedBadge");
+        });
+        \u0275\u0275text(18, "Badge Delete");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(19, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_19_listener() {
+          return ctx.setSpaceMode("toggle");
+        });
+        \u0275\u0275text(20, "Toggle only");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(21, "button", 2);
+        \u0275\u0275listener("click", function KeyboardContractExample_Template_button_click_21_listener() {
+          return ctx.setSpaceMode("toggle-and-next");
+        });
+        \u0275\u0275text(22, "Toggle and next");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(23, "angular-multiselect", 3);
+        \u0275\u0275twoWayListener("ngModelChange", function KeyboardContractExample_Template_angular_multiselect_ngModelChange_23_listener($event) {
+          \u0275\u0275twoWayBindingSet(ctx.selectedItems, $event) || (ctx.selectedItems = $event);
+          return $event;
+        });
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(24, "div", 4)(25, "strong");
+        \u0275\u0275text(26, "Current keyboard settings");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(27, "pre");
+        \u0275\u0275text(28);
+        \u0275\u0275elementEnd()()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance(7);
+        \u0275\u0275classProp("active", (ctx.settings.keyboard == null ? null : ctx.settings.keyboard.space) !== false);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", (ctx.settings.keyboard == null ? null : ctx.settings.keyboard.tab) !== false);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", (ctx.settings.keyboard == null ? null : ctx.settings.keyboard.arrows) !== false);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", (ctx.settings.keyboard == null ? null : ctx.settings.keyboard.escape) !== false);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", ctx.settings.keyboard == null ? null : ctx.settings.keyboard.backspaceRemovesLastWhenSearchEmpty);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", (ctx.settings.keyboard == null ? null : ctx.settings.keyboard.deleteRemovesFocusedBadge) !== false);
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", ctx.spaceMode === "toggle");
+        \u0275\u0275advance(2);
+        \u0275\u0275classProp("active", ctx.spaceMode === "toggle-and-next");
+        \u0275\u0275advance(2);
+        \u0275\u0275property("data", ctx.itemList);
+        \u0275\u0275twoWayProperty("ngModel", ctx.selectedItems);
+        \u0275\u0275property("settings", ctx.settings);
+        \u0275\u0275advance(5);
+        \u0275\u0275textInterpolate(ctx.settingsJson);
+      }
+    }, dependencies: [NgControlStatus, NgModel, AngularMultiSelect], styles: ["\n.contract-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.setting-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.setting-row[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 36px;\n  padding: 0 12px;\n  border: 1px solid #d7dcec;\n  border-radius: 999px;\n  background: #fff;\n  color: #344054;\n  font-weight: 700;\n}\n.setting-row[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: #3f51b5;\n  border-color: #3f51b5;\n  color: #fff;\n}\n.code-note[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin-top: 14px;\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n  color: #344054;\n}\npre[_ngcontent-%COMP%] {\n  white-space: pre-wrap;\n  margin: 0;\n}\n/*# sourceMappingURL=keyboardContract.css.map */"] });
+  }
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(KeyboardContractExample, [{
+    type: Component,
+    args: [{ standalone: false, template: `<section class="contract-grid">
+  <div>
+    <h3>Keyboard contract</h3>
+    <p>Space, Tab, arrows, Escape, Backspace, and focused badge removal are explicit settings.</p>
+  </div>
+
+  <div class="setting-row" aria-label="Keyboard behavior toggles">
+    <button type="button" [class.active]="settings.keyboard?.space !== false" (click)="toggleKeyboard('space')">Space</button>
+    <button type="button" [class.active]="settings.keyboard?.tab !== false" (click)="toggleKeyboard('tab')">Tab</button>
+    <button type="button" [class.active]="settings.keyboard?.arrows !== false" (click)="toggleKeyboard('arrows')">Arrows</button>
+    <button type="button" [class.active]="settings.keyboard?.escape !== false" (click)="toggleKeyboard('escape')">Escape</button>
+    <button type="button" [class.active]="settings.keyboard?.backspaceRemovesLastWhenSearchEmpty" (click)="toggleKeyboard('backspaceRemovesLastWhenSearchEmpty')">Search Backspace</button>
+    <button type="button" [class.active]="settings.keyboard?.deleteRemovesFocusedBadge !== false" (click)="toggleKeyboard('deleteRemovesFocusedBadge')">Badge Delete</button>
+    <button type="button" [class.active]="spaceMode === 'toggle'" (click)="setSpaceMode('toggle')">Toggle only</button>
+    <button type="button" [class.active]="spaceMode === 'toggle-and-next'" (click)="setSpaceMode('toggle-and-next')">Toggle and next</button>
+  </div>
+
+  <angular-multiselect
+    [data]="itemList"
+    [(ngModel)]="selectedItems"
+    [settings]="settings">
+  </angular-multiselect>
+
+  <div class="code-note">
+    <strong>Current keyboard settings</strong>
+    <pre>{{ settingsJson }}</pre>
+  </div>
+</section>
+`, styles: ["/* angular:styles/component:css;42ab566b553e50ccf684b3821807847768d4603d929537988bf6f616db220bd5;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/keyboardContract.ts */\n.contract-grid {\n  display: grid;\n  gap: 18px;\n}\n.setting-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.setting-row button {\n  min-height: 36px;\n  padding: 0 12px;\n  border: 1px solid #d7dcec;\n  border-radius: 999px;\n  background: #fff;\n  color: #344054;\n  font-weight: 700;\n}\n.setting-row button.active {\n  background: #3f51b5;\n  border-color: #3f51b5;\n  color: #fff;\n}\n.code-note {\n  display: grid;\n  gap: 8px;\n  margin-top: 14px;\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n  color: #344054;\n}\npre {\n  white-space: pre-wrap;\n  margin: 0;\n}\n/*# sourceMappingURL=keyboardContract.css.map */\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(KeyboardContractExample, { className: "KeyboardContractExample", filePath: "src/app/examples/keyboardContract.ts", lineNumber: 16 });
+})();
+
+// src/app/examples/ariaState.ts
+var AriaStateExample = class _AriaStateExample {
+  constructor() {
+    this.itemList = [];
+    this.selectedItems = [];
+    this.settings = {};
+  }
+  ngOnInit() {
+    this.itemList = [
+      { id: 1, itemName: "Brazil", region: "Americas" },
+      { id: 2, itemName: "Canada", region: "Americas" },
+      { id: 3, itemName: "Portugal", region: "Europe" },
+      { id: 4, itemName: "Colombia", region: "Americas" },
+      { id: 5, itemName: "Germany", region: "Europe" }
+    ];
+    this.selectedItems = [
+      { id: 1, itemName: "Brazil", region: "Americas" },
+      { id: 2, itemName: "Canada", region: "Americas" }
+    ];
+    this.settings = {
+      text: "ARIA-tested countries",
+      enableSearchFilter: true,
+      searchAutofocus: false,
+      listboxAriaLabel: "Country options",
+      ariaLabel: "ARIA state country picker",
+      skin: "material",
+      maxHeight: 220
+    };
+  }
+  static {
+    this.\u0275fac = function AriaStateExample_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _AriaStateExample)();
+    };
+  }
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AriaStateExample, selectors: [["ng-component"]], standalone: false, decls: 31, vars: 3, consts: [[1, "aria-grid"], [3, "ngModelChange", "data", "ngModel", "settings"], [1, "aria-panel"]], template: function AriaStateExample_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "section", 0)(1, "div")(2, "h3");
+        \u0275\u0275text(3, "ARIA selected and checked state");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(4, "p");
+        \u0275\u0275text(5, "The listbox options expose matching ");
+        \u0275\u0275elementStart(6, "code");
+        \u0275\u0275text(7, "aria-selected");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(8, " and ");
+        \u0275\u0275elementStart(9, "code");
+        \u0275\u0275text(10, "aria-checked");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(11, " values.");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(12, "angular-multiselect", 1);
+        \u0275\u0275twoWayListener("ngModelChange", function AriaStateExample_Template_angular_multiselect_ngModelChange_12_listener($event) {
+          \u0275\u0275twoWayBindingSet(ctx.selectedItems, $event) || (ctx.selectedItems = $event);
+          return $event;
+        });
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(13, "div", 2)(14, "span")(15, "code");
+        \u0275\u0275text(16, 'role="combobox"');
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(17, " stays on the trigger.");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(18, "span")(19, "code");
+        \u0275\u0275text(20, 'role="listbox"');
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(21, " stays on the option list.");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(22, "span")(23, "code");
+        \u0275\u0275text(24, "aria-selected");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(25, " and ");
+        \u0275\u0275elementStart(26, "code");
+        \u0275\u0275text(27, "aria-checked");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(28, " both reflect selected state.");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(29, "span");
+        \u0275\u0275text(30, "Search and action buttons stay outside the listbox semantics.");
+        \u0275\u0275elementEnd()()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance(12);
+        \u0275\u0275property("data", ctx.itemList);
+        \u0275\u0275twoWayProperty("ngModel", ctx.selectedItems);
+        \u0275\u0275property("settings", ctx.settings);
+      }
+    }, dependencies: [NgControlStatus, NgModel, AngularMultiSelect], styles: ["\n.aria-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.aria-panel[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n}\ncode[_ngcontent-%COMP%] {\n  color: #3f51b5;\n  font-weight: 700;\n}\n/*# sourceMappingURL=ariaState.css.map */"] });
+  }
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AriaStateExample, [{
+    type: Component,
+    args: [{ standalone: false, template: '<section class="aria-grid">\n  <div>\n    <h3>ARIA selected and checked state</h3>\n    <p>The listbox options expose matching <code>aria-selected</code> and <code>aria-checked</code> values.</p>\n  </div>\n\n  <angular-multiselect\n    [data]="itemList"\n    [(ngModel)]="selectedItems"\n    [settings]="settings">\n  </angular-multiselect>\n\n  <div class="aria-panel">\n    <span><code>role="combobox"</code> stays on the trigger.</span>\n    <span><code>role="listbox"</code> stays on the option list.</span>\n    <span><code>aria-selected</code> and <code>aria-checked</code> both reflect selected state.</span>\n    <span>Search and action buttons stay outside the listbox semantics.</span>\n  </div>\n</section>\n', styles: ["/* angular:styles/component:css;37475cfde41fab6a0999493904ab7928079b5f45ae37210a86fc5273550f85f8;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/ariaState.ts */\n.aria-grid {\n  display: grid;\n  gap: 18px;\n}\n.aria-panel {\n  display: grid;\n  gap: 8px;\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n}\ncode {\n  color: #3f51b5;\n  font-weight: 700;\n}\n/*# sourceMappingURL=ariaState.css.map */\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AriaStateExample, { className: "AriaStateExample", filePath: "src/app/examples/ariaState.ts", lineNumber: 13 });
+})();
+
+// src/app/examples/templateSlots.ts
+function TemplateSlotsExample_ng_template_8_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 2)(1, "strong");
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "span");
+    \u0275\u0275text(4);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const item_r1 = ctx.item;
+    const label_r2 = ctx.label;
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(item_r1.code);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(label_r2);
+  }
+}
+function TemplateSlotsExample_ng_template_10_span_8_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span");
+    \u0275\u0275text(1, "disabled");
+    \u0275\u0275elementEnd();
+  }
+}
+function TemplateSlotsExample_ng_template_10_span_9_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 8);
+    \u0275\u0275text(1, "Selected");
+    \u0275\u0275elementEnd();
+  }
+}
+function TemplateSlotsExample_ng_template_10_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 3)(1, "span", 4);
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "span", 5)(4, "strong");
+    \u0275\u0275text(5);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(6, "small");
+    \u0275\u0275text(7);
+    \u0275\u0275template(8, TemplateSlotsExample_ng_template_10_span_8_Template, 2, 0, "span", 6);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275template(9, TemplateSlotsExample_ng_template_10_span_9_Template, 2, 0, "span", 7);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const item_r3 = ctx.item;
+    const label_r4 = ctx.label;
+    const selected_r5 = ctx.selected;
+    const disabled_r6 = ctx.disabled;
+    const ariaChecked_r7 = ctx.ariaChecked;
+    \u0275\u0275attribute("data-aria-checked", ariaChecked_r7);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(item_r3.code);
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(label_r4);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("", item_r3.region, " ");
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", disabled_r6);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", selected_r5);
+  }
+}
+var TemplateSlotsExample = class _TemplateSlotsExample {
+  constructor() {
+    this.itemList = [];
+    this.selectedItems = [];
+    this.settings = {};
+  }
+  ngOnInit() {
+    this.itemList = [
+      { id: 1, itemName: "Brazil", region: "Americas", code: "BR" },
+      { id: 2, itemName: "Canada", region: "Americas", code: "CA" },
+      { id: 3, itemName: "Portugal", region: "Europe", code: "PT" },
+      { id: 4, itemName: "Colombia", region: "Americas", code: "CO" },
+      { id: 5, itemName: "Germany", region: "Europe", code: "DE" },
+      { id: 6, itemName: "Mexico", region: "Americas", code: "MX" }
+    ];
+    this.selectedItems = [this.itemList[0], this.itemList[2]];
+    this.settings = {
+      text: "Template slot countries",
+      enableSearchFilter: true,
+      searchAutofocus: false,
+      groupBy: "region",
+      badgeShowLimit: 2,
+      skin: "brand",
+      maxHeight: 260
+    };
+  }
+  static {
+    this.\u0275fac = function TemplateSlotsExample_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _TemplateSlotsExample)();
+    };
+  }
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _TemplateSlotsExample, selectors: [["ng-component"]], standalone: false, decls: 11, vars: 3, consts: [[1, "slot-grid"], [3, "ngModelChange", "data", "ngModel", "settings"], [1, "badge-template"], [1, "country-option"], [1, "country-code"], [1, "country-copy"], [4, "ngIf"], ["class", "selected-mark", 4, "ngIf"], [1, "selected-mark"]], template: function TemplateSlotsExample_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "section", 0)(1, "div")(2, "h3");
+        \u0275\u0275text(3, "Template slots");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(4, "p");
+        \u0275\u0275text(5, "Angular uses projected templates instead of React slot functions. The context exposes item, label, selected, disabled, index, group, and ARIA state.");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(6, "angular-multiselect", 1);
+        \u0275\u0275twoWayListener("ngModelChange", function TemplateSlotsExample_Template_angular_multiselect_ngModelChange_6_listener($event) {
+          \u0275\u0275twoWayBindingSet(ctx.selectedItems, $event) || (ctx.selectedItems = $event);
+          return $event;
+        });
+        \u0275\u0275elementStart(7, "c-badge");
+        \u0275\u0275template(8, TemplateSlotsExample_ng_template_8_Template, 5, 2, "ng-template");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(9, "c-item");
+        \u0275\u0275template(10, TemplateSlotsExample_ng_template_10_Template, 10, 6, "ng-template");
+        \u0275\u0275elementEnd()()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance(6);
+        \u0275\u0275property("data", ctx.itemList);
+        \u0275\u0275twoWayProperty("ngModel", ctx.selectedItems);
+        \u0275\u0275property("settings", ctx.settings);
+      }
+    }, dependencies: [NgIf, NgControlStatus, NgModel, AngularMultiSelect, Item, Badge], styles: ["\n.slot-grid[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.country-option[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 12px;\n  width: 100%;\n}\n.country-code[_ngcontent-%COMP%] {\n  display: inline-grid;\n  place-items: center;\n  width: 34px;\n  height: 26px;\n  border-radius: 8px;\n  background: #e8eaf6;\n  color: #303f9f;\n  font-weight: 800;\n}\n.country-copy[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 2px;\n}\n.country-copy[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  line-height: 1.2;\n}\n.country-copy[_ngcontent-%COMP%]   small[_ngcontent-%COMP%] {\n  color: #667085;\n}\n.selected-mark[_ngcontent-%COMP%] {\n  color: #0f766e;\n  font-weight: 800;\n}\n.badge-template[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n}\n/*# sourceMappingURL=templateSlots.css.map */"] });
+  }
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(TemplateSlotsExample, [{
+    type: Component,
+    args: [{ standalone: false, template: '<section class="slot-grid">\n  <div>\n    <h3>Template slots</h3>\n    <p>Angular uses projected templates instead of React slot functions. The context exposes item, label, selected, disabled, index, group, and ARIA state.</p>\n  </div>\n\n  <angular-multiselect\n    [data]="itemList"\n    [(ngModel)]="selectedItems"\n    [settings]="settings">\n    <c-badge>\n      <ng-template let-item="item" let-label="label">\n        <span class="badge-template">\n          <strong>{{ item.code }}</strong>\n          <span>{{ label }}</span>\n        </span>\n      </ng-template>\n    </c-badge>\n\n    <c-item>\n      <ng-template\n        let-item="item"\n        let-label="label"\n        let-selected="selected"\n        let-disabled="disabled"\n        let-ariaChecked="ariaChecked">\n        <span class="country-option" [attr.data-aria-checked]="ariaChecked">\n          <span class="country-code">{{ item.code }}</span>\n          <span class="country-copy">\n            <strong>{{ label }}</strong>\n            <small>{{ item.region }} <span *ngIf="disabled">disabled</span></small>\n          </span>\n          <span class="selected-mark" *ngIf="selected">Selected</span>\n        </span>\n      </ng-template>\n    </c-item>\n  </angular-multiselect>\n</section>\n', styles: ["/* angular:styles/component:css;ff0d62642cd79bf29f6dbc2e1041ec27ea424886f51d89d5dc88bd194427cfdc;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/templateSlots.ts */\n.slot-grid {\n  display: grid;\n  gap: 18px;\n}\n.country-option {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 12px;\n  width: 100%;\n}\n.country-code {\n  display: inline-grid;\n  place-items: center;\n  width: 34px;\n  height: 26px;\n  border-radius: 8px;\n  background: #e8eaf6;\n  color: #303f9f;\n  font-weight: 800;\n}\n.country-copy {\n  display: grid;\n  gap: 2px;\n}\n.country-copy strong {\n  line-height: 1.2;\n}\n.country-copy small {\n  color: #667085;\n}\n.selected-mark {\n  color: #0f766e;\n  font-weight: 800;\n}\n.badge-template {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n}\n/*# sourceMappingURL=templateSlots.css.map */\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(TemplateSlotsExample, { className: "TemplateSlotsExample", filePath: "src/app/examples/templateSlots.ts", lineNumber: 18 });
+})();
+
+// src/app/examples/headlessAria.ts
+function HeadlessAriaExample_span_7_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r1 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span", 7);
+    \u0275\u0275text(1);
+    \u0275\u0275elementStart(2, "button", 8);
+    \u0275\u0275listener("click", function HeadlessAriaExample_span_7_Template_button_click_2_listener() {
+      const item_r2 = \u0275\u0275restoreView(_r1).$implicit;
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.remove(item_r2));
+    });
+    \u0275\u0275text(3, "x");
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const item_r2 = ctx.$implicit;
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", item_r2.itemName, " ");
+    \u0275\u0275advance();
+    \u0275\u0275attribute("aria-label", "Remove " + item_r2.itemName);
+  }
+}
+function HeadlessAriaExample_div_11_div_8_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r5 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 14);
+    \u0275\u0275listener("click", function HeadlessAriaExample_div_11_div_8_Template_div_click_0_listener() {
+      const option_r6 = \u0275\u0275restoreView(_r5).$implicit;
+      const ctx_r2 = \u0275\u0275nextContext(2);
+      ctx_r2.state.toggleItem(option_r6.item);
+      return \u0275\u0275resetView(ctx_r2.state.activeKey = option_r6.id);
+    })("keydown", function HeadlessAriaExample_div_11_div_8_Template_div_keydown_0_listener($event) {
+      const ctx_r6 = \u0275\u0275restoreView(_r5);
+      const option_r6 = ctx_r6.$implicit;
+      const i_r8 = ctx_r6.index;
+      const ctx_r2 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r2.onOptionKeydown($event, option_r6, i_r8));
+    });
+    \u0275\u0275elementStart(1, "span", 15);
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "span");
+    \u0275\u0275text(4);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(5, "small");
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const option_r6 = ctx.$implicit;
+    \u0275\u0275property("id", option_r6.id);
+    \u0275\u0275attribute("role", option_r6.role)("aria-selected", option_r6.ariaSelected)("aria-checked", option_r6.ariaChecked)("aria-disabled", option_r6.ariaDisabled);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(option_r6.item.code);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(option_r6.label);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(option_r6.item.region);
+  }
+}
+function HeadlessAriaExample_div_11_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 9)(1, "div", 10)(2, "input", 11);
+    \u0275\u0275listener("ngModelChange", function HeadlessAriaExample_div_11_Template_input_ngModelChange_2_listener($event) {
+      \u0275\u0275restoreView(_r4);
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.state.setFilter($event));
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "button", 8);
+    \u0275\u0275listener("click", function HeadlessAriaExample_div_11_Template_button_click_3_listener() {
+      \u0275\u0275restoreView(_r4);
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.state.selectAll());
+    });
+    \u0275\u0275text(4, "Select all");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(5, "button", 8);
+    \u0275\u0275listener("click", function HeadlessAriaExample_div_11_Template_button_click_5_listener() {
+      \u0275\u0275restoreView(_r4);
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.state.clearSelection());
+    });
+    \u0275\u0275text(6, "Clear");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(7, "div", 12);
+    \u0275\u0275template(8, HeadlessAriaExample_div_11_div_8_Template, 7, 8, "div", 13);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext();
+    \u0275\u0275advance(2);
+    \u0275\u0275property("ngModel", ctx_r2.state.filter);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("id", ctx_r2.listbox.id);
+    \u0275\u0275attribute("role", ctx_r2.listbox.role)("aria-multiselectable", ctx_r2.listbox.ariaMultiselectable)("aria-label", ctx_r2.listbox.ariaLabel);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngForOf", ctx_r2.visibleOptions);
+  }
+}
+var HeadlessAriaExample = class _HeadlessAriaExample {
+  constructor() {
+    this.countries = [];
+    this.selectedItems = [];
+  }
+  ngOnInit() {
+    this.countries = [
+      { id: 1, itemName: "Brazil", region: "Americas", code: "BR" },
+      { id: 2, itemName: "Canada", region: "Americas", code: "CA" },
+      { id: 3, itemName: "Portugal", region: "Europe", code: "PT" },
+      { id: 4, itemName: "Colombia", region: "Americas", code: "CO" },
+      { id: 5, itemName: "Germany", region: "Europe", code: "DE" },
+      { id: 6, itemName: "Mexico", region: "Americas", code: "MX" },
+      { id: 7, itemName: "France", region: "Europe", code: "FR" },
+      { id: 8, itemName: "Chile", region: "Americas", code: "CL" }
+    ];
+    this.selectedItems = [this.countries[0]];
+    this.state = new AngularMultiselectState({
+      data: this.countries,
+      selectedItems: this.selectedItems,
+      settings: defineAngularMultiselectSettings({
+        text: "Choose countries",
+        primaryKey: "id",
+        labelKey: "itemName",
+        searchBy: ["itemName", "region", "code"],
+        listboxAriaLabel: "Custom country options",
+        ariaLabel: "Headless country picker"
+      }),
+      onChange: (items) => {
+        this.selectedItems = items;
+      }
+    });
+  }
+  get trigger() {
+    return this.state.getTriggerState();
+  }
+  get listbox() {
+    return this.state.getListboxState();
+  }
+  get visibleOptions() {
+    return this.state.getOptionStates();
+  }
+  get triggerLabel() {
+    return this.selectedItems.length ? this.selectedItems.map((item) => item.itemName).join(", ") : "Choose countries";
+  }
+  onOptionKeydown(event, option, index) {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+      event.preventDefault();
+      this.state.toggleItem(option.item);
+      this.state.activeKey = option.id;
+      this.focusOption(option.id);
+      return;
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      this.state.close();
+      return;
+    }
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      const nextIndex = event.key === "ArrowDown" ? Math.min(index + 1, this.visibleOptions.length - 1) : Math.max(index - 1, 0);
+      const next = this.visibleOptions[nextIndex];
+      this.state.activeKey = next.id;
+      this.focusOption(next.id);
+    }
+  }
+  remove(item) {
+    this.state.removeItem(item);
+  }
+  focusOption(id) {
+    setTimeout(() => document.getElementById(id)?.focus(), 0);
+  }
+  static {
+    this.\u0275fac = function HeadlessAriaExample_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _HeadlessAriaExample)();
+    };
+  }
+  static {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HeadlessAriaExample, selectors: [["ng-component"]], standalone: false, decls: 17, vars: 9, consts: [[1, "headless-shell"], ["aria-label", "Selected countries", 1, "headless-chip-row"], ["class", "headless-chip", 4, "ngFor", "ngForOf"], [1, "headless-root"], ["type", "button", 1, "headless-trigger", 3, "click"], ["class", "headless-panel", 4, "ngIf"], [1, "code-note"], [1, "headless-chip"], ["type", "button", 3, "click"], [1, "headless-panel"], [1, "headless-toolbar"], ["type", "search", "aria-label", "Search custom country options", "placeholder", "Search by country, region, or code", 3, "ngModelChange", "ngModel"], [1, "headless-listbox", 3, "id"], ["class", "headless-option", "tabindex", "0", 3, "id", "click", "keydown", 4, "ngFor", "ngForOf"], ["tabindex", "0", 1, "headless-option", 3, "click", "keydown", "id"], ["aria-hidden", "true", 1, "flag"]], template: function HeadlessAriaExample_Template(rf, ctx) {
+      if (rf & 1) {
+        \u0275\u0275elementStart(0, "section", 0)(1, "div")(2, "h3");
+        \u0275\u0275text(3, "Headless + ARIA custom HTML");
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(4, "p");
+        \u0275\u0275text(5, "This example uses the Angular renderless state helper and owns every visible element.");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(6, "div", 1);
+        \u0275\u0275template(7, HeadlessAriaExample_span_7_Template, 4, 2, "span", 2);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(8, "div", 3)(9, "button", 4);
+        \u0275\u0275listener("click", function HeadlessAriaExample_Template_button_click_9_listener() {
+          return ctx.state.toggleOpen();
+        });
+        \u0275\u0275text(10);
+        \u0275\u0275elementEnd();
+        \u0275\u0275template(11, HeadlessAriaExample_div_11_Template, 9, 6, "div", 5);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(12, "div", 6);
+        \u0275\u0275text(13, " Import ");
+        \u0275\u0275elementStart(14, "code");
+        \u0275\u0275text(15, "AngularMultiselectState");
+        \u0275\u0275elementEnd();
+        \u0275\u0275text(16, " when your application needs Stackline selection, filtering, keyboard handling, and ARIA state without the built-in DOM/CSS. ");
+        \u0275\u0275elementEnd()();
+      }
+      if (rf & 2) {
+        \u0275\u0275advance(7);
+        \u0275\u0275property("ngForOf", ctx.selectedItems);
+        \u0275\u0275advance(2);
+        \u0275\u0275attribute("role", ctx.trigger.role)("aria-haspopup", ctx.trigger.ariaHaspopup)("aria-controls", ctx.trigger.ariaControls)("aria-expanded", ctx.trigger.ariaExpanded)("aria-activedescendant", ctx.trigger.ariaActivedescendant)("aria-label", ctx.trigger.ariaLabel);
+        \u0275\u0275advance();
+        \u0275\u0275textInterpolate1(" ", ctx.triggerLabel, " ");
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.state.isOpen);
+      }
+    }, dependencies: [NgForOf, NgIf, DefaultValueAccessor, NgControlStatus, NgModel], styles: ["\n.headless-shell[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.headless-root[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 620px;\n}\n.headless-trigger[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 48px;\n  border: 1px solid #c5cae9;\n  border-radius: 16px;\n  background: #fff;\n  padding: 0 16px;\n  text-align: left;\n  font-weight: 700;\n  color: #253858;\n}\n.headless-panel[_ngcontent-%COMP%] {\n  margin-top: 8px;\n  border: 1px solid #c5cae9;\n  border-radius: 18px;\n  background: #fff;\n  box-shadow: 0 16px 36px rgba(63, 81, 181, 0.16);\n  overflow: hidden;\n}\n.headless-toolbar[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr auto auto;\n  gap: 8px;\n  padding: 12px;\n  border-bottom: 1px solid #e4e7ec;\n  background: #f8fafc;\n}\n.headless-toolbar[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  min-height: 38px;\n  border: 1px solid #d7dcec;\n  border-radius: 12px;\n  padding: 0 12px;\n}\n.headless-toolbar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border: 1px solid #d7dcec;\n  border-radius: 12px;\n  background: #fff;\n  padding: 0 12px;\n  font-weight: 700;\n}\n.headless-listbox[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n  max-height: 240px;\n  overflow: auto;\n  padding: 8px;\n}\n.headless-option[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 12px;\n  min-height: 42px;\n  border-radius: 12px;\n  padding: 8px 10px;\n  cursor: pointer;\n}\n.headless-option[aria-selected=true][_ngcontent-%COMP%] {\n  background: rgba(63, 81, 181, 0.12);\n  color: #303f9f;\n}\n.headless-option[_ngcontent-%COMP%]:focus-visible {\n  outline: 3px solid rgba(63, 81, 181, 0.3);\n  outline-offset: 2px;\n}\n.headless-chip-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.headless-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  min-height: 30px;\n  border-radius: 999px;\n  background: #e8eaf6;\n  color: #303f9f;\n  padding: 0 10px;\n  font-weight: 700;\n}\n.headless-chip[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border: 0;\n  background: transparent;\n  color: inherit;\n  cursor: pointer;\n}\n.flag[_ngcontent-%COMP%] {\n  width: 22px;\n  text-align: center;\n}\n.code-note[_ngcontent-%COMP%] {\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n}\n/*# sourceMappingURL=headlessAria.css.map */"] });
+  }
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(HeadlessAriaExample, [{
+    type: Component,
+    args: [{ standalone: false, template: `<section class="headless-shell">
+  <div>
+    <h3>Headless + ARIA custom HTML</h3>
+    <p>This example uses the Angular renderless state helper and owns every visible element.</p>
+  </div>
+
+  <div class="headless-chip-row" aria-label="Selected countries">
+    <span class="headless-chip" *ngFor="let item of selectedItems">
+      {{ item.itemName }}
+      <button type="button" (click)="remove(item)" [attr.aria-label]="'Remove ' + item.itemName">x</button>
+    </span>
+  </div>
+
+  <div class="headless-root">
+    <button
+      type="button"
+      class="headless-trigger"
+      [attr.role]="trigger.role"
+      [attr.aria-haspopup]="trigger.ariaHaspopup"
+      [attr.aria-controls]="trigger.ariaControls"
+      [attr.aria-expanded]="trigger.ariaExpanded"
+      [attr.aria-activedescendant]="trigger.ariaActivedescendant"
+      [attr.aria-label]="trigger.ariaLabel"
+      (click)="state.toggleOpen()">
+      {{ triggerLabel }}
+    </button>
+
+    <div class="headless-panel" *ngIf="state.isOpen">
+      <div class="headless-toolbar">
+        <input
+          type="search"
+          [ngModel]="state.filter"
+          (ngModelChange)="state.setFilter($event)"
+          aria-label="Search custom country options"
+          placeholder="Search by country, region, or code" />
+        <button type="button" (click)="state.selectAll()">Select all</button>
+        <button type="button" (click)="state.clearSelection()">Clear</button>
+      </div>
+
+      <div
+        class="headless-listbox"
+        [id]="listbox.id"
+        [attr.role]="listbox.role"
+        [attr.aria-multiselectable]="listbox.ariaMultiselectable"
+        [attr.aria-label]="listbox.ariaLabel">
+        <div
+          class="headless-option"
+          *ngFor="let option of visibleOptions; let i = index"
+          [id]="option.id"
+          [attr.role]="option.role"
+          [attr.aria-selected]="option.ariaSelected"
+          [attr.aria-checked]="option.ariaChecked"
+          [attr.aria-disabled]="option.ariaDisabled"
+          tabindex="0"
+          (click)="state.toggleItem(option.item); state.activeKey = option.id"
+          (keydown)="onOptionKeydown($event, option, i)">
+          <span class="flag" aria-hidden="true">{{ option.item.code }}</span>
+          <span>{{ option.label }}</span>
+          <small>{{ option.item.region }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-note">
+    Import <code>AngularMultiselectState</code> when your application needs Stackline selection, filtering, keyboard handling, and ARIA state without the built-in DOM/CSS.
+  </div>
+</section>
+`, styles: ["/* angular:styles/component:css;552428def851e0c69150ca87f305dd91546745ef27fba91a535c722c2825d6ca;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/headlessAria.ts */\n.headless-shell {\n  display: grid;\n  gap: 18px;\n}\n.headless-root {\n  position: relative;\n  max-width: 620px;\n}\n.headless-trigger {\n  width: 100%;\n  min-height: 48px;\n  border: 1px solid #c5cae9;\n  border-radius: 16px;\n  background: #fff;\n  padding: 0 16px;\n  text-align: left;\n  font-weight: 700;\n  color: #253858;\n}\n.headless-panel {\n  margin-top: 8px;\n  border: 1px solid #c5cae9;\n  border-radius: 18px;\n  background: #fff;\n  box-shadow: 0 16px 36px rgba(63, 81, 181, 0.16);\n  overflow: hidden;\n}\n.headless-toolbar {\n  display: grid;\n  grid-template-columns: 1fr auto auto;\n  gap: 8px;\n  padding: 12px;\n  border-bottom: 1px solid #e4e7ec;\n  background: #f8fafc;\n}\n.headless-toolbar input {\n  min-height: 38px;\n  border: 1px solid #d7dcec;\n  border-radius: 12px;\n  padding: 0 12px;\n}\n.headless-toolbar button {\n  border: 1px solid #d7dcec;\n  border-radius: 12px;\n  background: #fff;\n  padding: 0 12px;\n  font-weight: 700;\n}\n.headless-listbox {\n  display: grid;\n  gap: 4px;\n  max-height: 240px;\n  overflow: auto;\n  padding: 8px;\n}\n.headless-option {\n  display: grid;\n  grid-template-columns: auto 1fr auto;\n  align-items: center;\n  gap: 12px;\n  min-height: 42px;\n  border-radius: 12px;\n  padding: 8px 10px;\n  cursor: pointer;\n}\n.headless-option[aria-selected=true] {\n  background: rgba(63, 81, 181, 0.12);\n  color: #303f9f;\n}\n.headless-option:focus-visible {\n  outline: 3px solid rgba(63, 81, 181, 0.3);\n  outline-offset: 2px;\n}\n.headless-chip-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.headless-chip {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  min-height: 30px;\n  border-radius: 999px;\n  background: #e8eaf6;\n  color: #303f9f;\n  padding: 0 10px;\n  font-weight: 700;\n}\n.headless-chip button {\n  border: 0;\n  background: transparent;\n  color: inherit;\n  cursor: pointer;\n}\n.flag {\n  width: 22px;\n  text-align: center;\n}\n.code-note {\n  padding: 14px;\n  border: 1px solid #e4e7ec;\n  border-radius: 16px;\n  background: #f8fafc;\n}\n/*# sourceMappingURL=headlessAria.css.map */\n"] }]
+  }], null, null);
+})();
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HeadlessAriaExample, { className: "HeadlessAriaExample", filePath: "src/app/examples/headlessAria.ts", lineNumber: 37 });
+})();
+
 // src/app/app.router.ts
 var appRoutes = [
   { path: "", redirectTo: "/basic", pathMatch: "full" },
@@ -52230,12 +53410,56 @@ var appRoutes = [
     path: "basic",
     component: BasicExample,
     data: {
-      label: "Basic example",
+      label: "Basic usage",
       tstitle: "basic.ts",
       htmltitle: "basic.html",
       csstitle: "",
       tsgist: "CuppaLabs/ee72fbc7b21dad7e4e7664c5b1553235",
       htmlgist: "CuppaLabs/eb78d42ab7971fda6493586e329bfdb8",
+      cssgist: false
+    }
+  },
+  {
+    path: "keyboard-contract",
+    component: KeyboardContractExample,
+    data: {
+      label: "Keyboard contract",
+      tstitle: "keyboardContract.ts",
+      htmltitle: "keyboardContract.html",
+      csstitle: "",
+      cssgist: false
+    }
+  },
+  {
+    path: "aria-state",
+    component: AriaStateExample,
+    data: {
+      label: "ARIA state",
+      tstitle: "ariaState.ts",
+      htmltitle: "ariaState.html",
+      csstitle: "",
+      cssgist: false
+    }
+  },
+  {
+    path: "template-slots",
+    component: TemplateSlotsExample,
+    data: {
+      label: "Template slots",
+      tstitle: "templateSlots.ts",
+      htmltitle: "templateSlots.html",
+      csstitle: "",
+      cssgist: false
+    }
+  },
+  {
+    path: "headless-aria",
+    component: HeadlessAriaExample,
+    data: {
+      label: "Headless + ARIA",
+      tstitle: "headlessAria.ts",
+      htmltitle: "headlessAria.html",
+      csstitle: "",
       cssgist: false
     }
   },
@@ -52776,7 +54000,11 @@ var AppModule = class _AppModule {
         EventsExample,
         UsingInListExample,
         UsingWithinDialog,
-        DialogContentExampleDialog
+        DialogContentExampleDialog,
+        KeyboardContractExample,
+        AriaStateExample,
+        TemplateSlotsExample,
+        HeadlessAriaExample
       ],
       imports: [
         BrowserModule,

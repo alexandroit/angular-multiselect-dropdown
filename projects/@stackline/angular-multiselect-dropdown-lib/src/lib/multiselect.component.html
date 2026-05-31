@@ -26,9 +26,9 @@
                     <span *ngIf="!badgeTempl" class="c-label">{{item[settings.labelKey]}}</span>
 
                     <span *ngIf="badgeTempl" class="c-label">
-                        <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="badgeTempl" [item]="item" [context]="getTemplateContext(item,k,'badge')"></c-templateRenderer>
                     </span>
-                    <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
+                    <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onRemoveButtonKeydown(item,k,$event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
                         <c-icon [name]="'remove'"></c-icon>
                     </button>
                 </div>
@@ -38,16 +38,16 @@
                     <div class="c-token" *ngIf="shouldShowSelectedBadge(k)">
                         <span *ngIf="!badgeTempl" class="c-label">{{item[settings.labelKey]}}</span>
                         <span *ngIf="badgeTempl" class="c-label">
-                            <c-templateRenderer [data]="badgeTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="badgeTempl" [item]="item" [context]="getTemplateContext(item,k,'badge')"></c-templateRenderer>
                         </span>
-                        <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
+                        <button type="button" class="c-remove" (click)="onItemClick(item,k,$event);$event.stopPropagation()" (keydown)="onRemoveButtonKeydown(item,k,$event)" [attr.aria-label]="getRemoveItemAriaLabel(item)">
                             <c-icon [name]="'remove'"></c-icon>
                         </button>
                     </div>
                 </ng-container>
             </div>
             <span class="countplaceholder" *ngIf="getHiddenSelectedCount() > 0">+{{getHiddenSelectedCount()}}</span>
-            <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onInlineActionKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
+            <button type="button" class="c-remove clear-all" *ngIf="settings.clearAll && selectedItems?.length > 0 && !settings.disabled" (click)="clearSelection($event);$event.stopPropagation()" (keydown)="onClearAllKeydown($event)" [attr.aria-label]="getClearAllAriaLabel()">
                 <c-icon [name]="'remove'"></c-icon>
             </button>
             <button type="button" class="c-arrow-toggle" [ngClass]="isActive ? 'c-angle-up' : 'c-angle-down'" [disabled]="settings.disabled" (click)="toggleDropdown($event);$event.stopPropagation()" (keydown)="onArrowButtonKeydown($event)" [attr.aria-label]="isActive ? getCloseDropdownAriaLabel() : getOpenDropdownAriaLabel()" [attr.aria-controls]="listboxId" [attr.aria-expanded]="isActive">
@@ -68,8 +68,8 @@
         [hidden]="!isActive">
         <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}" class="arrow-2"></div>
         <div [ngClass]="{'arrow-up': !isDropdownOpenTowardsTop(), 'arrow-down': isDropdownOpenTowardsTop()}"></div>
-        <div class="list-area" [ngClass]="{'single-select-mode': settings.singleSelection }">
-            <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && data?.length > 0 && !isDisabledItemPresent"
+        <div class="list-area" *ngIf="isActive" [ngClass]="{'single-select-mode': settings.singleSelection }">
+            <div class="pure-checkbox select-all" *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection && hasSelectableItems()"
                 >
                 <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelectAll" [disabled]="settings.limitSelection == selectedItems?.length"
                 [id]="id" (change)="toggleSelectAll($event)"/>
@@ -138,7 +138,7 @@
                 style="overflow: auto;">
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of data; let i = index;" (click)="onItemClick(item,i,$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'default')" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'default')" (keydown)="onOptionKeydown(item,i,$event,'default')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'default')" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'default')" (keydown)="onOptionKeydown(item,i,$event,'default')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label>{{item[settings.labelKey]}}</label>
@@ -151,7 +151,7 @@
                 <ul virtualScroller #scroll [enableUnequalChildrenSizes]="randomSize" [items]="virtualdata" (vsStart)="onScrollEnd($event)"
                     (vsEnd)="onScrollEnd($event)" [ngStyle]="{'height': settings.maxHeight+'px'}" class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of scroll.viewPortItems; let i = index;" (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll),$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll),'lazy')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll),'lazy')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll),$event,'lazy',scroll)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll),'lazy')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll),'lazy')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll),$event,'lazy',scroll)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label>{{item[settings.labelKey]}}</label>
@@ -163,11 +163,11 @@
                 style="overflow: auto;">
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of data; let i = index;" (click)="onItemClick(item,i,$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'custom')" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'custom')" (keydown)="onOptionKeydown(item,i,$event,'custom')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'custom')" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'custom')" (keydown)="onOptionKeydown(item,i,$event,'custom')" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label></label>
-                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,i,'custom')"></c-templateRenderer>
                     </li>
                 </ul>
             </div>
@@ -177,11 +177,11 @@
                 <ul virtualScroller #scroll2 [enableUnequalChildrenSizes]="randomSize" [items]="virtualdata" (vsStart)="onScrollEnd($event)"
                     (vsEnd)="onScrollEnd($event)" class="lazyContainer" [ngStyle]="{'height': settings.maxHeight+'px'}" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <li *ngFor="let item of scroll2.viewPortItems; let i = index;" (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll2),$event)"
-                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll2)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll2),$event,'lazy-custom',scroll2)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
+                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll2)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll2),$event,'lazy-custom',scroll2)" [ngClass]="{'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }">
                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                         aria-hidden="true" tabindex="-1"/>
                         <label></label>
-                        <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                        <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,getVirtualItemIndex(item,i,scroll2),'lazy-custom')"></c-templateRenderer>
                     </li>
                 </ul>
             </div>
@@ -192,18 +192,18 @@
                     (vsEnd)="onScrollEnd($event)" [ngStyle]="{'height': settings.maxHeight+'px'}" class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of scroll3.viewPortItems; let i = index;">
                         <li (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll3),$event)" *ngIf="!item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll3)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll3),$event,'lazy-group-custom',scroll3)">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll3)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll3),$event,'lazy-group-custom',scroll3)">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label></label>
-                            <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,getVirtualItemIndex(item,i,scroll3),'lazy-group-custom')"></c-templateRenderer>
                         </li>
                         <li *ngIf="item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection}"
                             class="pure-checkbox" role="presentation">
                             <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label></label>
-                            <c-templateRenderer [data]="itemTempl" [item]="item"></c-templateRenderer>
+                            <c-templateRenderer [data]="itemTempl" [item]="item" [context]="getTemplateContext(item,i,'lazy-group-heading')"></c-templateRenderer>
                         </li>
                     </span>
                 </ul>
@@ -214,18 +214,18 @@
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of groupedData; let i = index;">
                         <li (click)="selectGroup(item)" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': item.selected == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group-custom')" [attr.aria-selected]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group-custom')" (keydown)="onGroupKeydown(item,i,$event,'group-custom')">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group-custom')" [attr.aria-selected]="item.selected" [attr.aria-checked]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group-custom')" (keydown)="onGroupKeydown(item,i,$event,'group-custom')">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="item.selected" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label>{{item[settings.labelKey]}}</label>
                             <ul class="lazyContainer">
                                 <span *ngFor="let val of item.list ; let j = index;">
                                     <li (click)="onItemClick(val,j,$event); $event.stopPropagation()" [ngClass]="{'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection, 'selected-item': isSelected(val) == true, 'is-disabled': isOptionDisabled(val)}"
-                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-custom-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-custom-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-custom-'+i)">
+                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-custom-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-checked]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-custom-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-custom-'+i)">
                                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(val)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled"
                                         aria-hidden="true" tabindex="-1"/>
                                         <label></label>
-                                        <c-templateRenderer [data]="itemTempl" [item]="val"></c-templateRenderer>
+                                        <c-templateRenderer [data]="itemTempl" [item]="val" [context]="getTemplateContext(val,j,'group-custom-'+i,item)"></c-templateRenderer>
                                     </li>
                                 </span>
                             </ul>
@@ -249,7 +249,7 @@
                                 <label>{{item[settings.labelKey]}}</label>
                             </li>
                             <li (click)="onItemClick(item,getVirtualItemIndex(item,i,scroll4),$event)" *ngIf="!item.grpTitle" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': isSelected(item) == true, 'is-disabled': isOptionDisabled(item) }"
-                                class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll4)" [attr.aria-selected]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll4),$event,'lazy-group',scroll4)">
+                                class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" [attr.data-virtual-index]="getVirtualItemIndex(item,i,scroll4)" [attr.aria-selected]="isSelected(item)" [attr.aria-checked]="isSelected(item)" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,getVirtualItemIndex(item,i,scroll4),'lazy-group')" (keydown)="onOptionKeydown(item,getVirtualItemIndex(item,i,scroll4),$event,'lazy-group',scroll4)">
                                 <input *ngIf="settings.showCheckbox && !item.grpTitle" type="checkbox" [checked]="isSelected(item)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                                 aria-hidden="true" tabindex="-1"/>
                                 <label>{{item[settings.labelKey]}}</label>
@@ -264,14 +264,14 @@
                 <ul class="lazyContainer" [id]="listboxId" role="listbox" [attr.aria-multiselectable]="!settings.singleSelection" [attr.aria-label]="getListboxAriaLabel()">
                     <span *ngFor="let item of groupedData ; let i = index;">
                         <li (click)="selectGroup(item)" [ngClass]="{'grp-title': item.grpTitle,'grp-item': !item.grpTitle && !settings.singleSelection, 'selected-item': item.selected == true, 'is-disabled': isOptionDisabled(item)}"
-                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group')" [attr.aria-selected]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group')" (keydown)="onGroupKeydown(item,i,$event,'group')">
+                            class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(item,i,'group')" [attr.aria-selected]="item.selected" [attr.aria-checked]="item.selected" [attr.aria-disabled]="isOptionDisabled(item)" [attr.tabindex]="isOptionDisabled(item) ? -1 : 0" (focus)="setActiveDescendant(item,i,'group')" (keydown)="onGroupKeydown(item,i,$event,'group')">
                             <input *ngIf="settings.showCheckbox && !settings.singleSelection" type="checkbox" [checked]="item.selected" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(item)) || item.disabled"
                             aria-hidden="true" tabindex="-1"/>
                             <label>{{item[settings.labelKey]}}</label>
                             <ul class="lazyContainer">
                                 <span *ngFor="let val of item.list ; let j = index;">
                                     <li (click)="onItemClick(val,j,$event); $event.stopPropagation()" [ngClass]="{'selected-item': isSelected(val) == true,'grp-title': val.grpTitle,'grp-item': !val.grpTitle && !settings.singleSelection, 'is-disabled': isOptionDisabled(val)}"
-                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-'+i)">
+                                        class="pure-checkbox dropdown-option" role="option" [id]="getOptionId(val,j,'group-'+i)" [attr.aria-selected]="isSelected(val)" [attr.aria-checked]="isSelected(val)" [attr.aria-disabled]="isOptionDisabled(val)" [attr.tabindex]="isOptionDisabled(val) ? -1 : 0" (focus)="setActiveDescendant(val,j,'group-'+i)" (keydown)="onOptionKeydown(val,j,$event,'group-'+i)">
                                         <input *ngIf="settings.showCheckbox" type="checkbox" [checked]="isSelected(val)" [disabled]="(settings.limitSelection == selectedItems?.length && !isSelected(val)) || val.disabled"
                                         aria-hidden="true" tabindex="-1"/>
                                         <label>{{val[settings.labelKey]}}</label>

@@ -34,6 +34,10 @@ import { SearchFilterAddItemExample } from './examples/searchFilterAddNewItem';
 import { EventsExample } from './examples/events';
 import { UsingInListExample } from './examples/usingInList';
 import { DialogContentExampleDialog, UsingWithinDialog } from './examples/usingWithinDialog';
+import { KeyboardContractExample } from './examples/keyboardContract';
+import { AriaStateExample } from './examples/ariaState';
+import { TemplateSlotsExample } from './examples/templateSlots';
+import { HeadlessAriaExample } from './examples/headlessAria';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,11 @@ import { DialogContentExampleDialog, UsingWithinDialog } from './examples/usingW
     EventsExample,
     UsingInListExample,
     UsingWithinDialog,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    KeyboardContractExample,
+    AriaStateExample,
+    TemplateSlotsExample,
+    HeadlessAriaExample
   ],
   imports: [
     BrowserModule,

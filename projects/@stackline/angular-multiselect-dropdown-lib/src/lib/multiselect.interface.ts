@@ -1,3 +1,17 @@
+export type DropdownKeyboardSpaceOptionAction = 'toggle' | 'toggle-and-next';
+
+export interface DropdownKeyboardSettings {
+    space?: boolean;
+    spaceOptionAction?: DropdownKeyboardSpaceOptionAction;
+    tab?: boolean;
+    arrows?: boolean;
+    escape?: boolean;
+    backspaceRemovesLastWhenSearchEmpty?: boolean;
+    deleteRemovesFocusedBadge?: boolean;
+    /** @deprecated Use backspaceRemovesLastWhenSearchEmpty instead. */
+    backspace?: boolean;
+}
+
 export interface DropdownSettings{
     singleSelection?: boolean;
     text?: string;
@@ -45,4 +59,5 @@ export interface DropdownSettings{
     openDropdownAriaLabel?: string;
     closeDropdownAriaLabel?: string;
     loadingText?: string;
+    keyboard?: DropdownKeyboardSettings;
 } 

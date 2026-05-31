@@ -62,6 +62,39 @@ class InlineOverlayHostComponent {
     };
 }
 
+@Component({
+    template: `
+        <angular-multiselect
+            [data]="items"
+            [(ngModel)]="selectedItems"
+            [settings]="settings">
+        </angular-multiselect>
+    `,
+    standalone: false
+})
+class KeyboardHostComponent {
+    items = [
+        { id: 1, itemName: 'Brazil' },
+        { id: 2, itemName: 'Canada' },
+        { id: 3, itemName: 'Portugal' }
+    ];
+    selectedItems = [{ id: 1, itemName: 'Brazil' }];
+    settings: DropdownSettings = {
+        text: 'Select countries',
+        enableSearchFilter: true,
+        searchAutofocus: false,
+        keyboard: {
+            space: true,
+            spaceOptionAction: 'toggle',
+            tab: true,
+            arrows: true,
+            escape: true,
+            backspaceRemovesLastWhenSearchEmpty: false,
+            deleteRemovesFocusedBadge: true
+        }
+    };
+}
+
 function directBodyDropdowns() {
     return Array.prototype.slice.call(document.body.children).filter((child: HTMLElement) => {
         return child.classList && child.classList.contains('dropdown-list');
@@ -119,7 +152,7 @@ describe('AngularMultiSelect tagToBody overlay', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [FormsModule, AngularMultiSelectModule],
-            declarations: [BodyOverlayHostComponent, InlineOverlayHostComponent]
+            declarations: [BodyOverlayHostComponent, InlineOverlayHostComponent, KeyboardHostComponent]
         }).compileComponents();
 
         fixture = TestBed.createComponent(BodyOverlayHostComponent);
@@ -355,4 +388,98 @@ describe('AngularMultiSelect tagToBody overlay', () => {
         tick();
         expect(directBodyDropdowns().length).toBe(0);
     }));
+});
+
+describe('AngularMultiSelect combobox contract', () => {
+    let fixture: ComponentFixture<KeyboardHostComponent>;
+    let component: AngularMultiSelect;
+
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [FormsModule, AngularMultiSelectModule],
+            declarations: [KeyboardHostComponent]
+        }).compileComponents();
+
+        fixture = TestBed.createComponent(KeyboardHostComponent);
+        fixture.detectChanges();
+        component = fixture.debugElement.query(By.directive(AngularMultiSelect)).componentInstance;
+    });
+
+    afterEach(() => {
+        if (fixture) {
+            fixture.destroy();
+        }
+        directBodyDropdowns().forEach((panel: HTMLElement) => panel.remove());
+    });
+
+    it('exposes matching aria-selected and aria-checked on options', fakeAsync(() => {
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var options = fixture.nativeElement.querySelectorAll('.dropdown-option') as NodeListOf<HTMLElement>;
+        expect(options.length).toBe(3);
+        expect(options[0].getAttribute('aria-selected')).toBe('true');
+        expect(options[0].getAttribute('aria-checked')).toBe('true');
+        expect(options[1].getAttribute('aria-selected')).toBe('false');
+        expect(options[1].getAttribute('aria-checked')).toBe('false');
+    }));
+
+    it('does not remove the last selected item on empty-search Backspace by default', fakeAsync(() => {
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var search = fixture.nativeElement.querySelector('.c-input') as HTMLInputElement;
+        search.value = '';
+        search.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace', bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Brazil');
+    }));
+
+    it('removes a focused badge intentionally with Delete', fakeAsync(() => {
+        component.writeValue([{ id: 1, itemName: 'Brazil' }]);
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var remove = fixture.nativeElement.querySelector('.c-token .c-remove') as HTMLButtonElement;
+        expect(remove).toBeTruthy();
+
+        remove.dispatchEvent(new KeyboardEvent('keydown', { key: 'Delete', bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(0);
+    }));
+
+    it('keeps focus on the option after Space toggles it', fakeAsync(() => {
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var options = fixture.nativeElement.querySelectorAll('.dropdown-option') as NodeListOf<HTMLElement>;
+        options[1].focus();
+        options[1].dispatchEvent(new KeyboardEvent('keydown', { key: ' ', bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.isSelected(fixture.componentInstance.items[1])).toBeTrue();
+        expect(document.activeElement).toBe(options[1]);
+    }));
+
+    it('preserves selected object values when async data changes omit them', () => {
+        fixture.componentInstance.items = [{ id: 2, itemName: 'Canada' }];
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Brazil');
+        expect(component.data.some((item) => item.itemName === 'Brazil')).toBeTrue();
+    });
 });

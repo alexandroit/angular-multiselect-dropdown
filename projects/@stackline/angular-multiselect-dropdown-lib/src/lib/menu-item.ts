@@ -53,15 +53,18 @@ export class TemplateRenderer implements OnInit, OnDestroy {
 
     @Input() data: any
     @Input() item: any
+    @Input() context: any
     view: EmbeddedViewRef<any>;
 
     constructor(public viewContainer: ViewContainerRef) {   
     }
     ngOnInit() {
-        this.view = this.viewContainer.createEmbeddedView(this.data.template, {
-            '\$implicit': this.data,
-            'item':this.item
-        });
+        const templateContext = Object.assign({
+            '\$implicit': this.item,
+            'item': this.item
+        }, this.context || {});
+
+        this.view = this.viewContainer.createEmbeddedView(this.data.template, templateContext);
     }
 	
     ngOnDestroy() {

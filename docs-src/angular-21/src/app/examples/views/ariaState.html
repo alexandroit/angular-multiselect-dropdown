@@ -1,0 +1,19 @@
+<section class="aria-grid">
+  <div>
+    <h3>ARIA selected and checked state</h3>
+    <p>The listbox options expose matching <code>aria-selected</code> and <code>aria-checked</code> values.</p>
+  </div>
+
+  <angular-multiselect
+    [data]="itemList"
+    [(ngModel)]="selectedItems"
+    [settings]="settings">
+  </angular-multiselect>
+
+  <div class="aria-panel">
+    <span><code>role="combobox"</code> stays on the trigger.</span>
+    <span><code>role="listbox"</code> stays on the option list.</span>
+    <span><code>aria-selected</code> and <code>aria-checked</code> both reflect selected state.</span>
+    <span>Search and action buttons stay outside the listbox semantics.</span>
+  </div>
+</section>

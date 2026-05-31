@@ -1,0 +1,38 @@
+<section class="slot-grid">
+  <div>
+    <h3>Template slots</h3>
+    <p>Angular uses projected templates instead of React slot functions. The context exposes item, label, selected, disabled, index, group, and ARIA state.</p>
+  </div>
+
+  <angular-multiselect
+    [data]="itemList"
+    [(ngModel)]="selectedItems"
+    [settings]="settings">
+    <c-badge>
+      <ng-template let-item="item" let-label="label">
+        <span class="badge-template">
+          <strong>{{ item.code }}</strong>
+          <span>{{ label }}</span>
+        </span>
+      </ng-template>
+    </c-badge>
+
+    <c-item>
+      <ng-template
+        let-item="item"
+        let-label="label"
+        let-selected="selected"
+        let-disabled="disabled"
+        let-ariaChecked="ariaChecked">
+        <span class="country-option" [attr.data-aria-checked]="ariaChecked">
+          <span class="country-code">{{ item.code }}</span>
+          <span class="country-copy">
+            <strong>{{ label }}</strong>
+            <small>{{ item.region }} <span *ngIf="disabled">disabled</span></small>
+          </span>
+          <span class="selected-mark" *ngIf="selected">Selected</span>
+        </span>
+      </ng-template>
+    </c-item>
+  </angular-multiselect>
+</section>

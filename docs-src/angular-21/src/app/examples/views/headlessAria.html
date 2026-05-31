@@ -1,0 +1,68 @@
+<section class="headless-shell">
+  <div>
+    <h3>Headless + ARIA custom HTML</h3>
+    <p>This example uses the Angular renderless state helper and owns every visible element.</p>
+  </div>
+
+  <div class="headless-chip-row" aria-label="Selected countries">
+    <span class="headless-chip" *ngFor="let item of selectedItems">
+      {{ item.itemName }}
+      <button type="button" (click)="remove(item)" [attr.aria-label]="'Remove ' + item.itemName">x</button>
+    </span>
+  </div>
+
+  <div class="headless-root">
+    <button
+      type="button"
+      class="headless-trigger"
+      [attr.role]="trigger.role"
+      [attr.aria-haspopup]="trigger.ariaHaspopup"
+      [attr.aria-controls]="trigger.ariaControls"
+      [attr.aria-expanded]="trigger.ariaExpanded"
+      [attr.aria-activedescendant]="trigger.ariaActivedescendant"
+      [attr.aria-label]="trigger.ariaLabel"
+      (click)="state.toggleOpen()">
+      {{ triggerLabel }}
+    </button>
+
+    <div class="headless-panel" *ngIf="state.isOpen">
+      <div class="headless-toolbar">
+        <input
+          type="search"
+          [ngModel]="state.filter"
+          (ngModelChange)="state.setFilter($event)"
+          aria-label="Search custom country options"
+          placeholder="Search by country, region, or code" />
+        <button type="button" (click)="state.selectAll()">Select all</button>
+        <button type="button" (click)="state.clearSelection()">Clear</button>
+      </div>
+
+      <div
+        class="headless-listbox"
+        [id]="listbox.id"
+        [attr.role]="listbox.role"
+        [attr.aria-multiselectable]="listbox.ariaMultiselectable"
+        [attr.aria-label]="listbox.ariaLabel">
+        <div
+          class="headless-option"
+          *ngFor="let option of visibleOptions; let i = index"
+          [id]="option.id"
+          [attr.role]="option.role"
+          [attr.aria-selected]="option.ariaSelected"
+          [attr.aria-checked]="option.ariaChecked"
+          [attr.aria-disabled]="option.ariaDisabled"
+          tabindex="0"
+          (click)="state.toggleItem(option.item); state.activeKey = option.id"
+          (keydown)="onOptionKeydown($event, option, i)">
+          <span class="flag" aria-hidden="true">{{ option.item.code }}</span>
+          <span>{{ option.label }}</span>
+          <small>{{ option.item.region }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-note">
+    Import <code>AngularMultiselectState</code> when your application needs Stackline selection, filtering, keyboard handling, and ARIA state without the built-in DOM/CSS.
+  </div>
+</section>

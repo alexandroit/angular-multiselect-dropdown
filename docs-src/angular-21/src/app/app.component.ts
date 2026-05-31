@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     'Custom templates',
     'Lazy loading',
     'Material-like theme',
-    'ADA-compliant keyboard/ARIA',
+    'Accessibility-focused keyboard/ARIA',
     'Dialog overflow support',
     'Custom CSS/SCSS theme'
   ];
@@ -72,13 +72,13 @@ export class AppComponent implements OnInit {
     },
     {
       kicker: 'Accessibility',
-      title: 'ADA-compliant keyboard and ARIA support',
+      title: 'Accessibility-focused keyboard and ARIA support',
       copy: 'The trigger, clear-all action, chips, listbox, and lazy-loaded results expose keyboard flow, visible focus, and ARIA labels for accessible use.'
     },
     {
       kicker: 'Dialogs',
       title: 'tagToBody for dialogs',
-      copy: 'Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.1.15 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind.'
+      copy: 'Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.2.0 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind.'
     },
     {
       kicker: 'Styling',
@@ -95,6 +95,10 @@ export class AppComponent implements OnInit {
   private readonly stackBlitzBaseUrl = 'https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21';
   private readonly stackBlitzSlugs: { [path: string]: string } = {
     basic: 'basic',
+    'keyboard-contract': 'keyboard-contract',
+    'aria-state': 'aria-state',
+    'template-slots': 'template-slots',
+    'headless-aria': 'headless-aria',
     singleselection: 'single-selection',
     searchfilter: 'search-filter',
     customSearchAPI: 'custom-search-api',
@@ -121,7 +125,7 @@ export class AppComponent implements OnInit {
   };
 
   links = this.router.config.filter((link) => !!link.path && !!link.data?.['label']);
-  currentLabel = this.links[0]?.data?.['label'] || 'Basic example';
+  currentLabel = this.links[0]?.data?.['label'] || 'Basic usage';
   currentPath = this.links[0]?.path || 'basic';
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
@@ -172,7 +176,7 @@ export class AppComponent implements OnInit {
       route = route.firstChild;
     }
 
-    this.currentLabel = route?.snapshot.data?.['label'] || 'Basic example';
+    this.currentLabel = route?.snapshot.data?.['label'] || 'Basic usage';
     this.currentPath = route?.routeConfig?.path || 'basic';
   }
 }

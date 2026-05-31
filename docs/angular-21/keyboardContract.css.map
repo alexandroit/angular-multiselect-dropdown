@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;42ab566b553e50ccf684b3821807847768d4603d929537988bf6f616db220bd5;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/keyboardContract.ts"],
+  "sourcesContent": ["\n    .contract-grid { display: grid; gap: 18px; }\n    .setting-row { display: flex; flex-wrap: wrap; gap: 10px; }\n    .setting-row button { min-height: 36px; padding: 0 12px; border: 1px solid #d7dcec; border-radius: 999px; background: #fff; color: #344054; font-weight: 700; }\n    .setting-row button.active { background: #3f51b5; border-color: #3f51b5; color: #fff; }\n    .code-note { display: grid; gap: 8px; margin-top: 14px; padding: 14px; border: 1px solid #e4e7ec; border-radius: 16px; background: #f8fafc; color: #344054; }\n    pre { white-space: pre-wrap; margin: 0; }\n  "],
+  "mappings": ";AACI,CAAC;AAAgB,WAAS;AAAM,OAAK;AAAM;AAC3C,CAAC;AAAc,WAAS;AAAM,aAAW;AAAM,OAAK;AAAM;AAC1D,CADC,YACY;AAAS,cAAY;AAAM,WAAS,EAAE;AAAM,UAAQ,IAAI,MAAM;AAAS,iBAAe;AAAO,cAAY;AAAM,SAAO;AAAS,eAAa;AAAK;AAC9J,CAFC,YAEY,MAAM,CAAC;AAAS,cAAY;AAAS,gBAAc;AAAS,SAAO;AAAM;AACtF,CAAC;AAAY,WAAS;AAAM,OAAK;AAAK,cAAY;AAAM,WAAS;AAAM,UAAQ,IAAI,MAAM;AAAS,iBAAe;AAAM,cAAY;AAAS,SAAO;AAAS;AAC5J;AAAM,eAAa;AAAU,UAAQ;AAAG;",
+  "names": []
+}

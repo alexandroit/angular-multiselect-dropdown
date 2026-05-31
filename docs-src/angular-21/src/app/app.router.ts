@@ -27,6 +27,10 @@ import { SearchFilterAddItemExample } from "./examples/searchFilterAddNewItem";
 import { EventsExample } from "./examples/events";
 import { UsingInListExample } from "./examples/usingInList";
 import { UsingWithinDialog } from "./examples/usingWithinDialog";
+import { KeyboardContractExample } from "./examples/keyboardContract";
+import { AriaStateExample } from "./examples/ariaState";
+import { TemplateSlotsExample } from "./examples/templateSlots";
+import { HeadlessAriaExample } from "./examples/headlessAria";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/basic", pathMatch: "full" },
@@ -34,12 +38,56 @@ const appRoutes: Routes = [
     path: "basic",
     component: BasicExample,
     data: {
-      label: "Basic example",
+      label: "Basic usage",
       tstitle: "basic.ts",
       htmltitle: "basic.html",
       csstitle: "",
       tsgist: "CuppaLabs/ee72fbc7b21dad7e4e7664c5b1553235",
       htmlgist: "CuppaLabs/eb78d42ab7971fda6493586e329bfdb8",
+      cssgist: false,
+    },
+  },
+  {
+    path: "keyboard-contract",
+    component: KeyboardContractExample,
+    data: {
+      label: "Keyboard contract",
+      tstitle: "keyboardContract.ts",
+      htmltitle: "keyboardContract.html",
+      csstitle: "",
+      cssgist: false,
+    },
+  },
+  {
+    path: "aria-state",
+    component: AriaStateExample,
+    data: {
+      label: "ARIA state",
+      tstitle: "ariaState.ts",
+      htmltitle: "ariaState.html",
+      csstitle: "",
+      cssgist: false,
+    },
+  },
+  {
+    path: "template-slots",
+    component: TemplateSlotsExample,
+    data: {
+      label: "Template slots",
+      tstitle: "templateSlots.ts",
+      htmltitle: "templateSlots.html",
+      csstitle: "",
+      cssgist: false,
+    },
+  },
+  {
+    path: "headless-aria",
+    component: HeadlessAriaExample,
+    data: {
+      label: "Headless + ARIA",
+      tstitle: "headlessAria.ts",
+      htmltitle: "headlessAria.html",
+      csstitle: "",
       cssgist: false,
     },
   },

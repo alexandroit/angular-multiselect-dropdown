@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;ff0d62642cd79bf29f6dbc2e1041ec27ea424886f51d89d5dc88bd194427cfdc;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-21/src/app/examples/templateSlots.ts"],
+  "sourcesContent": ["\n    .slot-grid { display: grid; gap: 18px; }\n    .country-option { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; width: 100%; }\n    .country-code { display: inline-grid; place-items: center; width: 34px; height: 26px; border-radius: 8px; background: #e8eaf6; color: #303f9f; font-weight: 800; }\n    .country-copy { display: grid; gap: 2px; }\n    .country-copy strong { line-height: 1.2; }\n    .country-copy small { color: #667085; }\n    .selected-mark { color: #0f766e; font-weight: 800; }\n    .badge-template { display: inline-flex; align-items: center; gap: 6px; }\n  "],
+  "mappings": ";AACI,CAAC;AAAY,WAAS;AAAM,OAAK;AAAM;AACvC,CAAC;AAAiB,WAAS;AAAM,yBAAuB,KAAK,IAAI;AAAM,eAAa;AAAQ,OAAK;AAAM,SAAO;AAAM;AACpH,CAAC;AAAe,WAAS;AAAa,eAAa;AAAQ,SAAO;AAAM,UAAQ;AAAM,iBAAe;AAAK,cAAY;AAAS,SAAO;AAAS,eAAa;AAAK;AACjK,CAAC;AAAe,WAAS;AAAM,OAAK;AAAK;AACzC,CADC,aACa;AAAS,eAAa;AAAK;AACzC,CAFC,aAEa;AAAQ,SAAO;AAAS;AACtC,CAAC;AAAgB,SAAO;AAAS,eAAa;AAAK;AACnD,CAAC;AAAiB,WAAS;AAAa,eAAa;AAAQ,OAAK;AAAK;",
+  "names": []
+}
