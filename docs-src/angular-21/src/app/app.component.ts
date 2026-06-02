@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
     {
       kicker: 'Dialogs',
       title: 'tagToBody for dialogs',
-      copy: 'Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In 21.2.0 the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind.'
+      copy: 'Set tagToBody to true inside Angular Material dialogs, modals, drawers, and overflow containers. In the 21.2.x line the open list uses layout-stable overlay positioning across every shipped skin, stays aligned to the trigger, keeps an opaque surface, closes cleanly, and no longer expands the host form or leaves a hidden layout box behind.'
     },
     {
       kicker: 'Styling',

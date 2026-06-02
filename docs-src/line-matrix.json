@@ -3,8 +3,8 @@
     {
       "angular": 21,
       "base": "modern",
-      "packageVersion": "21.2.0",
-      "packageRange": "21.2.0",
+      "packageVersion": "21.2.1",
+      "packageRange": "21.2.1",
       "angularVersion": "21.x",
       "badge": "ANGULAR 21 · MATERIAL REFINED",
       "theme": "modern"
