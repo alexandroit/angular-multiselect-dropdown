@@ -1,0 +1,271 @@
+/* node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css */
+.stackline-dropdown {
+  --ms-primary: #3f51b5;
+  --ms-primary-soft: rgba(63, 81, 181, 0.12);
+  --ms-surface: #ffffff;
+  --ms-surface-soft: #f5f7fb;
+  --ms-surface-muted: #e8eaf6;
+  --ms-outline: #c5cae9;
+  --ms-outline-strong: #7986cb;
+  --ms-on-surface: #212121;
+  --ms-on-surface-muted: #5f6368;
+  --ms-chip-bg: #e8eaf6;
+  --ms-chip-text: #303f9f;
+  --ms-chip-remove: #303f9f;
+  --ms-shadow: 0 1px 2px rgba(33, 33, 33, 0.16), 0 12px 32px rgba(63, 81, 181, 0.12);
+  --ms-shadow-soft: 0 1px 2px rgba(33, 33, 33, 0.12), 0 4px 12px rgba(33, 33, 33, 0.08);
+}
+.stackline-dropdown .c-btn {
+  align-content: center;
+  background: var(--ms-surface);
+  border-color: var(--ms-outline);
+  color: var(--ms-on-surface);
+}
+.stackline-dropdown .c-placeholder,
+.stackline-dropdown .c-single-value {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.25;
+  text-align: left;
+}
+.stackline-dropdown .c-btn:hover {
+  border-color: var(--ms-outline-strong);
+}
+.stackline-dropdown .selected-item {
+  background: var(--ms-primary-soft);
+}
+.stackline-dropdown .btn-iceblue {
+  background: var(--ms-primary);
+  color: #ffffff;
+}
+
+/* src/styles.css */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+  color: #202124;
+  background: #eef2f7;
+  overflow-x: hidden;
+}
+.boot-error {
+  padding: 24px;
+  background: #1f2937;
+  color: #fff;
+}
+
+/* src/flag-icons-4x3.css */
+.fi {
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.fi-ar {
+  background-image: url("./media/ar.svg");
+}
+.fi-at {
+  background-image: url("./media/at.svg");
+}
+.fi-au {
+  background-image: url("./media/au.svg");
+}
+.fi-bb {
+  background-image: url("./media/bb.svg");
+}
+.fi-be {
+  background-image: url("./media/be.svg");
+}
+.fi-br {
+  background-image: url("./media/br.svg");
+}
+.fi-bs {
+  background-image: url("./media/bs.svg");
+}
+.fi-bt {
+  background-image: url("./media/bt.svg");
+}
+.fi-bw {
+  background-image: url("./media/bw.svg");
+}
+.fi-bz {
+  background-image: url("./media/bz.svg");
+}
+.fi-ca {
+  background-image: url("./media/ca.svg");
+}
+.fi-ch {
+  background-image: url("./media/ch.svg");
+}
+.fi-cl {
+  background-image: url("./media/cl.svg");
+}
+.fi-co {
+  background-image: url("./media/co.svg");
+}
+.fi-cr {
+  background-image: url("./media/cr.svg");
+}
+.fi-cv {
+  background-image: url("./media/cv.svg");
+}
+.fi-cz {
+  background-image: url("./media/cz.svg");
+}
+.fi-de {
+  background-image: url("./media/de.svg");
+}
+.fi-dk {
+  background-image: url("./media/dk.svg");
+}
+.fi-do {
+  background-image: url("./media/do.svg");
+}
+.fi-ec {
+  background-image: url("./media/ec.svg");
+}
+.fi-ee {
+  background-image: url("./media/ee.svg");
+}
+.fi-es {
+  background-image: url("./media/es.svg");
+}
+.fi-fi {
+  background-image: url("./media/fi.svg");
+}
+.fi-fj {
+  background-image: url("./media/fj.svg");
+}
+.fi-fr {
+  background-image: url("./media/fr.svg");
+}
+.fi-gh {
+  background-image: url("./media/gh.svg");
+}
+.fi-gr {
+  background-image: url("./media/gr.svg");
+}
+.fi-hr {
+  background-image: url("./media/hr.svg");
+}
+.fi-id {
+  background-image: url("./media/id.svg");
+}
+.fi-ie {
+  background-image: url("./media/ie.svg");
+}
+.fi-is {
+  background-image: url("./media/is.svg");
+}
+.fi-it {
+  background-image: url("./media/it.svg");
+}
+.fi-jm {
+  background-image: url("./media/jm.svg");
+}
+.fi-jp {
+  background-image: url("./media/jp.svg");
+}
+.fi-ke {
+  background-image: url("./media/ke.svg");
+}
+.fi-lk {
+  background-image: url("./media/lk.svg");
+}
+.fi-lu {
+  background-image: url("./media/lu.svg");
+}
+.fi-mt {
+  background-image: url("./media/mt.svg");
+}
+.fi-mu {
+  background-image: url("./media/mu.svg");
+}
+.fi-mx {
+  background-image: url("./media/mx.svg");
+}
+.fi-my {
+  background-image: url("./media/my.svg");
+}
+.fi-na {
+  background-image: url("./media/na.svg");
+}
+.fi-nl {
+  background-image: url("./media/nl.svg");
+}
+.fi-no {
+  background-image: url("./media/no.svg");
+}
+.fi-np {
+  background-image: url("./media/np.svg");
+}
+.fi-nz {
+  background-image: url("./media/nz.svg");
+}
+.fi-pa {
+  background-image: url("./media/pa.svg");
+}
+.fi-pe {
+  background-image: url("./media/pe.svg");
+}
+.fi-ph {
+  background-image: url("./media/ph.svg");
+}
+.fi-pt {
+  background-image: url("./media/pt.svg");
+}
+.fi-py {
+  background-image: url("./media/py.svg");
+}
+.fi-rw {
+  background-image: url("./media/rw.svg");
+}
+.fi-sc {
+  background-image: url("./media/sc.svg");
+}
+.fi-se {
+  background-image: url("./media/se.svg");
+}
+.fi-sg {
+  background-image: url("./media/sg.svg");
+}
+.fi-si {
+  background-image: url("./media/si.svg");
+}
+.fi-sk {
+  background-image: url("./media/sk.svg");
+}
+.fi-sn {
+  background-image: url("./media/sn.svg");
+}
+.fi-th {
+  background-image: url("./media/th.svg");
+}
+.fi-tz {
+  background-image: url("./media/tz.svg");
+}
+.fi-un {
+  background-image: url("./media/un.svg");
+}
+.fi-uy {
+  background-image: url("./media/uy.svg");
+}
+.fi-ws {
+  background-image: url("./media/ws.svg");
+}
+.fi-za {
+  background-image: url("./media/za.svg");
+}
+
+/* angular:styles/global:styles */
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light;
+  --mat-docs-primary: #3f51b5;
+  --mat-docs-primary-strong: #303f9f;
+  --mat-docs-primary-soft: #e8eaf6;
+  --mat-docs-accent: #ff4081;
+  --mat-docs-accent-soft: #fce4ec;
+  --mat-docs-surface: #ffffff;
+  --mat-docs-surface-2: #fafafa;
+  --mat-docs-surface-3: #f5f5f5;
+  --mat-docs-outline: #e0e0e0;
+  --mat-docs-outline-strong: #b0bec5;
+  --mat-docs-text: #212121;
+  --mat-docs-text-muted: #616161;
+  --mat-docs-shadow: 0 1px 2px rgba(33, 33, 33, 0.12), 0 10px 24px rgba(63, 81, 181, 0.08);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top right, rgba(63, 81, 181, 0.14), transparent 28%),
+    linear-gradient(180deg, #f7f8fc 0%, #f5f7fb 42%, #eef2f8 100%);
+  color: var(--mat-docs-text);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+code,
+pre {
+  font-family: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+table {
+  width: 100%;
+}
+
+.modal-content {
+  color: var(--mat-docs-text);
+  border-radius: 28px;
+  border: 1px solid rgba(63, 81, 181, 0.12);
+  box-shadow: var(--mat-docs-shadow);
+}
+
+.alert {
+  border-radius: 16px;
+}
+
+.btn {
+  text-decoration: none;
+}
+
+.boot-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.boot-card {
+  display: grid;
+  gap: 16px;
+  place-items: center;
+  padding: 28px 32px;
+  min-width: min(360px, 100%);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(63, 81, 181, 0.12);
+  box-shadow: var(--mat-docs-shadow);
+}
+
+.boot-card p {
+  margin: 0;
+  color: var(--mat-docs-text-muted);
+}
+
+.boot-loader {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(63, 81, 181, 0.16);
+  border-top-color: var(--mat-docs-primary);
+  animation: docs-spin 1s linear infinite;
+}
+
+@keyframes docs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

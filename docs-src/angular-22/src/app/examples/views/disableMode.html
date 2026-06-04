@@ -1,0 +1,8 @@
+<angular-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)"></angular-multiselect>
+<div class="example-button-row">
+  <br>
+  <br>
+    <button (click)="disable()" class="btn btn-primary">Disable</button>
+    <button (click)="enable()" class="btn btn-primary">Enable</button>
+</div>

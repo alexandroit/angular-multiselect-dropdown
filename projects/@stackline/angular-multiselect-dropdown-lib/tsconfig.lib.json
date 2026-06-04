@@ -7,6 +7,12 @@
     "declarationMap": false,
     "inlineSources": false,
     "sourceMap": false,
+    "strict": false,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "types": [],
     "lib": [
       "dom",
@@ -16,7 +22,11 @@
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
-    "enableResourceInlining": true
+    "enableResourceInlining": true,
+    "compilationMode": "partial",
+    "strictTemplates": false,
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false
   },
   "exclude": [
     "src/test.ts",

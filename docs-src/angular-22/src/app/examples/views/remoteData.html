@@ -1,0 +1,10 @@
+<angular-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings" (onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)">
+<c-item>
+  <ng-template let-item="item">
+      <label style="color: #333;width: 150px;">{{item.name}}</label>
+      <img [src]="item.flag" style="width: 30px; border: 1px solid #efefef;margin-right: 0px;" />
+      <label>{{item.capital}}</label>
+  </ng-template>
+</c-item>
+</angular-multiselect>

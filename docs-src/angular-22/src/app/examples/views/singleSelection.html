@@ -1,0 +1,11 @@
+<angular-multiselect
+[data]="itemList"
+[(ngModel)]="selectedItems"
+[settings]="settings"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onAddFilterNewItem)="onAddItem($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+>
+</angular-multiselect>

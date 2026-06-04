@@ -1,0 +1,23 @@
+<angular-multiselect
+[data]="itemList"
+[(ngModel)]="selectedItems"
+[settings]="settings"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+></angular-multiselect>
+<br />
+<span>Total Records : {{itemList.length}}</span>
+<div class="example-button-row">
+<br />
+<br />
+<button
+  mat-raised-button
+  color="warn"
+  (click)="changeData()"
+  class="btn btn-danger"
+>
+  Reset
+</button>
+</div>

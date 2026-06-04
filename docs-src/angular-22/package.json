@@ -1,0 +1,31 @@
+{
+  "name": "@stackline/angular-multiselect-dropdown-docs-angular22",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --port 4222 --host 0.0.0.0",
+    "build": "ng build --configuration development --base-href ./"
+  },
+  "dependencies": {
+    "@angular/common": "22.0.0",
+    "@angular/compiler": "22.0.0",
+    "@angular/core": "22.0.0",
+    "@angular/forms": "22.0.0",
+    "@angular/platform-browser": "22.0.0",
+    "@angular/platform-browser-dynamic": "22.0.0",
+    "@angular/router": "22.0.0",
+    "@stackline/angular-multiselect-dropdown": "22.0.0",
+    "bootstrap": "^5.3.8",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.5.0",
+    "zone.js": "~0.16.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "22.0.0",
+    "@angular/cli": "22.0.0",
+    "@angular/compiler-cli": "22.0.0",
+    "sass": "^1.83.0",
+    "typescript": "6.0.3"
+  }
+}

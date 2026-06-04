@@ -1,0 +1,22 @@
+<div class="example-button-row">
+  <button (click)="changeData()" class="btn btn-primary">
+    Reset</button
+  >
+  <button (click)="open($event)" class="btn btn-primary">
+    Open</button
+  >
+  <button (click)="close($event)" class="btn btn-primary">
+    Close
+  </button>
+</div>
+<angular-multiselect
+#dropdownElem
+[data]="itemList"
+[(ngModel)]="selectedItems"
+[settings]="settings"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+></angular-multiselect>
+<br>

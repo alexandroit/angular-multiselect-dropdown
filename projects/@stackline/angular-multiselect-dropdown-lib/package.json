@@ -1,10 +1,10 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "21.2.1",
+  "version": "22.0.0",
   "license": "MIT",
   "author": "Pradeep Terli (Original), Alexandro Paixao Marques (Maintainer)",
-  "description": "Angular multiselect dropdown for Angular 21 with maintained release lines, accessibility-focused and keyboard/ARIA tested interactions, dialog-safe body overlays, Stackline skins, search, grouping, templates, headless helpers, and forms support.",
+  "description": "Angular multiselect dropdown for Angular 22 with maintained release lines, accessibility-focused and keyboard/ARIA tested interactions, dialog-safe body overlays, Stackline skins, search, grouping, templates, headless helpers, and forms support.",
   "keywords": [
     "angular",
     "angular-library",
@@ -70,13 +70,15 @@
     "maintained",
     "ngx",
     "ngx-multiselect",
-    "virtual-scroll"
+    "virtual-scroll",
+    "angular22",
+    "angular 22"
   ],
   "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
-    "@angular/common": ">=21.0.0 <22.0.0",
-    "@angular/core": ">=21.0.0 <22.0.0",
-    "@angular/forms": ">=21.0.0 <22.0.0"
+    "@angular/common": ">=22.0.0 <23.0.0",
+    "@angular/core": ">=22.0.0 <23.0.0",
+    "@angular/forms": ">=22.0.0 <23.0.0"
   },
   "repository": {
     "type": "git",
@@ -86,6 +88,6 @@
     "url": "https://github.com/alexandroit/angular-multiselect-dropdown/issues"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.22.3"
   }
 }

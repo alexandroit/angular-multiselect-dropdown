@@ -1,0 +1,41 @@
+<div class="form-group col-md-12">
+  <label for="directorySpecialties">Directory Specialties</label>
+  <br>
+  <label class="float-right">
+    Directory Dropdown status: <b>{{directoriesDropdownStatus}}</b>
+  </label>
+  <br>
+  <angular-multiselect
+    id="directorySpecialties"
+    name="directorySpecialties"
+    [(ngModel)]="selectedDirectorySpecialties"
+    [data]="directorySpecialties"
+    [settings]="dropdownSettings"
+    (onOpen)="onDirectoriesOpen($event)"
+    (onClose)="onDirectoriesClose($event)"
+    (onSelectAll)="onSelectAll($event)"
+    (onDeSelectAll)="onDeSelectAll($event)"
+  >
+  </angular-multiselect>
+</div>
+<br>
+<br>
+<div class="form-group col-md-12">
+  <label for="useCases">Use Cases</label><br>
+  <label class="float-right">
+    Cases Dropdown status: <b>{{casesDropdownStatus}}</b>
+  </label>
+  <br>
+  <angular-multiselect
+    id="useCases"
+    name="useCases"
+    [(ngModel)]="selectedUseCases"
+    [data]="useCases"
+    [settings]="dropdownSettings2"
+    (onOpen)="onCasesOpen($event)"
+    (onClose)="onCasesClose($event)"
+    (onSelectAll)="onSelectAll2($event)"
+    (onDeSelectAll)="onDeSelectAll2($event)"
+  >
+  </angular-multiselect>
+</div>

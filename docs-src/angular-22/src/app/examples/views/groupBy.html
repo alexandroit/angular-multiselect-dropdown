@@ -1,0 +1,22 @@
+<angular-multiselect
+[data]="itemList"
+[(ngModel)]="selectedItems"
+[settings]="settings"
+(onSelect)="onItemSelect($event)"
+(onDeSelect)="OnItemDeSelect($event)"
+(onSelectAll)="onSelectAll($event)"
+(onDeSelectAll)="onDeSelectAll($event)"
+(ngModelChange)="onChange($event)"
+(onGroupSelect)="onGroupSelect($event)"
+(onGroupDeSelect)="onGroupDeSelect($event)"
+></angular-multiselect>
+<div class="example-button-row">
+  <br />
+  <br />
+  <button class="btn btn-primary" (click)="loadDataSet1()">
+    Load Fruits
+  </button>
+  <button class="btn btn-primary" (click)="loadDataSet2()">
+    Load Countries
+  </button>
+</div>

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/example-source.component.scss"],
+  "sourcesContent": [".code-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 10px;\n  min-width: 0;\n}\n\n.code-card {\n  min-width: 0;\n}\n\n.code-card strong {\n  display: block;\n  margin-bottom: 6px;\n  color: #334155;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n\n.code-card pre {\n  min-height: 180px;\n  max-height: 260px;\n  margin: 0;\n  overflow: auto;\n  padding: 12px;\n  border: 1px solid #1f334a;\n  background: #13263a;\n  color: #edf4fb;\n  font-family: \"Courier New\", monospace;\n  font-size: 12px;\n  line-height: 1.5;\n  white-space: pre-wrap;\n  overflow-wrap: anywhere;\n}\n\n.source-loading {\n  min-height: 180px;\n  padding: 12px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n  color: #475569;\n  font-size: 13px;\n}\n\n@media (max-width: 1120px) {\n  .code-grid {\n    grid-template-columns: 1fr;\n  }\n\n  .code-card pre {\n    min-height: 150px;\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,yBAAA,OAAA,CAAA,EAAA,OAAA,CAAA,EAAA;AACA,OAAA;AACA,aAAA;;AAGF,CAAA;AACE,aAAA;;AAGF,CAJA,UAIA;AACE,WAAA;AACA,iBAAA;AACA,SAAA;AACA,aAAA;AACA,kBAAA;;AAGF,CAZA,UAYA;AACE,cAAA;AACA,cAAA;AACA,UAAA;AACA,YAAA;AACA,WAAA;AACA,UAAA,IAAA,MAAA;AACA,cAAA;AACA,SAAA;AACA,eAAA,aAAA,EAAA;AACA,aAAA;AACA,eAAA;AACA,eAAA;AACA,iBAAA;;AAGF,CAAA;AACE,cAAA;AACA,WAAA;AACA,UAAA,IAAA,MAAA;AACA,cAAA;AACA,SAAA;AACA,aAAA;;AAGF,QAAA,WAAA;AACE,GA7CF;AA8CI,2BAAA;;AAGF,GA1CF,UA0CE;AACE,gBAAA;;;",
+  "names": []
+}

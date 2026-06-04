@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;37475cfde41fab6a0999493904ab7928079b5f45ae37210a86fc5273550f85f8;/storage/data/github/revivejs/angular-multiselect-dropdown/angular-multiselect-dropdown/docs-src/angular-22/src/app/examples/ariaState.ts"],
+  "sourcesContent": ["\n    .aria-grid { display: grid; gap: 18px; }\n    .aria-panel { display: grid; gap: 8px; padding: 14px; border: 1px solid #e4e7ec; border-radius: 16px; background: #f8fafc; }\n    code { color: #3f51b5; font-weight: 700; }\n  "],
+  "mappings": ";AACI,CAAC;AAAY,WAAS;AAAM,OAAK;AAAM;AACvC,CAAC;AAAa,WAAS;AAAM,OAAK;AAAK,WAAS;AAAM,UAAQ,IAAI,MAAM;AAAS,iBAAe;AAAM,cAAY;AAAS;AAC3H;AAAO,SAAO;AAAS,eAAa;AAAK;",
+  "names": []
+}
