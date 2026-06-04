@@ -49907,8 +49907,8 @@ function provideRouterInitializer() {
 var DOCS_META = {
   badge: "ANGULAR 22 \xB7 MATERIAL REFINED",
   angularVersion: "22.x",
-  packageVersion: "22.0.0",
-  packageRange: "22.0.0",
+  packageVersion: "22.0.1",
+  packageRange: "22.0.1",
   docsPath: "angular-22"
 };
 

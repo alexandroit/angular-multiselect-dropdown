@@ -41934,7 +41934,7 @@ var COUNTRY_SEEDS = [
   ["Samoa", "WS", "Apia", "Oceania", "Oceania"]
 ];
 var AppComponent = class _AppComponent {
-  packageVersion = "22.0.0";
+  packageVersion = "22.0.1";
   angularRuntime = "22.0.0";
   skins = ["classic", "material", "dark", "custom", "brand"];
   routes = [
@@ -41945,7 +41945,7 @@ var AppComponent = class _AppComponent {
     },
     {
       path: "coverage",
-      title: "22.0.0 coverage",
+      title: "22.0.1 coverage",
       description: "Keyboard contract, ARIA state, async object preservation, and renderless helper coverage."
     },
     {

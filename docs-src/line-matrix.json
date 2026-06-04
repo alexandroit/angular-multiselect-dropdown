@@ -3,8 +3,9 @@
     {
       "angular": 22,
       "base": "modern",
-      "packageVersion": "22.0.0",
-      "packageRange": "22.0.0",
+      "packageVersion": "22.0.1",
+      "packageRange": "22.0.1",
+      "peerRange": ">=22.0.0 <24.0.0",
       "angularVersion": "22.x",
       "badge": "ANGULAR 22 · MATERIAL REFINED",
       "theme": "modern"
