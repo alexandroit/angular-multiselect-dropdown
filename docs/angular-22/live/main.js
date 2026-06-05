@@ -40802,7 +40802,7 @@ var _c02 = (a0) => ({ example: a0 });
 function AppComponent_button_7_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 21);
+    \u0275\u0275elementStart(0, "button", 22);
     \u0275\u0275listener("click", function AppComponent_button_7_Template_button_click_0_listener() {
       const route_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
@@ -40825,14 +40825,14 @@ function AppComponent_button_7_Template(rf, ctx) {
     \u0275\u0275textInterpolate(route_r2.description);
   }
 }
-function AppComponent_ng_container_19_button_2_Template(rf, ctx) {
+function AppComponent_div_18_button_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_19_button_2_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_div_18_button_2_Template_button_click_0_listener() {
       const skin_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.setSkinSwitchSkin(skin_r5));
+      return \u0275\u0275resetView(ctx_r2.setBasicSkin(skin_r5));
     });
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
@@ -40840,109 +40840,146 @@ function AppComponent_ng_container_19_button_2_Template(rf, ctx) {
   if (rf & 2) {
     const skin_r5 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275classProp("active", ctx_r2.skinSwitchSkin === skin_r5);
+    \u0275\u0275classProp("active", ctx_r2.basicSkin === skin_r5);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", ctx_r2.labelForSkin(skin_r5), " ");
   }
 }
-function AppComponent_ng_container_19_ng_container_7_Template(rf, ctx) {
+function AppComponent_div_18_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 23)(1, "div", 24);
+    \u0275\u0275template(2, AppComponent_div_18_button_2_Template, 2, 3, "button", 10);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "p", 25);
+    \u0275\u0275text(4);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext();
+    \u0275\u0275advance(2);
+    \u0275\u0275property("ngForOf", ctx_r2.skins);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("settings.skin: ", ctx_r2.basicSkin);
+  }
+}
+function AppComponent_ng_container_20_button_2_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r6 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_20_button_2_Template_button_click_0_listener() {
+      const skin_r7 = \u0275\u0275restoreView(_r6).$implicit;
+      const ctx_r2 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r2.setSkinSwitchSkin(skin_r7));
+    });
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const skin_r7 = ctx.$implicit;
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275classProp("active", ctx_r2.skinSwitchSkin === skin_r7);
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", ctx_r2.labelForSkin(skin_r7), " ");
+  }
+}
+function AppComponent_ng_container_20_ng_container_7_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_container_19_ng_container_11_Template(rf, ctx) {
+function AppComponent_ng_container_20_ng_container_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_container_19_Template(rf, ctx) {
+function AppComponent_ng_container_20_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "div", 22);
-    \u0275\u0275template(2, AppComponent_ng_container_19_button_2_Template, 2, 3, "button", 10);
+    \u0275\u0275elementStart(1, "div", 26);
+    \u0275\u0275template(2, AppComponent_ng_container_20_button_2_Template, 2, 3, "button", 10);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "article", 23)(4, "div", 24)(5, "h3");
+    \u0275\u0275elementStart(3, "article", 27)(4, "div", 28)(5, "h3");
     \u0275\u0275text(6, "Updates only settings.skin");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(7, AppComponent_ng_container_19_ng_container_7_Template, 1, 0, "ng-container", 25);
-    \u0275\u0275elementStart(8, "p", 26);
+    \u0275\u0275template(7, AppComponent_ng_container_20_ng_container_7_Template, 1, 0, "ng-container", 29);
+    \u0275\u0275elementStart(8, "p", 25);
     \u0275\u0275text(9);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "div", 27);
-    \u0275\u0275template(11, AppComponent_ng_container_19_ng_container_11_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275elementStart(10, "div", 30);
+    \u0275\u0275template(11, AppComponent_ng_container_20_ng_container_11_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext();
-    const dropdownTemplate_r6 = \u0275\u0275reference(33);
-    const codeTemplate_r7 = \u0275\u0275reference(35);
+    const dropdownTemplate_r8 = \u0275\u0275reference(34);
+    const codeTemplate_r9 = \u0275\u0275reference(36);
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", ctx_r2.skins);
     \u0275\u0275advance(5);
-    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r6)("ngTemplateOutletContext", \u0275\u0275pureFunction1(6, _c02, ctx_r2.skinSwitchExample));
+    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r8)("ngTemplateOutletContext", \u0275\u0275pureFunction1(6, _c02, ctx_r2.skinSwitchExample));
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate1("skin: ", ctx_r2.skinSwitchExample.settings.skin);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngTemplateOutlet", codeTemplate_r7)("ngTemplateOutletContext", \u0275\u0275pureFunction1(8, _c02, ctx_r2.skinSwitchExample));
+    \u0275\u0275property("ngTemplateOutlet", codeTemplate_r9)("ngTemplateOutletContext", \u0275\u0275pureFunction1(8, _c02, ctx_r2.skinSwitchExample));
   }
 }
-function AppComponent_ng_container_20_ng_container_95_ng_container_1_Template(rf, ctx) {
+function AppComponent_ng_container_21_ng_container_95_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_container_20_ng_container_95_Template(rf, ctx) {
+function AppComponent_ng_container_21_ng_container_95_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AppComponent_ng_container_20_ng_container_95_ng_container_1_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275template(1, AppComponent_ng_container_21_ng_container_95_ng_container_1_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const example_r9 = ctx.$implicit;
+    const example_r11 = ctx.$implicit;
     \u0275\u0275nextContext(2);
-    const exampleRow_r10 = \u0275\u0275reference(31);
+    const exampleRow_r12 = \u0275\u0275reference(32);
     \u0275\u0275advance();
-    \u0275\u0275property("ngTemplateOutlet", exampleRow_r10)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r9));
+    \u0275\u0275property("ngTemplateOutlet", exampleRow_r12)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r11));
   }
 }
-function AppComponent_ng_container_20_Template(rf, ctx) {
+function AppComponent_ng_container_21_Template(rf, ctx) {
   if (rf & 1) {
-    const _r8 = \u0275\u0275getCurrentView();
+    const _r10 = \u0275\u0275getCurrentView();
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "div", 28)(2, "article", 29)(3, "h3");
+    \u0275\u0275elementStart(1, "div", 31)(2, "article", 32)(3, "h3");
     \u0275\u0275text(4, "Keyboard behavior toggles");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 30)(6, "strong");
+    \u0275\u0275elementStart(5, "div", 33)(6, "strong");
     \u0275\u0275text(7, "Target");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "div", 31)(9, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_9_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(8, "div", 34)(9, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_9_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.keyboardTarget = "trigger");
     });
     \u0275\u0275text(10, " Trigger ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_11_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(11, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_11_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.keyboardTarget = "option");
     });
     \u0275\u0275text(12, " Option ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_13_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(13, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_13_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.keyboardTarget = "search");
     });
     \u0275\u0275text(14, " Search ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_15_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(15, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_15_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.keyboardTarget = "badge");
     });
@@ -40951,57 +40988,57 @@ function AppComponent_ng_container_20_Template(rf, ctx) {
     \u0275\u0275elementStart(17, "strong");
     \u0275\u0275text(18, "Enabled by default");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(19, "div", 32)(20, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_20_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(19, "div", 35)(20, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_20_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("spaceTriggerToggles"));
     });
     \u0275\u0275text(21, " Space trigger ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(22, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_22_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(22, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_22_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("spaceOptionToggles"));
     });
     \u0275\u0275text(23, " Space option ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(24, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_24_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(24, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_24_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("tabMovesFocus"));
     });
     \u0275\u0275text(25, " Tab ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(26, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_26_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(26, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_26_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("arrowsNavigateOptions"));
     });
     \u0275\u0275text(27, " Arrows ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(28, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_28_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(28, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_28_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("escapeCloses"));
     });
     \u0275\u0275text(29, " Escape ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(30, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_30_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(30, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_30_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("backspaceRemovesFocusedBadge"));
     });
     \u0275\u0275text(31, " Badge delete ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(32, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_32_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(32, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_32_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.toggleKeyboardSetting("backspaceRemovesLastOnEmptySearch"));
     });
@@ -41010,17 +41047,17 @@ function AppComponent_ng_container_20_Template(rf, ctx) {
     \u0275\u0275elementStart(34, "strong");
     \u0275\u0275text(35, "Space on option");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(36, "div", 33)(37, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_37_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(36, "div", 36)(37, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_37_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.setSpaceOptionAction("toggle"));
     });
     \u0275\u0275text(38, " Toggle only ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(39, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_39_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(39, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_39_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.setSpaceOptionAction("toggle-and-next"));
     });
@@ -41050,14 +41087,14 @@ function AppComponent_ng_container_20_Template(rf, ctx) {
     \u0275\u0275elementStart(60, "dd");
     \u0275\u0275text(61, "Focused badge removes itself. Empty search removal is optional and disabled here.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(62, "p", 34);
+    \u0275\u0275elementStart(62, "p", 37);
     \u0275\u0275text(63);
     \u0275\u0275pipe(64, "json");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(65, "article", 29)(66, "h3");
+    \u0275\u0275elementStart(65, "article", 32)(66, "h3");
     \u0275\u0275text(67, "ARIA state audit");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(68, "div", 35)(69, "dl")(70, "div")(71, "dt");
+    \u0275\u0275elementStart(68, "div", 38)(69, "dl")(70, "div")(71, "dt");
     \u0275\u0275text(72, "Trigger");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(73, "dd");
@@ -41078,22 +41115,22 @@ function AppComponent_ng_container_20_Template(rf, ctx) {
     \u0275\u0275elementStart(85, "p");
     \u0275\u0275text(86, "Each option exposes matching aria-selected and aria-checked values for multiselect announcements.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(87, "article", 29)(88, "h3");
+    \u0275\u0275elementStart(87, "article", 32)(88, "h3");
     \u0275\u0275text(89, "Async preservation");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(90, "p", 26);
+    \u0275\u0275elementStart(90, "p", 25);
     \u0275\u0275text(91, " Reorder the option data and keep selected object values available for forms, filters, and reports. ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(92, "button", 36);
-    \u0275\u0275listener("click", function AppComponent_ng_container_20_Template_button_click_92_listener() {
-      \u0275\u0275restoreView(_r8);
+    \u0275\u0275elementStart(92, "button", 39);
+    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_92_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.reloadAsyncData());
     });
     \u0275\u0275text(93, "Refresh async source");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(94, "div", 37);
-    \u0275\u0275template(95, AppComponent_ng_container_20_ng_container_95_Template, 2, 4, "ng-container", 38);
+    \u0275\u0275elementStart(94, "div", 40);
+    \u0275\u0275template(95, AppComponent_ng_container_21_ng_container_95_Template, 2, 4, "ng-container", 41);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
@@ -41131,36 +41168,36 @@ function AppComponent_ng_container_20_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.visibleExamples)("ngForTrackBy", ctx_r2.trackExample);
   }
 }
-function AppComponent_ng_container_21_span_18_Template(rf, ctx) {
+function AppComponent_ng_container_22_span_18_Template(rf, ctx) {
   if (rf & 1) {
-    const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "span", 52);
-    \u0275\u0275element(1, "span", 53);
+    const _r14 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "span", 55);
+    \u0275\u0275element(1, "span", 56);
     \u0275\u0275text(2);
-    \u0275\u0275elementStart(3, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_span_18_Template_button_click_3_listener() {
-      const item_r13 = \u0275\u0275restoreView(_r12).$implicit;
+    \u0275\u0275elementStart(3, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_span_18_Template_button_click_3_listener() {
+      const item_r15 = \u0275\u0275restoreView(_r14).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.removeHeadless(item_r13));
+      return \u0275\u0275resetView(ctx_r2.removeHeadless(item_r15));
     });
-    \u0275\u0275elementStart(4, "span", 54);
+    \u0275\u0275elementStart(4, "span", 57);
     \u0275\u0275text(5, "x");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r13 = ctx.$implicit;
+    const item_r15 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r13.flag));
+    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r15.flag));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", item_r13.itemName, " ");
+    \u0275\u0275textInterpolate1(" ", item_r15.itemName, " ");
     \u0275\u0275advance();
-    \u0275\u0275attribute("aria-label", "Remove " + item_r13.itemName);
+    \u0275\u0275attribute("aria-label", "Remove " + item_r15.itemName);
   }
 }
-function AppComponent_ng_container_21_span_19_Template(rf, ctx) {
+function AppComponent_ng_container_22_span_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 55);
+    \u0275\u0275elementStart(0, "span", 58);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -41170,122 +41207,122 @@ function AppComponent_ng_container_21_span_19_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" +", ctx_r2.hiddenHeadlessBadgeCount, " ");
   }
 }
-function AppComponent_ng_container_21_span_20_Template(rf, ctx) {
+function AppComponent_ng_container_22_span_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 56);
+    \u0275\u0275elementStart(0, "span", 59);
     \u0275\u0275text(1, " No selected countries ");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_ng_container_21_div_21_section_10_div_6_Template(rf, ctx) {
+function AppComponent_ng_container_22_div_21_section_10_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 67);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_div_21_section_10_div_6_Template_div_click_0_listener() {
-      const option_r18 = \u0275\u0275restoreView(_r17).$implicit;
+    const _r19 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 70);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_div_21_section_10_div_6_Template_div_click_0_listener() {
+      const option_r20 = \u0275\u0275restoreView(_r19).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r2.onHeadlessOptionClick(option_r18));
-    })("keydown", function AppComponent_ng_container_21_div_21_section_10_div_6_Template_div_keydown_0_listener($event) {
-      const ctx_r18 = \u0275\u0275restoreView(_r17);
-      const option_r18 = ctx_r18.$implicit;
-      const i_r20 = ctx_r18.index;
+      return \u0275\u0275resetView(ctx_r2.onHeadlessOptionClick(option_r20));
+    })("keydown", function AppComponent_ng_container_22_div_21_section_10_div_6_Template_div_keydown_0_listener($event) {
+      const ctx_r20 = \u0275\u0275restoreView(_r19);
+      const option_r20 = ctx_r20.$implicit;
+      const i_r22 = ctx_r20.index;
       const ctx_r2 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r2.onHeadlessOptionKeydown($event, option_r18, i_r20));
+      return \u0275\u0275resetView(ctx_r2.onHeadlessOptionKeydown($event, option_r20, i_r22));
     });
-    \u0275\u0275element(1, "span", 68)(2, "span", 53);
-    \u0275\u0275elementStart(3, "span", 69)(4, "strong");
+    \u0275\u0275element(1, "span", 71)(2, "span", 56);
+    \u0275\u0275elementStart(3, "span", 72)(4, "strong");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(6, "small");
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "span", 70);
+    \u0275\u0275elementStart(8, "span", 73);
     \u0275\u0275text(9);
     \u0275\u0275element(10, "br");
     \u0275\u0275text(11);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const option_r18 = ctx.$implicit;
+    const option_r20 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(4);
-    \u0275\u0275classProp("selected", option_r18.selected);
-    \u0275\u0275property("id", option_r18.id);
-    \u0275\u0275attribute("role", option_r18.role)("aria-selected", option_r18.ariaSelected)("aria-checked", option_r18.ariaChecked)("aria-disabled", option_r18.ariaDisabled);
+    \u0275\u0275classProp("selected", option_r20.selected);
+    \u0275\u0275property("id", option_r20.id);
+    \u0275\u0275attribute("role", option_r20.role)("aria-selected", option_r20.ariaSelected)("aria-checked", option_r20.ariaChecked)("aria-disabled", option_r20.ariaDisabled);
     \u0275\u0275advance();
-    \u0275\u0275attribute("data-checked", option_r18.selected);
+    \u0275\u0275attribute("data-checked", option_r20.selected);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", ctx_r2.flagClass(option_r18.item.flag));
+    \u0275\u0275property("ngClass", ctx_r2.flagClass(option_r20.item.flag));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(option_r18.label);
+    \u0275\u0275textInterpolate(option_r20.label);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate2("", option_r18.item.capital, " - ", option_r18.item.region);
+    \u0275\u0275textInterpolate2("", option_r20.item.capital, " - ", option_r20.item.region);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" aria-selected=", option_r18.ariaSelected);
+    \u0275\u0275textInterpolate1(" aria-selected=", option_r20.ariaSelected);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" aria-checked=", option_r18.ariaChecked, " ");
+    \u0275\u0275textInterpolate1(" aria-checked=", option_r20.ariaChecked, " ");
   }
 }
-function AppComponent_ng_container_21_div_21_section_10_Template(rf, ctx) {
+function AppComponent_ng_container_22_div_21_section_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r15 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "section", 64)(1, "header", 65)(2, "span");
+    const _r17 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "section", 67)(1, "header", 68)(2, "span");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_div_21_section_10_Template_button_click_4_listener() {
-      const group_r16 = \u0275\u0275restoreView(_r15).$implicit;
+    \u0275\u0275elementStart(4, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_div_21_section_10_Template_button_click_4_listener() {
+      const group_r18 = \u0275\u0275restoreView(_r17).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(3);
-      return \u0275\u0275resetView(ctx_r2.toggleHeadlessGroup(group_r16));
+      return \u0275\u0275resetView(ctx_r2.toggleHeadlessGroup(group_r18));
     });
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(6, AppComponent_ng_container_21_div_21_section_10_div_6_Template, 12, 14, "div", 66);
+    \u0275\u0275template(6, AppComponent_ng_container_22_div_21_section_10_div_6_Template, 12, 14, "div", 69);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const group_r16 = ctx.$implicit;
+    const group_r18 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(3);
-    \u0275\u0275attribute("aria-label", group_r16.name);
+    \u0275\u0275attribute("aria-label", group_r18.name);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(group_r16.name);
+    \u0275\u0275textInterpolate(group_r18.name);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1(" ", group_r16.selected ? "Clear group" : "Select group", " ");
+    \u0275\u0275textInterpolate1(" ", group_r18.selected ? "Clear group" : "Select group", " ");
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", group_r16.items)("ngForTrackBy", ctx_r2.trackOption);
+    \u0275\u0275property("ngForOf", group_r18.items)("ngForTrackBy", ctx_r2.trackOption);
   }
 }
-function AppComponent_ng_container_21_div_21_Template(rf, ctx) {
+function AppComponent_ng_container_22_div_21_Template(rf, ctx) {
   if (rf & 1) {
-    const _r14 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 57)(1, "label", 58);
+    const _r16 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 60)(1, "label", 61);
     \u0275\u0275text(2, "Search countries");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "input", 59);
-    \u0275\u0275listener("ngModelChange", function AppComponent_ng_container_21_div_21_Template_input_ngModelChange_3_listener($event) {
-      \u0275\u0275restoreView(_r14);
+    \u0275\u0275elementStart(3, "input", 62);
+    \u0275\u0275listener("ngModelChange", function AppComponent_ng_container_22_div_21_Template_input_ngModelChange_3_listener($event) {
+      \u0275\u0275restoreView(_r16);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.headlessState.setFilter($event));
     });
     \u0275\u0275elementEnd();
     \u0275\u0275controlCreate();
-    \u0275\u0275elementStart(4, "div", 60)(5, "button", 61);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_div_21_Template_button_click_5_listener() {
-      \u0275\u0275restoreView(_r14);
+    \u0275\u0275elementStart(4, "div", 63)(5, "button", 64);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_div_21_Template_button_click_5_listener() {
+      \u0275\u0275restoreView(_r16);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.selectHeadlessVisible());
     });
     \u0275\u0275text(6, " Select visible ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "button", 61);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_div_21_Template_button_click_7_listener() {
-      \u0275\u0275restoreView(_r14);
+    \u0275\u0275elementStart(7, "button", 64);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_div_21_Template_button_click_7_listener() {
+      \u0275\u0275restoreView(_r16);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.headlessState.clearSelection());
     });
     \u0275\u0275text(8, " Clear selected ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(9, "div", 62);
-    \u0275\u0275template(10, AppComponent_ng_container_21_div_21_section_10_Template, 7, 5, "section", 63);
+    \u0275\u0275elementStart(9, "div", 65);
+    \u0275\u0275template(10, AppComponent_ng_container_22_div_21_section_10_Template, 7, 5, "section", 66);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -41304,24 +41341,24 @@ function AppComponent_ng_container_21_div_21_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.headlessGroups);
   }
 }
-function AppComponent_ng_container_21_Template(rf, ctx) {
+function AppComponent_ng_container_22_Template(rf, ctx) {
   if (rf & 1) {
-    const _r11 = \u0275\u0275getCurrentView();
+    const _r13 = \u0275\u0275getCurrentView();
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "article", 39)(2, "div", 24)(3, "div", 40)(4, "header", 41)(5, "span");
+    \u0275\u0275elementStart(1, "article", 42)(2, "div", 28)(3, "div", 43)(4, "header", 44)(5, "span");
     \u0275\u0275text(6, "Product-owned markup");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "button", 42);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_7_listener() {
-      \u0275\u0275restoreView(_r11);
+    \u0275\u0275elementStart(7, "button", 45);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_Template_button_click_7_listener() {
+      \u0275\u0275restoreView(_r13);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.headlessState.clearSelection());
     });
     \u0275\u0275text(8, " Clear all ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(9, "button", 43);
-    \u0275\u0275listener("click", function AppComponent_ng_container_21_Template_button_click_9_listener() {
-      \u0275\u0275restoreView(_r11);
+    \u0275\u0275elementStart(9, "button", 46);
+    \u0275\u0275listener("click", function AppComponent_ng_container_22_Template_button_click_9_listener() {
+      \u0275\u0275restoreView(_r13);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.headlessState.toggleOpen());
     });
@@ -41334,11 +41371,11 @@ function AppComponent_ng_container_21_Template(rf, ctx) {
     \u0275\u0275elementStart(15, "b");
     \u0275\u0275text(16);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(17, "div", 44);
-    \u0275\u0275template(18, AppComponent_ng_container_21_span_18_Template, 6, 3, "span", 45)(19, AppComponent_ng_container_21_span_19_Template, 2, 1, "span", 46)(20, AppComponent_ng_container_21_span_20_Template, 2, 0, "span", 47);
+    \u0275\u0275elementStart(17, "div", 47);
+    \u0275\u0275template(18, AppComponent_ng_container_22_span_18_Template, 6, 3, "span", 48)(19, AppComponent_ng_container_22_span_19_Template, 2, 1, "span", 49)(20, AppComponent_ng_container_22_span_20_Template, 2, 0, "span", 50);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(21, AppComponent_ng_container_21_div_21_Template, 11, 8, "div", 48);
-    \u0275\u0275elementStart(22, "dl", 49)(23, "div")(24, "dt");
+    \u0275\u0275template(21, AppComponent_ng_container_22_div_21_Template, 11, 8, "div", 51);
+    \u0275\u0275elementStart(22, "dl", 52)(23, "div")(24, "dt");
     \u0275\u0275text(25, "Trigger");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(26, "dd");
@@ -41362,19 +41399,19 @@ function AppComponent_ng_container_21_Template(rf, ctx) {
     \u0275\u0275elementStart(41, "dd");
     \u0275\u0275text(42);
     \u0275\u0275elementEnd()()()()();
-    \u0275\u0275elementStart(43, "div", 27)(44, "div", 50)(45, "div", 51)(46, "strong");
+    \u0275\u0275elementStart(43, "div", 30)(44, "div", 53)(45, "div", 54)(46, "strong");
     \u0275\u0275text(47, "HTML");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(48, "pre");
     \u0275\u0275text(49);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(50, "div", 51)(51, "strong");
+    \u0275\u0275elementStart(50, "div", 54)(51, "strong");
     \u0275\u0275text(52, "TS");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(53, "pre");
     \u0275\u0275text(54);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(55, "div", 51)(56, "strong");
+    \u0275\u0275elementStart(55, "div", 54)(56, "strong");
     \u0275\u0275text(57, "JSON");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(58, "pre");
@@ -41418,101 +41455,103 @@ function AppComponent_ng_container_21_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r2.headlessJsonCode);
   }
 }
-function AppComponent_ng_container_22_ng_container_2_ng_container_1_Template(rf, ctx) {
+function AppComponent_ng_container_23_ng_container_2_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_container_22_ng_container_2_Template(rf, ctx) {
+function AppComponent_ng_container_23_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AppComponent_ng_container_22_ng_container_2_ng_container_1_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275template(1, AppComponent_ng_container_23_ng_container_2_ng_container_1_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const example_r21 = ctx.$implicit;
+    const example_r23 = ctx.$implicit;
     \u0275\u0275nextContext(2);
-    const exampleRow_r10 = \u0275\u0275reference(31);
+    const exampleRow_r12 = \u0275\u0275reference(32);
     \u0275\u0275advance();
-    \u0275\u0275property("ngTemplateOutlet", exampleRow_r10)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r21));
+    \u0275\u0275property("ngTemplateOutlet", exampleRow_r12)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r23));
   }
 }
-function AppComponent_ng_container_22_Template(rf, ctx) {
+function AppComponent_ng_container_23_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "div", 37);
-    \u0275\u0275template(2, AppComponent_ng_container_22_ng_container_2_Template, 2, 4, "ng-container", 38);
+    \u0275\u0275elementStart(1, "div", 40);
+    \u0275\u0275template(2, AppComponent_ng_container_23_ng_container_2_Template, 2, 4, "ng-container", 41);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext();
-    \u0275\u0275advance(2);
+    \u0275\u0275advance();
+    \u0275\u0275classProp("custom-skin-sample", ctx_r2.currentPath === "classic" && ctx_r2.basicSkin === "custom");
+    \u0275\u0275advance();
     \u0275\u0275property("ngForOf", ctx_r2.visibleExamples)("ngForTrackBy", ctx_r2.trackExample);
   }
 }
-function AppComponent_p_26_Template(rf, ctx) {
+function AppComponent_p_27_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p");
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const event_r22 = ctx.$implicit;
+    const event_r24 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(event_r22);
+    \u0275\u0275textInterpolate(event_r24);
   }
 }
-function AppComponent_p_27_Template(rf, ctx) {
+function AppComponent_p_28_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "p");
     \u0275\u0275text(1, "No events yet.");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_ng_template_30_button_6_Template(rf, ctx) {
+function AppComponent_ng_template_31_button_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r23 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 36);
-    \u0275\u0275listener("click", function AppComponent_ng_template_30_button_6_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r23);
-      const example_r24 = \u0275\u0275nextContext().example;
+    const _r25 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 39);
+    \u0275\u0275listener("click", function AppComponent_ng_template_31_button_6_Template_button_click_0_listener() {
+      \u0275\u0275restoreView(_r25);
+      const example_r26 = \u0275\u0275nextContext().example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.toggleDisabled(example_r24));
+      return \u0275\u0275resetView(ctx_r2.toggleDisabled(example_r26));
     });
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const example_r24 = \u0275\u0275nextContext().example;
+    const example_r26 = \u0275\u0275nextContext().example;
     const ctx_r2 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", ctx_r2.disabledMap[example_r24.id] ? "Enable" : "Disable", " ");
+    \u0275\u0275textInterpolate1(" ", ctx_r2.disabledMap[example_r26.id] ? "Enable" : "Disable", " ");
   }
 }
-function AppComponent_ng_template_30_ng_container_9_ng_container_17_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_container_9_ng_container_17_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_template_30_ng_container_9_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_container_9_Template(rf, ctx) {
   if (rf & 1) {
-    const _r25 = \u0275\u0275getCurrentView();
+    const _r27 = \u0275\u0275getCurrentView();
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "form", 77);
-    \u0275\u0275listener("submit", function AppComponent_ng_template_30_ng_container_9_Template_form_submit_1_listener($event) {
-      \u0275\u0275restoreView(_r25);
-      const example_r24 = \u0275\u0275nextContext().example;
+    \u0275\u0275elementStart(1, "form", 80);
+    \u0275\u0275listener("submit", function AppComponent_ng_template_31_ng_container_9_Template_form_submit_1_listener($event) {
+      \u0275\u0275restoreView(_r27);
+      const example_r26 = \u0275\u0275nextContext().example;
       const ctx_r2 = \u0275\u0275nextContext();
       $event.preventDefault();
-      return \u0275\u0275resetView(ctx_r2.record(example_r24.eventPrefix + " submit", example_r24.selected));
+      return \u0275\u0275resetView(ctx_r2.record(example_r26.eventPrefix + " submit", example_r26.selected));
     });
-    \u0275\u0275elementStart(2, "label", 78)(3, "span");
+    \u0275\u0275elementStart(2, "label", 81)(3, "span");
     \u0275\u0275text(4, "Name");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "input", 79);
-    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_30_ng_container_9_Template_input_ngModelChange_5_listener($event) {
-      \u0275\u0275restoreView(_r25);
+    \u0275\u0275elementStart(5, "input", 82);
+    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_31_ng_container_9_Template_input_ngModelChange_5_listener($event) {
+      \u0275\u0275restoreView(_r27);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.formName, $event) || (ctx_r2.formName = $event);
       return \u0275\u0275resetView($event);
@@ -41520,14 +41559,14 @@ function AppComponent_ng_template_30_ng_container_9_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275controlCreate();
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "label", 78)(7, "span");
+    \u0275\u0275elementStart(6, "label", 81)(7, "span");
     \u0275\u0275text(8, "Email Address ");
     \u0275\u0275elementStart(9, "em");
     \u0275\u0275text(10, "* required");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "input", 80);
-    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_30_ng_container_9_Template_input_ngModelChange_11_listener($event) {
-      \u0275\u0275restoreView(_r25);
+    \u0275\u0275elementStart(11, "input", 83);
+    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_31_ng_container_9_Template_input_ngModelChange_11_listener($event) {
+      \u0275\u0275restoreView(_r27);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.formEmail, $event) || (ctx_r2.formEmail = $event);
       return \u0275\u0275resetView($event);
@@ -41535,25 +41574,25 @@ function AppComponent_ng_template_30_ng_container_9_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275controlCreate();
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(12, "div", 78)(13, "span");
+    \u0275\u0275elementStart(12, "div", 81)(13, "span");
     \u0275\u0275text(14, "Skills ");
     \u0275\u0275elementStart(15, "em");
     \u0275\u0275text(16, "* required");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(17, AppComponent_ng_template_30_ng_container_9_ng_container_17_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275template(17, AppComponent_ng_template_31_ng_container_9_ng_container_17_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(18, "button", 81);
+    \u0275\u0275elementStart(18, "button", 84);
     \u0275\u0275text(19, " Submit ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "p", 82);
+    \u0275\u0275elementStart(20, "p", 85);
     \u0275\u0275text(21);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const example_r24 = \u0275\u0275nextContext().example;
+    const example_r26 = \u0275\u0275nextContext().example;
     const ctx_r2 = \u0275\u0275nextContext();
-    const dropdownTemplate_r6 = \u0275\u0275reference(33);
+    const dropdownTemplate_r8 = \u0275\u0275reference(34);
     \u0275\u0275advance(5);
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.formName);
     \u0275\u0275control();
@@ -41561,152 +41600,152 @@ function AppComponent_ng_template_30_ng_container_9_Template(rf, ctx) {
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.formEmail);
     \u0275\u0275control();
     \u0275\u0275advance(6);
-    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r6)("ngTemplateOutletContext", \u0275\u0275pureFunction1(8, _c02, example_r24));
+    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r8)("ngTemplateOutletContext", \u0275\u0275pureFunction1(8, _c02, example_r26));
     \u0275\u0275advance();
-    \u0275\u0275property("disabled", !ctx_r2.formEmail || !example_r24.selected.length);
+    \u0275\u0275property("disabled", !ctx_r2.formEmail || !example_r26.selected.length);
     \u0275\u0275advance(2);
-    \u0275\u0275classProp("ok", example_r24.selected.length);
+    \u0275\u0275classProp("ok", example_r26.selected.length);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", example_r24.selected.length ? "Valid selection." : "Select at least one skill.", " ");
+    \u0275\u0275textInterpolate1(" ", example_r26.selected.length ? "Valid selection." : "Select at least one skill.", " ");
   }
 }
-function AppComponent_ng_template_30_ng_template_10_ng_container_0_ng_container_8_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_template_10_ng_container_0_ng_container_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_template_30_ng_template_10_ng_container_0_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_template_10_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "div", 83)(2, "div", 84)(3, "div", 85)(4, "strong");
+    \u0275\u0275elementStart(1, "div", 86)(2, "div", 87)(3, "div", 88)(4, "strong");
     \u0275\u0275text(5, "Simulated dialog surface");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(6, "span");
     \u0275\u0275text(7, "overflow hidden, stacking context, and a dropdown near the edge.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(8, AppComponent_ng_template_30_ng_template_10_ng_container_0_ng_container_8_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275template(8, AppComponent_ng_template_31_ng_template_10_ng_container_0_ng_container_8_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const example_r24 = \u0275\u0275nextContext(2).example;
+    const example_r26 = \u0275\u0275nextContext(2).example;
     \u0275\u0275nextContext();
-    const dropdownTemplate_r6 = \u0275\u0275reference(33);
+    const dropdownTemplate_r8 = \u0275\u0275reference(34);
     \u0275\u0275advance(2);
-    \u0275\u0275classProp("opens-up", example_r24.overflow === "top");
+    \u0275\u0275classProp("opens-up", example_r26.overflow === "top");
     \u0275\u0275advance(6);
-    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r6)("ngTemplateOutletContext", \u0275\u0275pureFunction1(4, _c02, example_r24));
+    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r8)("ngTemplateOutletContext", \u0275\u0275pureFunction1(4, _c02, example_r26));
   }
 }
-function AppComponent_ng_template_30_ng_template_10_ng_template_1_ng_container_0_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_template_10_ng_template_1_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_template_30_ng_template_10_ng_template_1_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_template_10_ng_template_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, AppComponent_ng_template_30_ng_template_10_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275template(0, AppComponent_ng_template_31_ng_template_10_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", 29);
   }
   if (rf & 2) {
-    const example_r24 = \u0275\u0275nextContext(2).example;
+    const example_r26 = \u0275\u0275nextContext(2).example;
     \u0275\u0275nextContext();
-    const dropdownTemplate_r6 = \u0275\u0275reference(33);
-    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r6)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r24));
+    const dropdownTemplate_r8 = \u0275\u0275reference(34);
+    \u0275\u0275property("ngTemplateOutlet", dropdownTemplate_r8)("ngTemplateOutletContext", \u0275\u0275pureFunction1(2, _c02, example_r26));
   }
 }
-function AppComponent_ng_template_30_ng_template_10_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_template_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, AppComponent_ng_template_30_ng_template_10_ng_container_0_Template, 9, 6, "ng-container", 75)(1, AppComponent_ng_template_30_ng_template_10_ng_template_1_Template, 1, 4, "ng-template", null, 4, \u0275\u0275templateRefExtractor);
+    \u0275\u0275template(0, AppComponent_ng_template_31_ng_template_10_ng_container_0_Template, 9, 6, "ng-container", 78)(1, AppComponent_ng_template_31_ng_template_10_ng_template_1_Template, 1, 4, "ng-template", null, 4, \u0275\u0275templateRefExtractor);
   }
   if (rf & 2) {
-    const standardDropdown_r26 = \u0275\u0275reference(2);
-    const example_r24 = \u0275\u0275nextContext().example;
-    \u0275\u0275property("ngIf", example_r24.overflow)("ngIfElse", standardDropdown_r26);
+    const standardDropdown_r28 = \u0275\u0275reference(2);
+    const example_r26 = \u0275\u0275nextContext().example;
+    \u0275\u0275property("ngIf", example_r26.overflow)("ngIfElse", standardDropdown_r28);
   }
 }
-function AppComponent_ng_template_30_p_12_Template(rf, ctx) {
+function AppComponent_ng_template_31_p_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p", 26);
+    \u0275\u0275elementStart(0, "p", 25);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const example_r24 = \u0275\u0275nextContext().example;
+    const example_r26 = \u0275\u0275nextContext().example;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(example_r24.note);
+    \u0275\u0275textInterpolate(example_r26.note);
   }
 }
-function AppComponent_ng_template_30_p_13_Template(rf, ctx) {
+function AppComponent_ng_template_31_p_13_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "p", 26);
+    \u0275\u0275elementStart(0, "p", 25);
     \u0275\u0275text(1, "tagToBody: true | appendToBody: true");
     \u0275\u0275elementEnd();
   }
 }
-function AppComponent_ng_template_30_ng_container_15_Template(rf, ctx) {
+function AppComponent_ng_template_31_ng_container_15_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainer(0);
   }
 }
-function AppComponent_ng_template_30_Template(rf, ctx) {
+function AppComponent_ng_template_31_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "article", 71)(1, "div", 24)(2, "div", 72)(3, "h3");
+    \u0275\u0275elementStart(0, "article", 74)(1, "div", 28)(2, "div", 75)(3, "h3");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 73);
-    \u0275\u0275template(6, AppComponent_ng_template_30_button_6_Template, 2, 1, "button", 74);
+    \u0275\u0275elementStart(5, "div", 76);
+    \u0275\u0275template(6, AppComponent_ng_template_31_button_6_Template, 2, 1, "button", 77);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "p", 13);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, AppComponent_ng_template_30_ng_container_9_Template, 22, 10, "ng-container", 75)(10, AppComponent_ng_template_30_ng_template_10_Template, 3, 2, "ng-template", null, 3, \u0275\u0275templateRefExtractor)(12, AppComponent_ng_template_30_p_12_Template, 2, 1, "p", 76)(13, AppComponent_ng_template_30_p_13_Template, 2, 0, "p", 76);
+    \u0275\u0275template(9, AppComponent_ng_template_31_ng_container_9_Template, 22, 10, "ng-container", 78)(10, AppComponent_ng_template_31_ng_template_10_Template, 3, 2, "ng-template", null, 3, \u0275\u0275templateRefExtractor)(12, AppComponent_ng_template_31_p_12_Template, 2, 1, "p", 79)(13, AppComponent_ng_template_31_p_13_Template, 2, 0, "p", 79);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(14, "div", 27);
-    \u0275\u0275template(15, AppComponent_ng_template_30_ng_container_15_Template, 1, 0, "ng-container", 25);
+    \u0275\u0275elementStart(14, "div", 30);
+    \u0275\u0275template(15, AppComponent_ng_template_31_ng_container_15_Template, 1, 0, "ng-container", 29);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const example_r24 = ctx.example;
-    const plainDropdown_r27 = \u0275\u0275reference(11);
+    const example_r26 = ctx.example;
+    const plainDropdown_r29 = \u0275\u0275reference(11);
     \u0275\u0275nextContext();
-    const codeTemplate_r7 = \u0275\u0275reference(35);
-    \u0275\u0275classProp("overflow-example-row", example_r24.overflow);
+    const codeTemplate_r9 = \u0275\u0275reference(36);
+    \u0275\u0275classProp("overflow-example-row", example_r26.overflow);
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate2("", example_r24.number, ". ", example_r24.title);
+    \u0275\u0275textInterpolate2("", example_r26.number, ". ", example_r26.title);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngIf", example_r24.allowDisabledToggle);
+    \u0275\u0275property("ngIf", example_r26.allowDisabledToggle);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(example_r24.description);
+    \u0275\u0275textInterpolate(example_r26.description);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", example_r24.formValidation)("ngIfElse", plainDropdown_r27);
+    \u0275\u0275property("ngIf", example_r26.formValidation)("ngIfElse", plainDropdown_r29);
     \u0275\u0275advance(3);
-    \u0275\u0275property("ngIf", example_r24.note);
+    \u0275\u0275property("ngIf", example_r26.note);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", example_r24.overflow);
+    \u0275\u0275property("ngIf", example_r26.overflow);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngTemplateOutlet", codeTemplate_r7)("ngTemplateOutletContext", \u0275\u0275pureFunction1(12, _c02, example_r24));
+    \u0275\u0275property("ngTemplateOutlet", codeTemplate_r9)("ngTemplateOutletContext", \u0275\u0275pureFunction1(12, _c02, example_r26));
   }
 }
-function AppComponent_ng_template_32_ng_container_2_ng_template_2_Template(rf, ctx) {
+function AppComponent_ng_template_33_ng_container_2_ng_template_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 88);
-    \u0275\u0275element(1, "span", 89);
+    \u0275\u0275elementStart(0, "span", 91);
+    \u0275\u0275element(1, "span", 92);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const item_r30 = ctx.item;
+    const item_r32 = ctx.item;
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r30.flag));
+    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r32.flag));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", item_r30.itemName, " ");
+    \u0275\u0275textInterpolate1(" ", item_r32.itemName, " ");
   }
 }
-function AppComponent_ng_template_32_ng_container_2_ng_template_4_Template(rf, ctx) {
+function AppComponent_ng_template_33_ng_container_2_ng_template_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 90);
-    \u0275\u0275element(1, "span", 89);
+    \u0275\u0275elementStart(0, "span", 93);
+    \u0275\u0275element(1, "span", 92);
     \u0275\u0275elementStart(2, "span")(3, "strong");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
@@ -41715,131 +41754,131 @@ function AppComponent_ng_template_32_ng_container_2_ng_template_4_Template(rf, c
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const item_r31 = ctx.item;
+    const item_r33 = ctx.item;
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275advance();
-    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r31.flag));
+    \u0275\u0275property("ngClass", ctx_r2.flagClass(item_r33.flag));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(item_r31.itemName);
+    \u0275\u0275textInterpolate(item_r33.itemName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(item_r31.caption);
+    \u0275\u0275textInterpolate(item_r33.caption);
   }
 }
-function AppComponent_ng_template_32_ng_container_2_Template(rf, ctx) {
+function AppComponent_ng_template_33_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
     \u0275\u0275elementStart(1, "c-badge");
-    \u0275\u0275template(2, AppComponent_ng_template_32_ng_container_2_ng_template_2_Template, 3, 2, "ng-template");
+    \u0275\u0275template(2, AppComponent_ng_template_33_ng_container_2_ng_template_2_Template, 3, 2, "ng-template");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "c-item");
-    \u0275\u0275template(4, AppComponent_ng_template_32_ng_container_2_ng_template_4_Template, 7, 3, "ng-template");
+    \u0275\u0275template(4, AppComponent_ng_template_33_ng_container_2_ng_template_4_Template, 7, 3, "ng-template");
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
 }
-function AppComponent_ng_template_32_div_3_Template(rf, ctx) {
+function AppComponent_ng_template_33_div_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r32 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 91)(1, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_template_32_div_3_Template_button_click_1_listener() {
-      \u0275\u0275restoreView(_r32);
+    const _r34 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 94)(1, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_template_33_div_3_Template_button_click_1_listener() {
+      \u0275\u0275restoreView(_r34);
       \u0275\u0275nextContext();
-      const dropdown_r33 = \u0275\u0275reference(1);
-      return \u0275\u0275resetView(dropdown_r33.openDropdown());
+      const dropdown_r35 = \u0275\u0275reference(1);
+      return \u0275\u0275resetView(dropdown_r35.openDropdown());
     });
     \u0275\u0275text(2, "Open");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_template_32_div_3_Template_button_click_3_listener() {
-      \u0275\u0275restoreView(_r32);
+    \u0275\u0275elementStart(3, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_template_33_div_3_Template_button_click_3_listener() {
+      \u0275\u0275restoreView(_r34);
       \u0275\u0275nextContext();
-      const dropdown_r33 = \u0275\u0275reference(1);
-      return \u0275\u0275resetView(dropdown_r33.closeDropdown());
+      const dropdown_r35 = \u0275\u0275reference(1);
+      return \u0275\u0275resetView(dropdown_r35.closeDropdown());
     });
     \u0275\u0275text(4, "Close");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_template_32_div_3_Template_button_click_5_listener($event) {
-      \u0275\u0275restoreView(_r32);
+    \u0275\u0275elementStart(5, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_template_33_div_3_Template_button_click_5_listener($event) {
+      \u0275\u0275restoreView(_r34);
       \u0275\u0275nextContext();
-      const dropdown_r33 = \u0275\u0275reference(1);
-      return \u0275\u0275resetView(dropdown_r33.toggleSelectAll($event));
+      const dropdown_r35 = \u0275\u0275reference(1);
+      return \u0275\u0275resetView(dropdown_r35.toggleSelectAll($event));
     });
     \u0275\u0275text(6, "Select all");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "button", 21);
-    \u0275\u0275listener("click", function AppComponent_ng_template_32_div_3_Template_button_click_7_listener($event) {
-      \u0275\u0275restoreView(_r32);
+    \u0275\u0275elementStart(7, "button", 22);
+    \u0275\u0275listener("click", function AppComponent_ng_template_33_div_3_Template_button_click_7_listener($event) {
+      \u0275\u0275restoreView(_r34);
       \u0275\u0275nextContext();
-      const dropdown_r33 = \u0275\u0275reference(1);
-      return \u0275\u0275resetView(dropdown_r33.clearSelection($event));
+      const dropdown_r35 = \u0275\u0275reference(1);
+      return \u0275\u0275resetView(dropdown_r35.clearSelection($event));
     });
     \u0275\u0275text(8, "Clear");
     \u0275\u0275elementEnd()();
   }
 }
-function AppComponent_ng_template_32_Template(rf, ctx) {
+function AppComponent_ng_template_33_Template(rf, ctx) {
   if (rf & 1) {
-    const _r28 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "angular-multiselect", 86, 5);
-    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_32_Template_angular_multiselect_ngModelChange_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
-      \u0275\u0275twoWayBindingSet(example_r29.selected, $event) || (example_r29.selected = $event);
+    const _r30 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "angular-multiselect", 89, 5);
+    \u0275\u0275twoWayListener("ngModelChange", function AppComponent_ng_template_33_Template_angular_multiselect_ngModelChange_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
+      \u0275\u0275twoWayBindingSet(example_r31.selected, $event) || (example_r31.selected = $event);
       return \u0275\u0275resetView($event);
     });
-    \u0275\u0275listener("onSelect", function AppComponent_ng_template_32_Template_angular_multiselect_onSelect_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+    \u0275\u0275listener("onSelect", function AppComponent_ng_template_33_Template_angular_multiselect_onSelect_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " select", $event));
-    })("onDeSelect", function AppComponent_ng_template_32_Template_angular_multiselect_onDeSelect_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " select", $event));
+    })("onDeSelect", function AppComponent_ng_template_33_Template_angular_multiselect_onDeSelect_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " deselect", $event));
-    })("onSelectAll", function AppComponent_ng_template_32_Template_angular_multiselect_onSelectAll_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " deselect", $event));
+    })("onSelectAll", function AppComponent_ng_template_33_Template_angular_multiselect_onSelectAll_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " selectAll", $event));
-    })("onDeSelectAll", function AppComponent_ng_template_32_Template_angular_multiselect_onDeSelectAll_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " selectAll", $event));
+    })("onDeSelectAll", function AppComponent_ng_template_33_Template_angular_multiselect_onDeSelectAll_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " deselectAll", $event));
-    })("onOpen", function AppComponent_ng_template_32_Template_angular_multiselect_onOpen_0_listener() {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " deselectAll", $event));
+    })("onOpen", function AppComponent_ng_template_33_Template_angular_multiselect_onOpen_0_listener() {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " open", "opened"));
-    })("onClose", function AppComponent_ng_template_32_Template_angular_multiselect_onClose_0_listener() {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " open", "opened"));
+    })("onClose", function AppComponent_ng_template_33_Template_angular_multiselect_onClose_0_listener() {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.record(example_r29.eventPrefix + " close", "closed"));
-    })("onScrollToEnd", function AppComponent_ng_template_32_Template_angular_multiselect_onScrollToEnd_0_listener() {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.record(example_r31.eventPrefix + " close", "closed"));
+    })("onScrollToEnd", function AppComponent_ng_template_33_Template_angular_multiselect_onScrollToEnd_0_listener() {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.appendNextChunk(example_r29));
-    })("onAddFilterNewItem", function AppComponent_ng_template_32_Template_angular_multiselect_onAddFilterNewItem_0_listener($event) {
-      const example_r29 = \u0275\u0275restoreView(_r28).example;
+      return \u0275\u0275resetView(ctx_r2.appendNextChunk(example_r31));
+    })("onAddFilterNewItem", function AppComponent_ng_template_33_Template_angular_multiselect_onAddFilterNewItem_0_listener($event) {
+      const example_r31 = \u0275\u0275restoreView(_r30).example;
       const ctx_r2 = \u0275\u0275nextContext();
-      return \u0275\u0275resetView(ctx_r2.addFilterItem(example_r29, $event));
+      return \u0275\u0275resetView(ctx_r2.addFilterItem(example_r31, $event));
     });
-    \u0275\u0275template(2, AppComponent_ng_template_32_ng_container_2_Template, 5, 0, "ng-container", 20);
+    \u0275\u0275template(2, AppComponent_ng_template_33_ng_container_2_Template, 5, 0, "ng-container", 21);
     \u0275\u0275elementEnd();
     \u0275\u0275controlCreate();
-    \u0275\u0275template(3, AppComponent_ng_template_32_div_3_Template, 9, 0, "div", 87);
+    \u0275\u0275template(3, AppComponent_ng_template_33_div_3_Template, 9, 0, "div", 90);
   }
   if (rf & 2) {
-    const example_r29 = ctx.example;
-    \u0275\u0275property("data", example_r29.data);
-    \u0275\u0275twoWayProperty("ngModel", example_r29.selected);
-    \u0275\u0275property("settings", example_r29.settings);
+    const example_r31 = ctx.example;
+    \u0275\u0275property("data", example_r31.data);
+    \u0275\u0275twoWayProperty("ngModel", example_r31.selected);
+    \u0275\u0275property("settings", example_r31.settings);
     \u0275\u0275control();
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngIf", example_r29.template);
+    \u0275\u0275property("ngIf", example_r31.template);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", example_r29.methods);
+    \u0275\u0275property("ngIf", example_r31.methods);
   }
 }
-function AppComponent_ng_template_34_div_1_Template(rf, ctx) {
+function AppComponent_ng_template_35_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 51)(1, "strong");
+    \u0275\u0275elementStart(0, "div", 54)(1, "strong");
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "pre");
@@ -41847,24 +41886,24 @@ function AppComponent_ng_template_34_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const snippet_r34 = ctx.$implicit;
+    const snippet_r36 = ctx.$implicit;
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(snippet_r34.label);
+    \u0275\u0275textInterpolate(snippet_r36.label);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(snippet_r34.code);
+    \u0275\u0275textInterpolate(snippet_r36.code);
   }
 }
-function AppComponent_ng_template_34_Template(rf, ctx) {
+function AppComponent_ng_template_35_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 50);
-    \u0275\u0275template(1, AppComponent_ng_template_34_div_1_Template, 5, 2, "div", 92);
+    \u0275\u0275elementStart(0, "div", 53);
+    \u0275\u0275template(1, AppComponent_ng_template_35_div_1_Template, 5, 2, "div", 95);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const example_r35 = ctx.example;
+    const example_r37 = ctx.example;
     const ctx_r2 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r2.codeFor(example_r35));
+    \u0275\u0275property("ngForOf", ctx_r2.codeFor(example_r37));
   }
 }
 var COUNTRY_SEEDS = [
@@ -42013,6 +42052,7 @@ var AppComponent = class _AppComponent {
   people = this.createPeople();
   stackBlitzBase = "https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22";
   currentPath = "classic";
+  basicSkin = "classic";
   skinSwitchSkin = "classic";
   skinSwitchExample;
   disabledMap = {};
@@ -42120,6 +42160,16 @@ var AppComponent = class _AppComponent {
     });
     this.refreshCodeFor(this.skinSwitchExample);
     this.record("skin switch", skin);
+  }
+  setBasicSkin(skin) {
+    this.basicSkin = skin;
+    this.classicExamples.forEach((example) => {
+      example.settings = this.makeSettings(skin, example.settings.text, __spreadProps(__spreadValues({}, example.settings), {
+        skin
+      }));
+      this.refreshCodeFor(example);
+    });
+    this.record("basic usage skin", skin);
   }
   labelForSkin(skin) {
     return skin.charAt(0).toUpperCase() + skin.slice(1);
@@ -42695,7 +42745,7 @@ addFilterItem(query: string) {
         return ctx.onHashChange();
       }, \u0275\u0275resolveWindow);
     }
-  }, standalone: false, decls: 36, vars: 25, consts: [["exampleRow", ""], ["dropdownTemplate", ""], ["codeTemplate", ""], ["plainDropdown", ""], ["standardDropdown", ""], ["dropdown", ""], [1, "page"], [1, "topbar"], [1, "eyebrow"], ["aria-label", "Angular 22 live tests", 1, "live-menu"], ["type", "button", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "skin-section"], [1, "section-heading"], [1, "example-copy"], ["target", "_blank", "rel", "noopener", 1, "stackblitz-link", 3, "href"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], [1, "activity"], [4, "ngFor", "ngForOf"], [4, "ngIf"], ["type", "button", 3, "click"], ["aria-label", "Skin switcher", 1, "skin-buttons"], [1, "example-row", "custom-skin-sample"], [1, "demo-cell"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "settings-preview"], [1, "code-cell"], [1, "feature-lab-grid"], [1, "feature-lab-card"], [1, "keyboard-contract"], [1, "keyboard-targets"], [1, "keyboard-toggles"], [1, "space-mode-toggles"], [1, "keyboard-settings-preview"], [1, "aria-audit-panel"], ["type", "button", 1, "small-button", 3, "click"], [1, "case-list"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "example-row", "headless-flag-row"], [1, "headless-aria-shell"], [1, "headless-aria-header"], ["type", "button", 1, "headless-aria-clear", 3, "click", "disabled"], ["type", "button", 1, "headless-aria-trigger", 3, "click"], ["aria-live", "polite", 1, "headless-aria-selected"], ["class", "headless-aria-chip", 4, "ngFor", "ngForOf"], ["class", "headless-aria-counter", 4, "ngIf"], ["class", "headless-aria-empty", 4, "ngIf"], ["class", "headless-aria-panel", 4, "ngIf"], [1, "headless-aria-audit"], [1, "code-grid"], [1, "code-card"], [1, "headless-aria-chip"], ["aria-hidden", "true", 1, "headless-aria-flag", 3, "ngClass"], ["aria-hidden", "true"], [1, "headless-aria-counter"], [1, "headless-aria-empty"], [1, "headless-aria-panel"], ["for", "headless-search", 1, "headless-aria-search-label"], ["id", "headless-search", "type", "search", "aria-label", "Search custom country options", "placeholder", "Search country, capital, or region", 1, "headless-aria-search", 3, "ngModelChange", "ngModel"], [1, "headless-aria-actions"], ["type", "button", 3, "click", "disabled"], [1, "headless-aria-listbox", 3, "id"], ["class", "headless-aria-group", "role", "group", 4, "ngFor", "ngForOf"], ["role", "group", 1, "headless-aria-group"], [1, "headless-aria-group-head"], ["class", "headless-aria-option", "tabindex", "0", 3, "selected", "id", "click", "keydown", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["tabindex", "0", 1, "headless-aria-option", 3, "click", "keydown", "id"], ["aria-hidden", "true", 1, "headless-aria-check"], [1, "headless-aria-option-copy"], [1, "headless-aria-state"], [1, "example-row"], [1, "case-title-row"], [1, "case-actions"], ["type", "button", "class", "small-button", 3, "click", 4, "ngIf"], [4, "ngIf", "ngIfElse"], ["class", "settings-preview", 4, "ngIf"], [1, "docs-form", 3, "submit"], [1, "form-field"], ["name", "formName", 3, "ngModelChange", "ngModel"], ["name", "formEmail", 3, "ngModelChange", "ngModel"], ["type", "submit", 1, "submit-button", 3, "disabled"], [1, "validation"], [1, "overflow-dialog-frame"], [1, "demo-dialog-surface"], [1, "dialog-copy"], [3, "ngModelChange", "onSelect", "onDeSelect", "onSelectAll", "onDeSelectAll", "onOpen", "onClose", "onScrollToEnd", "onAddFilterNewItem", "data", "ngModel", "settings"], ["class", "method-bar", 4, "ngIf"], [1, "swatch-chip"], ["aria-hidden", "true", 1, "flag-chip", 3, "ngClass"], [1, "option-row"], [1, "method-bar"], ["class", "code-card", 4, "ngFor", "ngForOf"]], template: function AppComponent_Template(rf, ctx) {
+  }, standalone: false, decls: 37, vars: 26, consts: [["exampleRow", ""], ["dropdownTemplate", ""], ["codeTemplate", ""], ["plainDropdown", ""], ["standardDropdown", ""], ["dropdown", ""], [1, "page"], [1, "topbar"], [1, "eyebrow"], ["aria-label", "Angular 22 live tests", 1, "live-menu"], ["type", "button", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "skin-section"], [1, "section-heading"], [1, "example-copy"], ["target", "_blank", "rel", "noopener", 1, "stackblitz-link", 3, "href"], ["class", "route-skin-switcher", 4, "ngIf"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], [1, "activity"], [4, "ngFor", "ngForOf"], [4, "ngIf"], ["type", "button", 3, "click"], [1, "route-skin-switcher"], ["aria-label", "Basic usage skin switcher", 1, "skin-buttons"], [1, "settings-preview"], ["aria-label", "Skin switcher", 1, "skin-buttons"], [1, "example-row", "custom-skin-sample"], [1, "demo-cell"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "code-cell"], [1, "feature-lab-grid"], [1, "feature-lab-card"], [1, "keyboard-contract"], [1, "keyboard-targets"], [1, "keyboard-toggles"], [1, "space-mode-toggles"], [1, "keyboard-settings-preview"], [1, "aria-audit-panel"], ["type", "button", 1, "small-button", 3, "click"], [1, "case-list"], [4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "example-row", "headless-flag-row"], [1, "headless-aria-shell"], [1, "headless-aria-header"], ["type", "button", 1, "headless-aria-clear", 3, "click", "disabled"], ["type", "button", 1, "headless-aria-trigger", 3, "click"], ["aria-live", "polite", 1, "headless-aria-selected"], ["class", "headless-aria-chip", 4, "ngFor", "ngForOf"], ["class", "headless-aria-counter", 4, "ngIf"], ["class", "headless-aria-empty", 4, "ngIf"], ["class", "headless-aria-panel", 4, "ngIf"], [1, "headless-aria-audit"], [1, "code-grid"], [1, "code-card"], [1, "headless-aria-chip"], ["aria-hidden", "true", 1, "headless-aria-flag", 3, "ngClass"], ["aria-hidden", "true"], [1, "headless-aria-counter"], [1, "headless-aria-empty"], [1, "headless-aria-panel"], ["for", "headless-search", 1, "headless-aria-search-label"], ["id", "headless-search", "type", "search", "aria-label", "Search custom country options", "placeholder", "Search country, capital, or region", 1, "headless-aria-search", 3, "ngModelChange", "ngModel"], [1, "headless-aria-actions"], ["type", "button", 3, "click", "disabled"], [1, "headless-aria-listbox", 3, "id"], ["class", "headless-aria-group", "role", "group", 4, "ngFor", "ngForOf"], ["role", "group", 1, "headless-aria-group"], [1, "headless-aria-group-head"], ["class", "headless-aria-option", "tabindex", "0", 3, "selected", "id", "click", "keydown", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["tabindex", "0", 1, "headless-aria-option", 3, "click", "keydown", "id"], ["aria-hidden", "true", 1, "headless-aria-check"], [1, "headless-aria-option-copy"], [1, "headless-aria-state"], [1, "example-row"], [1, "case-title-row"], [1, "case-actions"], ["type", "button", "class", "small-button", 3, "click", 4, "ngIf"], [4, "ngIf", "ngIfElse"], ["class", "settings-preview", 4, "ngIf"], [1, "docs-form", 3, "submit"], [1, "form-field"], ["name", "formName", 3, "ngModelChange", "ngModel"], ["name", "formEmail", 3, "ngModelChange", "ngModel"], ["type", "submit", 1, "submit-button", 3, "disabled"], [1, "validation"], [1, "overflow-dialog-frame"], [1, "demo-dialog-surface"], [1, "dialog-copy"], [3, "ngModelChange", "onSelect", "onDeSelect", "onSelectAll", "onDeSelectAll", "onOpen", "onClose", "onScrollToEnd", "onAddFilterNewItem", "data", "ngModel", "settings"], ["class", "method-bar", 4, "ngIf"], [1, "swatch-chip"], ["aria-hidden", "true", 1, "flag-chip", 3, "ngClass"], [1, "option-row"], [1, "method-bar"], ["class", "code-card", 4, "ngFor", "ngForOf"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 6)(1, "header", 7)(2, "p", 8);
       \u0275\u0275text(3);
@@ -42718,21 +42768,22 @@ addFilterItem(query: string) {
       \u0275\u0275elementStart(16, "a", 14);
       \u0275\u0275text(17, " Open this route in StackBlitz ");
       \u0275\u0275elementEnd()();
-      \u0275\u0275elementContainerStart(18, 15);
-      \u0275\u0275template(19, AppComponent_ng_container_19_Template, 12, 10, "ng-container", 16)(20, AppComponent_ng_container_20_Template, 96, 31, "ng-container", 16)(21, AppComponent_ng_container_21_Template, 60, 21, "ng-container", 16)(22, AppComponent_ng_container_22_Template, 3, 2, "ng-container", 17);
+      \u0275\u0275template(18, AppComponent_div_18_Template, 5, 2, "div", 15);
+      \u0275\u0275elementContainerStart(19, 16);
+      \u0275\u0275template(20, AppComponent_ng_container_20_Template, 12, 10, "ng-container", 17)(21, AppComponent_ng_container_21_Template, 96, 31, "ng-container", 17)(22, AppComponent_ng_container_22_Template, 60, 21, "ng-container", 17)(23, AppComponent_ng_container_23_Template, 3, 4, "ng-container", 18);
       \u0275\u0275elementContainerEnd();
       \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(23, "section", 18)(24, "h2");
-      \u0275\u0275text(25, "Event log");
+      \u0275\u0275elementStart(24, "section", 19)(25, "h2");
+      \u0275\u0275text(26, "Event log");
       \u0275\u0275elementEnd();
-      \u0275\u0275template(26, AppComponent_p_26_Template, 2, 1, "p", 19)(27, AppComponent_p_27_Template, 2, 0, "p", 20);
-      \u0275\u0275elementStart(28, "button", 21);
-      \u0275\u0275listener("click", function AppComponent_Template_button_click_28_listener() {
+      \u0275\u0275template(27, AppComponent_p_27_Template, 2, 1, "p", 20)(28, AppComponent_p_28_Template, 2, 0, "p", 21);
+      \u0275\u0275elementStart(29, "button", 22);
+      \u0275\u0275listener("click", function AppComponent_Template_button_click_29_listener() {
         return ctx.clearLog();
       });
-      \u0275\u0275text(29, "Clear log");
+      \u0275\u0275text(30, "Clear log");
       \u0275\u0275elementEnd()()();
-      \u0275\u0275template(30, AppComponent_ng_template_30_Template, 16, 14, "ng-template", null, 0, \u0275\u0275templateRefExtractor)(32, AppComponent_ng_template_32_Template, 4, 5, "ng-template", null, 1, \u0275\u0275templateRefExtractor)(34, AppComponent_ng_template_34_Template, 2, 1, "ng-template", null, 2, \u0275\u0275templateRefExtractor);
+      \u0275\u0275template(31, AppComponent_ng_template_31_Template, 16, 14, "ng-template", null, 0, \u0275\u0275templateRefExtractor)(33, AppComponent_ng_template_33_Template, 4, 5, "ng-template", null, 1, \u0275\u0275templateRefExtractor)(35, AppComponent_ng_template_35_Template, 2, 1, "ng-template", null, 2, \u0275\u0275templateRefExtractor);
     }
     if (rf & 2) {
       \u0275\u0275advance(3);
@@ -42752,6 +42803,8 @@ addFilterItem(query: string) {
       \u0275\u0275advance();
       \u0275\u0275property("href", ctx.stackBlitzUrl(ctx.currentPath), \u0275\u0275sanitizeUrl);
       \u0275\u0275advance(2);
+      \u0275\u0275property("ngIf", ctx.currentPath === "classic");
+      \u0275\u0275advance();
       \u0275\u0275property("ngSwitch", ctx.currentPath);
       \u0275\u0275advance();
       \u0275\u0275property("ngSwitchCase", "skin-switcher");
@@ -42764,7 +42817,7 @@ addFilterItem(query: string) {
       \u0275\u0275advance();
       \u0275\u0275property("ngIf", !ctx.eventLog.length);
     }
-  }, dependencies: [NgClass, NgForOf, NgIf, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, NgModel, NgForm, AngularMultiSelect, Item, Badge, JsonPipe], styles: ['\n.page[_ngcontent-%COMP%] {\n  width: min(1320px, 100%);\n  min-height: 100vh;\n  margin: 0 auto;\n  padding: 32px;\n  overflow-x: hidden;\n}\n.topbar[_ngcontent-%COMP%], \n.skin-section[_ngcontent-%COMP%], \n.activity[_ngcontent-%COMP%] {\n  min-width: 0;\n  border: 1px solid #d9dee8;\n  background-color: #ffffff;\n  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.12);\n}\n.topbar[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n  padding: 24px;\n}\n.live-menu[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 12px;\n  margin-bottom: 24px;\n}\n.live-menu[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  display: grid;\n  min-height: 72px;\n  gap: 4px;\n  padding: 12px 14px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 8px 22px rgba(32, 33, 36, 0.08);\n}\n.live-menu[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #0f766e;\n  background: #f0fdfa;\n  color: #0f3f3a;\n}\n.live-menu[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.25);\n  outline-offset: 2px;\n}\n.live-menu[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 1.2;\n}\n.live-menu[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 12px;\n  line-height: 1.35;\n}\n.skin-section[_ngcontent-%COMP%] {\n  margin-bottom: 28px;\n  padding: 24px;\n}\n.material-section[_ngcontent-%COMP%] {\n  border-color: #c5cae9;\n}\n.overlay-section[_ngcontent-%COMP%] {\n  border-color: #93c5fd;\n}\n.skin-switcher-section[_ngcontent-%COMP%] {\n  border-color: #99f6e4;\n}\n.extra-section[_ngcontent-%COMP%] {\n  border-color: #c4b5fd;\n}\n.feature-lab-section[_ngcontent-%COMP%] {\n  border-color: #14b8a6;\n}\n.section-heading[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \nh3[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  margin-top: 4px;\n  overflow-wrap: anywhere;\n  font-size: 24px;\n  font-weight: 700;\n  line-height: 1.18;\n}\nh2[_ngcontent-%COMP%] {\n  margin-top: 4px;\n  font-size: 22px;\n}\nh3[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  font-size: 15px;\n  line-height: 1.3;\n}\n.example-copy[_ngcontent-%COMP%] {\n  max-width: 920px;\n  margin: 8px 0 12px;\n  color: #475569;\n  line-height: 1.55;\n}\n.stackblitz-link[_ngcontent-%COMP%] {\n  display: inline-flex;\n  min-height: 32px;\n  align-items: center;\n  justify-content: center;\n  margin-top: 4px;\n  padding: 0 12px;\n  border: 1px solid #c5cae9;\n  border-radius: 999px;\n  background: #eef2ff;\n  color: #303f9f;\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 1.2;\n  text-decoration: none;\n}\n.stackblitz-link[_ngcontent-%COMP%]:hover, \n.stackblitz-link[_ngcontent-%COMP%]:focus-visible {\n  border-color: #7986cb;\n  background: #ffffff;\n  color: #1a237e;\n  outline: none;\n}\n.case-list[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.example-row[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);\n  align-items: start;\n  min-width: 0;\n  gap: 18px;\n  padding: 16px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.demo-cell[_ngcontent-%COMP%], \n.code-cell[_ngcontent-%COMP%] {\n  min-width: 0;\n  max-width: 100%;\n}\n.case-title-row[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 12px;\n}\n.case-actions[_ngcontent-%COMP%] {\n  display: inline-flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.skin-buttons[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 18px;\n}\n.skin-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.method-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.small-button[_ngcontent-%COMP%], \n.activity[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 36px;\n  padding: 0 14px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n  text-transform: capitalize;\n}\n.skin-buttons[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%], \n.keyboard-targets[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%], \n.keyboard-toggles[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #0f766e;\n  background: #0f766e;\n  color: #ffffff;\n}\n.space-mode-toggles[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #4f46e5;\n  background: #4f46e5;\n  color: #ffffff;\n}\n.small-button[_ngcontent-%COMP%] {\n  flex: none;\n  min-height: 30px;\n  padding: 0 10px;\n  font-size: 12px;\n}\n.custom-skin-sample[_ngcontent-%COMP%] {\n  --stackline-ms-primary: #b45309;\n  --stackline-ms-primary-soft: rgba(180, 83, 9, 0.14);\n  --stackline-ms-surface: #fffaf0;\n  --stackline-ms-surface-soft: #fffbeb;\n  --stackline-ms-surface-muted: #fef3c7;\n  --stackline-ms-outline: #fcd34d;\n  --stackline-ms-outline-strong: #b45309;\n  --stackline-ms-on-surface: #2f1b05;\n  --stackline-ms-on-surface-muted: #7c5b2e;\n  --stackline-ms-chip-bg: #fef3c7;\n  --stackline-ms-chip-text: #92400e;\n  --stackline-ms-chip-remove: #92400e;\n  --stackline-ms-divider: rgba(180, 83, 9, 0.18);\n  --stackline-ms-section-bg: #fffbeb;\n  --stackline-ms-focus: rgba(180, 83, 9, 0.28);\n  --stackline-ms-shadow: 0 18px 42px rgba(180, 83, 9, 0.15);\n}\n.settings-preview[_ngcontent-%COMP%] {\n  margin: 12px 0 0;\n  color: #475569;\n  font-family: "Courier New", monospace;\n  font-size: 13px;\n  overflow-wrap: anywhere;\n}\n.validation[_ngcontent-%COMP%] {\n  margin: 12px 0 0;\n  color: #be123c;\n  font-weight: 700;\n}\n.validation.ok[_ngcontent-%COMP%] {\n  color: #047857;\n}\n.docs-form[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n  margin: 0;\n  padding: 12px;\n  border: 1px solid #cccccc;\n  background: #ffffff;\n}\n.form-field[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 6px;\n  margin: 0;\n}\n.form-field[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n}\n.form-field[_ngcontent-%COMP%]   em[_ngcontent-%COMP%] {\n  color: #be123c;\n  font-style: normal;\n}\n.form-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 38px;\n  padding: 8px 12px;\n  border: 1px solid #d5dbe7;\n  background: #ffffff;\n}\n.submit-button[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 38px;\n  border: 0;\n  background: #198754;\n  color: #ffffff;\n  cursor: pointer;\n  font: inherit;\n}\n.submit-button[_ngcontent-%COMP%]:disabled {\n  cursor: not-allowed;\n  opacity: 0.58;\n}\n.method-bar[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-top: 12px;\n}\n.overflow-dialog-frame[_ngcontent-%COMP%] {\n  max-width: 460px;\n  padding: 18px;\n  border: 1px solid #bfdbfe;\n  background: #eff6ff;\n}\n.demo-dialog-surface[_ngcontent-%COMP%] {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  align-content: end;\n  height: 150px;\n  gap: 14px;\n  padding: 18px;\n  overflow: hidden;\n  border: 1px solid #60a5fa;\n  background: #ffffff;\n  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);\n}\n.demo-dialog-surface.opens-up[_ngcontent-%COMP%] {\n  height: 210px;\n  padding-bottom: 24px;\n}\n.dialog-copy[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n  color: #0f172a;\n  font-size: 13px;\n}\n.dialog-copy[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #475569;\n}\n.code-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 10px;\n  min-width: 0;\n}\n.code-card[_ngcontent-%COMP%] {\n  min-width: 0;\n  max-width: 100%;\n}\n.code-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  color: #334155;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 100%;\n  min-height: 180px;\n  max-height: 260px;\n  margin: 0;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid #1f334a;\n  background: #13263a;\n  color: #edf4fb;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  line-height: 1.5;\n  overflow-wrap: anywhere;\n  white-space: pre-wrap;\n}\n.option-row[_ngcontent-%COMP%], \n.swatch-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  min-width: 0;\n  gap: 8px;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option > c-templaterenderer + .option-row {\n  margin-left: 32px;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option > label:empty {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 14px;\n  width: 24px;\n  padding-left: 0;\n  pointer-events: none;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option.grp-item > label:empty {\n  left: 42px;\n}\n.option-row[_ngcontent-%COMP%]   small[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 2px;\n  color: #64748b;\n  font-size: 12px;\n}\n.flag-chip[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border: 1px solid rgba(15, 118, 110, 0.18);\n  border-radius: 6px;\n  background-color: #ffffff;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);\n  overflow: hidden;\n}\n.feature-lab-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  align-items: start;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n.feature-lab-card[_ngcontent-%COMP%] {\n  min-width: 0;\n  min-height: 100%;\n  padding: 16px;\n  border: 1px solid #d9dee8;\n  background: #fafafa;\n}\n.keyboard-contract[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 10px;\n  margin-top: 14px;\n  padding: 12px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n}\n.keyboard-contract[_ngcontent-%COMP%]    > strong[_ngcontent-%COMP%] {\n  color: #334155;\n  font-size: 13px;\n}\n.keyboard-targets[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.keyboard-toggles[_ngcontent-%COMP%], \n.space-mode-toggles[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));\n  gap: 8px;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.space-mode-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.keyboard-targets[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 30px;\n  padding: 0 10px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:not(.active) {\n  color: #64748b;\n  text-decoration: line-through;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible, \n.space-mode-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible, \n.keyboard-targets[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.24);\n  outline-offset: 2px;\n}\n.keyboard-contract[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin: 0;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 88px minmax(0, 1fr);\n  align-items: start;\n  gap: 8px;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #0f766e;\n  font-weight: 800;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.aria-audit-panel[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 10px;\n  margin-top: 12px;\n  padding: 12px;\n  border: 1px solid #c7d2fe;\n  background: #eef2ff;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 8px;\n  margin: 0;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n  padding: 8px;\n  border: 1px solid #dbe4ff;\n  background: #ffffff;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #475569;\n  font-size: 11px;\n  font-weight: 800;\n  text-transform: uppercase;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #312e81;\n  font-family: "Courier New", monospace;\n  font-weight: 800;\n}\n.headless-route-section[_ngcontent-%COMP%]   .section-heading[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]:last-child {\n  max-width: 880px;\n  color: #475569;\n  line-height: 1.7;\n}\n.headless-aria-shell[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 0;\n  gap: 14px;\n  padding: 16px;\n  border: 1px solid rgba(15, 118, 110, 0.22);\n  background:\n    linear-gradient(\n      135deg,\n      rgba(15, 118, 110, 0.08),\n      rgba(37, 99, 235, 0.08)),\n    #ffffff;\n}\n.headless-aria-header[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%], \n.headless-aria-audit[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.headless-aria-header[_ngcontent-%COMP%] {\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  min-height: 58px;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  padding: 8px 14px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ffffff;\n  color: #0f172a;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.headless-aria-option-copy[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 0;\n  gap: 2px;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   small[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: #0f172a;\n  font-size: 15px;\n  overflow-wrap: anywhere;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   b[_ngcontent-%COMP%] {\n  flex: none;\n  color: #0f766e;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.headless-aria-clear[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-chip[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f766e;\n  cursor: pointer;\n  font-weight: 900;\n}\n.headless-aria-clear[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 32px;\n  padding: 0 12px;\n}\n.headless-aria-clear[_ngcontent-%COMP%]:disabled, \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:disabled, \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n.headless-aria-selected[_ngcontent-%COMP%] {\n  display: flex;\n  min-height: 38px;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n}\n.headless-aria-chip[_ngcontent-%COMP%], \n.headless-aria-counter[_ngcontent-%COMP%] {\n  display: inline-flex;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-radius: 999px;\n  font-size: 13px;\n  font-weight: 900;\n}\n.headless-aria-chip[_ngcontent-%COMP%] {\n  padding: 0 6px 0 8px;\n  background: #0f766e;\n  color: #ffffff;\n}\n.headless-aria-counter[_ngcontent-%COMP%] {\n  min-width: 32px;\n  padding: 0 10px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ecfdf5;\n  color: #0f766e;\n}\n.headless-aria-chip[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  display: inline-grid;\n  width: 20px;\n  height: 20px;\n  place-items: center;\n  padding: 0;\n  border-radius: 999px;\n  background: rgba(255, 255, 255, 0.18);\n  color: #ffffff;\n}\n.headless-aria-flag[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background-color: rgba(255, 255, 255, 0.82);\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.14);\n  overflow: hidden;\n}\n.headless-aria-chip[_ngcontent-%COMP%]   .headless-aria-flag[_ngcontent-%COMP%] {\n  width: 24px;\n  height: 20px;\n  background-color: rgba(255, 255, 255, 0.22);\n}\n.headless-aria-panel[_ngcontent-%COMP%] {\n  display: grid;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);\n}\n.headless-aria-listbox[_ngcontent-%COMP%] {\n  display: grid;\n  max-height: 300px;\n  overflow: auto;\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-search-label[_ngcontent-%COMP%] {\n  padding: 10px 12px 0;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-search[_ngcontent-%COMP%] {\n  width: calc(100% - 24px);\n  min-height: 40px;\n  margin: 8px 12px 10px;\n  padding: 0 12px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f172a;\n}\n.headless-aria-actions[_ngcontent-%COMP%] {\n  justify-content: flex-start;\n  padding: 0 12px 10px;\n}\n.headless-aria-group[_ngcontent-%COMP%]    + .headless-aria-group[_ngcontent-%COMP%] {\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-group-head[_ngcontent-%COMP%] {\n  min-height: 42px;\n  padding: 8px 12px;\n  background: #f8fafc;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-option[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 20px 32px minmax(0, 1fr) minmax(96px, auto);\n  min-height: 56px;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 12px;\n  border-top: 1px solid #e2e8f0;\n  cursor: pointer;\n}\n.headless-aria-option[_ngcontent-%COMP%]:hover, \n.headless-aria-option[_ngcontent-%COMP%]:focus-visible, \n.headless-aria-option.selected[_ngcontent-%COMP%] {\n  background: #f0fdfa;\n  outline: none;\n}\n.headless-aria-check[_ngcontent-%COMP%] {\n  display: inline-grid;\n  width: 18px;\n  height: 18px;\n  place-items: center;\n  border: 2px solid #0f766e;\n  background: #ffffff;\n}\n.headless-aria-check[data-checked=true][_ngcontent-%COMP%] {\n  background: #0f766e;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.headless-aria-option-copy[_ngcontent-%COMP%]   small[_ngcontent-%COMP%], \n.headless-aria-empty[_ngcontent-%COMP%] {\n  color: #64748b;\n}\n.headless-aria-state[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-family: "Courier New", monospace;\n  font-size: 11px;\n  line-height: 1.4;\n  text-align: right;\n}\n.headless-aria-audit[_ngcontent-%COMP%] {\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  margin: 0;\n}\n.headless-aria-audit[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 120px;\n  gap: 2px;\n  padding: 8px 10px;\n  border: 1px solid rgba(15, 118, 110, 0.16);\n  background: rgba(255, 255, 255, 0.72);\n}\n.headless-aria-audit[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-audit[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #0f172a;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  overflow-wrap: anywhere;\n}\n.activity[_ngcontent-%COMP%] {\n  padding: 20px 24px;\n}\n.activity[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  font-size: 18px;\n}\n.activity[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: #475569;\n}\n.activity[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n@media (max-width: 1120px) {\n  .live-menu[_ngcontent-%COMP%], \n   .feature-lab-grid[_ngcontent-%COMP%], \n   .example-row[_ngcontent-%COMP%], \n   .code-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n    min-height: 150px;\n  }\n}\n@media (max-width: 860px) {\n  .page[_ngcontent-%COMP%], \n   .skin-section[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n}\n@media (max-width: 640px) {\n  .page[_ngcontent-%COMP%] {\n    padding: 16px 8px;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    margin-bottom: 24px;\n    padding: 24px;\n  }\n  .skin-section[_ngcontent-%COMP%] {\n    margin-bottom: 24px;\n    padding: 16px;\n  }\n  .activity[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: 24px;\n  }\n  h2[_ngcontent-%COMP%] {\n    font-size: 22px;\n  }\n  .skin-buttons[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 10px;\n  }\n  .live-menu[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .skin-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    width: 100%;\n    min-width: 0;\n    padding: 0 10px;\n  }\n  .example-row[_ngcontent-%COMP%] {\n    gap: 14px;\n    padding: 16px;\n  }\n  .headless-aria-header[_ngcontent-%COMP%], \n   .headless-aria-trigger[_ngcontent-%COMP%], \n   .headless-aria-group-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .headless-aria-trigger[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .headless-aria-actions[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr;\n  }\n  .headless-aria-option[_ngcontent-%COMP%] {\n    grid-template-columns: 20px minmax(0, 1fr);\n  }\n  .headless-aria-option[_ngcontent-%COMP%]   .headless-aria-flag[_ngcontent-%COMP%], \n   .headless-aria-state[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .feature-lab-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .case-title-row[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr;\n    justify-items: start;\n  }\n  .case-actions[_ngcontent-%COMP%], \n   .stackblitz-link[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .method-bar[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .method-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n   .small-button[_ngcontent-%COMP%] {\n    width: 100%;\n    min-width: 0;\n  }\n  .overflow-dialog-frame[_ngcontent-%COMP%] {\n    max-width: 100%;\n    padding: 12px;\n  }\n  .demo-dialog-surface[_ngcontent-%COMP%] {\n    height: auto;\n    min-height: 150px;\n    padding: 14px;\n  }\n  .demo-dialog-surface.opens-up[_ngcontent-%COMP%] {\n    height: auto;\n    min-height: 210px;\n    padding-bottom: 18px;\n  }\n  .code-grid[_ngcontent-%COMP%] {\n    gap: 12px;\n  }\n  .code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n    min-height: 132px;\n    max-height: 190px;\n    padding: 10px;\n    font-size: 11px;\n    line-height: 1.45;\n    overflow-wrap: normal;\n    white-space: pre;\n  }\n}\n@media (max-width: 380px) {\n  .topbar[_ngcontent-%COMP%], \n   .skin-section[_ngcontent-%COMP%], \n   .activity[_ngcontent-%COMP%] {\n    padding-left: 12px;\n    padding-right: 12px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: 22px;\n  }\n  .example-row[_ngcontent-%COMP%] {\n    padding: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */'] });
+  }, dependencies: [NgClass, NgForOf, NgIf, NgTemplateOutlet, NgSwitch, NgSwitchCase, NgSwitchDefault, \u0275NgNoValidate, DefaultValueAccessor, NgControlStatus, NgControlStatusGroup, NgModel, NgForm, AngularMultiSelect, Item, Badge, JsonPipe], styles: ['\n.page[_ngcontent-%COMP%] {\n  width: min(1320px, 100%);\n  min-height: 100vh;\n  margin: 0 auto;\n  padding: 32px;\n  overflow-x: hidden;\n}\n.topbar[_ngcontent-%COMP%], \n.skin-section[_ngcontent-%COMP%], \n.activity[_ngcontent-%COMP%] {\n  min-width: 0;\n  border: 1px solid #d9dee8;\n  background-color: #ffffff;\n  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.12);\n}\n.topbar[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n  padding: 24px;\n}\n.live-menu[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 12px;\n  margin-bottom: 24px;\n}\n.live-menu[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  display: grid;\n  min-height: 72px;\n  gap: 4px;\n  padding: 12px 14px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 8px 22px rgba(32, 33, 36, 0.08);\n}\n.live-menu[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #0f766e;\n  background: #f0fdfa;\n  color: #0f3f3a;\n}\n.live-menu[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.25);\n  outline-offset: 2px;\n}\n.live-menu[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 1.2;\n}\n.live-menu[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 12px;\n  line-height: 1.35;\n}\n.skin-section[_ngcontent-%COMP%] {\n  margin-bottom: 28px;\n  padding: 24px;\n}\n.material-section[_ngcontent-%COMP%] {\n  border-color: #c5cae9;\n}\n.overlay-section[_ngcontent-%COMP%] {\n  border-color: #93c5fd;\n}\n.skin-switcher-section[_ngcontent-%COMP%] {\n  border-color: #99f6e4;\n}\n.extra-section[_ngcontent-%COMP%] {\n  border-color: #c4b5fd;\n}\n.feature-lab-section[_ngcontent-%COMP%] {\n  border-color: #14b8a6;\n}\n.section-heading[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.eyebrow[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\nh1[_ngcontent-%COMP%], \nh2[_ngcontent-%COMP%], \nh3[_ngcontent-%COMP%] {\n  margin: 0;\n}\nh1[_ngcontent-%COMP%] {\n  margin-top: 4px;\n  overflow-wrap: anywhere;\n  font-size: 24px;\n  font-weight: 700;\n  line-height: 1.18;\n}\nh2[_ngcontent-%COMP%] {\n  margin-top: 4px;\n  font-size: 22px;\n}\nh3[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  font-size: 15px;\n  line-height: 1.3;\n}\n.example-copy[_ngcontent-%COMP%] {\n  max-width: 920px;\n  margin: 8px 0 12px;\n  color: #475569;\n  line-height: 1.55;\n}\n.stackblitz-link[_ngcontent-%COMP%] {\n  display: inline-flex;\n  min-height: 32px;\n  align-items: center;\n  justify-content: center;\n  margin-top: 4px;\n  padding: 0 12px;\n  border: 1px solid #c5cae9;\n  border-radius: 999px;\n  background: #eef2ff;\n  color: #303f9f;\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 1.2;\n  text-decoration: none;\n}\n.stackblitz-link[_ngcontent-%COMP%]:hover, \n.stackblitz-link[_ngcontent-%COMP%]:focus-visible {\n  border-color: #7986cb;\n  background: #ffffff;\n  color: #1a237e;\n  outline: none;\n}\n.case-list[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n}\n.example-row[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);\n  align-items: start;\n  min-width: 0;\n  gap: 18px;\n  padding: 16px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.demo-cell[_ngcontent-%COMP%], \n.code-cell[_ngcontent-%COMP%] {\n  min-width: 0;\n  max-width: 100%;\n}\n.case-title-row[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 12px;\n}\n.case-actions[_ngcontent-%COMP%] {\n  display: inline-flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.skin-buttons[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 18px;\n}\n.route-skin-switcher[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 2px;\n  margin-bottom: 20px;\n  padding: 14px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.route-skin-switcher[_ngcontent-%COMP%]   .skin-buttons[_ngcontent-%COMP%] {\n  margin-bottom: 0;\n}\n.skin-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.method-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.small-button[_ngcontent-%COMP%], \n.activity[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 36px;\n  padding: 0 14px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n  text-transform: capitalize;\n}\n.skin-buttons[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%], \n.keyboard-targets[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%], \n.keyboard-toggles[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #0f766e;\n  background: #0f766e;\n  color: #ffffff;\n}\n.space-mode-toggles[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  border-color: #4f46e5;\n  background: #4f46e5;\n  color: #ffffff;\n}\n.small-button[_ngcontent-%COMP%] {\n  flex: none;\n  min-height: 30px;\n  padding: 0 10px;\n  font-size: 12px;\n}\n.custom-skin-sample[_ngcontent-%COMP%] {\n  --stackline-ms-primary: #b45309;\n  --stackline-ms-primary-soft: rgba(180, 83, 9, 0.14);\n  --stackline-ms-surface: #fffaf0;\n  --stackline-ms-surface-soft: #fffbeb;\n  --stackline-ms-surface-muted: #fef3c7;\n  --stackline-ms-outline: #fcd34d;\n  --stackline-ms-outline-strong: #b45309;\n  --stackline-ms-on-surface: #2f1b05;\n  --stackline-ms-on-surface-muted: #7c5b2e;\n  --stackline-ms-chip-bg: #fef3c7;\n  --stackline-ms-chip-text: #92400e;\n  --stackline-ms-chip-remove: #92400e;\n  --stackline-ms-divider: rgba(180, 83, 9, 0.18);\n  --stackline-ms-section-bg: #fffbeb;\n  --stackline-ms-focus: rgba(180, 83, 9, 0.28);\n  --stackline-ms-shadow: 0 18px 42px rgba(180, 83, 9, 0.15);\n}\n.settings-preview[_ngcontent-%COMP%] {\n  margin: 12px 0 0;\n  color: #475569;\n  font-family: "Courier New", monospace;\n  font-size: 13px;\n  overflow-wrap: anywhere;\n}\n.validation[_ngcontent-%COMP%] {\n  margin: 12px 0 0;\n  color: #be123c;\n  font-weight: 700;\n}\n.validation.ok[_ngcontent-%COMP%] {\n  color: #047857;\n}\n.docs-form[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 18px;\n  margin: 0;\n  padding: 12px;\n  border: 1px solid #cccccc;\n  background: #ffffff;\n}\n.form-field[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 6px;\n  margin: 0;\n}\n.form-field[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n}\n.form-field[_ngcontent-%COMP%]   em[_ngcontent-%COMP%] {\n  color: #be123c;\n  font-style: normal;\n}\n.form-field[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 38px;\n  padding: 8px 12px;\n  border: 1px solid #d5dbe7;\n  background: #ffffff;\n}\n.submit-button[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 38px;\n  border: 0;\n  background: #198754;\n  color: #ffffff;\n  cursor: pointer;\n  font: inherit;\n}\n.submit-button[_ngcontent-%COMP%]:disabled {\n  cursor: not-allowed;\n  opacity: 0.58;\n}\n.method-bar[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-top: 12px;\n}\n.overflow-dialog-frame[_ngcontent-%COMP%] {\n  max-width: 460px;\n  padding: 18px;\n  border: 1px solid #bfdbfe;\n  background: #eff6ff;\n}\n.demo-dialog-surface[_ngcontent-%COMP%] {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  align-content: end;\n  height: 150px;\n  gap: 14px;\n  padding: 18px;\n  overflow: hidden;\n  border: 1px solid #60a5fa;\n  background: #ffffff;\n  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);\n}\n.demo-dialog-surface.opens-up[_ngcontent-%COMP%] {\n  height: 210px;\n  padding-bottom: 24px;\n}\n.dialog-copy[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n  color: #0f172a;\n  font-size: 13px;\n}\n.dialog-copy[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #475569;\n}\n.code-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 10px;\n  min-width: 0;\n}\n.code-card[_ngcontent-%COMP%] {\n  min-width: 0;\n  max-width: 100%;\n}\n.code-card[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  margin-bottom: 6px;\n  color: #334155;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 100%;\n  min-height: 180px;\n  max-height: 260px;\n  margin: 0;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid #1f334a;\n  background: #13263a;\n  color: #edf4fb;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  line-height: 1.5;\n  overflow-wrap: anywhere;\n  white-space: pre-wrap;\n}\n.option-row[_ngcontent-%COMP%], \n.swatch-chip[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  min-width: 0;\n  gap: 8px;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option > c-templaterenderer + .option-row {\n  margin-left: 32px;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option > label:empty {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 14px;\n  width: 24px;\n  padding-left: 0;\n  pointer-events: none;\n}\n[_nghost-%COMP%]     .dropdown-list .dropdown-option.grp-item > label:empty {\n  left: 42px;\n}\n.option-row[_ngcontent-%COMP%]   small[_ngcontent-%COMP%] {\n  display: block;\n  margin-top: 2px;\n  color: #64748b;\n  font-size: 12px;\n}\n.flag-chip[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border: 1px solid rgba(15, 118, 110, 0.18);\n  border-radius: 6px;\n  background-color: #ffffff;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);\n  overflow: hidden;\n}\n.feature-lab-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  align-items: start;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n.feature-lab-card[_ngcontent-%COMP%] {\n  min-width: 0;\n  min-height: 100%;\n  padding: 16px;\n  border: 1px solid #d9dee8;\n  background: #fafafa;\n}\n.keyboard-contract[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 10px;\n  margin-top: 14px;\n  padding: 12px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n}\n.keyboard-contract[_ngcontent-%COMP%]    > strong[_ngcontent-%COMP%] {\n  color: #334155;\n  font-size: 13px;\n}\n.keyboard-targets[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.keyboard-toggles[_ngcontent-%COMP%], \n.space-mode-toggles[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));\n  gap: 8px;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.space-mode-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.keyboard-targets[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 30px;\n  padding: 0 10px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:not(.active) {\n  color: #64748b;\n  text-decoration: line-through;\n}\n.keyboard-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible, \n.space-mode-toggles[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible, \n.keyboard-targets[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.24);\n  outline-offset: 2px;\n}\n.keyboard-contract[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 8px;\n  margin: 0;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 88px minmax(0, 1fr);\n  align-items: start;\n  gap: 8px;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #0f766e;\n  font-weight: 800;\n}\n.keyboard-contract[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.aria-audit-panel[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 10px;\n  margin-top: 12px;\n  padding: 12px;\n  border: 1px solid #c7d2fe;\n  background: #eef2ff;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 8px;\n  margin: 0;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  gap: 4px;\n  padding: 8px;\n  border: 1px solid #dbe4ff;\n  background: #ffffff;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #475569;\n  font-size: 11px;\n  font-weight: 800;\n  text-transform: uppercase;\n}\n.aria-audit-panel[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #312e81;\n  font-family: "Courier New", monospace;\n  font-weight: 800;\n}\n.headless-route-section[_ngcontent-%COMP%]   .section-heading[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]:last-child {\n  max-width: 880px;\n  color: #475569;\n  line-height: 1.7;\n}\n.headless-aria-shell[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 0;\n  gap: 14px;\n  padding: 16px;\n  border: 1px solid rgba(15, 118, 110, 0.22);\n  background:\n    linear-gradient(\n      135deg,\n      rgba(15, 118, 110, 0.08),\n      rgba(37, 99, 235, 0.08)),\n    #ffffff;\n}\n.headless-aria-header[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%], \n.headless-aria-audit[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.headless-aria-header[_ngcontent-%COMP%] {\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  min-height: 58px;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  padding: 8px 14px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ffffff;\n  color: #0f172a;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   span[_ngcontent-%COMP%], \n.headless-aria-option-copy[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 0;\n  gap: 2px;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   small[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: #0f172a;\n  font-size: 15px;\n  overflow-wrap: anywhere;\n}\n.headless-aria-trigger[_ngcontent-%COMP%]   b[_ngcontent-%COMP%] {\n  flex: none;\n  color: #0f766e;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.headless-aria-clear[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-chip[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f766e;\n  cursor: pointer;\n  font-weight: 900;\n}\n.headless-aria-clear[_ngcontent-%COMP%], \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  min-height: 32px;\n  padding: 0 12px;\n}\n.headless-aria-clear[_ngcontent-%COMP%]:disabled, \n.headless-aria-actions[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:disabled, \n.headless-aria-group-head[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n.headless-aria-selected[_ngcontent-%COMP%] {\n  display: flex;\n  min-height: 38px;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n}\n.headless-aria-chip[_ngcontent-%COMP%], \n.headless-aria-counter[_ngcontent-%COMP%] {\n  display: inline-flex;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-radius: 999px;\n  font-size: 13px;\n  font-weight: 900;\n}\n.headless-aria-chip[_ngcontent-%COMP%] {\n  padding: 0 6px 0 8px;\n  background: #0f766e;\n  color: #ffffff;\n}\n.headless-aria-counter[_ngcontent-%COMP%] {\n  min-width: 32px;\n  padding: 0 10px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ecfdf5;\n  color: #0f766e;\n}\n.headless-aria-chip[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  display: inline-grid;\n  width: 20px;\n  height: 20px;\n  place-items: center;\n  padding: 0;\n  border-radius: 999px;\n  background: rgba(255, 255, 255, 0.18);\n  color: #ffffff;\n}\n.headless-aria-flag[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background-color: rgba(255, 255, 255, 0.82);\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.14);\n  overflow: hidden;\n}\n.headless-aria-chip[_ngcontent-%COMP%]   .headless-aria-flag[_ngcontent-%COMP%] {\n  width: 24px;\n  height: 20px;\n  background-color: rgba(255, 255, 255, 0.22);\n}\n.headless-aria-panel[_ngcontent-%COMP%] {\n  display: grid;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);\n}\n.headless-aria-listbox[_ngcontent-%COMP%] {\n  display: grid;\n  max-height: 300px;\n  overflow: auto;\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-search-label[_ngcontent-%COMP%] {\n  padding: 10px 12px 0;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-search[_ngcontent-%COMP%] {\n  width: calc(100% - 24px);\n  min-height: 40px;\n  margin: 8px 12px 10px;\n  padding: 0 12px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f172a;\n}\n.headless-aria-actions[_ngcontent-%COMP%] {\n  justify-content: flex-start;\n  padding: 0 12px 10px;\n}\n.headless-aria-group[_ngcontent-%COMP%]    + .headless-aria-group[_ngcontent-%COMP%] {\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-group-head[_ngcontent-%COMP%] {\n  min-height: 42px;\n  padding: 8px 12px;\n  background: #f8fafc;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-option[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 20px 32px minmax(0, 1fr) minmax(96px, auto);\n  min-height: 56px;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 12px;\n  border-top: 1px solid #e2e8f0;\n  cursor: pointer;\n}\n.headless-aria-option[_ngcontent-%COMP%]:hover, \n.headless-aria-option[_ngcontent-%COMP%]:focus-visible, \n.headless-aria-option.selected[_ngcontent-%COMP%] {\n  background: #f0fdfa;\n  outline: none;\n}\n.headless-aria-check[_ngcontent-%COMP%] {\n  display: inline-grid;\n  width: 18px;\n  height: 18px;\n  place-items: center;\n  border: 2px solid #0f766e;\n  background: #ffffff;\n}\n.headless-aria-check[data-checked=true][_ngcontent-%COMP%] {\n  background: #0f766e;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.headless-aria-option-copy[_ngcontent-%COMP%]   small[_ngcontent-%COMP%], \n.headless-aria-empty[_ngcontent-%COMP%] {\n  color: #64748b;\n}\n.headless-aria-state[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-family: "Courier New", monospace;\n  font-size: 11px;\n  line-height: 1.4;\n  text-align: right;\n}\n.headless-aria-audit[_ngcontent-%COMP%] {\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  margin: 0;\n}\n.headless-aria-audit[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  display: grid;\n  min-width: 120px;\n  gap: 2px;\n  padding: 8px 10px;\n  border: 1px solid rgba(15, 118, 110, 0.16);\n  background: rgba(255, 255, 255, 0.72);\n}\n.headless-aria-audit[_ngcontent-%COMP%]   dt[_ngcontent-%COMP%] {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-audit[_ngcontent-%COMP%]   dd[_ngcontent-%COMP%] {\n  margin: 0;\n  color: #0f172a;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  overflow-wrap: anywhere;\n}\n.activity[_ngcontent-%COMP%] {\n  padding: 20px 24px;\n}\n.activity[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-bottom: 12px;\n  font-size: 18px;\n}\n.activity[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: #475569;\n}\n.activity[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  margin-top: 8px;\n}\n@media (max-width: 1120px) {\n  .live-menu[_ngcontent-%COMP%], \n   .feature-lab-grid[_ngcontent-%COMP%], \n   .example-row[_ngcontent-%COMP%], \n   .code-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n    min-height: 150px;\n  }\n}\n@media (max-width: 860px) {\n  .page[_ngcontent-%COMP%], \n   .skin-section[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n}\n@media (max-width: 640px) {\n  .page[_ngcontent-%COMP%] {\n    padding: 16px 8px;\n  }\n  .topbar[_ngcontent-%COMP%] {\n    margin-bottom: 24px;\n    padding: 24px;\n  }\n  .skin-section[_ngcontent-%COMP%] {\n    margin-bottom: 24px;\n    padding: 16px;\n  }\n  .activity[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: 24px;\n  }\n  h2[_ngcontent-%COMP%] {\n    font-size: 22px;\n  }\n  .skin-buttons[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 10px;\n  }\n  .live-menu[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .skin-buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    width: 100%;\n    min-width: 0;\n    padding: 0 10px;\n  }\n  .example-row[_ngcontent-%COMP%] {\n    gap: 14px;\n    padding: 16px;\n  }\n  .headless-aria-header[_ngcontent-%COMP%], \n   .headless-aria-trigger[_ngcontent-%COMP%], \n   .headless-aria-group-head[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .headless-aria-trigger[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .headless-aria-actions[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr;\n  }\n  .headless-aria-option[_ngcontent-%COMP%] {\n    grid-template-columns: 20px minmax(0, 1fr);\n  }\n  .headless-aria-option[_ngcontent-%COMP%]   .headless-aria-flag[_ngcontent-%COMP%], \n   .headless-aria-state[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .feature-lab-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .keyboard-contract[_ngcontent-%COMP%]   dl[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .case-title-row[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr;\n    justify-items: start;\n  }\n  .case-actions[_ngcontent-%COMP%], \n   .stackblitz-link[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .method-bar[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .method-bar[_ngcontent-%COMP%]   button[_ngcontent-%COMP%], \n   .small-button[_ngcontent-%COMP%] {\n    width: 100%;\n    min-width: 0;\n  }\n  .overflow-dialog-frame[_ngcontent-%COMP%] {\n    max-width: 100%;\n    padding: 12px;\n  }\n  .demo-dialog-surface[_ngcontent-%COMP%] {\n    height: auto;\n    min-height: 150px;\n    padding: 14px;\n  }\n  .demo-dialog-surface.opens-up[_ngcontent-%COMP%] {\n    height: auto;\n    min-height: 210px;\n    padding-bottom: 18px;\n  }\n  .code-grid[_ngcontent-%COMP%] {\n    gap: 12px;\n  }\n  .code-card[_ngcontent-%COMP%]   pre[_ngcontent-%COMP%] {\n    min-height: 132px;\n    max-height: 190px;\n    padding: 10px;\n    font-size: 11px;\n    line-height: 1.45;\n    overflow-wrap: normal;\n    white-space: pre;\n  }\n}\n@media (max-width: 380px) {\n  .topbar[_ngcontent-%COMP%], \n   .skin-section[_ngcontent-%COMP%], \n   .activity[_ngcontent-%COMP%] {\n    padding-left: 12px;\n    padding-right: 12px;\n  }\n  h1[_ngcontent-%COMP%] {\n    font-size: 22px;\n  }\n  .example-row[_ngcontent-%COMP%] {\n    padding: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */'] });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AppComponent, [{
@@ -42801,6 +42854,19 @@ addFilterItem(query: string) {
       <a class="stackblitz-link" [href]="stackBlitzUrl(currentPath)" target="_blank" rel="noopener">
         Open this route in StackBlitz
       </a>
+    </div>
+
+    <div class="route-skin-switcher" *ngIf="currentPath === 'classic'">
+      <div class="skin-buttons" aria-label="Basic usage skin switcher">
+        <button
+          type="button"
+          *ngFor="let skin of skins"
+          [class.active]="basicSkin === skin"
+          (click)="setBasicSkin(skin)">
+          {{ labelForSkin(skin) }}
+        </button>
+      </div>
+      <p class="settings-preview">settings.skin: {{ basicSkin }}</p>
     </div>
 
     <ng-container [ngSwitch]="currentPath">
@@ -43131,7 +43197,7 @@ addFilterItem(query: string) {
       </ng-container>
 
       <ng-container *ngSwitchDefault>
-        <div class="case-list">
+        <div class="case-list" [class.custom-skin-sample]="currentPath === 'classic' && basicSkin === 'custom'">
           <ng-container *ngFor="let example of visibleExamples; trackBy: trackExample">
             <ng-container *ngTemplateOutlet="exampleRow; context: { example: example }"></ng-container>
           </ng-container>
@@ -43269,7 +43335,7 @@ addFilterItem(query: string) {
     </div>
   </div>
 </ng-template>
-`, styles: ['/* src/app/app.component.scss */\n.page {\n  width: min(1320px, 100%);\n  min-height: 100vh;\n  margin: 0 auto;\n  padding: 32px;\n  overflow-x: hidden;\n}\n.topbar,\n.skin-section,\n.activity {\n  min-width: 0;\n  border: 1px solid #d9dee8;\n  background-color: #ffffff;\n  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.12);\n}\n.topbar {\n  margin-bottom: 24px;\n  padding: 24px;\n}\n.live-menu {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 12px;\n  margin-bottom: 24px;\n}\n.live-menu button {\n  display: grid;\n  min-height: 72px;\n  gap: 4px;\n  padding: 12px 14px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 8px 22px rgba(32, 33, 36, 0.08);\n}\n.live-menu button.active {\n  border-color: #0f766e;\n  background: #f0fdfa;\n  color: #0f3f3a;\n}\n.live-menu button:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.25);\n  outline-offset: 2px;\n}\n.live-menu strong {\n  font-size: 14px;\n  line-height: 1.2;\n}\n.live-menu span {\n  color: #64748b;\n  font-size: 12px;\n  line-height: 1.35;\n}\n.skin-section {\n  margin-bottom: 28px;\n  padding: 24px;\n}\n.material-section {\n  border-color: #c5cae9;\n}\n.overlay-section {\n  border-color: #93c5fd;\n}\n.skin-switcher-section {\n  border-color: #99f6e4;\n}\n.extra-section {\n  border-color: #c4b5fd;\n}\n.feature-lab-section {\n  border-color: #14b8a6;\n}\n.section-heading {\n  margin-bottom: 20px;\n}\n.eyebrow {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\nh1,\nh2,\nh3 {\n  margin: 0;\n}\nh1 {\n  margin-top: 4px;\n  overflow-wrap: anywhere;\n  font-size: 24px;\n  font-weight: 700;\n  line-height: 1.18;\n}\nh2 {\n  margin-top: 4px;\n  font-size: 22px;\n}\nh3 {\n  margin-bottom: 12px;\n  font-size: 15px;\n  line-height: 1.3;\n}\n.example-copy {\n  max-width: 920px;\n  margin: 8px 0 12px;\n  color: #475569;\n  line-height: 1.55;\n}\n.stackblitz-link {\n  display: inline-flex;\n  min-height: 32px;\n  align-items: center;\n  justify-content: center;\n  margin-top: 4px;\n  padding: 0 12px;\n  border: 1px solid #c5cae9;\n  border-radius: 999px;\n  background: #eef2ff;\n  color: #303f9f;\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 1.2;\n  text-decoration: none;\n}\n.stackblitz-link:hover,\n.stackblitz-link:focus-visible {\n  border-color: #7986cb;\n  background: #ffffff;\n  color: #1a237e;\n  outline: none;\n}\n.case-list {\n  display: grid;\n  gap: 18px;\n}\n.example-row {\n  display: grid;\n  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);\n  align-items: start;\n  min-width: 0;\n  gap: 18px;\n  padding: 16px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.demo-cell,\n.code-cell {\n  min-width: 0;\n  max-width: 100%;\n}\n.case-title-row {\n  display: block;\n  margin-bottom: 12px;\n}\n.case-actions {\n  display: inline-flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.skin-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 18px;\n}\n.skin-buttons button,\n.method-bar button,\n.small-button,\n.activity button {\n  min-height: 36px;\n  padding: 0 14px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n  text-transform: capitalize;\n}\n.skin-buttons button.active,\n.keyboard-targets button.active,\n.keyboard-toggles button.active {\n  border-color: #0f766e;\n  background: #0f766e;\n  color: #ffffff;\n}\n.space-mode-toggles button.active {\n  border-color: #4f46e5;\n  background: #4f46e5;\n  color: #ffffff;\n}\n.small-button {\n  flex: none;\n  min-height: 30px;\n  padding: 0 10px;\n  font-size: 12px;\n}\n.custom-skin-sample {\n  --stackline-ms-primary: #b45309;\n  --stackline-ms-primary-soft: rgba(180, 83, 9, 0.14);\n  --stackline-ms-surface: #fffaf0;\n  --stackline-ms-surface-soft: #fffbeb;\n  --stackline-ms-surface-muted: #fef3c7;\n  --stackline-ms-outline: #fcd34d;\n  --stackline-ms-outline-strong: #b45309;\n  --stackline-ms-on-surface: #2f1b05;\n  --stackline-ms-on-surface-muted: #7c5b2e;\n  --stackline-ms-chip-bg: #fef3c7;\n  --stackline-ms-chip-text: #92400e;\n  --stackline-ms-chip-remove: #92400e;\n  --stackline-ms-divider: rgba(180, 83, 9, 0.18);\n  --stackline-ms-section-bg: #fffbeb;\n  --stackline-ms-focus: rgba(180, 83, 9, 0.28);\n  --stackline-ms-shadow: 0 18px 42px rgba(180, 83, 9, 0.15);\n}\n.settings-preview {\n  margin: 12px 0 0;\n  color: #475569;\n  font-family: "Courier New", monospace;\n  font-size: 13px;\n  overflow-wrap: anywhere;\n}\n.validation {\n  margin: 12px 0 0;\n  color: #be123c;\n  font-weight: 700;\n}\n.validation.ok {\n  color: #047857;\n}\n.docs-form {\n  display: grid;\n  gap: 18px;\n  margin: 0;\n  padding: 12px;\n  border: 1px solid #cccccc;\n  background: #ffffff;\n}\n.form-field {\n  display: grid;\n  gap: 6px;\n  margin: 0;\n}\n.form-field span {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n}\n.form-field em {\n  color: #be123c;\n  font-style: normal;\n}\n.form-field input {\n  width: 100%;\n  min-height: 38px;\n  padding: 8px 12px;\n  border: 1px solid #d5dbe7;\n  background: #ffffff;\n}\n.submit-button {\n  width: 100%;\n  min-height: 38px;\n  border: 0;\n  background: #198754;\n  color: #ffffff;\n  cursor: pointer;\n  font: inherit;\n}\n.submit-button:disabled {\n  cursor: not-allowed;\n  opacity: 0.58;\n}\n.method-bar {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-top: 12px;\n}\n.overflow-dialog-frame {\n  max-width: 460px;\n  padding: 18px;\n  border: 1px solid #bfdbfe;\n  background: #eff6ff;\n}\n.demo-dialog-surface {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  align-content: end;\n  height: 150px;\n  gap: 14px;\n  padding: 18px;\n  overflow: hidden;\n  border: 1px solid #60a5fa;\n  background: #ffffff;\n  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);\n}\n.demo-dialog-surface.opens-up {\n  height: 210px;\n  padding-bottom: 24px;\n}\n.dialog-copy {\n  display: grid;\n  gap: 4px;\n  color: #0f172a;\n  font-size: 13px;\n}\n.dialog-copy span {\n  color: #475569;\n}\n.code-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 10px;\n  min-width: 0;\n}\n.code-card {\n  min-width: 0;\n  max-width: 100%;\n}\n.code-card strong {\n  display: block;\n  margin-bottom: 6px;\n  color: #334155;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.code-card pre {\n  width: 100%;\n  max-width: 100%;\n  min-height: 180px;\n  max-height: 260px;\n  margin: 0;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid #1f334a;\n  background: #13263a;\n  color: #edf4fb;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  line-height: 1.5;\n  overflow-wrap: anywhere;\n  white-space: pre-wrap;\n}\n.option-row,\n.swatch-chip {\n  display: inline-flex;\n  align-items: center;\n  min-width: 0;\n  gap: 8px;\n}\n:host ::ng-deep .dropdown-list .dropdown-option > c-templaterenderer + .option-row {\n  margin-left: 32px;\n}\n:host ::ng-deep .dropdown-list .dropdown-option > label:empty {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 14px;\n  width: 24px;\n  padding-left: 0;\n  pointer-events: none;\n}\n:host ::ng-deep .dropdown-list .dropdown-option.grp-item > label:empty {\n  left: 42px;\n}\n.option-row small {\n  display: block;\n  margin-top: 2px;\n  color: #64748b;\n  font-size: 12px;\n}\n.flag-chip {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border: 1px solid rgba(15, 118, 110, 0.18);\n  border-radius: 6px;\n  background-color: #ffffff;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);\n  overflow: hidden;\n}\n.feature-lab-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  align-items: start;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n.feature-lab-card {\n  min-width: 0;\n  min-height: 100%;\n  padding: 16px;\n  border: 1px solid #d9dee8;\n  background: #fafafa;\n}\n.keyboard-contract {\n  display: grid;\n  gap: 10px;\n  margin-top: 14px;\n  padding: 12px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n}\n.keyboard-contract > strong {\n  color: #334155;\n  font-size: 13px;\n}\n.keyboard-targets {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.keyboard-toggles,\n.space-mode-toggles {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));\n  gap: 8px;\n}\n.keyboard-toggles button,\n.space-mode-toggles button,\n.keyboard-targets button {\n  min-height: 30px;\n  padding: 0 10px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n}\n.keyboard-toggles button:not(.active) {\n  color: #64748b;\n  text-decoration: line-through;\n}\n.keyboard-toggles button:focus-visible,\n.space-mode-toggles button:focus-visible,\n.keyboard-targets button:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.24);\n  outline-offset: 2px;\n}\n.keyboard-contract p {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.keyboard-contract dl {\n  display: grid;\n  gap: 8px;\n  margin: 0;\n}\n.keyboard-contract dl div {\n  display: grid;\n  grid-template-columns: 88px minmax(0, 1fr);\n  align-items: start;\n  gap: 8px;\n}\n.keyboard-contract dt {\n  color: #0f766e;\n  font-weight: 800;\n}\n.keyboard-contract dd {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.aria-audit-panel {\n  display: grid;\n  gap: 10px;\n  margin-top: 12px;\n  padding: 12px;\n  border: 1px solid #c7d2fe;\n  background: #eef2ff;\n}\n.aria-audit-panel dl {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 8px;\n  margin: 0;\n}\n.aria-audit-panel div {\n  display: grid;\n  gap: 4px;\n  padding: 8px;\n  border: 1px solid #dbe4ff;\n  background: #ffffff;\n}\n.aria-audit-panel dt {\n  color: #475569;\n  font-size: 11px;\n  font-weight: 800;\n  text-transform: uppercase;\n}\n.aria-audit-panel dd {\n  margin: 0;\n  color: #312e81;\n  font-family: "Courier New", monospace;\n  font-weight: 800;\n}\n.headless-route-section .section-heading p:last-child {\n  max-width: 880px;\n  color: #475569;\n  line-height: 1.7;\n}\n.headless-aria-shell {\n  display: grid;\n  min-width: 0;\n  gap: 14px;\n  padding: 16px;\n  border: 1px solid rgba(15, 118, 110, 0.22);\n  background:\n    linear-gradient(\n      135deg,\n      rgba(15, 118, 110, 0.08),\n      rgba(37, 99, 235, 0.08)),\n    #ffffff;\n}\n.headless-aria-header,\n.headless-aria-group-head,\n.headless-aria-actions,\n.headless-aria-audit {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.headless-aria-header {\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger {\n  display: flex;\n  width: 100%;\n  min-height: 58px;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  padding: 8px 14px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ffffff;\n  color: #0f172a;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);\n}\n.headless-aria-trigger span,\n.headless-aria-option-copy {\n  display: grid;\n  min-width: 0;\n  gap: 2px;\n}\n.headless-aria-trigger small {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger strong {\n  color: #0f172a;\n  font-size: 15px;\n  overflow-wrap: anywhere;\n}\n.headless-aria-trigger b {\n  flex: none;\n  color: #0f766e;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.headless-aria-clear,\n.headless-aria-actions button,\n.headless-aria-group-head button,\n.headless-aria-chip button {\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f766e;\n  cursor: pointer;\n  font-weight: 900;\n}\n.headless-aria-clear,\n.headless-aria-actions button,\n.headless-aria-group-head button {\n  min-height: 32px;\n  padding: 0 12px;\n}\n.headless-aria-clear:disabled,\n.headless-aria-actions button:disabled,\n.headless-aria-group-head button:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n.headless-aria-selected {\n  display: flex;\n  min-height: 38px;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n}\n.headless-aria-chip,\n.headless-aria-counter {\n  display: inline-flex;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-radius: 999px;\n  font-size: 13px;\n  font-weight: 900;\n}\n.headless-aria-chip {\n  padding: 0 6px 0 8px;\n  background: #0f766e;\n  color: #ffffff;\n}\n.headless-aria-counter {\n  min-width: 32px;\n  padding: 0 10px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ecfdf5;\n  color: #0f766e;\n}\n.headless-aria-chip button {\n  display: inline-grid;\n  width: 20px;\n  height: 20px;\n  place-items: center;\n  padding: 0;\n  border-radius: 999px;\n  background: rgba(255, 255, 255, 0.18);\n  color: #ffffff;\n}\n.headless-aria-flag {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background-color: rgba(255, 255, 255, 0.82);\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.14);\n  overflow: hidden;\n}\n.headless-aria-chip .headless-aria-flag {\n  width: 24px;\n  height: 20px;\n  background-color: rgba(255, 255, 255, 0.22);\n}\n.headless-aria-panel {\n  display: grid;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);\n}\n.headless-aria-listbox {\n  display: grid;\n  max-height: 300px;\n  overflow: auto;\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-search-label {\n  padding: 10px 12px 0;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-search {\n  width: calc(100% - 24px);\n  min-height: 40px;\n  margin: 8px 12px 10px;\n  padding: 0 12px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f172a;\n}\n.headless-aria-actions {\n  justify-content: flex-start;\n  padding: 0 12px 10px;\n}\n.headless-aria-group + .headless-aria-group {\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-group-head {\n  min-height: 42px;\n  padding: 8px 12px;\n  background: #f8fafc;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-option {\n  display: grid;\n  grid-template-columns: 20px 32px minmax(0, 1fr) minmax(96px, auto);\n  min-height: 56px;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 12px;\n  border-top: 1px solid #e2e8f0;\n  cursor: pointer;\n}\n.headless-aria-option:hover,\n.headless-aria-option:focus-visible,\n.headless-aria-option.selected {\n  background: #f0fdfa;\n  outline: none;\n}\n.headless-aria-check {\n  display: inline-grid;\n  width: 18px;\n  height: 18px;\n  place-items: center;\n  border: 2px solid #0f766e;\n  background: #ffffff;\n}\n.headless-aria-check[data-checked=true] {\n  background: #0f766e;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.headless-aria-option-copy small,\n.headless-aria-empty {\n  color: #64748b;\n}\n.headless-aria-state {\n  color: #64748b;\n  font-family: "Courier New", monospace;\n  font-size: 11px;\n  line-height: 1.4;\n  text-align: right;\n}\n.headless-aria-audit {\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  margin: 0;\n}\n.headless-aria-audit div {\n  display: grid;\n  min-width: 120px;\n  gap: 2px;\n  padding: 8px 10px;\n  border: 1px solid rgba(15, 118, 110, 0.16);\n  background: rgba(255, 255, 255, 0.72);\n}\n.headless-aria-audit dt {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-audit dd {\n  margin: 0;\n  color: #0f172a;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  overflow-wrap: anywhere;\n}\n.activity {\n  padding: 20px 24px;\n}\n.activity h2 {\n  margin-bottom: 12px;\n  font-size: 18px;\n}\n.activity p {\n  margin: 0 0 8px;\n  color: #475569;\n}\n.activity button {\n  margin-top: 8px;\n}\n@media (max-width: 1120px) {\n  .live-menu,\n  .feature-lab-grid,\n  .example-row,\n  .code-grid {\n    grid-template-columns: 1fr;\n  }\n  .code-card pre {\n    min-height: 150px;\n  }\n}\n@media (max-width: 860px) {\n  .page,\n  .skin-section {\n    padding: 16px;\n  }\n}\n@media (max-width: 640px) {\n  .page {\n    padding: 16px 8px;\n  }\n  .topbar {\n    margin-bottom: 24px;\n    padding: 24px;\n  }\n  .skin-section {\n    margin-bottom: 24px;\n    padding: 16px;\n  }\n  .activity {\n    padding: 16px;\n  }\n  h1 {\n    font-size: 24px;\n  }\n  h2 {\n    font-size: 22px;\n  }\n  .skin-buttons {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 10px;\n  }\n  .live-menu {\n    grid-template-columns: 1fr;\n  }\n  .skin-buttons button {\n    width: 100%;\n    min-width: 0;\n    padding: 0 10px;\n  }\n  .example-row {\n    gap: 14px;\n    padding: 16px;\n  }\n  .headless-aria-header,\n  .headless-aria-trigger,\n  .headless-aria-group-head {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .headless-aria-trigger {\n    gap: 8px;\n  }\n  .headless-aria-actions {\n    display: grid;\n    grid-template-columns: 1fr;\n  }\n  .headless-aria-option {\n    grid-template-columns: 20px minmax(0, 1fr);\n  }\n  .headless-aria-option .headless-aria-flag,\n  .headless-aria-state {\n    display: none;\n  }\n  .feature-lab-card {\n    padding: 14px;\n  }\n  .keyboard-contract dl div {\n    grid-template-columns: 1fr;\n  }\n  .case-title-row {\n    display: grid;\n    grid-template-columns: 1fr;\n    justify-items: start;\n  }\n  .case-actions,\n  .stackblitz-link {\n    width: 100%;\n  }\n  .method-bar {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .method-bar button,\n  .small-button {\n    width: 100%;\n    min-width: 0;\n  }\n  .overflow-dialog-frame {\n    max-width: 100%;\n    padding: 12px;\n  }\n  .demo-dialog-surface {\n    height: auto;\n    min-height: 150px;\n    padding: 14px;\n  }\n  .demo-dialog-surface.opens-up {\n    height: auto;\n    min-height: 210px;\n    padding-bottom: 18px;\n  }\n  .code-grid {\n    gap: 12px;\n  }\n  .code-card pre {\n    min-height: 132px;\n    max-height: 190px;\n    padding: 10px;\n    font-size: 11px;\n    line-height: 1.45;\n    overflow-wrap: normal;\n    white-space: pre;\n  }\n}\n@media (max-width: 380px) {\n  .topbar,\n  .skin-section,\n  .activity {\n    padding-left: 12px;\n    padding-right: 12px;\n  }\n  h1 {\n    font-size: 22px;\n  }\n  .example-row {\n    padding: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n'] }]
+`, styles: ['/* src/app/app.component.scss */\n.page {\n  width: min(1320px, 100%);\n  min-height: 100vh;\n  margin: 0 auto;\n  padding: 32px;\n  overflow-x: hidden;\n}\n.topbar,\n.skin-section,\n.activity {\n  min-width: 0;\n  border: 1px solid #d9dee8;\n  background-color: #ffffff;\n  box-shadow: 0 10px 30px rgba(32, 33, 36, 0.12);\n}\n.topbar {\n  margin-bottom: 24px;\n  padding: 24px;\n}\n.live-menu {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 12px;\n  margin-bottom: 24px;\n}\n.live-menu button {\n  display: grid;\n  min-height: 72px;\n  gap: 4px;\n  padding: 12px 14px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 8px 22px rgba(32, 33, 36, 0.08);\n}\n.live-menu button.active {\n  border-color: #0f766e;\n  background: #f0fdfa;\n  color: #0f3f3a;\n}\n.live-menu button:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.25);\n  outline-offset: 2px;\n}\n.live-menu strong {\n  font-size: 14px;\n  line-height: 1.2;\n}\n.live-menu span {\n  color: #64748b;\n  font-size: 12px;\n  line-height: 1.35;\n}\n.skin-section {\n  margin-bottom: 28px;\n  padding: 24px;\n}\n.material-section {\n  border-color: #c5cae9;\n}\n.overlay-section {\n  border-color: #93c5fd;\n}\n.skin-switcher-section {\n  border-color: #99f6e4;\n}\n.extra-section {\n  border-color: #c4b5fd;\n}\n.feature-lab-section {\n  border-color: #14b8a6;\n}\n.section-heading {\n  margin-bottom: 20px;\n}\n.eyebrow {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  font-weight: 700;\n  text-transform: uppercase;\n}\nh1,\nh2,\nh3 {\n  margin: 0;\n}\nh1 {\n  margin-top: 4px;\n  overflow-wrap: anywhere;\n  font-size: 24px;\n  font-weight: 700;\n  line-height: 1.18;\n}\nh2 {\n  margin-top: 4px;\n  font-size: 22px;\n}\nh3 {\n  margin-bottom: 12px;\n  font-size: 15px;\n  line-height: 1.3;\n}\n.example-copy {\n  max-width: 920px;\n  margin: 8px 0 12px;\n  color: #475569;\n  line-height: 1.55;\n}\n.stackblitz-link {\n  display: inline-flex;\n  min-height: 32px;\n  align-items: center;\n  justify-content: center;\n  margin-top: 4px;\n  padding: 0 12px;\n  border: 1px solid #c5cae9;\n  border-radius: 999px;\n  background: #eef2ff;\n  color: #303f9f;\n  font-size: 12px;\n  font-weight: 700;\n  line-height: 1.2;\n  text-decoration: none;\n}\n.stackblitz-link:hover,\n.stackblitz-link:focus-visible {\n  border-color: #7986cb;\n  background: #ffffff;\n  color: #1a237e;\n  outline: none;\n}\n.case-list {\n  display: grid;\n  gap: 18px;\n}\n.example-row {\n  display: grid;\n  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);\n  align-items: start;\n  min-width: 0;\n  gap: 18px;\n  padding: 16px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.demo-cell,\n.code-cell {\n  min-width: 0;\n  max-width: 100%;\n}\n.case-title-row {\n  display: block;\n  margin-bottom: 12px;\n}\n.case-actions {\n  display: inline-flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  gap: 8px;\n}\n.skin-buttons {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 18px;\n}\n.route-skin-switcher {\n  display: grid;\n  gap: 2px;\n  margin-bottom: 20px;\n  padding: 14px;\n  border: 1px solid #e2e8f0;\n  background: #fafafa;\n}\n.route-skin-switcher .skin-buttons {\n  margin-bottom: 0;\n}\n.skin-buttons button,\n.method-bar button,\n.small-button,\n.activity button {\n  min-height: 36px;\n  padding: 0 14px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n  text-transform: capitalize;\n}\n.skin-buttons button.active,\n.keyboard-targets button.active,\n.keyboard-toggles button.active {\n  border-color: #0f766e;\n  background: #0f766e;\n  color: #ffffff;\n}\n.space-mode-toggles button.active {\n  border-color: #4f46e5;\n  background: #4f46e5;\n  color: #ffffff;\n}\n.small-button {\n  flex: none;\n  min-height: 30px;\n  padding: 0 10px;\n  font-size: 12px;\n}\n.custom-skin-sample {\n  --stackline-ms-primary: #b45309;\n  --stackline-ms-primary-soft: rgba(180, 83, 9, 0.14);\n  --stackline-ms-surface: #fffaf0;\n  --stackline-ms-surface-soft: #fffbeb;\n  --stackline-ms-surface-muted: #fef3c7;\n  --stackline-ms-outline: #fcd34d;\n  --stackline-ms-outline-strong: #b45309;\n  --stackline-ms-on-surface: #2f1b05;\n  --stackline-ms-on-surface-muted: #7c5b2e;\n  --stackline-ms-chip-bg: #fef3c7;\n  --stackline-ms-chip-text: #92400e;\n  --stackline-ms-chip-remove: #92400e;\n  --stackline-ms-divider: rgba(180, 83, 9, 0.18);\n  --stackline-ms-section-bg: #fffbeb;\n  --stackline-ms-focus: rgba(180, 83, 9, 0.28);\n  --stackline-ms-shadow: 0 18px 42px rgba(180, 83, 9, 0.15);\n}\n.settings-preview {\n  margin: 12px 0 0;\n  color: #475569;\n  font-family: "Courier New", monospace;\n  font-size: 13px;\n  overflow-wrap: anywhere;\n}\n.validation {\n  margin: 12px 0 0;\n  color: #be123c;\n  font-weight: 700;\n}\n.validation.ok {\n  color: #047857;\n}\n.docs-form {\n  display: grid;\n  gap: 18px;\n  margin: 0;\n  padding: 12px;\n  border: 1px solid #cccccc;\n  background: #ffffff;\n}\n.form-field {\n  display: grid;\n  gap: 6px;\n  margin: 0;\n}\n.form-field span {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n}\n.form-field em {\n  color: #be123c;\n  font-style: normal;\n}\n.form-field input {\n  width: 100%;\n  min-height: 38px;\n  padding: 8px 12px;\n  border: 1px solid #d5dbe7;\n  background: #ffffff;\n}\n.submit-button {\n  width: 100%;\n  min-height: 38px;\n  border: 0;\n  background: #198754;\n  color: #ffffff;\n  cursor: pointer;\n  font: inherit;\n}\n.submit-button:disabled {\n  cursor: not-allowed;\n  opacity: 0.58;\n}\n.method-bar {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-top: 12px;\n}\n.overflow-dialog-frame {\n  max-width: 460px;\n  padding: 18px;\n  border: 1px solid #bfdbfe;\n  background: #eff6ff;\n}\n.demo-dialog-surface {\n  position: relative;\n  z-index: 2;\n  display: grid;\n  align-content: end;\n  height: 150px;\n  gap: 14px;\n  padding: 18px;\n  overflow: hidden;\n  border: 1px solid #60a5fa;\n  background: #ffffff;\n  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);\n}\n.demo-dialog-surface.opens-up {\n  height: 210px;\n  padding-bottom: 24px;\n}\n.dialog-copy {\n  display: grid;\n  gap: 4px;\n  color: #0f172a;\n  font-size: 13px;\n}\n.dialog-copy span {\n  color: #475569;\n}\n.code-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 10px;\n  min-width: 0;\n}\n.code-card {\n  min-width: 0;\n  max-width: 100%;\n}\n.code-card strong {\n  display: block;\n  margin-bottom: 6px;\n  color: #334155;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.code-card pre {\n  width: 100%;\n  max-width: 100%;\n  min-height: 180px;\n  max-height: 260px;\n  margin: 0;\n  padding: 12px;\n  overflow: auto;\n  border: 1px solid #1f334a;\n  background: #13263a;\n  color: #edf4fb;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  line-height: 1.5;\n  overflow-wrap: anywhere;\n  white-space: pre-wrap;\n}\n.option-row,\n.swatch-chip {\n  display: inline-flex;\n  align-items: center;\n  min-width: 0;\n  gap: 8px;\n}\n:host ::ng-deep .dropdown-list .dropdown-option > c-templaterenderer + .option-row {\n  margin-left: 32px;\n}\n:host ::ng-deep .dropdown-list .dropdown-option > label:empty {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 14px;\n  width: 24px;\n  padding-left: 0;\n  pointer-events: none;\n}\n:host ::ng-deep .dropdown-list .dropdown-option.grp-item > label:empty {\n  left: 42px;\n}\n.option-row small {\n  display: block;\n  margin-top: 2px;\n  color: #64748b;\n  font-size: 12px;\n}\n.flag-chip {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border: 1px solid rgba(15, 118, 110, 0.18);\n  border-radius: 6px;\n  background-color: #ffffff;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);\n  overflow: hidden;\n}\n.feature-lab-grid {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  align-items: start;\n  gap: 18px;\n  margin-bottom: 18px;\n}\n.feature-lab-card {\n  min-width: 0;\n  min-height: 100%;\n  padding: 16px;\n  border: 1px solid #d9dee8;\n  background: #fafafa;\n}\n.keyboard-contract {\n  display: grid;\n  gap: 10px;\n  margin-top: 14px;\n  padding: 12px;\n  border: 1px solid #d9dee8;\n  background: #ffffff;\n}\n.keyboard-contract > strong {\n  color: #334155;\n  font-size: 13px;\n}\n.keyboard-targets {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.keyboard-toggles,\n.space-mode-toggles {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));\n  gap: 8px;\n}\n.keyboard-toggles button,\n.space-mode-toggles button,\n.keyboard-targets button {\n  min-height: 30px;\n  padding: 0 10px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #334155;\n  cursor: pointer;\n  font-weight: 700;\n}\n.keyboard-toggles button:not(.active) {\n  color: #64748b;\n  text-decoration: line-through;\n}\n.keyboard-toggles button:focus-visible,\n.space-mode-toggles button:focus-visible,\n.keyboard-targets button:focus-visible {\n  border-color: #0f766e;\n  outline: 3px solid rgba(20, 184, 166, 0.24);\n  outline-offset: 2px;\n}\n.keyboard-contract p {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.keyboard-contract dl {\n  display: grid;\n  gap: 8px;\n  margin: 0;\n}\n.keyboard-contract dl div {\n  display: grid;\n  grid-template-columns: 88px minmax(0, 1fr);\n  align-items: start;\n  gap: 8px;\n}\n.keyboard-contract dt {\n  color: #0f766e;\n  font-weight: 800;\n}\n.keyboard-contract dd {\n  margin: 0;\n  color: #475569;\n  font-size: 13px;\n  line-height: 1.35;\n}\n.aria-audit-panel {\n  display: grid;\n  gap: 10px;\n  margin-top: 12px;\n  padding: 12px;\n  border: 1px solid #c7d2fe;\n  background: #eef2ff;\n}\n.aria-audit-panel dl {\n  display: grid;\n  grid-template-columns: repeat(3, minmax(0, 1fr));\n  gap: 8px;\n  margin: 0;\n}\n.aria-audit-panel div {\n  display: grid;\n  gap: 4px;\n  padding: 8px;\n  border: 1px solid #dbe4ff;\n  background: #ffffff;\n}\n.aria-audit-panel dt {\n  color: #475569;\n  font-size: 11px;\n  font-weight: 800;\n  text-transform: uppercase;\n}\n.aria-audit-panel dd {\n  margin: 0;\n  color: #312e81;\n  font-family: "Courier New", monospace;\n  font-weight: 800;\n}\n.headless-route-section .section-heading p:last-child {\n  max-width: 880px;\n  color: #475569;\n  line-height: 1.7;\n}\n.headless-aria-shell {\n  display: grid;\n  min-width: 0;\n  gap: 14px;\n  padding: 16px;\n  border: 1px solid rgba(15, 118, 110, 0.22);\n  background:\n    linear-gradient(\n      135deg,\n      rgba(15, 118, 110, 0.08),\n      rgba(37, 99, 235, 0.08)),\n    #ffffff;\n}\n.headless-aria-header,\n.headless-aria-group-head,\n.headless-aria-actions,\n.headless-aria-audit {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n}\n.headless-aria-header {\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger {\n  display: flex;\n  width: 100%;\n  min-height: 58px;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  padding: 8px 14px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ffffff;\n  color: #0f172a;\n  cursor: pointer;\n  text-align: left;\n  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);\n}\n.headless-aria-trigger span,\n.headless-aria-option-copy {\n  display: grid;\n  min-width: 0;\n  gap: 2px;\n}\n.headless-aria-trigger small {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-trigger strong {\n  color: #0f172a;\n  font-size: 15px;\n  overflow-wrap: anywhere;\n}\n.headless-aria-trigger b {\n  flex: none;\n  color: #0f766e;\n  font-size: 12px;\n  text-transform: uppercase;\n}\n.headless-aria-clear,\n.headless-aria-actions button,\n.headless-aria-group-head button,\n.headless-aria-chip button {\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f766e;\n  cursor: pointer;\n  font-weight: 900;\n}\n.headless-aria-clear,\n.headless-aria-actions button,\n.headless-aria-group-head button {\n  min-height: 32px;\n  padding: 0 12px;\n}\n.headless-aria-clear:disabled,\n.headless-aria-actions button:disabled,\n.headless-aria-group-head button:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n.headless-aria-selected {\n  display: flex;\n  min-height: 38px;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 8px;\n}\n.headless-aria-chip,\n.headless-aria-counter {\n  display: inline-flex;\n  min-height: 30px;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  border-radius: 999px;\n  font-size: 13px;\n  font-weight: 900;\n}\n.headless-aria-chip {\n  padding: 0 6px 0 8px;\n  background: #0f766e;\n  color: #ffffff;\n}\n.headless-aria-counter {\n  min-width: 32px;\n  padding: 0 10px;\n  border: 1px solid rgba(15, 118, 110, 0.24);\n  background: #ecfdf5;\n  color: #0f766e;\n}\n.headless-aria-chip button {\n  display: inline-grid;\n  width: 20px;\n  height: 20px;\n  place-items: center;\n  padding: 0;\n  border-radius: 999px;\n  background: rgba(255, 255, 255, 0.18);\n  color: #ffffff;\n}\n.headless-aria-flag {\n  display: inline-block;\n  width: 28px;\n  height: 22px;\n  flex: none;\n  border-radius: 6px;\n  background-color: rgba(255, 255, 255, 0.82);\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.14);\n  overflow: hidden;\n}\n.headless-aria-chip .headless-aria-flag {\n  width: 24px;\n  height: 20px;\n  background-color: rgba(255, 255, 255, 0.22);\n}\n.headless-aria-panel {\n  display: grid;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);\n}\n.headless-aria-listbox {\n  display: grid;\n  max-height: 300px;\n  overflow: auto;\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-search-label {\n  padding: 10px 12px 0;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-search {\n  width: calc(100% - 24px);\n  min-height: 40px;\n  margin: 8px 12px 10px;\n  padding: 0 12px;\n  border: 1px solid #cbd5e1;\n  background: #ffffff;\n  color: #0f172a;\n}\n.headless-aria-actions {\n  justify-content: flex-start;\n  padding: 0 12px 10px;\n}\n.headless-aria-group + .headless-aria-group {\n  border-top: 1px solid #e2e8f0;\n}\n.headless-aria-group-head {\n  min-height: 42px;\n  padding: 8px 12px;\n  background: #f8fafc;\n  color: #475569;\n  font-size: 12px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-option {\n  display: grid;\n  grid-template-columns: 20px 32px minmax(0, 1fr) minmax(96px, auto);\n  min-height: 56px;\n  align-items: center;\n  gap: 10px;\n  padding: 8px 12px;\n  border-top: 1px solid #e2e8f0;\n  cursor: pointer;\n}\n.headless-aria-option:hover,\n.headless-aria-option:focus-visible,\n.headless-aria-option.selected {\n  background: #f0fdfa;\n  outline: none;\n}\n.headless-aria-check {\n  display: inline-grid;\n  width: 18px;\n  height: 18px;\n  place-items: center;\n  border: 2px solid #0f766e;\n  background: #ffffff;\n}\n.headless-aria-check[data-checked=true] {\n  background: #0f766e;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.headless-aria-option-copy small,\n.headless-aria-empty {\n  color: #64748b;\n}\n.headless-aria-state {\n  color: #64748b;\n  font-family: "Courier New", monospace;\n  font-size: 11px;\n  line-height: 1.4;\n  text-align: right;\n}\n.headless-aria-audit {\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  margin: 0;\n}\n.headless-aria-audit div {\n  display: grid;\n  min-width: 120px;\n  gap: 2px;\n  padding: 8px 10px;\n  border: 1px solid rgba(15, 118, 110, 0.16);\n  background: rgba(255, 255, 255, 0.72);\n}\n.headless-aria-audit dt {\n  color: #64748b;\n  font-size: 11px;\n  font-weight: 900;\n  text-transform: uppercase;\n}\n.headless-aria-audit dd {\n  margin: 0;\n  color: #0f172a;\n  font-family: "Courier New", monospace;\n  font-size: 12px;\n  overflow-wrap: anywhere;\n}\n.activity {\n  padding: 20px 24px;\n}\n.activity h2 {\n  margin-bottom: 12px;\n  font-size: 18px;\n}\n.activity p {\n  margin: 0 0 8px;\n  color: #475569;\n}\n.activity button {\n  margin-top: 8px;\n}\n@media (max-width: 1120px) {\n  .live-menu,\n  .feature-lab-grid,\n  .example-row,\n  .code-grid {\n    grid-template-columns: 1fr;\n  }\n  .code-card pre {\n    min-height: 150px;\n  }\n}\n@media (max-width: 860px) {\n  .page,\n  .skin-section {\n    padding: 16px;\n  }\n}\n@media (max-width: 640px) {\n  .page {\n    padding: 16px 8px;\n  }\n  .topbar {\n    margin-bottom: 24px;\n    padding: 24px;\n  }\n  .skin-section {\n    margin-bottom: 24px;\n    padding: 16px;\n  }\n  .activity {\n    padding: 16px;\n  }\n  h1 {\n    font-size: 24px;\n  }\n  h2 {\n    font-size: 22px;\n  }\n  .skin-buttons {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 10px;\n  }\n  .live-menu {\n    grid-template-columns: 1fr;\n  }\n  .skin-buttons button {\n    width: 100%;\n    min-width: 0;\n    padding: 0 10px;\n  }\n  .example-row {\n    gap: 14px;\n    padding: 16px;\n  }\n  .headless-aria-header,\n  .headless-aria-trigger,\n  .headless-aria-group-head {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .headless-aria-trigger {\n    gap: 8px;\n  }\n  .headless-aria-actions {\n    display: grid;\n    grid-template-columns: 1fr;\n  }\n  .headless-aria-option {\n    grid-template-columns: 20px minmax(0, 1fr);\n  }\n  .headless-aria-option .headless-aria-flag,\n  .headless-aria-state {\n    display: none;\n  }\n  .feature-lab-card {\n    padding: 14px;\n  }\n  .keyboard-contract dl div {\n    grid-template-columns: 1fr;\n  }\n  .case-title-row {\n    display: grid;\n    grid-template-columns: 1fr;\n    justify-items: start;\n  }\n  .case-actions,\n  .stackblitz-link {\n    width: 100%;\n  }\n  .method-bar {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n  .method-bar button,\n  .small-button {\n    width: 100%;\n    min-width: 0;\n  }\n  .overflow-dialog-frame {\n    max-width: 100%;\n    padding: 12px;\n  }\n  .demo-dialog-surface {\n    height: auto;\n    min-height: 150px;\n    padding: 14px;\n  }\n  .demo-dialog-surface.opens-up {\n    height: auto;\n    min-height: 210px;\n    padding-bottom: 18px;\n  }\n  .code-grid {\n    gap: 12px;\n  }\n  .code-card pre {\n    min-height: 132px;\n    max-height: 190px;\n    padding: 10px;\n    font-size: 11px;\n    line-height: 1.45;\n    overflow-wrap: normal;\n    white-space: pre;\n  }\n}\n@media (max-width: 380px) {\n  .topbar,\n  .skin-section,\n  .activity {\n    padding-left: 12px;\n    padding-right: 12px;\n  }\n  h1 {\n    font-size: 22px;\n  }\n  .example-row {\n    padding: 12px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */\n'] }]
   }], null, { onHashChange: [{
     type: HostListener,
     args: ["window:hashchange"]
