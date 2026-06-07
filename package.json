@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "22.0.1",
+  "version": "22.0.3",
   "scripts": {
     "ng": "ng",
     "start": "cd docs-src/angular-22 && npm start",

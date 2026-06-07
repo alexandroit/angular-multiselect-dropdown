@@ -235,6 +235,117 @@ describe('AngularMultiSelect tagToBody overlay', () => {
         expect(directBodyDropdowns().length).toBe(0);
     }));
 
+    it('keeps the current value and closes when a selected single-selection option is clicked', fakeAsync(() => {
+        fixture.componentInstance.selectedItems = [{ id: 1, itemName: 'Canada' }];
+        fixture.componentInstance.settings = Object.assign({}, fixture.componentInstance.settings, {
+            singleSelection: true,
+            showCheckbox: false,
+            enableCheckAll: false
+        });
+        fixture.detectChanges();
+        component = fixture.debugElement.query(By.directive(AngularMultiSelect)).componentInstance;
+        setAnchorBounds(component);
+
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var panel = directBodyDropdowns()[0] as HTMLElement;
+        var selectedOption = panel.querySelector('.dropdown-option.selected-item') as HTMLElement;
+
+        selectedOption.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Canada');
+        expect(fixture.componentInstance.selectedItems.length).toBe(1);
+        expect(fixture.componentInstance.selectedItems[0].itemName).toBe('Canada');
+        expect(component.isActive).toBeFalse();
+        expect(directBodyDropdowns().length).toBe(0);
+    }));
+
+    it('clears a single-selection value through the clear-all button', fakeAsync(() => {
+        component = fixture.debugElement.query(By.directive(AngularMultiSelect)).componentInstance;
+        component.settings = Object.assign({}, component.settings, {
+            singleSelection: true,
+            showCheckbox: false,
+            enableCheckAll: false,
+            clearAll: true
+        });
+        component.selectedItems = [{ id: 1, itemName: 'Canada' }];
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var clearButton = fixture.nativeElement.querySelector('.clear-all') as HTMLElement;
+        expect(clearButton).not.toBeNull();
+        clearButton.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(0);
+        expect(fixture.nativeElement.querySelector('.c-placeholder').textContent.trim()).toBe('Select countries');
+        expect(fixture.nativeElement.querySelector('.clear-all')).toBeNull();
+    }));
+
+    it('selects a single-selection body-overlay option on pointerdown', fakeAsync(() => {
+        fixture.componentInstance.selectedItems = [{ id: 1, itemName: 'Canada' }];
+        fixture.componentInstance.settings = Object.assign({}, fixture.componentInstance.settings, {
+            singleSelection: true,
+            showCheckbox: false,
+            enableCheckAll: false
+        });
+        fixture.detectChanges();
+        component = fixture.debugElement.query(By.directive(AngularMultiSelect)).componentInstance;
+        setAnchorBounds(component);
+
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var panel = directBodyDropdowns()[0] as HTMLElement;
+        var options = panel.querySelectorAll('.dropdown-option') as NodeListOf<HTMLElement>;
+
+        options[1].dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Portugal');
+        expect(fixture.componentInstance.selectedItems.length).toBe(1);
+        expect(fixture.componentInstance.selectedItems[0].itemName).toBe('Portugal');
+        expect(component.isActive).toBeFalse();
+        expect(directBodyDropdowns().length).toBe(0);
+    }));
+
+    it('does not toggle a body-overlay option twice when native click follows pointerdown', fakeAsync(() => {
+        component.openDropdown();
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+
+        var panel = directBodyDropdowns()[0] as HTMLElement;
+        var option = panel.querySelector('.dropdown-option') as HTMLElement;
+
+        option.dispatchEvent(new MouseEvent('pointerdown', { bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Canada');
+        expect(component.isActive).toBeTrue();
+
+        option.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        tick();
+        fixture.detectChanges();
+
+        expect(component.selectedItems.length).toBe(1);
+        expect(component.selectedItems[0].itemName).toBe('Canada');
+    }));
+
     it('moves the open panel to document.body and keeps it aligned to the trigger', fakeAsync(() => {
         component.openDropdown();
         fixture.detectChanges();

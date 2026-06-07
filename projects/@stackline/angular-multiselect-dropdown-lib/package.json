@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "22.0.1",
+  "version": "22.0.3",
   "license": "MIT",
   "author": "Pradeep Terli (Original), Alexandro Paixao Marques (Maintainer)",
   "description": "Angular multiselect dropdown for Angular 22 with maintained release lines, accessibility-focused and keyboard/ARIA tested interactions, dialog-safe body overlays, Stackline skins, search, grouping, templates, headless helpers, and forms support.",

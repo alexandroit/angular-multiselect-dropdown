@@ -99,6 +99,39 @@ function getPeerDependencies(line) {
   };
 }
 
+function getLineDescription(line) {
+  return [
+    `Angular multiselect dropdown for Angular ${line.angular}`,
+    'with maintained release lines, accessibility-focused and keyboard/ARIA tested interactions,',
+    'dialog-safe body overlays, Stackline skins, search, grouping, templates, headless helpers, and forms support.'
+  ].join(' ');
+}
+
+function getLineHomepage(line) {
+  return `https://alexandro.net/docs/angular/multiselect/angular-${line.angular}/`;
+}
+
+function getLineNodeRange(line) {
+  const nodeRanges = {
+    21: '^20.19.0 || ^22.12.0 || >=24.0.0',
+    22: '^22.22.3 || ^24.15.0 || >=26.0.0'
+  };
+
+  return nodeRanges[line.angular] || null;
+}
+
+function getLineKeywords(line, currentKeywords) {
+  const keywords = (Array.isArray(currentKeywords) ? currentKeywords : [])
+    .filter((keyword) => !/^angular(?: |-)?\d+$/.test(keyword));
+  const lineKeywords = [
+    `angular${line.angular}`,
+    `angular ${line.angular}`,
+    `angular-${line.angular}`
+  ];
+
+  return [...new Set([...keywords, ...lineKeywords])];
+}
+
 function resolveLine(selection, lines) {
   if (selection === 'latest') {
     return getLatestLine(lines);
@@ -139,6 +172,17 @@ function stampDistPackage(line) {
 
   packageJson.version = line.packageVersion;
   packageJson.peerDependencies = getPeerDependencies(line);
+  packageJson.description = getLineDescription(line);
+  packageJson.homepage = getLineHomepage(line);
+  packageJson.keywords = getLineKeywords(line, packageJson.keywords);
+
+  const nodeRange = getLineNodeRange(line);
+  if (nodeRange) {
+    packageJson.engines = {
+      ...(packageJson.engines || {}),
+      node: nodeRange
+    };
+  }
 
   writeJson(distPackageJsonPath, packageJson);
 }

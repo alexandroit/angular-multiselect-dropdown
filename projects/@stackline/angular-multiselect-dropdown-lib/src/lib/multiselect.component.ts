@@ -159,6 +159,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     private dropdownAppendedToBody: boolean = false;
     private overlayListenersBound: boolean = false;
     private overlayPositionTimer: any = null;
+    private optionClickFromPointerDown: HTMLElement | null = null;
+    private optionClickGuardTimer: any = null;
     private boundOverlayPositionUpdate = () => this.scheduleDropdownPositionUpdate();
     private overlayThemeVariables: string[] = [
         '--ms-primary',
@@ -683,8 +685,90 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     onDropdownPanelPointerDown(event: Event) {
         if (this.isBodyOverlayEnabled()) {
+            var option = this.getPointerDownOption(event);
+
+            if (option) {
+                this.selectOptionFromPointerDown(option, event);
+                return;
+            }
+
             event.stopPropagation();
         }
+    }
+
+    private getPointerDownOption(event: Event): HTMLElement | null {
+        var target = event && event.target as HTMLElement;
+
+        if (!target || !target.closest) {
+            return null;
+        }
+
+        var option = target.closest('.dropdown-option') as HTMLElement;
+
+        if (!option || option.classList.contains('is-disabled')) {
+            return null;
+        }
+
+        return option;
+    }
+
+    private selectOptionFromPointerDown(option: HTMLElement, event: Event) {
+        var pointerEvent = event as PointerEvent;
+
+        if (event.type === 'pointerdown' && pointerEvent.button !== undefined && pointerEvent.button !== 0) {
+            event.stopPropagation();
+            return;
+        }
+
+        if (event.cancelable) {
+            event.preventDefault();
+        }
+
+        event.stopPropagation();
+        option.dispatchEvent(new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        }));
+        this.ignoreNextNativeOptionClick(option);
+    }
+
+    private ignoreNextNativeOptionClick(option: HTMLElement) {
+        this.optionClickFromPointerDown = option;
+
+        if (this.optionClickGuardTimer) {
+            clearTimeout(this.optionClickGuardTimer);
+        }
+
+        this.optionClickGuardTimer = setTimeout(() => {
+            if (this.optionClickFromPointerDown === option) {
+                this.optionClickFromPointerDown = null;
+            }
+        }, 500);
+    }
+
+    private shouldIgnoreNativeOptionClick(evt: Event) {
+        if (!this.optionClickFromPointerDown || !evt || evt.type !== 'click') {
+            return false;
+        }
+
+        if (evt.currentTarget !== this.optionClickFromPointerDown) {
+            return false;
+        }
+
+        this.optionClickFromPointerDown = null;
+
+        if (this.optionClickGuardTimer) {
+            clearTimeout(this.optionClickGuardTimer);
+            this.optionClickGuardTimer = null;
+        }
+
+        if (evt.cancelable) {
+            evt.preventDefault();
+        }
+
+        evt.stopPropagation();
+        return true;
     }
 
     getAriaLabel() {
@@ -1400,6 +1484,10 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         //this.calculateDropdownDirection();
     }
     onItemClick(item: any, index: number, evt: Event) {
+        if (this.shouldIgnoreNativeOptionClick(evt)) {
+            return;
+        }
+
         if (item.disabled) {
             return;
         }
@@ -1425,6 +1513,12 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
         }
         else {
+            if (this.settings.singleSelection) {
+                this.onTouchedCallback(this.selectedItems);
+                this.closeDropdown();
+                this.syncSelectAllState();
+                return;
+            }
             this.removeSelected(item);
             this.onDeSelect.emit(item);
         }
@@ -2008,6 +2102,11 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
     ngOnDestroy() {
         this.restoreDropdownPanel(true);
+        if (this.optionClickGuardTimer) {
+            clearTimeout(this.optionClickGuardTimer);
+            this.optionClickGuardTimer = null;
+        }
+        this.optionClickFromPointerDown = null;
         if (this.subscription) {
             this.subscription.unsubscribe();
         }
