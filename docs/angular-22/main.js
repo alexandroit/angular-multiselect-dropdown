@@ -88,7 +88,7 @@ var __yieldStar = (value) => {
 
 // node_modules/@angular/core/fesm2022/_effect-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -147,11 +147,12 @@ function producerAccessed(node) {
     if (nextProducerLink !== void 0 && nextProducerLink.producer === node) {
       activeConsumer.producersTail = nextProducerLink;
       nextProducerLink.lastReadVersion = node.version;
+      nextProducerLink.knownValidAtEpoch = epoch;
       return;
     }
   }
   const prevConsumerLink = node.consumersTail;
-  if (prevConsumerLink !== void 0 && prevConsumerLink.consumer === activeConsumer && (!isRecomputing || isValidLink(prevConsumerLink, activeConsumer))) {
+  if (prevConsumerLink !== void 0 && prevConsumerLink.consumer === activeConsumer && (!isRecomputing || prevConsumerLink.knownValidAtEpoch === epoch)) {
     return;
   }
   const isLive = consumerIsLive(activeConsumer);
@@ -159,7 +160,8 @@ function producerAccessed(node) {
     producer: node,
     consumer: activeConsumer,
     nextProducer: nextProducerLink,
-    prevConsumer: prevConsumerLink,
+    prevConsumer: void 0,
+    knownValidAtEpoch: epoch,
     lastReadVersion: node.version,
     nextConsumer: void 0
   };
@@ -224,6 +226,13 @@ function consumerBeforeComputation(node) {
   return setActiveConsumer(node);
 }
 function resetConsumerBeforeComputation(node) {
+  if (node.producersTail?.knownValidAtEpoch === epoch) {
+    let producer = node.producers;
+    while (producer !== void 0) {
+      producer.knownValidAtEpoch = null;
+      producer = producer.nextProducer;
+    }
+  }
   node.producersTail = void 0;
   node.recomputing = true;
 }
@@ -322,22 +331,6 @@ function consumerIsLive(node) {
 }
 function runPostProducerCreatedFn(node) {
   postProducerCreatedFn?.(node);
-}
-function isValidLink(checkLink, consumer) {
-  const producersTail = consumer.producersTail;
-  if (producersTail !== void 0) {
-    let link = consumer.producers;
-    do {
-      if (link === checkLink) {
-        return true;
-      }
-      if (link === producersTail) {
-        break;
-      }
-      link = link.nextProducer;
-    } while (link !== void 0);
-  }
-  return false;
 }
 function defaultEquals(a, b) {
   return Object.is(a, b);
@@ -486,7 +479,7 @@ function runEffect(node) {
 
 // node_modules/@angular/core/fesm2022/_not_found-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -506,7 +499,7 @@ function isNotFound(e) {
 
 // node_modules/@angular/core/fesm2022/_untracked-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -602,7 +595,7 @@ function untracked(nonReactiveReadsFn) {
 
 // node_modules/@angular/core/fesm2022/primitives-signals.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -709,7 +702,7 @@ if (typeof ngDevMode === "undefined" || ngDevMode) {
 
 // node_modules/@angular/core/fesm2022/primitives-di.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2487,7 +2480,7 @@ function tap(observerOrNext, error, complete) {
 
 // node_modules/@angular/core/fesm2022/_pending_tasks-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -2504,7 +2497,7 @@ var Version = class {
     this.patch = parts.slice(2).join(".");
   }
 };
-var VERSION = /* @__PURE__ */ new Version("22.0.0");
+var VERSION = /* @__PURE__ */ new Version("22.0.2");
 var DOC_PAGE_BASE_URL = (() => {
   const full = VERSION.full;
   const isPreRelease = full.includes("-next") || full.includes("-rc") || full === "0.0.0-PLACEHOLDER";
@@ -5197,7 +5190,7 @@ var TransferState = class _TransferState {
 };
 function retrieveTransferredState(doc, appId) {
   const script = doc.getElementById(appId + "-state");
-  if (script?.textContent) {
+  if (script?.tagName === "SCRIPT" && script.textContent) {
     try {
       return JSON.parse(script.textContent);
     } catch (e) {
@@ -5464,7 +5457,12 @@ var PendingTasks = class _PendingTasks {
   }
   run(fn) {
     const removeTask = this.add();
-    fn().catch(this.errorHandler).finally(removeTask);
+    try {
+      fn().catch(this.errorHandler).finally(removeTask);
+    } catch (err) {
+      this.errorHandler(err);
+      removeTask();
+    }
   }
   static \u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({
     token: _PendingTasks,
@@ -5475,7 +5473,7 @@ var PendingTasks = class _PendingTasks {
 
 // node_modules/@angular/core/fesm2022/_attribute-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -5485,7 +5483,7 @@ var Attribute = {
 
 // node_modules/@angular/core/fesm2022/_debug_node-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -5493,13 +5491,6 @@ function noSideEffects(fn) {
   return {
     toString: fn
   }.toString();
-}
-function applyValueToInputField(instance, inputSignalNode, privateName, value) {
-  if (inputSignalNode !== null) {
-    inputSignalNode.applyValueToInputSignal(inputSignalNode, value);
-  } else {
-    instance[privateName] = value;
-  }
 }
 var SimpleChange = class {
   previousValue;
@@ -5514,6 +5505,13 @@ var SimpleChange = class {
     return this.firstChange;
   }
 };
+function applyValueToInputField(instance, inputSignalNode, privateName, value) {
+  if (inputSignalNode !== null) {
+    inputSignalNode.applyValueToInputSignal(inputSignalNode, value);
+  } else {
+    instance[privateName] = value;
+  }
+}
 var \u0275\u0275NgOnChangesFeature = /* @__PURE__ */ (() => {
   const \u0275\u0275NgOnChangesFeatureImpl = () => NgOnChangesFeatureImpl;
   \u0275\u0275NgOnChangesFeatureImpl.ngInherit = true;
@@ -5556,7 +5554,7 @@ function ngOnChangesSetInput(instance, inputSignalNode, value, publicName, priva
 }
 var SIMPLE_CHANGES_STORE = "__ngSimpleChanges__";
 function getSimpleChangesStore(instance) {
-  return instance[SIMPLE_CHANGES_STORE] || null;
+  return Object.hasOwn(instance, SIMPLE_CHANGES_STORE) ? instance[SIMPLE_CHANGES_STORE] || null : null;
 }
 function setSimpleChangesStore(instance, store2) {
   return instance[SIMPLE_CHANGES_STORE] = store2;
@@ -8343,7 +8341,7 @@ function getTemplateContent(el) {
 function isTemplateElement(el) {
   return el.nodeType === Node.ELEMENT_NODE && el.nodeName === "TEMPLATE";
 }
-var COMMENT_DISALLOWED = /^>|^->|<!--|-->|--!>|<!-$/g;
+var COMMENT_DISALLOWED = />|->|<!--|-->|--!>|<!-$/g;
 var COMMENT_DELIMITER = /(<|>)/g;
 var COMMENT_DELIMITER_ESCAPED = "\u200B$1\u200B";
 function escapeCommentText(value) {
@@ -8425,28 +8423,57 @@ var SecurityContext;
 var _SECURITY_SCHEMA;
 var SVG_NAMESPACE2 = "svg";
 var MATH_ML_NAMESPACE2 = "math";
+var NO_NAMESPACE = "";
+var MATCH_ALL_ELEMENTS = "*";
+var createNullObj = () => /* @__PURE__ */ Object.create(null);
 function SECURITY_SCHEMA() {
-  if (!_SECURITY_SCHEMA) {
-    _SECURITY_SCHEMA = {};
-    registerContext(SecurityContext.HTML, void 0, [["iframe", ["srcdoc"]], ["*", ["innerHTML", "outerHTML"]]]);
-    registerContext(SecurityContext.STYLE, void 0, [["*", ["style"]]]);
-    registerContext(SecurityContext.URL, void 0, [["*", ["formAction"]], ["area", ["href"]], ["a", ["href", "xlink:href"]], ["form", ["action"]], ["img", ["src"]], ["video", ["src"]]]);
-    registerContext(SecurityContext.URL, MATH_ML_NAMESPACE2, [["annotation", ["href", "xlink:href"]], ["annotation-xml", ["href", "xlink:href"]], ["maction", ["href", "xlink:href"]], ["malignmark", ["href", "xlink:href"]], ["math", ["href", "xlink:href"]], ["mroot", ["href", "xlink:href"]], ["msqrt", ["href", "xlink:href"]], ["merror", ["href", "xlink:href"]], ["mfrac", ["href", "xlink:href"]], ["mglyph", ["href", "xlink:href"]], ["msub", ["href", "xlink:href"]], ["msup", ["href", "xlink:href"]], ["msubsup", ["href", "xlink:href"]], ["mmultiscripts", ["href", "xlink:href"]], ["mprescripts", ["href", "xlink:href"]], ["mi", ["href", "xlink:href"]], ["mn", ["href", "xlink:href"]], ["mo", ["href", "xlink:href"]], ["mpadded", ["href", "xlink:href"]], ["mphantom", ["href", "xlink:href"]], ["mrow", ["href", "xlink:href"]], ["ms", ["href", "xlink:href"]], ["mspace", ["href", "xlink:href"]], ["mstyle", ["href", "xlink:href"]], ["mtable", ["href", "xlink:href"]], ["mtd", ["href", "xlink:href"]], ["mtr", ["href", "xlink:href"]], ["mtext", ["href", "xlink:href"]], ["mover", ["href", "xlink:href"]], ["munder", ["href", "xlink:href"]], ["munderover", ["href", "xlink:href"]], ["semantics", ["href", "xlink:href"]], ["none", ["href", "xlink:href"]]]);
-    registerContext(SecurityContext.RESOURCE_URL, void 0, [["base", ["href"]], ["embed", ["src"]], ["frame", ["src"]], ["iframe", ["src"]], ["link", ["href"]], ["object", ["codebase", "data"]]]);
-    registerContext(SecurityContext.URL, SVG_NAMESPACE2, [["a", ["href", "xlink:href"]]]);
-    registerContext(SecurityContext.ATTRIBUTE_NO_BINDING, SVG_NAMESPACE2, [["animate", ["attributeName", "values", "to", "from"]], ["set", ["to", "attributeName"]], ["animateMotion", ["attributeName"]], ["animateTransform", ["attributeName"]]]);
-    registerContext(SecurityContext.ATTRIBUTE_NO_BINDING, void 0, [["unknown", ["attributeName", "values", "to", "from", "sandbox", "allow", "allowFullscreen", "referrerPolicy", "csp", "fetchPriority"]], ["iframe", ["sandbox", "allow", "allowFullscreen", "referrerPolicy", "csp", "fetchPriority"]]]);
+  if (_SECURITY_SCHEMA) {
+    return _SECURITY_SCHEMA;
   }
+  _SECURITY_SCHEMA = createNullObj();
+  registerContext(SecurityContext.HTML, void 0, [["iframe", ["srcdoc"]], ["*", ["innerHTML", "outerHTML"]]]);
+  registerContext(SecurityContext.STYLE, void 0, [["*", ["style"]]]);
+  registerContext(SecurityContext.URL, void 0, [["*", ["formAction"]], ["area", ["href"]], ["a", ["href", "xlink:href"]], ["form", ["action"]], ["img", ["src"]], ["video", ["src"]]]);
+  registerContext(SecurityContext.URL, MATH_ML_NAMESPACE2, [["*", ["href", "xlink:href"]]]);
+  registerContext(SecurityContext.RESOURCE_URL, void 0, [["base", ["href"]], ["embed", ["src"]], ["frame", ["src"]], ["iframe", ["src"]], ["link", ["href"]], ["object", ["codebase", "data"]]]);
+  registerContext(SecurityContext.URL, SVG_NAMESPACE2, [["a", ["href", "xlink:href"]]]);
+  registerContext(SecurityContext.ATTRIBUTE_NO_BINDING, SVG_NAMESPACE2, [["animate", ["attributeName", "values", "to", "from"]], ["set", ["to", "attributeName"]], ["animateMotion", ["attributeName"]], ["animateTransform", ["attributeName"]]]);
+  registerContext(SecurityContext.ATTRIBUTE_NO_BINDING, void 0, [["unknown", ["attributeName", "values", "to", "from", "sandbox", "allow", "allowFullscreen", "referrerPolicy", "csp", "fetchPriority", "credentialless"]], ["iframe", ["sandbox", "allow", "allowFullscreen", "referrerPolicy", "csp", "fetchPriority", "credentialless"]]]);
   return _SECURITY_SCHEMA;
 }
 function registerContext(ctx, namespace, specs) {
+  const nsKey = namespace ?? NO_NAMESPACE;
   for (const [element, attributeNames] of specs) {
-    let tagName = namespace && element !== "*" && element !== "unknown" ? `:${namespace}:${element}` : element;
-    tagName = tagName.toLowerCase();
+    const tagName = element.toLowerCase();
     for (const attr of attributeNames) {
-      _SECURITY_SCHEMA[`${tagName}|${attr.toLowerCase()}`] = ctx;
+      const attrLower = attr.toLowerCase();
+      const attrSchema = _SECURITY_SCHEMA[attrLower] ??= createNullObj();
+      const nsSchema = attrSchema[nsKey] ??= createNullObj();
+      nsSchema[tagName] = ctx;
     }
   }
+}
+function checkSecurityContext(tagName, propName, namespace) {
+  const securitySchema = SECURITY_SCHEMA();
+  const attrSchema = securitySchema[propName.toLowerCase()];
+  if (!attrSchema) {
+    return SecurityContext.NONE;
+  }
+  const tagLower = tagName.toLowerCase();
+  let context2;
+  if (namespace) {
+    const nsSchema = attrSchema[namespace];
+    if (nsSchema) {
+      context2 = nsSchema[tagLower] ?? nsSchema[MATCH_ALL_ELEMENTS];
+    }
+  }
+  if (context2 === void 0) {
+    const defaultSchema = attrSchema[NO_NAMESPACE];
+    if (defaultSchema) {
+      context2 = defaultSchema[tagLower] ?? defaultSchema[MATCH_ALL_ELEMENTS];
+    }
+  }
+  return context2 ?? SecurityContext.NONE;
 }
 function \u0275\u0275sanitizeHtml(unsafeHtml) {
   const sanitizer = getSanitizer();
@@ -8553,6 +8580,7 @@ function getSanitizer() {
   return lView && lView[ENVIRONMENT].sanitizer;
 }
 var SECURITY_SENSITIVE_ATTRIBUTE_NAMES = /* @__PURE__ */ new Set(["href", "xlink:href"]);
+var SVG_ANIMATION_ATTRIBUTE_NAME_CANDIDATES = ["attributeName", "attributename"];
 var SECURITY_SENSITIVE_ELEMENTS = {
   "iframe": {
     "sandbox": true,
@@ -8560,7 +8588,8 @@ var SECURITY_SENSITIVE_ELEMENTS = {
     "allowfullscreen": true,
     "referrerpolicy": true,
     "csp": true,
-    "fetchpriority": true
+    "fetchpriority": true,
+    "credentialless": true
   },
   ":svg:animate": {
     "attributename": true,
@@ -8605,8 +8634,8 @@ To fix this, switch the \`${attributeName}\` binding to a static attribute in a 
       throw new RuntimeError(-910, errorMessage2);
     }
     const element = getNativeByTNode(tNode, lView);
-    const attributeNameValue = element.getAttribute("attributeName");
-    if (attributeNameValue && validationConfig.has(attributeNameValue.toLowerCase())) {
+    const attributeNameValue = getSecuritySensitiveSVGAnimationAttributeName(element, validationConfig);
+    if (attributeNameValue) {
       const errorMessage2 = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${displayTagName}> element${getTemplateLocationDetails(lView)}. For security reasons, the \`${attributeName}\` can be set on the <${displayTagName}> element as a static attribute only when the "attributeName" is set to '${attributeNameValue}'. 
 To fix this, switch the \`${attributeNameValue}\` binding to a static attribute in a template or in host bindings section.`;
       throw new RuntimeError(-910, errorMessage2);
@@ -8616,6 +8645,15 @@ To fix this, switch the \`${attributeNameValue}\` binding to a static attribute 
   const errorMessage = ngDevMode && `Angular has detected that the \`${attributeName}\` was applied as a binding to the <${displayTagName}> element${tNode ? getTemplateLocationDetails(lView) : ""}. For security reasons, the \`${attributeName}\` can be set on the <${displayTagName}> element as a static attribute only. 
 To fix this, switch the \`${attributeName}\` binding to a static attribute in a template or in host bindings section.`;
   throw new RuntimeError(-910, errorMessage);
+}
+function getSecuritySensitiveSVGAnimationAttributeName(element, validationConfig) {
+  for (const attributeName of SVG_ANIMATION_ATTRIBUTE_NAME_CANDIDATES) {
+    const attributeNameValue = element.getAttribute(attributeName);
+    if (attributeNameValue !== null && validationConfig.has(attributeNameValue.toLowerCase())) {
+      return attributeNameValue;
+    }
+  }
+  return null;
 }
 var NG_REFLECT_ATTRS_FLAG_DEFAULT = false;
 var NG_REFLECT_ATTRS_FLAG = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "NG_REFLECT_FLAG" : "", {
@@ -8983,189 +9021,6 @@ function extractAttrsAndClassesFromSelector(selector) {
 var NO_CHANGE = typeof ngDevMode === "undefined" || ngDevMode ? {
   __brand__: "NO_CHANGE"
 } : {};
-function createTView(type, declTNode, templateFn, decls, vars, directives, pipes, viewQuery, schemas, constsOrFactory, ssrId) {
-  const bindingStartIndex = HEADER_OFFSET + decls;
-  const initialViewLength = bindingStartIndex + vars;
-  const blueprint = createViewBlueprint(bindingStartIndex, initialViewLength);
-  const consts = typeof constsOrFactory === "function" ? constsOrFactory() : constsOrFactory;
-  const tView = blueprint[TVIEW] = {
-    type,
-    blueprint,
-    template: templateFn,
-    queries: null,
-    viewQuery,
-    declTNode,
-    data: blueprint.slice().fill(null, bindingStartIndex),
-    bindingStartIndex,
-    expandoStartIndex: initialViewLength,
-    hostBindingOpCodes: null,
-    firstCreatePass: true,
-    firstUpdatePass: true,
-    staticViewQueries: false,
-    staticContentQueries: false,
-    preOrderHooks: null,
-    preOrderCheckHooks: null,
-    contentHooks: null,
-    contentCheckHooks: null,
-    viewHooks: null,
-    viewCheckHooks: null,
-    destroyHooks: null,
-    cleanup: null,
-    contentQueries: null,
-    components: null,
-    directiveRegistry: typeof directives === "function" ? directives() : directives,
-    pipeRegistry: typeof pipes === "function" ? pipes() : pipes,
-    firstChild: null,
-    schemas,
-    consts,
-    incompleteFirstPass: false,
-    ssrId
-  };
-  if (ngDevMode) {
-    Object.seal(tView);
-  }
-  return tView;
-}
-function createViewBlueprint(bindingStartIndex, initialViewLength) {
-  const blueprint = [];
-  for (let i = 0; i < initialViewLength; i++) {
-    blueprint.push(i < bindingStartIndex ? null : NO_CHANGE);
-  }
-  return blueprint;
-}
-function getOrCreateComponentTView(def) {
-  const tView = def.tView;
-  if (tView === null || tView.incompleteFirstPass) {
-    const declTNode = null;
-    return def.tView = createTView(1, declTNode, def.template, def.decls, def.vars, def.directiveDefs, def.pipeDefs, def.viewQuery, def.schemas, def.consts, def.id);
-  }
-  return tView;
-}
-function createLView(parentLView, tView, context2, flags, host, tHostNode, environment2, renderer, injector, embeddedViewInjector, hydrationInfo) {
-  const lView = tView.blueprint.slice();
-  lView[HOST] = host;
-  lView[FLAGS] = flags | 4 | 128 | 8 | 64 | 1024;
-  if (embeddedViewInjector !== null || parentLView && parentLView[FLAGS] & 2048) {
-    lView[FLAGS] |= 2048;
-  }
-  resetPreOrderHookFlags(lView);
-  ngDevMode && tView.declTNode && parentLView && assertTNodeForLView(tView.declTNode, parentLView);
-  lView[PARENT] = lView[DECLARATION_VIEW] = parentLView;
-  lView[CONTEXT] = context2;
-  lView[ENVIRONMENT] = environment2 || parentLView && parentLView[ENVIRONMENT];
-  ngDevMode && assertDefined(lView[ENVIRONMENT], "LViewEnvironment is required");
-  lView[RENDERER] = renderer || parentLView && parentLView[RENDERER];
-  ngDevMode && assertDefined(lView[RENDERER], "Renderer is required");
-  lView[INJECTOR] = injector || parentLView && parentLView[INJECTOR] || null;
-  lView[T_HOST] = tHostNode;
-  lView[ID] = getUniqueLViewId();
-  lView[HYDRATION] = hydrationInfo;
-  lView[EMBEDDED_VIEW_INJECTOR] = embeddedViewInjector;
-  ngDevMode && assertEqual(tView.type == 2 ? parentLView !== null : true, true, "Embedded views must have parentLView");
-  lView[DECLARATION_COMPONENT_VIEW] = tView.type == 2 ? parentLView[DECLARATION_COMPONENT_VIEW] : lView;
-  return lView;
-}
-function createComponentLView(lView, hostTNode, def) {
-  const native = getNativeByTNode(hostTNode, lView);
-  const tView = getOrCreateComponentTView(def);
-  const rendererFactory = lView[ENVIRONMENT].rendererFactory;
-  const componentView = addToEndOfViewTree(lView, createLView(lView, tView, null, getInitialLViewFlagsFromDef(def), native, hostTNode, null, rendererFactory.createRenderer(native, def), null, null, null));
-  return lView[hostTNode.index] = componentView;
-}
-function getInitialLViewFlagsFromDef(def) {
-  let flags = 16;
-  if (def.signals) {
-    flags = 4096;
-  } else if (def.onPush) {
-    flags = 64;
-  }
-  return flags;
-}
-function allocExpando(tView, lView, numSlotsToAlloc, initialValue) {
-  if (numSlotsToAlloc === 0) return -1;
-  if (ngDevMode) {
-    assertFirstCreatePass(tView);
-    assertSame(tView, lView[TVIEW], "`LView` must be associated with `TView`!");
-    assertEqual(tView.data.length, lView.length, "Expecting LView to be same size as TView");
-    assertEqual(tView.data.length, tView.blueprint.length, "Expecting Blueprint to be same size as TView");
-    assertFirstUpdatePass(tView);
-  }
-  const allocIdx = lView.length;
-  for (let i = 0; i < numSlotsToAlloc; i++) {
-    lView.push(initialValue);
-    tView.blueprint.push(initialValue);
-    tView.data.push(null);
-  }
-  return allocIdx;
-}
-function addToEndOfViewTree(lView, lViewOrLContainer) {
-  if (lView[CHILD_HEAD]) {
-    lView[CHILD_TAIL][NEXT] = lViewOrLContainer;
-  } else {
-    lView[CHILD_HEAD] = lViewOrLContainer;
-  }
-  lView[CHILD_TAIL] = lViewOrLContainer;
-  return lViewOrLContainer;
-}
-function \u0275\u0275advance(delta = 1) {
-  ngDevMode && assertGreaterThan(delta, 0, "Can only advance forward");
-  selectIndexInternal(getTView(), getLView(), getSelectedIndex() + delta, !!ngDevMode && isInCheckNoChangesMode());
-}
-function selectIndexInternal(tView, lView, index, checkNoChangesMode) {
-  ngDevMode && assertIndexInDeclRange(lView[TVIEW], index);
-  if (!checkNoChangesMode) {
-    const hooksInitPhaseCompleted = (lView[FLAGS] & 3) === 3;
-    if (hooksInitPhaseCompleted) {
-      const preOrderCheckHooks = tView.preOrderCheckHooks;
-      if (preOrderCheckHooks !== null) {
-        executeCheckHooks(lView, preOrderCheckHooks, index);
-      }
-    } else {
-      const preOrderHooks = tView.preOrderHooks;
-      if (preOrderHooks !== null) {
-        executeInitAndCheckHooks(lView, preOrderHooks, 0, index);
-      }
-    }
-  }
-  setSelectedIndex(index);
-}
-var InputFlags;
-(function(InputFlags2) {
-  InputFlags2[InputFlags2["None"] = 0] = "None";
-  InputFlags2[InputFlags2["SignalBased"] = 1] = "SignalBased";
-  InputFlags2[InputFlags2["HasDecoratorInputTransform"] = 2] = "HasDecoratorInputTransform";
-})(InputFlags || (InputFlags = {}));
-function writeToDirectiveInput(def, instance, publicName, value) {
-  const prevConsumer = setActiveConsumer(null);
-  try {
-    if (ngDevMode) {
-      if (!def.inputs.hasOwnProperty(publicName)) {
-        throw new Error(`ASSERTION ERROR: Directive ${def.type.name} does not have an input with a public name of "${publicName}"`);
-      }
-      if (instance instanceof NodeInjectorFactory) {
-        throw new Error(`ASSERTION ERROR: Cannot write input to factory for type ${def.type.name}. Directive has not been created yet.`);
-      }
-    }
-    const [privateName, flags, transform] = def.inputs[publicName];
-    let inputSignalNode = null;
-    if ((flags & InputFlags.SignalBased) !== 0) {
-      const field = instance[privateName];
-      inputSignalNode = field[SIGNAL];
-    }
-    if (inputSignalNode !== null && inputSignalNode.transformFn !== void 0) {
-      value = inputSignalNode.transformFn(value);
-    } else if (transform !== null) {
-      value = transform.call(instance, value);
-    }
-    if (def.setInput !== null) {
-      def.setInput(instance, inputSignalNode, value, publicName, privateName);
-    } else {
-      applyValueToInputField(instance, inputSignalNode, privateName, value);
-    }
-  } finally {
-    setActiveConsumer(prevConsumer);
-  }
-}
 var RendererStyleFlags2;
 (function(RendererStyleFlags22) {
   RendererStyleFlags22[RendererStyleFlags22["Important"] = 1] = "Important";
@@ -9234,24 +9089,32 @@ var noOpAnimationComplete = () => {
 var enterClassMap = /* @__PURE__ */ new WeakMap();
 var longestAnimations = /* @__PURE__ */ new WeakMap();
 var leavingNodes = /* @__PURE__ */ new WeakMap();
+function getDeclarationView(lView) {
+  if (!lView) return null;
+  return lView[DECLARATION_VIEW] ?? lView;
+}
 var reusedNodes = /* @__PURE__ */ new WeakSet();
 function clearLeavingNodes(tNode, el) {
   const nodes = leavingNodes.get(tNode);
   if (nodes && nodes.length > 0) {
-    const ix = nodes.findIndex((node) => node === el);
+    const ix = nodes.findIndex((node) => node.el === el);
     if (ix > -1) nodes.splice(ix, 1);
   }
   if (nodes?.length === 0) {
     leavingNodes.delete(tNode);
   }
 }
-function cancelLeavingNodes(tNode, newElement) {
+function cancelLeavingNodes(tNode, newElement, newLView) {
   const nodes = leavingNodes.get(tNode);
   if (!nodes || nodes.length === 0) return;
   const newParent = newElement.parentNode;
   const prevSibling = newElement.previousSibling;
+  const newDeclarationView = getDeclarationView(newLView);
   for (let i = nodes.length - 1; i >= 0; i--) {
-    const leavingEl = nodes[i];
+    const {
+      el: leavingEl,
+      declarationView: leavingDeclarationView
+    } = nodes[i];
     const leavingParent = leavingEl.parentNode;
     if (leavingEl === newElement) {
       nodes.splice(i, 1);
@@ -9261,7 +9124,7 @@ function cancelLeavingNodes(tNode, newElement) {
           cancel: true
         }
       }));
-    } else if (prevSibling && leavingEl === prevSibling || leavingParent && newParent && leavingParent !== newParent) {
+    } else if (prevSibling && leavingEl === prevSibling) {
       nodes.splice(i, 1);
       leavingEl.dispatchEvent(new CustomEvent("animationend", {
         detail: {
@@ -9269,17 +9132,35 @@ function cancelLeavingNodes(tNode, newElement) {
         }
       }));
       leavingEl.parentNode?.removeChild(leavingEl);
+    } else if (leavingParent && newParent && leavingParent !== newParent) {
+      const sameLogicalView = newDeclarationView === null || leavingDeclarationView === null || newDeclarationView === leavingDeclarationView;
+      if (sameLogicalView) {
+        nodes.splice(i, 1);
+        leavingEl.dispatchEvent(new CustomEvent("animationend", {
+          detail: {
+            cancel: true
+          }
+        }));
+        leavingEl.parentNode?.removeChild(leavingEl);
+      }
     }
   }
 }
-function trackLeavingNodes(tNode, el) {
+function trackLeavingNodes(tNode, el, lView) {
+  const declarationView = getDeclarationView(lView);
   const nodes = leavingNodes.get(tNode);
   if (nodes) {
-    if (!nodes.includes(el)) {
-      nodes.push(el);
+    if (!nodes.some((node) => node.el === el)) {
+      nodes.push({
+        el,
+        declarationView
+      });
     }
   } else {
-    leavingNodes.set(tNode, [el]);
+    leavingNodes.set(tNode, [{
+      el,
+      declarationView
+    }]);
   }
 }
 function getLViewEnterAnimations(lView) {
@@ -9881,10 +9762,10 @@ function applyToElementOrContainer(action, renderer, injector, parent, lNodeToHa
     } else if (action === 1 && parent !== null) {
       maybeQueueEnterAnimation(parentLView, parent, tNode, injector);
       nativeInsertBefore(renderer, parent, rNode, beforeNode || null, true);
-      cancelLeavingNodes(tNode, rNode);
+      cancelLeavingNodes(tNode, rNode, parentLView);
     } else if (action === 2) {
       if (parentLView?.[ANIMATIONS]?.leave?.has(tNode.index)) {
-        trackLeavingNodes(tNode, rNode);
+        trackLeavingNodes(tNode, rNode, parentLView);
       }
       reusedNodes.delete(rNode);
       runLeaveAnimationsWithCallback(parentLView, tNode, injector, (nodeHasLeaveAnimations) => {
@@ -10286,6 +10167,189 @@ function applyStyling(renderer, isClassBased, rNode, prop, value) {
     }
   }
 }
+function createTView(type, declTNode, templateFn, decls, vars, directives, pipes, viewQuery, schemas, constsOrFactory, ssrId) {
+  const bindingStartIndex = HEADER_OFFSET + decls;
+  const initialViewLength = bindingStartIndex + vars;
+  const blueprint = createViewBlueprint(bindingStartIndex, initialViewLength);
+  const consts = typeof constsOrFactory === "function" ? constsOrFactory() : constsOrFactory;
+  const tView = blueprint[TVIEW] = {
+    type,
+    blueprint,
+    template: templateFn,
+    queries: null,
+    viewQuery,
+    declTNode,
+    data: blueprint.slice().fill(null, bindingStartIndex),
+    bindingStartIndex,
+    expandoStartIndex: initialViewLength,
+    hostBindingOpCodes: null,
+    firstCreatePass: true,
+    firstUpdatePass: true,
+    staticViewQueries: false,
+    staticContentQueries: false,
+    preOrderHooks: null,
+    preOrderCheckHooks: null,
+    contentHooks: null,
+    contentCheckHooks: null,
+    viewHooks: null,
+    viewCheckHooks: null,
+    destroyHooks: null,
+    cleanup: null,
+    contentQueries: null,
+    components: null,
+    directiveRegistry: typeof directives === "function" ? directives() : directives,
+    pipeRegistry: typeof pipes === "function" ? pipes() : pipes,
+    firstChild: null,
+    schemas,
+    consts,
+    incompleteFirstPass: false,
+    ssrId
+  };
+  if (ngDevMode) {
+    Object.seal(tView);
+  }
+  return tView;
+}
+function createViewBlueprint(bindingStartIndex, initialViewLength) {
+  const blueprint = [];
+  for (let i = 0; i < initialViewLength; i++) {
+    blueprint.push(i < bindingStartIndex ? null : NO_CHANGE);
+  }
+  return blueprint;
+}
+function getOrCreateComponentTView(def) {
+  const tView = def.tView;
+  if (tView === null || tView.incompleteFirstPass) {
+    const declTNode = null;
+    return def.tView = createTView(1, declTNode, def.template, def.decls, def.vars, def.directiveDefs, def.pipeDefs, def.viewQuery, def.schemas, def.consts, def.id);
+  }
+  return tView;
+}
+function createLView(parentLView, tView, context2, flags, host, tHostNode, environment2, renderer, injector, embeddedViewInjector, hydrationInfo) {
+  const lView = tView.blueprint.slice();
+  lView[HOST] = host;
+  lView[FLAGS] = flags | 4 | 128 | 8 | 64 | 1024;
+  if (embeddedViewInjector !== null || parentLView && parentLView[FLAGS] & 2048) {
+    lView[FLAGS] |= 2048;
+  }
+  resetPreOrderHookFlags(lView);
+  ngDevMode && tView.declTNode && parentLView && assertTNodeForLView(tView.declTNode, parentLView);
+  lView[PARENT] = lView[DECLARATION_VIEW] = parentLView;
+  lView[CONTEXT] = context2;
+  lView[ENVIRONMENT] = environment2 || parentLView && parentLView[ENVIRONMENT];
+  ngDevMode && assertDefined(lView[ENVIRONMENT], "LViewEnvironment is required");
+  lView[RENDERER] = renderer || parentLView && parentLView[RENDERER];
+  ngDevMode && assertDefined(lView[RENDERER], "Renderer is required");
+  lView[INJECTOR] = injector || parentLView && parentLView[INJECTOR] || null;
+  lView[T_HOST] = tHostNode;
+  lView[ID] = getUniqueLViewId();
+  lView[HYDRATION] = hydrationInfo;
+  lView[EMBEDDED_VIEW_INJECTOR] = embeddedViewInjector;
+  ngDevMode && assertEqual(tView.type == 2 ? parentLView !== null : true, true, "Embedded views must have parentLView");
+  lView[DECLARATION_COMPONENT_VIEW] = tView.type == 2 ? parentLView[DECLARATION_COMPONENT_VIEW] : lView;
+  return lView;
+}
+function createComponentLView(lView, hostTNode, def) {
+  const native = getNativeByTNode(hostTNode, lView);
+  const tView = getOrCreateComponentTView(def);
+  const rendererFactory = lView[ENVIRONMENT].rendererFactory;
+  const componentView = addToEndOfViewTree(lView, createLView(lView, tView, null, getInitialLViewFlagsFromDef(def), native, hostTNode, null, rendererFactory.createRenderer(native, def), null, null, null));
+  return lView[hostTNode.index] = componentView;
+}
+function getInitialLViewFlagsFromDef(def) {
+  let flags = 16;
+  if (def.signals) {
+    flags = 4096;
+  } else if (def.onPush) {
+    flags = 64;
+  }
+  return flags;
+}
+function allocExpando(tView, lView, numSlotsToAlloc, initialValue) {
+  if (numSlotsToAlloc === 0) return -1;
+  if (ngDevMode) {
+    assertFirstCreatePass(tView);
+    assertSame(tView, lView[TVIEW], "`LView` must be associated with `TView`!");
+    assertEqual(tView.data.length, lView.length, "Expecting LView to be same size as TView");
+    assertEqual(tView.data.length, tView.blueprint.length, "Expecting Blueprint to be same size as TView");
+    assertFirstUpdatePass(tView);
+  }
+  const allocIdx = lView.length;
+  for (let i = 0; i < numSlotsToAlloc; i++) {
+    lView.push(initialValue);
+    tView.blueprint.push(initialValue);
+    tView.data.push(null);
+  }
+  return allocIdx;
+}
+function addToEndOfViewTree(lView, lViewOrLContainer) {
+  if (lView[CHILD_HEAD]) {
+    lView[CHILD_TAIL][NEXT] = lViewOrLContainer;
+  } else {
+    lView[CHILD_HEAD] = lViewOrLContainer;
+  }
+  lView[CHILD_TAIL] = lViewOrLContainer;
+  return lViewOrLContainer;
+}
+function \u0275\u0275advance(delta = 1) {
+  ngDevMode && assertGreaterThan(delta, 0, "Can only advance forward");
+  selectIndexInternal(getTView(), getLView(), getSelectedIndex() + delta, !!ngDevMode && isInCheckNoChangesMode());
+}
+function selectIndexInternal(tView, lView, index, checkNoChangesMode) {
+  ngDevMode && assertIndexInDeclRange(lView[TVIEW], index);
+  if (!checkNoChangesMode) {
+    const hooksInitPhaseCompleted = (lView[FLAGS] & 3) === 3;
+    if (hooksInitPhaseCompleted) {
+      const preOrderCheckHooks = tView.preOrderCheckHooks;
+      if (preOrderCheckHooks !== null) {
+        executeCheckHooks(lView, preOrderCheckHooks, index);
+      }
+    } else {
+      const preOrderHooks = tView.preOrderHooks;
+      if (preOrderHooks !== null) {
+        executeInitAndCheckHooks(lView, preOrderHooks, 0, index);
+      }
+    }
+  }
+  setSelectedIndex(index);
+}
+var InputFlags;
+(function(InputFlags2) {
+  InputFlags2[InputFlags2["None"] = 0] = "None";
+  InputFlags2[InputFlags2["SignalBased"] = 1] = "SignalBased";
+  InputFlags2[InputFlags2["HasDecoratorInputTransform"] = 2] = "HasDecoratorInputTransform";
+})(InputFlags || (InputFlags = {}));
+function writeToDirectiveInput(def, instance, publicName, value) {
+  const prevConsumer = setActiveConsumer(null);
+  try {
+    if (ngDevMode) {
+      if (!def.inputs.hasOwnProperty(publicName)) {
+        throw new Error(`ASSERTION ERROR: Directive ${def.type.name} does not have an input with a public name of "${publicName}"`);
+      }
+      if (instance instanceof NodeInjectorFactory) {
+        throw new Error(`ASSERTION ERROR: Cannot write input to factory for type ${def.type.name}. Directive has not been created yet.`);
+      }
+    }
+    const [privateName, flags, transform] = def.inputs[publicName];
+    let inputSignalNode = null;
+    if ((flags & InputFlags.SignalBased) !== 0) {
+      const field = instance[privateName];
+      inputSignalNode = field[SIGNAL];
+    }
+    if (inputSignalNode !== null && inputSignalNode.transformFn !== void 0) {
+      value = inputSignalNode.transformFn(value);
+    } else if (transform !== null) {
+      value = transform.call(instance, value);
+    }
+    if (def.setInput !== null) {
+      def.setInput(instance, inputSignalNode, value, publicName, privateName);
+    } else {
+      applyValueToInputField(instance, inputSignalNode, privateName, value);
+    }
+  } finally {
+    setActiveConsumer(prevConsumer);
+  }
+}
 function executeTemplate(tView, lView, templateFn, rf, context2) {
   const prevSelectedIndex = getSelectedIndex();
   const isUpdatePhase = rf & 2;
@@ -10512,6 +10576,9 @@ function elementAttributeInternal(tNode, lView, name, value, sanitizer, namespac
 }
 function setElementAttribute(renderer, element, namespace, tagName, name, value, sanitizer) {
   if (value == null) {
+    if (sanitizer != null) {
+      sanitizer(value, tagName || "", name);
+    }
     renderer.removeAttribute(element, name, namespace);
   } else {
     const strValue = sanitizer == null ? renderStringify(value) : sanitizer(value, tagName || "", name);
@@ -13244,7 +13311,7 @@ var ComponentFactory = class {
   }
 };
 function createRootTView(rootSelectorOrNode, componentDef, componentBindings, directives) {
-  const tAttributes = rootSelectorOrNode ? ["ng-version", "22.0.0"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
+  const tAttributes = rootSelectorOrNode ? ["ng-version", "22.0.2"] : extractAttrsAndClassesFromSelector(componentDef.selectors[0]);
   let creationBindings = null;
   let updateBindings = null;
   let varsToAllocate = 0;
@@ -16215,7 +16282,7 @@ var counter = 0;
 var eventsStack = [];
 function getBaseDocUrl() {
   const full = VERSION.full;
-  const isPreRelease = full.includes("-next") || full.includes("-rc") || full === "22.0.0";
+  const isPreRelease = full.includes("-next") || full.includes("-rc") || full === "22.0.2";
   const prefix = isPreRelease ? "next" : `v${VERSION.major}`;
   return `https://${prefix}.angular.dev`;
 }
@@ -18830,35 +18897,38 @@ function getLocalePluralCase(locale) {
 }
 function getLocaleData(normalizedLocale) {
   if (!(normalizedLocale in LOCALE_DATA)) {
-    LOCALE_DATA[normalizedLocale] = _global.ng && _global.ng.common && _global.ng.common.locales && _global.ng.common.locales[normalizedLocale];
+    const globalLocaleData = _global.ng && _global.ng.common && _global.ng.common.locales && _global.ng.common.locales[normalizedLocale];
+    if (globalLocaleData !== void 0) {
+      LOCALE_DATA[normalizedLocale] = globalLocaleData;
+    }
+    return globalLocaleData;
   }
   return LOCALE_DATA[normalizedLocale];
 }
-var LocaleDataIndex;
-(function(LocaleDataIndex2) {
-  LocaleDataIndex2[LocaleDataIndex2["LocaleId"] = 0] = "LocaleId";
-  LocaleDataIndex2[LocaleDataIndex2["DayPeriodsFormat"] = 1] = "DayPeriodsFormat";
-  LocaleDataIndex2[LocaleDataIndex2["DayPeriodsStandalone"] = 2] = "DayPeriodsStandalone";
-  LocaleDataIndex2[LocaleDataIndex2["DaysFormat"] = 3] = "DaysFormat";
-  LocaleDataIndex2[LocaleDataIndex2["DaysStandalone"] = 4] = "DaysStandalone";
-  LocaleDataIndex2[LocaleDataIndex2["MonthsFormat"] = 5] = "MonthsFormat";
-  LocaleDataIndex2[LocaleDataIndex2["MonthsStandalone"] = 6] = "MonthsStandalone";
-  LocaleDataIndex2[LocaleDataIndex2["Eras"] = 7] = "Eras";
-  LocaleDataIndex2[LocaleDataIndex2["FirstDayOfWeek"] = 8] = "FirstDayOfWeek";
-  LocaleDataIndex2[LocaleDataIndex2["WeekendRange"] = 9] = "WeekendRange";
-  LocaleDataIndex2[LocaleDataIndex2["DateFormat"] = 10] = "DateFormat";
-  LocaleDataIndex2[LocaleDataIndex2["TimeFormat"] = 11] = "TimeFormat";
-  LocaleDataIndex2[LocaleDataIndex2["DateTimeFormat"] = 12] = "DateTimeFormat";
-  LocaleDataIndex2[LocaleDataIndex2["NumberSymbols"] = 13] = "NumberSymbols";
-  LocaleDataIndex2[LocaleDataIndex2["NumberFormats"] = 14] = "NumberFormats";
-  LocaleDataIndex2[LocaleDataIndex2["CurrencyCode"] = 15] = "CurrencyCode";
-  LocaleDataIndex2[LocaleDataIndex2["CurrencySymbol"] = 16] = "CurrencySymbol";
-  LocaleDataIndex2[LocaleDataIndex2["CurrencyName"] = 17] = "CurrencyName";
-  LocaleDataIndex2[LocaleDataIndex2["Currencies"] = 18] = "Currencies";
-  LocaleDataIndex2[LocaleDataIndex2["Directionality"] = 19] = "Directionality";
-  LocaleDataIndex2[LocaleDataIndex2["PluralCase"] = 20] = "PluralCase";
-  LocaleDataIndex2[LocaleDataIndex2["ExtraData"] = 21] = "ExtraData";
-})(LocaleDataIndex || (LocaleDataIndex = {}));
+var LocaleDataIndex = {
+  LocaleId: 0,
+  DayPeriodsFormat: 1,
+  DayPeriodsStandalone: 2,
+  DaysFormat: 3,
+  DaysStandalone: 4,
+  MonthsFormat: 5,
+  MonthsStandalone: 6,
+  Eras: 7,
+  FirstDayOfWeek: 8,
+  WeekendRange: 9,
+  DateFormat: 10,
+  TimeFormat: 11,
+  DateTimeFormat: 12,
+  NumberSymbols: 13,
+  NumberFormats: 14,
+  CurrencyCode: 15,
+  CurrencySymbol: 16,
+  CurrencyName: 17,
+  Currencies: 18,
+  Directionality: 19,
+  PluralCase: 20,
+  ExtraData: 21
+};
 function normalizeLocale(locale) {
   return locale.toLowerCase().replace(/_/g, "-");
 }
@@ -19782,16 +19852,14 @@ function splitNsName(elementName, fatal = true) {
   }
   return [elementName.slice(1, colonIndex), elementName.slice(colonIndex + 1)];
 }
-function normalizeTagName(tagName) {
-  const tagNameLower = tagName.toLowerCase();
-  const [ns, name] = splitNsName(tagNameLower, false);
-  return ns === SVG_NAMESPACE || ns === MATH_ML_NAMESPACE ? `:${ns}:${name}` : name;
-}
 function i18nResolveSanitizer(attrName, tagName) {
-  const lowerAttrName = attrName.toLowerCase();
-  const lowerTagName = tagName ? normalizeTagName(tagName) : "*";
-  const schema = SECURITY_SCHEMA();
-  const schemaContext = schema[`${lowerTagName}|${lowerAttrName}`] || schema[`*|${lowerAttrName}`] || SecurityContext.NONE;
+  let schemaContext;
+  if (tagName) {
+    const [ns, name] = splitNsName(tagName, false);
+    schemaContext = checkSecurityContext(name, attrName, ns);
+  } else {
+    schemaContext = checkSecurityContext("*", attrName);
+  }
   switch (schemaContext) {
     case SecurityContext.HTML:
       return \u0275\u0275sanitizeHtml;
@@ -20534,7 +20602,7 @@ function toStylingKeyValueArray(keyValueArraySet2, stringParser, value) {
     }
   } else if (typeof unwrappedValue === "object") {
     for (const key in unwrappedValue) {
-      if (unwrappedValue.hasOwnProperty(key)) {
+      if (Object.hasOwn(unwrappedValue, key)) {
         keyValueArraySet2(styleKeyValueArray, key, unwrappedValue[key]);
       }
     }
@@ -22690,7 +22758,7 @@ var MissingTranslationStrategy;
 
 // node_modules/@angular/core/fesm2022/_resource-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -22700,6 +22768,8 @@ var OutputEmitterRef = class {
   errorHandler = inject2(ErrorHandler, {
     optional: true
   });
+  isEmitting = false;
+  hasNullListeners = false;
   destroyRef = inject2(DestroyRef);
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -22714,9 +22784,14 @@ var OutputEmitterRef = class {
     (this.listeners ??= []).push(callback);
     return {
       unsubscribe: () => {
-        const idx = this.listeners?.indexOf(callback);
-        if (idx !== void 0 && idx !== -1) {
-          this.listeners?.splice(idx, 1);
+        const index = this.listeners ? this.listeners.indexOf(callback) : -1;
+        if (index > -1) {
+          if (this.isEmitting) {
+            this.hasNullListeners = true;
+            this.listeners[index] = null;
+          } else {
+            this.listeners.splice(index, 1);
+          }
         }
       }
     };
@@ -22729,20 +22804,37 @@ var OutputEmitterRef = class {
     if (this.listeners === null) {
       return;
     }
+    this.isEmitting = true;
     const previousConsumer = setActiveConsumer(null);
     try {
       for (const listenerFn of this.listeners) {
         try {
-          listenerFn(value);
+          if (listenerFn !== null) {
+            listenerFn(value);
+          }
         } catch (err) {
           this.errorHandler?.handleError(err);
         }
       }
     } finally {
+      if (this.hasNullListeners) {
+        this.hasNullListeners = false;
+        this.listeners && removeNullValues(this.listeners);
+      }
       setActiveConsumer(previousConsumer);
+      this.isEmitting = false;
     }
   }
 };
+function removeNullValues(arr) {
+  let i = arr.length - 1;
+  while (i > -1) {
+    if (arr[i] === null) {
+      arr.splice(i, 1);
+    }
+    i--;
+  }
+}
 var CACHE_ACTIVE = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "STATE_CACHE_ACTIVE" : "");
 function computed(computation, options) {
   const getter = createComputed(computation, options?.equal);
@@ -23183,7 +23275,7 @@ function rethrowFatalErrors(error) {
 
 // node_modules/@angular/core/fesm2022/core.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -24986,7 +25078,7 @@ function enableProdMode() {
 
 // node_modules/@angular/common/fesm2022/_platform_location-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -25107,7 +25199,7 @@ var BrowserPlatformLocation = class _BrowserPlatformLocation extends PlatformLoc
 
 // node_modules/@angular/common/fesm2022/_location-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -25417,7 +25509,7 @@ function _stripOrigin(baseHref) {
 
 // node_modules/@angular/common/fesm2022/_common_module-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -25817,8 +25909,10 @@ function getNumberOfCurrencyDigits(code) {
 var ISO8601_DATE_REGEX = /^(\d{4,})-?(\d\d)-?(\d\d)(?:T(\d\d)(?::?(\d\d)(?::?(\d\d)(?:\.(\d+))?)?)?(Z|([+-])(\d\d):?(\d\d))?)?$/;
 var NAMED_FORMATS = {};
 var DATE_FORMATS_SPLIT = /((?:[^BEGHLMOSWYZabcdhmswyz']+)|(?:'(?:[^']|'')*')|(?:G{1,5}|y{1,4}|Y{1,4}|M{1,5}|L{1,5}|w{1,2}|W{1}|d{1,2}|E{1,6}|c{1,6}|a{1,5}|b{1,5}|B{1,5}|h{1,2}|H{1,2}|m{1,2}|s{1,2}|S{1,3}|z{1,4}|Z{1,5}|O{1,4}))([\s\S]*)/;
+var MAX_DATE_FORMAT_LENGTH = 256;
 function formatDate(value, format, locale, timezone) {
   let date = toDate(value);
+  assertValidDateFormatLength(format);
   const namedFormat = getNamedFormat(locale, format);
   format = namedFormat || format;
   let parts = [];
@@ -25851,6 +25945,11 @@ function formatDate(value, format, locale, timezone) {
     text += dateFormatter ? dateFormatter(date, locale, dateTimezoneOffset) : value2 === "''" ? "'" : value2.replace(/(^'|'$)/g, "").replace(/''/g, "'");
   });
   return text;
+}
+function assertValidDateFormatLength(format) {
+  if (format.length > MAX_DATE_FORMAT_LENGTH) {
+    throw new RuntimeError(2300, ngDevMode && `Date format is too long. Exceeded maximum length of ${MAX_DATE_FORMAT_LENGTH} characters.`);
+  }
 }
 function assertValidDateFormat(parts) {
   if (parts.some((part) => /^Y+$/.test(part)) && !parts.some((part) => /^w+$/.test(part))) {
@@ -25929,7 +26028,7 @@ function getNamedFormat(locale, format) {
 function formatDateTime(str, opt_values) {
   if (opt_values) {
     str = str.replace(/\{([^}]+)}/g, function(match2, key) {
-      return opt_values != null && key in opt_values ? opt_values[key] : match2;
+      return Object.hasOwn(opt_values, key) ? opt_values[key] : match2;
     });
   }
   return str;
@@ -28226,7 +28325,7 @@ var CommonModule = class _CommonModule {
 
 // node_modules/@angular/common/fesm2022/_platform_navigation-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -28257,7 +28356,7 @@ var PlatformNavigation = class _PlatformNavigation {
 
 // node_modules/@angular/common/fesm2022/_xhr-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -28319,7 +28418,7 @@ var XhrFactory = class _XhrFactory {
 
 // node_modules/@angular/common/fesm2022/common.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -28456,7 +28555,7 @@ function findAnchorFromDocument(document2, target) {
     while (currentNode) {
       const shadowRoot = currentNode.shadowRoot;
       if (shadowRoot) {
-        const result = shadowRoot.getElementById(target) || shadowRoot.querySelector(`[name="${target}"]`);
+        const result = shadowRoot.getElementById(target) || shadowRoot.querySelector(`[name="${CSS.escape(target)}"]`);
         if (result) {
           return result;
         }
@@ -28493,6 +28592,9 @@ function normalizePath(path) {
 }
 function normalizeSrc(src) {
   return src.startsWith("/") ? src.slice(1) : src;
+}
+function escapeCssUrl(input2) {
+  return input2.replace(/\\/g, "\\\\").replace(/[\n\r\f\0]/g, "").replace(/"/g, '\\"');
 }
 var noopImageLoader = (config2) => config2.src;
 var IMAGE_LOADER = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "ImageLoader" : "", {
@@ -29587,9 +29689,6 @@ function unwrapSafeUrl(value) {
   }
   return unwrapSafeValue(value);
 }
-function escapeCssUrl(input2) {
-  return input2.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
-}
 function booleanOrUrlAttribute(value) {
   if (typeof value === "string" && value !== "true" && value !== "false" && value !== "") {
     return value;
@@ -29599,7 +29698,7 @@ function booleanOrUrlAttribute(value) {
 
 // node_modules/@angular/platform-browser/fesm2022/_dom_renderer-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -30305,7 +30404,7 @@ var EmulatedEncapsulationDomRenderer2 = class extends NoneEncapsulationDomRender
 
 // node_modules/@angular/platform-browser/fesm2022/_browser-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -30638,7 +30737,7 @@ var BrowserModule = class _BrowserModule {
 
 // node_modules/@angular/common/fesm2022/_module-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -31122,7 +31221,7 @@ var HttpRequest = class _HttpRequest {
       if (options.integrity) {
         this.integrity = options.integrity;
       }
-      if (options.referrer) {
+      if (options.referrer !== void 0) {
         this.referrer = options.referrer;
       }
       if (options.referrerPolicy) {
@@ -31140,9 +31239,16 @@ var HttpRequest = class _HttpRequest {
       if (params.length === 0) {
         this.urlWithParams = url;
       } else {
-        const qIdx = url.indexOf("?");
-        const sep = qIdx === -1 ? "?" : qIdx < url.length - 1 ? "&" : "";
-        this.urlWithParams = url + sep + params;
+        let urlWithoutFragment = url;
+        let fragment = "";
+        const hashIdx = url.indexOf("#");
+        if (hashIdx !== -1) {
+          fragment = url.substring(hashIdx);
+          urlWithoutFragment = url.substring(0, hashIdx);
+        }
+        const qIdx = urlWithoutFragment.indexOf("?");
+        const sep = qIdx === -1 ? "?" : qIdx < urlWithoutFragment.length - 1 ? "&" : "";
+        this.urlWithParams = urlWithoutFragment + sep + params + fragment;
       }
     }
   }
@@ -31195,7 +31301,7 @@ var HttpRequest = class _HttpRequest {
     const mode = update.mode || this.mode;
     const redirect = update.redirect || this.redirect;
     const credentials = update.credentials || this.credentials;
-    const referrer = update.referrer || this.referrer;
+    const referrer = update.referrer ?? this.referrer;
     const integrity = update.integrity || this.integrity;
     const referrerPolicy = update.referrerPolicy || this.referrerPolicy;
     const transferCache = update.transferCache ?? this.transferCache;
@@ -31790,27 +31896,9 @@ var HttpHandler = class _HttpHandler {
   }], null, null);
 })();
 function addBody(options, body) {
-  return {
-    body,
-    headers: options.headers,
-    context: options.context,
-    observe: options.observe,
-    params: options.params,
-    reportProgress: options.reportProgress,
-    responseType: options.responseType,
-    withCredentials: options.withCredentials,
-    credentials: options.credentials,
-    transferCache: options.transferCache,
-    timeout: options.timeout,
-    keepalive: options.keepalive,
-    priority: options.priority,
-    cache: options.cache,
-    mode: options.mode,
-    redirect: options.redirect,
-    integrity: options.integrity,
-    referrer: options.referrer,
-    referrerPolicy: options.referrerPolicy
-  };
+  return __spreadValues({
+    body
+  }, options);
 }
 var HttpClient = class _HttpClient {
   handler;
@@ -31952,6 +32040,7 @@ var JSONP_ERR_NO_CALLBACK = "JSONP injected script did not invoke callback.";
 var JSONP_ERR_WRONG_METHOD = "JSONP requests must use JSONP request method.";
 var JSONP_ERR_WRONG_RESPONSE_TYPE = "JSONP requests must use Json response type.";
 var JSONP_ERR_HEADERS_NOT_SUPPORTED = "JSONP requests do not support headers.";
+var JSONP_ERR_UNSAFE_URL = "JSONP requests only support absolute URLs with HTTP(S) protocols.";
 var JsonpCallbackContext = class {
 };
 function jsonpCallbackContext() {
@@ -31982,6 +32071,9 @@ var JsonpClientBackend = class _JsonpClientBackend {
     }
     if (req.headers.keys().length > 0) {
       throw new RuntimeError(2812, ngDevMode && JSONP_ERR_HEADERS_NOT_SUPPORTED);
+    }
+    if (!this.isAllowedJsonpUrl(req.urlWithParams)) {
+      throw new RuntimeError(2826, ngDevMode && JSONP_ERR_UNSAFE_URL);
     }
     return new Observable((observer) => {
       const callback = this.nextCallback();
@@ -32051,6 +32143,9 @@ var JsonpClientBackend = class _JsonpClientBackend {
   removeListeners(script) {
     foreignDocument ??= this.document.implementation.createHTMLDocument();
     foreignDocument.adoptNode(script);
+  }
+  isAllowedJsonpUrl(url) {
+    return /^https?:\/\//i.test(url);
   }
   static \u0275fac = function JsonpClientBackend_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _JsonpClientBackend)(\u0275\u0275inject(JsonpCallbackContext), \u0275\u0275inject(DOCUMENT));
@@ -32664,7 +32759,7 @@ var HttpClientJsonpModule = class _HttpClientJsonpModule {
 
 // node_modules/@angular/common/fesm2022/http.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -32677,7 +32772,7 @@ var REQ_URL = "u";
 var RESPONSE_TYPE = "rt";
 var CACHE_OPTIONS = new InjectionToken(typeof ngDevMode !== "undefined" && ngDevMode ? "HTTP_TRANSFER_STATE_CACHE_OPTIONS" : "");
 var ALLOWED_METHODS = ["GET", "HEAD"];
-function shouldCacheRequest(req, options) {
+function canUseOrCacheRequest(req, options) {
   const _a = options, {
     isCacheActive
   } = _a, globalOptions = __objRest(_a, [
@@ -32687,72 +32782,91 @@ function shouldCacheRequest(req, options) {
     transferCache: requestOptions,
     method: requestMethod
   } = req;
-  if (!isCacheActive || requestOptions === false || req.withCredentials || requestMethod === "POST" && !globalOptions.includePostRequests && !requestOptions || requestMethod !== "POST" && !ALLOWED_METHODS.includes(requestMethod) || !globalOptions.includeRequestsWithAuthHeaders && hasAuthHeaders(req) || globalOptions.filter?.(req) === false) {
+  if (!isCacheActive || requestOptions === false || hasOutgoingCredentials(req) || requestMethod === "POST" && !globalOptions.includePostRequests && !requestOptions || requestMethod !== "POST" && !ALLOWED_METHODS.includes(requestMethod) || !globalOptions.includeRequestsWithAuthHeaders && hasAuthHeaders(req) || hasUncacheableCacheControl(req.headers) || isNonCacheableRequest(req.cache) || globalOptions.filter?.(req) === false) {
     return false;
   }
   return true;
 }
 function getHeadersToInclude(options, requestOptions) {
-  const {
-    includeHeaders: globalHeaders
-  } = options;
-  let headersToInclude = globalHeaders;
-  if (typeof requestOptions === "object" && requestOptions.includeHeaders) {
-    headersToInclude = requestOptions.includeHeaders;
-  }
-  return headersToInclude;
+  return typeof requestOptions === "object" && requestOptions.includeHeaders ? requestOptions.includeHeaders : options.includeHeaders;
 }
-function retrieveStateFromCache(req, options, transferState, originMap) {
-  const {
-    transferCache: requestOptions
-  } = req;
-  if (!shouldCacheRequest(req, options)) {
+function retrieveStateFromCache(req, options, transferState, originMap, storeKey, skipUseCacheChecks = false) {
+  if (!skipUseCacheChecks && !canUseOrCacheRequest(req, options)) {
     return null;
   }
   if (originMap) {
     throw new RuntimeError(2803, ngDevMode && "Angular detected that the `HTTP_TRANSFER_CACHE_ORIGIN_MAP` token is configured and present in the client side code. Please ensure that this token is only provided in the server code of the application.");
   }
-  const requestUrl = false ? mapRequestOriginUrl(req.url, originMap) : req.url;
-  const storeKey = makeCacheKey(req, requestUrl);
-  const response = transferState.get(storeKey, null);
-  const headersToInclude = getHeadersToInclude(options, requestOptions);
-  if (response) {
-    const {
-      [BODY]: undecodedBody,
-      [RESPONSE_TYPE]: responseType,
-      [HEADERS]: httpHeaders,
-      [STATUS]: status,
-      [STATUS_TEXT]: statusText,
-      [REQ_URL]: url
-    } = response;
-    let body = undecodedBody;
-    switch (responseType) {
-      case "arraybuffer":
-        body = fromBase64(undecodedBody);
-        break;
-      case "blob":
-        body = new Blob([fromBase64(undecodedBody)]);
-        break;
-    }
-    let headers = new HttpHeaders(httpHeaders);
-    if (typeof ngDevMode === "undefined" || ngDevMode) {
-      headers = appendMissingHeadersDetection(req.url, headers, headersToInclude ?? []);
-    }
-    return new HttpResponse({
-      body,
-      headers,
-      status,
-      statusText,
-      url
-    });
+  if (!storeKey) {
+    const requestUrl = false ? mapRequestOriginUrl(req.url, originMap) : req.url;
+    storeKey = makeCacheKey(req, requestUrl);
   }
-  return null;
+  const response = transferState.get(storeKey, null);
+  if (!response) {
+    return null;
+  }
+  const {
+    [BODY]: undecodedBody,
+    [RESPONSE_TYPE]: responseType,
+    [HEADERS]: httpHeaders,
+    [STATUS]: status,
+    [STATUS_TEXT]: statusText,
+    [REQ_URL]: url
+  } = response;
+  let body = undecodedBody;
+  switch (responseType) {
+    case "arraybuffer":
+      body = fromBase64(undecodedBody);
+      break;
+    case "blob":
+      body = new Blob([fromBase64(undecodedBody)]);
+      break;
+  }
+  let headers = new HttpHeaders(httpHeaders);
+  if (typeof ngDevMode === "undefined" || ngDevMode) {
+    const {
+      transferCache: requestOptions
+    } = req;
+    const headersToInclude = getHeadersToInclude(options, requestOptions);
+    headers = appendMissingHeadersDetection(req.url, headers, headersToInclude ?? []);
+  }
+  return new HttpResponse({
+    body,
+    headers,
+    status,
+    statusText,
+    url
+  });
 }
 function hasAuthHeaders(req) {
-  return req.headers.has("authorization") || req.headers.has("proxy-authorization") || req.headers.has("cookie");
+  const headers = req.headers;
+  return headers.has("authorization") || headers.has("proxy-authorization") || headers.has("cookie");
+}
+var UNCACHEABLE_CACHE_CONTROL_DIRECTIVES = /* @__PURE__ */ new Set(["no-store", "private", "no-cache"]);
+function hasUncacheableCacheControl(headers) {
+  const cacheControl = headers.get("cache-control");
+  if (!cacheControl) {
+    return false;
+  }
+  return cacheControl.split(",").some((directive) => {
+    const directiveName = directive.split("=", 1)[0].trim().toLowerCase();
+    return UNCACHEABLE_CACHE_CONTROL_DIRECTIVES.has(directiveName);
+  });
+}
+function isNonCacheableRequest(cache) {
+  return cache === "no-cache" || cache === "no-store";
+}
+function hasOutgoingCredentials(req) {
+  const {
+    withCredentials,
+    credentials
+  } = req;
+  return withCredentials || credentials === "include" || credentials === "same-origin";
 }
 function sortAndConcatParams(params) {
-  return [...params.keys()].sort().map((k) => `${k}=${params.getAll(k)}`).join("&");
+  const searchParams = new URLSearchParams(params instanceof URLSearchParams ? params : params.toString());
+  searchParams.sort();
+  return searchParams.toString();
 }
 function makeCacheKey(request, mappedRequestUrl) {
   const {
@@ -32770,14 +32884,6 @@ function makeCacheKey(request, mappedRequestUrl) {
   const key = [method, responseType, mappedRequestUrl, serializedBody, encodedParams].join("|");
   const hash = generateHash(key);
   return makeStateKey(hash);
-}
-function generateHash(value) {
-  let hash = 0;
-  for (const char of value) {
-    hash = Math.imul(31, hash) + char.charCodeAt(0) << 0;
-  }
-  hash += 2147483647 + 1;
-  return hash.toString();
 }
 function fromBase64(base64) {
   const binary = atob(base64);
@@ -32804,6 +32910,76 @@ function appendMissingHeadersDetection(url, headers, headersToInclude) {
       };
     }
   });
+}
+var SHA256_ROUND_CONSTANTS = /* @__PURE__ */ new Uint32Array([1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298]);
+var textEncoder;
+function generateHash(value) {
+  textEncoder ??= new TextEncoder();
+  const inputBytes = textEncoder.encode(value);
+  let hashState0 = 1779033703;
+  let hashState1 = 3144134277;
+  let hashState2 = 1013904242;
+  let hashState3 = 2773480762;
+  let hashState4 = 1359893119;
+  let hashState5 = 2600822924;
+  let hashState6 = 528734635;
+  let hashState7 = 1541459225;
+  const messageLengthInBits = inputBytes.length * 8;
+  const paddedLengthInBytes = (inputBytes.length + 8 >> 6) + 1 << 6;
+  const paddedBytes = new Uint8Array(paddedLengthInBytes);
+  paddedBytes.set(inputBytes);
+  paddedBytes[inputBytes.length] = 128;
+  const paddedBytesView = new DataView(paddedBytes.buffer);
+  const lowBits = messageLengthInBits >>> 0;
+  const highBits = messageLengthInBits / 4294967296 >>> 0;
+  paddedBytesView.setUint32(paddedLengthInBytes - 8, highBits, false);
+  paddedBytesView.setUint32(paddedLengthInBytes - 4, lowBits, false);
+  const messageSchedule = new Uint32Array(64);
+  for (let chunkOffset = 0; chunkOffset < paddedLengthInBytes; chunkOffset += 64) {
+    for (let i = 0; i < 16; i++) {
+      messageSchedule[i] = paddedBytesView.getUint32(chunkOffset + i * 4, false);
+    }
+    for (let i = 16; i < 64; i++) {
+      const prevWord15 = messageSchedule[i - 15];
+      const sigma0 = ((prevWord15 >>> 7 | prevWord15 << 25) ^ (prevWord15 >>> 18 | prevWord15 << 14) ^ prevWord15 >>> 3) >>> 0;
+      const prevWord2 = messageSchedule[i - 2];
+      const sigma1 = ((prevWord2 >>> 17 | prevWord2 << 15) ^ (prevWord2 >>> 19 | prevWord2 << 13) ^ prevWord2 >>> 10) >>> 0;
+      messageSchedule[i] = messageSchedule[i - 16] + sigma0 + messageSchedule[i - 7] + sigma1 >>> 0;
+    }
+    let workingStateA = hashState0;
+    let workingStateB = hashState1;
+    let workingStateC = hashState2;
+    let workingStateD = hashState3;
+    let workingStateE = hashState4;
+    let workingStateF = hashState5;
+    let workingStateG = hashState6;
+    let workingStateH = hashState7;
+    for (let i = 0; i < 64; i++) {
+      const capitalSigma1 = ((workingStateE >>> 6 | workingStateE << 26) ^ (workingStateE >>> 11 | workingStateE << 21) ^ (workingStateE >>> 25 | workingStateE << 7)) >>> 0;
+      const chFunction = (workingStateE & workingStateF ^ ~workingStateE & workingStateG) >>> 0;
+      const temp1 = workingStateH + capitalSigma1 + chFunction + SHA256_ROUND_CONSTANTS[i] + messageSchedule[i] >>> 0;
+      const capitalSigma0 = ((workingStateA >>> 2 | workingStateA << 30) ^ (workingStateA >>> 13 | workingStateA << 19) ^ (workingStateA >>> 22 | workingStateA << 10)) >>> 0;
+      const majFunction = (workingStateA & workingStateB ^ workingStateA & workingStateC ^ workingStateB & workingStateC) >>> 0;
+      const temp2 = capitalSigma0 + majFunction >>> 0;
+      workingStateH = workingStateG;
+      workingStateG = workingStateF;
+      workingStateF = workingStateE;
+      workingStateE = workingStateD + temp1 >>> 0;
+      workingStateD = workingStateC;
+      workingStateC = workingStateB;
+      workingStateB = workingStateA;
+      workingStateA = temp1 + temp2 >>> 0;
+    }
+    hashState0 = hashState0 + workingStateA >>> 0;
+    hashState1 = hashState1 + workingStateB >>> 0;
+    hashState2 = hashState2 + workingStateC >>> 0;
+    hashState3 = hashState3 + workingStateD >>> 0;
+    hashState4 = hashState4 + workingStateE >>> 0;
+    hashState5 = hashState5 + workingStateF >>> 0;
+    hashState6 = hashState6 + workingStateG >>> 0;
+    hashState7 = hashState7 + workingStateH >>> 0;
+  }
+  return [hashState0, hashState1, hashState2, hashState3, hashState4, hashState5, hashState6, hashState7].map((x) => x.toString(16).padStart(8, "0")).join("");
 }
 var httpResource = (() => {
   const jsonFn = makeHttpResourceFn("json");
@@ -32988,7 +33164,7 @@ var HttpResourceImpl = class extends ResourceImpl {
 
 // node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -33231,7 +33407,7 @@ var DomSanitizerImpl = class _DomSanitizerImpl extends DomSanitizer {
 
 // node_modules/@angular/forms/fesm2022/forms.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -33804,7 +33980,7 @@ var ngModelWithFormGroupExample = `
       <input [(ngModel)]="showMoreControls" [ngModelOptions]="{standalone: true}">
   </div>
 `;
-var VERSION2 = /* @__PURE__ */ new Version("22.0.0");
+var VERSION2 = /* @__PURE__ */ new Version("22.0.2");
 function controlParentException(nameOrIndex) {
   return new RuntimeError(1050, `formControlName must be used with a parent formGroup or formArray directive. You'll want to add a formGroup/formArray
       directive and pass it an existing FormGroup/FormArray instance (you can create one in your class).
@@ -33997,7 +34173,7 @@ function assertControlPresent(parent, isGroup, key) {
   if (!collection.length) {
     throw new RuntimeError(1e3, typeof ngDevMode === "undefined" || ngDevMode ? noControlsError(isGroup) : "");
   }
-  if (!controls[key]) {
+  if (!hasOwnControl(controls, key)) {
     throw new RuntimeError(1001, typeof ngDevMode === "undefined" || ngDevMode ? missingControlError(isGroup, key) : "");
   }
 }
@@ -34454,6 +34630,9 @@ var AbstractControl = class {
     untracked2(() => this._hasRequired.set(this.hasValidator(Validators.required)));
   }
 };
+function hasOwnControl(controls, name) {
+  return Object.hasOwn(controls, name);
+}
 function isNativeFormElement(element) {
   return element.tagName === "INPUT" || element.tagName === "SELECT" || element.tagName === "TEXTAREA";
 }
@@ -35461,7 +35640,8 @@ var FormGroup = class extends AbstractControl {
   }
   controls;
   registerControl(name, control) {
-    if (this.controls[name]) return this.controls[name];
+    const existingControl = this._find(name);
+    if (existingControl) return existingControl;
     this.controls[name] = control;
     control.setParent(this);
     control._registerOnCollectionChange(this._onCollectionChange);
@@ -35475,7 +35655,8 @@ var FormGroup = class extends AbstractControl {
     this._onCollectionChange();
   }
   removeControl(name, options = {}) {
-    if (this.controls[name]) this.controls[name]._registerOnCollectionChange(() => {
+    const existingControl = this._find(name);
+    if (existingControl) existingControl._registerOnCollectionChange(() => {
     });
     delete this.controls[name];
     this.updateValueAndValidity({
@@ -35484,7 +35665,8 @@ var FormGroup = class extends AbstractControl {
     this._onCollectionChange();
   }
   setControl(name, control, options = {}) {
-    if (this.controls[name]) this.controls[name]._registerOnCollectionChange(() => {
+    const existingControl = this._find(name);
+    if (existingControl) existingControl._registerOnCollectionChange(() => {
     });
     delete this.controls[name];
     if (control) this.registerControl(name, control);
@@ -35494,7 +35676,7 @@ var FormGroup = class extends AbstractControl {
     this._onCollectionChange();
   }
   contains(controlName) {
-    return this.controls.hasOwnProperty(controlName) && this.controls[controlName].enabled;
+    return this._find(controlName)?.enabled === true;
   }
   setValue(value, options = {}) {
     untracked2(() => {
@@ -35512,9 +35694,9 @@ var FormGroup = class extends AbstractControl {
   patchValue(value, options = {}) {
     if (value == null) return;
     Object.keys(value).forEach((name) => {
-      const control = this.controls[name];
-      if (control) {
-        control.patchValue(value[name], {
+      const existingControl = this._find(name);
+      if (existingControl) {
+        existingControl.patchValue(value[name], {
           onlySelf: true,
           emitEvent: options.emitEvent
         });
@@ -35598,7 +35780,7 @@ var FormGroup = class extends AbstractControl {
     return Object.keys(this.controls).length > 0 || this.disabled;
   }
   _find(name) {
-    return this.controls.hasOwnProperty(name) ? this.controls[name] : null;
+    return hasOwnControl(this.controls, name) ? this.controls[name] : null;
   }
 };
 function validateFormGroupControls(controls) {
@@ -41712,6 +41894,8 @@ var AngularMultiSelect = class _AngularMultiSelect {
     this.dropdownAppendedToBody = false;
     this.overlayListenersBound = false;
     this.overlayPositionTimer = null;
+    this.optionClickFromPointerDown = null;
+    this.optionClickGuardTimer = null;
     this.boundOverlayPositionUpdate = () => this.scheduleDropdownPositionUpdate();
     this.overlayThemeVariables = ["--ms-primary", "--ms-primary-soft", "--ms-surface", "--ms-surface-soft", "--ms-surface-muted", "--ms-outline", "--ms-outline-strong", "--ms-on-surface", "--ms-on-surface-muted", "--ms-chip-bg", "--ms-chip-text", "--ms-chip-remove", "--ms-shadow", "--ms-shadow-soft", "--stackline-ms-primary", "--stackline-ms-primary-soft", "--stackline-ms-surface", "--stackline-ms-surface-soft", "--stackline-ms-surface-muted", "--stackline-ms-outline", "--stackline-ms-outline-strong", "--stackline-ms-on-surface", "--stackline-ms-on-surface-muted", "--stackline-ms-chip-bg", "--stackline-ms-chip-text", "--stackline-ms-chip-remove", "--stackline-ms-shadow", "--stackline-ms-shadow-soft"];
     this.id = Math.random().toString(36).substring(2);
@@ -42106,8 +42290,70 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   onDropdownPanelPointerDown(event) {
     if (this.isBodyOverlayEnabled()) {
+      var option = this.getPointerDownOption(event);
+      if (option) {
+        this.selectOptionFromPointerDown(option, event);
+        return;
+      }
       event.stopPropagation();
     }
+  }
+  getPointerDownOption(event) {
+    var target = event && event.target;
+    if (!target || !target.closest) {
+      return null;
+    }
+    var option = target.closest(".dropdown-option");
+    if (!option || option.classList.contains("is-disabled")) {
+      return null;
+    }
+    return option;
+  }
+  selectOptionFromPointerDown(option, event) {
+    var pointerEvent = event;
+    if (event.type === "pointerdown" && pointerEvent.button !== void 0 && pointerEvent.button !== 0) {
+      event.stopPropagation();
+      return;
+    }
+    if (event.cancelable) {
+      event.preventDefault();
+    }
+    event.stopPropagation();
+    option.dispatchEvent(new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    }));
+    this.ignoreNextNativeOptionClick(option);
+  }
+  ignoreNextNativeOptionClick(option) {
+    this.optionClickFromPointerDown = option;
+    if (this.optionClickGuardTimer) {
+      clearTimeout(this.optionClickGuardTimer);
+    }
+    this.optionClickGuardTimer = setTimeout(() => {
+      if (this.optionClickFromPointerDown === option) {
+        this.optionClickFromPointerDown = null;
+      }
+    }, 500);
+  }
+  shouldIgnoreNativeOptionClick(evt) {
+    if (!this.optionClickFromPointerDown || !evt || evt.type !== "click") {
+      return false;
+    }
+    if (evt.currentTarget !== this.optionClickFromPointerDown) {
+      return false;
+    }
+    this.optionClickFromPointerDown = null;
+    if (this.optionClickGuardTimer) {
+      clearTimeout(this.optionClickGuardTimer);
+      this.optionClickGuardTimer = null;
+    }
+    if (evt.cancelable) {
+      evt.preventDefault();
+    }
+    evt.stopPropagation();
+    return true;
   }
   getAriaLabel() {
     if (this.settings && this.settings.ariaLabel) {
@@ -42743,6 +42989,9 @@ var AngularMultiSelect = class _AngularMultiSelect {
     }
   }
   onItemClick(item, index, evt) {
+    if (this.shouldIgnoreNativeOptionClick(evt)) {
+      return;
+    }
     if (item.disabled) {
       return;
     }
@@ -42762,6 +43011,12 @@ var AngularMultiSelect = class _AngularMultiSelect {
         this.onSelect.emit(item);
       }
     } else {
+      if (this.settings.singleSelection) {
+        this.onTouchedCallback(this.selectedItems);
+        this.closeDropdown();
+        this.syncSelectAllState();
+        return;
+      }
       this.removeSelected(item);
       this.onDeSelect.emit(item);
     }
@@ -43284,6 +43539,11 @@ var AngularMultiSelect = class _AngularMultiSelect {
   }
   ngOnDestroy() {
     this.restoreDropdownPanel(true);
+    if (this.optionClickGuardTimer) {
+      clearTimeout(this.optionClickGuardTimer);
+      this.optionClickGuardTimer = null;
+    }
+    this.optionClickFromPointerDown = null;
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
@@ -44193,7 +44453,7 @@ function defineAngularMultiselectSettings(settings) {
 
 // node_modules/@angular/router/fesm2022/_router-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -45601,6 +45861,7 @@ var ActivatedRoute = class {
   queryParams;
   fragment;
   data;
+  _localInjector;
   constructor(urlSubject, paramsSubject, queryParamsSubject, fragmentSubject, dataSubject, outlet, component, futureSnapshot) {
     this.urlSubject = urlSubject;
     this.paramsSubject = paramsSubject;
@@ -46103,14 +46364,18 @@ function standardizeConfig(r) {
   return c;
 }
 function createRouterState(routeReuseStrategy, curr, prevState) {
-  const root = createNode(routeReuseStrategy, curr._root, prevState ? prevState._root : void 0);
-  return new RouterState(root, curr);
+  const newlyCreatedRoutes = /* @__PURE__ */ new Set();
+  const root = createNode(routeReuseStrategy, curr._root, prevState ? prevState._root : void 0, newlyCreatedRoutes);
+  return {
+    newlyCreatedRoutes,
+    state: new RouterState(root, curr)
+  };
 }
-function createNode(routeReuseStrategy, curr, prevState) {
+function createNode(routeReuseStrategy, curr, prevState, newlyCreatedRoutes) {
   if (prevState && routeReuseStrategy.shouldReuseRoute(curr.value, prevState.value.snapshot)) {
     const value = prevState.value;
     value._futureSnapshot = curr.value;
-    const children = createOrReuseChildren(routeReuseStrategy, curr, prevState);
+    const children = createOrReuseChildren(routeReuseStrategy, curr, prevState, newlyCreatedRoutes);
     return new TreeNode(value, children);
   } else {
     if (routeReuseStrategy.shouldAttach(curr.value)) {
@@ -46118,23 +46383,24 @@ function createNode(routeReuseStrategy, curr, prevState) {
       if (detachedRouteHandle !== null) {
         const tree2 = detachedRouteHandle.route;
         tree2.value._futureSnapshot = curr.value;
-        tree2.children = curr.children.map((c) => createNode(routeReuseStrategy, c));
+        tree2.children = curr.children.map((c) => createNode(routeReuseStrategy, c, void 0, newlyCreatedRoutes));
         return tree2;
       }
     }
     const value = createActivatedRoute(curr.value);
-    const children = curr.children.map((c) => createNode(routeReuseStrategy, c));
+    newlyCreatedRoutes.add(value);
+    const children = curr.children.map((c) => createNode(routeReuseStrategy, c, void 0, newlyCreatedRoutes));
     return new TreeNode(value, children);
   }
 }
-function createOrReuseChildren(routeReuseStrategy, curr, prevState) {
+function createOrReuseChildren(routeReuseStrategy, curr, prevState, newlyCreatedRoutes) {
   return curr.children.map((child) => {
     for (const p of prevState.children) {
       if (routeReuseStrategy.shouldReuseRoute(child.value, p.value.snapshot)) {
-        return createNode(routeReuseStrategy, child, p);
+        return createNode(routeReuseStrategy, child, p, newlyCreatedRoutes);
       }
     }
-    return createNode(routeReuseStrategy, child);
+    return createNode(routeReuseStrategy, child, void 0, newlyCreatedRoutes);
   });
 }
 function createActivatedRoute(c) {
@@ -46263,6 +46529,7 @@ var ActivateRoutes = class {
       context2.attachRef = null;
       context2.route = null;
     }
+    route.value._localInjector?.destroy();
   }
   activateChildRoutes(futureNode, currNode, contexts) {
     const children = nodeChildrenAsMap(currNode);
@@ -47638,6 +47905,7 @@ function createRenderPromise(injector) {
     });
   });
 }
+var ACTIVATED_ROUTE_INJECTOR_FEATURE = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "ActivatedRoute injector feature" : "");
 var noop5 = () => {
 };
 var NAVIGATION_ERROR_HANDLER = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "navigation error handler" : "");
@@ -47672,6 +47940,9 @@ var NavigationTransitions = class _NavigationTransitions {
     optional: true
   });
   navigationErrorHandler = inject2(NAVIGATION_ERROR_HANDLER, {
+    optional: true
+  });
+  activatedRouteInjectorFeature = inject2(ACTIVATED_ROUTE_INJECTOR_FEATURE, {
     optional: true
   });
   navigationId = 0;
@@ -47861,16 +48132,20 @@ var NavigationTransitions = class _NavigationTransitions {
         const loaders = loadComponents(t.targetSnapshot.root);
         return loaders.length === 0 ? of(t) : from(Promise.all(loaders).then(() => t));
       }), switchMap((t) => {
-        const targetRouterState = createRouterState(router.routeReuseStrategy, t.targetSnapshot, t.currentRouterState);
+        const {
+          newlyCreatedRoutes,
+          state
+        } = createRouterState(router.routeReuseStrategy, t.targetSnapshot, t.currentRouterState);
         this.currentTransition = overallTransitionState = t = __spreadProps(__spreadValues({}, t), {
-          targetRouterState
+          targetRouterState: state,
+          newlyCreatedRoutes
         });
         this.currentNavigation.update((nav) => {
-          nav.targetRouterState = targetRouterState;
+          nav.targetRouterState = state;
           return nav;
         });
         return of(t);
-      }), switchTap(() => this.afterPreactivation()), switchMap(() => {
+      }), this.activatedRouteInjectorFeature?.operator() ?? ((t) => t), switchTap(() => this.afterPreactivation()), switchMap(() => {
         const {
           currentSnapshot,
           targetSnapshot
@@ -47884,6 +48159,7 @@ var NavigationTransitions = class _NavigationTransitions {
         return deferred ? from(deferred.then(() => t)) : of(t);
       }), tap((t) => {
         new ActivateRoutes(router.routeReuseStrategy, overallTransitionState.targetRouterState, overallTransitionState.currentRouterState, (evt) => this.events.next(evt), this.inputBindingEnabled).activate(this.rootContexts);
+        t.newlyCreatedRoutes?.clear();
         if (!shouldContinueNavigation()) {
           return;
         }
@@ -47916,6 +48192,7 @@ var NavigationTransitions = class _NavigationTransitions {
         }
       }), catchError((e) => {
         completedOrAborted = true;
+        discardNewActivatedRoutes(overallTransitionState);
         if (this.destroyed) {
           overallTransitionState.resolve(false);
           return EMPTY;
@@ -47955,6 +48232,7 @@ var NavigationTransitions = class _NavigationTransitions {
     }));
   }
   cancelNavigationTransition(t, reason, code) {
+    discardNewActivatedRoutes(t);
     const navCancel = new NavigationCancel(t.id, this.urlSerializer.serialize(t.extractedUrl), reason, code);
     this.events.next(navCancel);
     t.resolve(false);
@@ -47983,6 +48261,14 @@ var NavigationTransitions = class _NavigationTransitions {
 })();
 function isBrowserTriggeredNavigation(source) {
   return source !== IMPERATIVE_NAVIGATION;
+}
+function discardNewActivatedRoutes(t) {
+  if (!t.newlyCreatedRoutes) {
+    return;
+  }
+  for (const r of t.newlyCreatedRoutes) {
+    r._localInjector?.destroy();
+  }
 }
 var ROUTE_INJECTOR_CLEANUP = new InjectionToken(typeof ngDevMode === "undefined" || ngDevMode ? "RouteInjectorCleanup" : "");
 var RouteReuseStrategy = class _RouteReuseStrategy {
@@ -48543,7 +48829,7 @@ function validateCommands(commands) {
 
 // node_modules/@angular/router/fesm2022/_router_module-chunk.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -49352,7 +49638,7 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
     optional: true
   }) !== null;
   base = new URL(inject2(PlatformLocation).href).origin;
-  appRootURL = new URL(this.location.prepareExternalUrl?.("/") ?? "/", this.base).href;
+  appRootUrl = new URL(this.location.prepareExternalUrl?.("/") ?? "/", this.base);
   precommitHandlerSupported = inject2(PRECOMMIT_HANDLER_SUPPORTED);
   activeHistoryEntry = this.navigation.currentEntry;
   currentNavigation = {};
@@ -49533,6 +49819,18 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
     }
     const isTriggeredByRouterTransition = !!routerInfo;
     if (!isTriggeredByRouterTransition) {
+      const {
+        pathname: destPathname,
+        origin: destOrigin
+      } = new URL(event.destination.url);
+      const {
+        pathname: rootPathname,
+        origin: appOrigin
+      } = this.appRootUrl;
+      const rootPath = rootPathname.endsWith("/") ? rootPathname : rootPathname + "/";
+      if (destOrigin !== appOrigin || destPathname !== rootPathname && !destPathname.startsWith(rootPath)) {
+        return;
+      }
       this.currentNavigation.routerTransition?.abort();
       if (!this.registered) {
         this.finishNavigation();
@@ -49609,7 +49907,7 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
     }
   }
   handleNavigateEventTriggeredOutsideRouterAPIs(event) {
-    const path = event.destination.url.substring(this.appRootURL.length - 1);
+    const path = event.destination.url.substring(this.appRootUrl.href.length - 1);
     const state = event.destination.getState();
     this.nonRouterCurrentEntryChangeSubject.next({
       path,
@@ -49619,8 +49917,20 @@ var NavigationStateManager = class _NavigationStateManager extends StateManager 
   eventAndRouterDestinationsMatch(navigateEvent, transition) {
     const internalPath = this.createBrowserPath(transition);
     const eventDestination = new URL(navigateEvent.destination.url);
-    const routerDestination = this.location.prepareExternalUrl(internalPath);
-    return new URL(routerDestination, eventDestination.origin).href === eventDestination.href;
+    const routerDestination = new URL(this.location.prepareExternalUrl(internalPath), eventDestination.origin);
+    eventDestination.searchParams.sort();
+    routerDestination.searchParams.sort();
+    const {
+      pathname: destPathname,
+      search: destSearch,
+      hash: hashDest
+    } = routerDestination;
+    const {
+      pathname: eventDestPathname,
+      search: eventDestSearch,
+      hash: eventDestHash
+    } = eventDestination;
+    return destSearch === eventDestSearch && hashDest === eventDestHash && Location.stripTrailingSlash(destPathname) === Location.stripTrailingSlash(eventDestPathname);
   }
   generateNgRouterState(transition) {
     return __spreadProps(__spreadValues({}, this.routerUrlState(transition)), {
@@ -49898,7 +50208,7 @@ function provideRouterInitializer() {
 
 // node_modules/@angular/router/fesm2022/router.mjs
 /**
- * @license Angular v22.0.0
+ * @license Angular v22.0.2
  * (c) 2010-2026 Google LLC. https://angular.dev/
  * License: MIT
  */
@@ -49907,8 +50217,8 @@ function provideRouterInitializer() {
 var DOCS_META = {
   badge: "ANGULAR 22 \xB7 MATERIAL REFINED",
   angularVersion: "22.x",
-  packageVersion: "22.0.1",
-  packageRange: "22.0.1",
+  packageVersion: "22.0.4",
+  packageRange: "22.0.4",
   docsPath: "angular-22"
 };
 

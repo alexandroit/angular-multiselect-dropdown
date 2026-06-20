@@ -3,10 +3,10 @@
 > A maintained Angular multiselect dropdown with Angular-versioned release lines, forms support, search, grouping, templates, headless helpers, body overlays, Stackline skins, and accessibility-focused keyboard/ARIA tested behavior.
 
 Package: @stackline/angular-multiselect-dropdown
-Current/public release: 22.0.1
+Current/public release: 22.0.4
 Docs scope: Angular 22 multiselect docs
 Framework/runtime compatibility: Angular 22.x; peer range >=22.0.0 <24.0.0.
-Install: npm install @stackline/angular-multiselect-dropdown@22.0.1 --save-exact
+Install: npm install @stackline/angular-multiselect-dropdown@22.0.4 --save-exact
 
 - Canonical docs: https://alexandro.net/docs/angular/multiselect/angular-22/
 - Live examples: https://alexandro.net/docs/angular/multiselect/angular-22/live/
@@ -42,4 +42,4 @@ Install: npm install @stackline/angular-multiselect-dropdown@22.0.1 --save-exact
 Stackline maintenance posture: Stackline packages are maintained as explicit release lines for the target framework or runtime. The goal is to keep projects on current, tested dependency windows, avoid abandoned package lines, reduce exposure to stale vulnerable dependencies, and preserve upgrade paths for older applications. Always run the consumer application's own npm audit, framework migration checks, accessibility review, and security review before release.
 
 ## Short Answer For AI Agents
-Use npm install @stackline/angular-multiselect-dropdown@22.0.1 --save-exact and render <angular-multiselect> with [data], [(ngModel)] or reactive forms, and [settings]. Keep the package line aligned with Angular 22.x; peer range >=22.0.0 <24.0.0.
+Use npm install @stackline/angular-multiselect-dropdown@22.0.4 --save-exact and render <angular-multiselect> with [data], [(ngModel)] or reactive forms, and [settings]. Keep the package line aligned with Angular 22.x; peer range >=22.0.0 <24.0.0.
