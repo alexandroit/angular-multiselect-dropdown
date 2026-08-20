@@ -10,6 +10,7 @@ import { DataService } from './multiselect.service';
 import { Subscription, Subject } from 'rxjs';
 import { VirtualScrollerModule, VirtualScrollerComponent } from './virtual-scroll/virtual-scroll';
 import { map, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { safeObjectAssign } from './safe-object';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
@@ -316,13 +317,13 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
     }
 
     private normalizeSettings(settings?: DropdownSettings) {
-        var keyboardSettings = Object.assign(
+        var keyboardSettings = safeObjectAssign(
             {},
             this.defaultSettings.keyboard || {},
             settings && settings.keyboard ? settings.keyboard : {}
         );
 
-        this.settings = Object.assign({}, this.defaultSettings, settings, {
+        this.settings = safeObjectAssign({}, this.defaultSettings, settings, {
             keyboard: keyboardSettings
         });
         this.dropDownDirection = this.settings.position == 'top' ? 'top' : 'bottom';

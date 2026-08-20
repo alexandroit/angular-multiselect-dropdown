@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testin
 import { By } from '@angular/platform-browser';
 import { AngularMultiSelect, AngularMultiSelectModule } from './multiselect.component';
 import { DropdownSettings } from './multiselect.interface';
+import { createAngularMultiselectState } from './multiselect-state';
 
 @Component({
     template: `
@@ -592,5 +593,43 @@ describe('AngularMultiSelect combobox contract', () => {
         expect(component.selectedItems.length).toBe(1);
         expect(component.selectedItems[0].itemName).toBe('Brazil');
         expect(component.data.some((item) => item.itemName === 'Brazil')).toBeTrue();
+    });
+});
+
+describe('Angular multiselect defensive settings', () => {
+    it('ignores prototype mutation keys in headless settings', () => {
+        var maliciousSettings = JSON.parse(
+            '{"__proto__":{"stacklinePolluted":true},"prototype":{"stacklinePolluted":true},"constructor":{"prototype":{"stacklinePolluted":true}},"text":"Safe label"}'
+        );
+        var state = createAngularMultiselectState({
+            data: [{ id: 1, itemName: 'Brazil' }],
+            settings: maliciousSettings
+        });
+
+        expect(state.settings.text).toBe('Safe label');
+        expect(Object.prototype.hasOwnProperty.call(state.settings, '__proto__')).toBeFalse();
+        expect(Object.prototype.hasOwnProperty.call(state.settings, 'prototype')).toBeFalse();
+        expect(Object.prototype.hasOwnProperty.call(state.settings, 'constructor')).toBeFalse();
+        expect((Object.prototype as any).stacklinePolluted).toBeUndefined();
+    });
+
+    it('enforces limitSelection in the headless state API', () => {
+        var data = [
+            { id: 1, itemName: 'Brazil' },
+            { id: 2, itemName: 'Canada' },
+            { id: 3, itemName: 'Portugal' }
+        ];
+        var state = createAngularMultiselectState({
+            data: data,
+            settings: { limitSelection: 1 }
+        });
+
+        state.toggleItem(data[0]);
+        state.toggleItem(data[1]);
+        expect(state.selectedItems).toEqual([data[0]]);
+
+        state.clearSelection();
+        state.selectAll();
+        expect(state.selectedItems).toEqual([data[0]]);
     });
 });

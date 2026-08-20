@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, NgModule, TemplateRef, AfterContentInit, ContentChild, EmbeddedViewRef, OnChanges, ViewContainerRef, ViewEncapsulation, Input, Output, EventEmitter, ElementRef, AfterViewInit, Pipe, PipeTransform, Directive } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { CommonModule }       from '@angular/common';
+import { safeObjectAssign } from './safe-object';
 
 @Component({
   selector: 'c-item',
@@ -59,7 +60,7 @@ export class TemplateRenderer implements OnInit, OnDestroy {
     constructor(public viewContainer: ViewContainerRef) {   
     }
     ngOnInit() {
-        const templateContext = Object.assign({
+        const templateContext = safeObjectAssign({
             '\$implicit': this.item,
             'item': this.item
         }, this.context || {});

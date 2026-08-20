@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [22.1.0] - 2026-08-19
+
+### Changed
+- Updated the tested runtime to Angular 22.1.3 and the build toolchain to Angular CLI 22.1.5, `@angular/build`, and ng-packagr 22.1.1.
+- Refreshed compatible RxJS, tslib, Zone.js, Sass, Less, Karma, and Jasmine dependencies without changing consumer peer ranges.
+- Added reproducible `npm ci`, package-content, build, and browser-test checks to GitHub Actions.
+- Replaced deprecated Webpack builders and dynamic browser bootstrap APIs in the development apps without changing the published Angular module API.
+
+### Fixed
+- Repaired the root lockfile so clean installs include Bootstrap's required Popper peer.
+- Ignored `__proto__`, `prototype`, and `constructor` during settings and template-context merges.
+- Applied `limitSelection` consistently in the renderless/headless state API.
+
 ## [21.1.0] - 2026-05-26
 
 ### Added

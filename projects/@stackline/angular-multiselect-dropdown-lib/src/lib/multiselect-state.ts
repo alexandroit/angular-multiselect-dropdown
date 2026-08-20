@@ -1,4 +1,5 @@
 import { DropdownSettings } from './multiselect.interface';
+import { safeObjectAssign } from './safe-object';
 
 export type AngularMultiselectItemKey<T> = Extract<keyof T, string>;
 
@@ -70,7 +71,7 @@ export class AngularMultiselectState<T extends Record<string, any>> {
         this.id = config.id || Math.random().toString(36).slice(2);
         this.data = config.data || [];
         this.selectedItems = config.selectedItems ? config.selectedItems.slice() : [];
-        this.settings = Object.assign({}, defaultSettings, config.settings || {});
+        this.settings = safeObjectAssign({}, defaultSettings, config.settings || {});
         this.onChange = config.onChange;
     }
 
@@ -197,6 +198,10 @@ export class AngularMultiselectState<T extends Record<string, any>> {
             this.close();
         }
         else {
+            var selectionLimit = this.getSelectionLimit();
+            if (selectionLimit > 0 && this.selectedItems.length >= selectionLimit) {
+                return;
+            }
             this.selectedItems = this.selectedItems.concat(item);
         }
 
@@ -219,12 +224,21 @@ export class AngularMultiselectState<T extends Record<string, any>> {
             return;
         }
 
-        this.selectedItems = this.getVisibleOptions().filter((item) => !this.isDisabled(item));
+        var selectableItems = this.getVisibleOptions().filter((item) => !this.isDisabled(item));
+        var selectionLimit = this.getSelectionLimit();
+        this.selectedItems = selectionLimit > 0
+            ? selectableItems.slice(0, selectionLimit)
+            : selectableItems;
         this.emitChange();
     }
 
     deSelectAll() {
         this.clearSelection();
+    }
+
+    private getSelectionLimit() {
+        var limit = Number(this.settings.limitSelection || 0);
+        return isFinite(limit) && limit > 0 ? Math.floor(limit) : 0;
     }
 
     private emitChange() {
