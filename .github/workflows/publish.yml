@@ -1,0 +1,73 @@
+name: Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha512:
+        description: SHA-512 hex digest of the tested release tarball
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-publish-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Verify and publish with provenance
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22.22.3
+          package-manager-cache: false
+          registry-url: https://registry.npmjs.org
+      - name: Require the default branch
+        run: test "$GITHUB_REF" = "refs/heads/master"
+      - run: npm ci
+      - run: npm run check
+      - name: Reject an existing public version
+        shell: bash
+        run: |
+          package="$(node -p "require('./projects/@stackline/angular-multiselect-dropdown-lib/package.json').name")"
+          version="$(node -p "require('./projects/@stackline/angular-multiselect-dropdown-lib/package.json').version")"
+          if npm view "$package@$version" version --registry=https://registry.npmjs.org >/dev/null 2>&1; then
+            echo "$package@$version already exists" >&2
+            exit 1
+          fi
+      - name: Build and verify the immutable artifact
+        shell: bash
+        env:
+          EXPECTED_SHA512: ${{ inputs.expected_sha512 }}
+        run: |
+          mkdir artifact
+          npm pack ./dist/@stackline/angular-multiselect-dropdown --ignore-scripts --pack-destination artifact
+          expected="$(printf '%s' "$EXPECTED_SHA512" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
+          actual="$(sha512sum artifact/*.tgz | awk '{print $1}')"
+          if [[ ! "$expected" =~ ^[0-9a-f]{128}$ ]]; then
+            echo "expected_sha512 must contain exactly 128 hexadecimal characters" >&2
+            exit 1
+          fi
+          if [ "$actual" != "$expected" ]; then
+            echo "Tarball digest mismatch: expected $expected, got $actual" >&2
+            exit 1
+          fi
+          (cd artifact && sha512sum *.tgz > SHA512SUMS)
+      - name: Prepare npm OIDC client and SBOM
+        run: |
+          npm install --global npm@11.19.0
+          npm sbom --omit=dev --sbom-format cyclonedx > artifact/sbom.cdx.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: npm-release
+          path: artifact/
+          if-no-files-found: error
+      - run: npm publish artifact/*.tgz --access public --provenance --registry=https://registry.npmjs.org
