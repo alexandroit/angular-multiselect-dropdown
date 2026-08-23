@@ -128,19 +128,6 @@ function updateAngularJson(targetDir, line) {
     browser: ''
   };
 
-  const styles = currentProject.architect.build.options.styles || [];
-  currentProject.architect.build.options.styles = styles.map((entry) =>
-    typeof entry === 'string'
-      ? entry.replace(
-          'node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css',
-          'node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css'
-        ).replace(
-          'node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css',
-          'node_modules/@stackline/angular-multiselect-dropdown/themes/default.theme.css'
-        )
-      : entry
-  );
-
   currentProject.architect.serve.options.buildTarget = `${projectName}:build:development`;
   currentProject.architect.serve.configurations.production.buildTarget = `${projectName}:build:production`;
   currentProject.architect.serve.configurations.development.buildTarget = `${projectName}:build:development`;

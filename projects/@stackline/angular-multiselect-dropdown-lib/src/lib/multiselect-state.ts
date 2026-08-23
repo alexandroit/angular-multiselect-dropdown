@@ -1,5 +1,6 @@
 import { DropdownSettings } from './multiselect.interface';
 import { safeObjectAssign } from './safe-object';
+import { normalizeIdentifier } from './identifier';
 
 export type AngularMultiselectItemKey<T> = Extract<keyof T, string>;
 
@@ -50,10 +51,7 @@ const defaultSettings: DropdownSettings = {
 };
 
 function cleanId(value: any) {
-    return String(value === undefined || value === null ? '' : value)
-        .toLowerCase()
-        .replace(/[^a-z0-9_-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
+    return normalizeIdentifier(value === undefined || value === null ? '' : value);
 }
 
 export class AngularMultiselectState<T extends Record<string, any>> {

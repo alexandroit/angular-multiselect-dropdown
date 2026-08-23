@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+- Replaced identifier and skin edge-trimming expressions with a shared linear
+  normalizer, added adversarial-input tests, and removed no-op docs rewrites.
 - Classified the 24 superseded per-example Angular 21 StackBlitz projects as
   immutable compatibility fixtures and added lockfile-to-manifest validation.
   The unified Angular 21 playground remains the maintained runnable example.

@@ -11,6 +11,7 @@ import { Subscription, Subject } from 'rxjs';
 import { VirtualScrollerModule, VirtualScrollerComponent } from './virtual-scroll/virtual-scroll';
 import { map, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 import { safeObjectAssign } from './safe-object';
+import { normalizeIdentifier } from './identifier';
 
 export const DROPDOWN_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
@@ -289,8 +290,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             rawSkin = this.settings.skin || this.settings.theme || 'classic';
         }
 
-        var skin = String(rawSkin).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
-        skin = skin.replace(/^-+|-+$/g, '');
+        var skin = normalizeIdentifier(rawSkin);
         return skin || 'classic';
     }
     getDropdownClasses() {
@@ -848,8 +848,8 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
 
     getOptionId(item: any, index: number, prefix: string = 'option') {
         var rawId = item && this.settings && item[this.settings.primaryKey] !== undefined ? item[this.settings.primaryKey] : index;
-        var cleanId = String(rawId).toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
-        var cleanPrefix = String(prefix || 'option').toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
+        var cleanId = normalizeIdentifier(rawId);
+        var cleanPrefix = normalizeIdentifier(prefix || 'option');
         return this.id + '-' + (cleanPrefix || 'option') + '-' + (cleanId || index);
     }
 
