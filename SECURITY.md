@@ -9,6 +9,12 @@ uses `npm ci`, and must pass a zero-finding dependency audit in CI. Historical
 examples are validated as immutable fixtures and are never installed or
 published.
 
+Versioned bundles under `docs/angular-*` are generated outputs retained for
+historical compatibility. They are not package source and are not included in
+the npm package. Findings confined to those end-of-life generated artifacts are
+reviewed against their actual input flow and classified with an explicit GitHub
+rationale; maintained source and current documentation remain actionable.
+
 ## Reporting a vulnerability
 
 Please use [GitHub private vulnerability reporting](https://github.com/alexandroit/angular-multiselect-dropdown/security/advisories/new). Do not disclose a suspected vulnerability in a public issue before a fix is available.
