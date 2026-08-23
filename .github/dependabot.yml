@@ -10,6 +10,10 @@ updates:
     versioning-strategy: increase-if-necessary
     commit-message:
       prefix: deps
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - version-update:semver-major
     groups:
       production-compatible:
         dependency-type: production
