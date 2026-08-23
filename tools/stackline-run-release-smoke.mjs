@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 
 const FIXTURE_MANIFEST = 'package.fixture.json';
 
@@ -36,6 +37,85 @@ function frameworkDependencies(framework, dependencies) {
     return dependencies.vue ? [['vue', dependencies.vue]] : [];
   }
   return [];
+}
+
+function validateMaintainedDocs(repositoryRoot) {
+  const packageMajor = Number.parseInt(
+    readJson(path.join(repositoryRoot, 'package.json')).version,
+    10
+  );
+  const docsRoot = path.join(repositoryRoot, 'docs-src', `angular-${packageMajor}`);
+  const manifest = readJson(path.join(docsRoot, 'package.json'));
+  const lock = readJson(path.join(docsRoot, 'package-lock.json'));
+  const lockRoot = lock.packages?.[''];
+
+  assert(manifest.private === true, 'Maintained documentation must stay private');
+  assert(lock.lockfileVersion === 3, 'Maintained documentation must use npm lockfile v3');
+  assert(lockRoot?.name === manifest.name, 'Maintained docs manifest and lock names differ');
+  assert(
+    isDeepStrictEqual(lockRoot.dependencies || {}, manifest.dependencies || {}),
+    'Maintained docs runtime dependencies differ from the lockfile'
+  );
+  assert(
+    isDeepStrictEqual(lockRoot.devDependencies || {}, manifest.devDependencies || {}),
+    'Maintained docs development dependencies differ from the lockfile'
+  );
+
+  return packageMajor;
+}
+
+function validateArchivedExamples(repositoryRoot) {
+  const examplesRoot = path.join(
+    repositoryRoot,
+    'examples',
+    'stackblitz',
+    'angular-21'
+  );
+  const exampleDirectories = readdirSync(examplesRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(examplesRoot, entry.name));
+
+  assert(exampleDirectories.length > 0, 'No archived StackBlitz examples were found');
+
+  for (const exampleRoot of exampleDirectories) {
+    const manifestFile = path.join(exampleRoot, FIXTURE_MANIFEST);
+    const lockFile = path.join(exampleRoot, 'package-lock.fixture.json');
+
+    assert(existsSync(manifestFile), `Missing archived manifest: ${exampleRoot}`);
+    assert(existsSync(lockFile), `Missing archived lockfile: ${exampleRoot}`);
+    assert(!existsSync(path.join(exampleRoot, 'package.json')),
+      `Archived example must not expose package.json: ${exampleRoot}`);
+    assert(!existsSync(path.join(exampleRoot, 'package-lock.json')),
+      `Archived example must not expose package-lock.json: ${exampleRoot}`);
+
+    const manifest = readJson(manifestFile);
+    const lock = readJson(lockFile);
+    const lockRoot = lock.packages?.[''];
+
+    assert(manifest.private === true, 'Archived examples must stay private');
+    assert(lock.lockfileVersion === 3, 'Archived examples must use npm lockfile v3');
+    assert(lockRoot?.name === manifest.name, 'Archived manifest and lock names differ');
+    assert(
+      isDeepStrictEqual(lockRoot.dependencies || {}, manifest.dependencies || {}),
+      `Archived runtime dependencies differ: ${exampleRoot}`
+    );
+    assert(
+      isDeepStrictEqual(lockRoot.devDependencies || {}, manifest.devDependencies || {}),
+      `Archived development dependencies differ: ${exampleRoot}`
+    );
+
+    for (const [name, version] of frameworkDependencies('angular', {
+      ...(manifest.dependencies || {}),
+      ...(manifest.devDependencies || {})
+    })) {
+      assert(
+        /^21\./.test(version),
+        `${name} must remain on the archived Angular 21 line, found ${version}`
+      );
+    }
+  }
+
+  return exampleDirectories.length;
 }
 
 export function validateRelease(releaseRoot) {
@@ -98,7 +178,13 @@ export function validateCatalog(repositoryRoot) {
     validateRelease(releaseRoot);
   }
 
-  process.stdout.write(`Validated ${metadataFiles.length} compatibility fixtures\n`);
+  const maintainedMajor = validateMaintainedDocs(repositoryRoot);
+  const archivedExamples = validateArchivedExamples(repositoryRoot);
+  process.stdout.write(
+    `Validated ${metadataFiles.length} compatibility fixtures and ` +
+      `${archivedExamples} archived StackBlitz examples; Angular ` +
+      `${maintainedMajor} docs are reproducible\n`
+  );
 }
 
 const currentFile = fileURLToPath(import.meta.url);

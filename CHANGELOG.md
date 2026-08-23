@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+- Classified the 24 superseded per-example Angular 21 StackBlitz projects as
+  immutable compatibility fixtures and added lockfile-to-manifest validation.
+  The unified Angular 21 playground remains the maintained runnable example.
+- Added a reproducible lockfile and CI build/audit gate for the maintained
+  Angular 22 documentation application.
+
 - Moved exact-version dependency records to `package.fixture.json`, repaired
   their validators, and added an offline catalog contract to keep historical
   metadata out of active dependency alerts.

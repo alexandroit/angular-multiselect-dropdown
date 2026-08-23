@@ -33,6 +33,12 @@ jobs:
         run: npm run test:fixtures
       - run: npm run check
       - run: npm audit --audit-level=low
+      - name: Build and audit maintained documentation
+        if: matrix.node == '22.22.3'
+        run: |
+          npm run docs:install:angular-22
+          npm run build:docs:angular-22
+          npm run audit:docs
 
   release-artifact:
     name: Build release artifact

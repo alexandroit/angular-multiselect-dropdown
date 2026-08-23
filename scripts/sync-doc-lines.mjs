@@ -9,6 +9,7 @@ const docsSrcDir = path.join(rootDir, 'docs-src');
 const docsDir = path.join(rootDir, 'docs');
 const matrixPath = path.join(docsSrcDir, 'line-matrix.json');
 const matrix = JSON.parse(fs.readFileSync(matrixPath, 'utf8'));
+const currentAngular = Math.max(...matrix.lines.map((line) => line.angular));
 
 const baseDirs = {
   classic: path.join(docsSrcDir, 'base-classic'),
@@ -19,10 +20,14 @@ function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
 
-function resetDir(dirPath) {
+function resetDir(dirPath, preserveLockfile = false) {
   ensureDir(dirPath);
 
   for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+    if (preserveLockfile && entry.name === 'package-lock.json') {
+      continue;
+    }
+
     const entryPath = path.join(dirPath, entry.name);
     if (
       entry.isDirectory() &&
@@ -160,7 +165,7 @@ function updateIndexFiles(targetDir, line) {
 
 function cleanGeneratedLine(line) {
   const targetDir = path.join(docsSrcDir, `angular-${line.angular}`);
-  resetDir(targetDir);
+  resetDir(targetDir, line.angular === currentAngular);
   copyDir(baseDirs[line.base], targetDir);
 
   updatePackageJson(targetDir, line);

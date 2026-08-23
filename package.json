@@ -3,6 +3,7 @@
   "version": "22.1.0",
   "scripts": {
     "test:fixtures": "node tools/stackline-run-release-smoke.mjs --catalog",
+    "audit:docs": "npm audit --prefix docs-src/angular-22 --audit-level=low",
     "ng": "ng",
     "start": "cd docs-src/angular-22 && npm start",
     "build": "npm run build-package",
@@ -22,7 +23,7 @@
     "github-pages": "npm run build:docs",
     "publish-npm": "node scripts/release-line.mjs --publish",
     "publish-npm:line": "node scripts/release-line.mjs --publish",
-    "docs:install:angular-22": "cd docs-src/angular-22 && npm install --ignore-scripts",
+    "docs:install:angular-22": "npm ci --ignore-scripts --prefix docs-src/angular-22",
     "build:docs:angular-22": "cd docs-src/angular-22 && npm run build"
   },
   "private": true,

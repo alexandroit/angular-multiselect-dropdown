@@ -4,6 +4,12 @@ Standalone StackBlitz projects for the maintained Angular release lines.
 
 Use the single Angular 21 playground for documentation links. Every official URL must use `https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-21` with `initialpath`, avoiding forked URLs and pinned commit hashes. That keeps StackBlitz attached to the maintained GitHub source while each example still opens on its own lazy route, Angular module, folder, and data object.
 
+The per-example directories below are preserved source snapshots from before
+that consolidation. Their dependency records use `package.fixture.json` and
+`package-lock.fixture.json`; they are not installable applications and are
+not part of the repository dependency graph. The linked unified playground is
+the only maintained runnable application.
+
 ## Angular 21
 
 | Example | StackBlitz |
