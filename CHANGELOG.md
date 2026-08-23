@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+- Moved exact-version dependency records to `package.fixture.json`, repaired
+  their validators, and added an offline catalog contract to keep historical
+  metadata out of active dependency alerts.
+- Corrected framework pins contaminated by newer Angular dependencies in 146
+  historical records.
+
 ## [22.1.0] - 2026-08-19
 
 ### Changed

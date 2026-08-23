@@ -2,6 +2,7 @@
   "name": "@stackline/angular-multiselect-dropdown",
   "version": "22.1.0",
   "scripts": {
+    "test:fixtures": "node tools/stackline-run-release-smoke.mjs --catalog",
     "ng": "ng",
     "start": "cd docs-src/angular-22 && npm start",
     "build": "npm run build-package",

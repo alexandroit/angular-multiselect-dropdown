@@ -20,8 +20,18 @@ function ensureDir(dirPath) {
 }
 
 function resetDir(dirPath) {
-  fs.rmSync(dirPath, { recursive: true, force: true });
   ensureDir(dirPath);
+
+  for (const entry of fs.readdirSync(dirPath, { withFileTypes: true })) {
+    const entryPath = path.join(dirPath, entry.name);
+    if (
+      entry.isDirectory() &&
+      fs.existsSync(path.join(entryPath, 'stackline-release.json'))
+    ) {
+      continue;
+    }
+    fs.rmSync(entryPath, { recursive: true, force: true });
+  }
 }
 
 function copyDir(source, target) {

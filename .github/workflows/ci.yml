@@ -28,6 +28,9 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
       - run: npm ci
+      - name: Validate compatibility fixture catalog
+        if: matrix.node == '22.22.3'
+        run: npm run test:fixtures
       - run: npm run check
       - run: npm audit --audit-level=low
 
