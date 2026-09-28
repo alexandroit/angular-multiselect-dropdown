@@ -772,3 +772,12 @@ pre,
     font-size: 12px;
   }
 }
+
+/* Allow the current docs grid to shrink around code and live examples. */
+.docs-main,
+.rail,
+.rail-card,
+.setup-card,
+.hero-card {
+  min-width: 0;
+}
