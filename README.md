@@ -15,7 +15,7 @@
   <img src="https://alexandro.net/images/public/2026/06/dropdownlist.gif" alt="@stackline/angular-multiselect-dropdown live dropdown preview" width="420">
 </p>
 
-**Latest tested package release:** `22.1.0` for Angular `22.x`
+**Package version:** `22.1.1`
 
 ---
 
@@ -23,63 +23,52 @@
 
 ---
 
-## Why this library?
+## Contents
+
+- [Why this package?](#why-this-package)
+- [Compatibility](#compatibility)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Security](#security)
+- [API Surface](#api-surface)
+- [Local Development](#local-development)
+- [Consumer Smoke Test](#consumer-smoke-test)
+- [Release Checklist](#release-checklist)
+- [Community and Support](#community-and-support)
+- [License](#license)
+
+<a id="why-this-library"></a>
+
+## Why this package?
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 22. The current tested package release is `22.1.0` for Angular 22.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 22. The current tested package release is `22.1.1` for Angular 22.x applications.
 
 The Angular 22 package is compatible with Angular 22.x and was tested in a real Angular 22.1.3 application before publication. The 22.1.0 peer range is intentionally open through Angular 23.x (`>=22.0.0 <24.0.0`) so Angular 23 projects can install it while the Angular 23-specific validation line is prepared. The 22.1.x line keeps the Angular 21.2.x behavior baseline: accessibility-focused keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. It carries the React 19.1.x combobox contract into Angular patterns: configurable keyboard behavior, matching `aria-selected` plus `aria-checked`, selected-object preservation across async data refreshes, richer template contexts, and renderless state helpers for custom Angular HTML.
 
-## Features
+## Compatibility
 
-| Feature | Supported |
-| :--- | :---: |
-| Angular 22 tested release line | ✅ |
-| Multi-select and single-select modes | ✅ |
-| Search and filter | ✅ |
-| Group by field | ✅ |
-| Custom item templates (`<c-item>`) with selected/ARIA context | ✅ |
-| Custom badge templates (`<c-badge>`) | ✅ |
-| Renderless Angular state helper for custom HTML | ✅ |
-| Template-driven forms (`ngModel`) | ✅ |
-| Reactive forms (`formControlName`) | ✅ |
-| Lazy loading and remote-data hooks | ✅ |
-| Theming via bundled CSS/SCSS | ✅ |
-| Accessibility-focused keyboard navigation, focus states, and ARIA labels | ✅ |
-| Matching `aria-selected` and `aria-checked` option state | ✅ |
-| Primary selector `<angular-multiselect>` | ✅ |
-| Legacy compatibility alias `<angular2-multiselect>` | ✅ |
-| Versioned docs builds per Angular line | ✅ |
+| Item | Value |
+| --- | --- |
+| Package | `@stackline/angular-multiselect-dropdown@22.1.1` |
+| Peer: `@angular/common` | `>=22.0.0 <24.0.0` |
+| Peer: `@angular/core` | `>=22.0.0 <24.0.0` |
+| Peer: `@angular/forms` | `>=22.0.0 <24.0.0` |
+| Runtime dependencies | `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/router`, `bootstrap`, `rxjs`, `tslib`, `zone.js` |
+| Package format | Angular Package Format with partial-Ivy compilation and TypeScript declarations |
 
-## Table of Contents
-
-1. [Rename Note](#rename-note)
-2. [Angular Version Compatibility](#angular-version-compatibility)
-3. [Angular 22 StackBlitz Playground](#angular-22-stackblitz-playground)
-4. [Installation](#installation)
-5. [Setup](#setup)
-6. [Custom CSS and SCSS Themes](#custom-css-and-scss-themes)
-7. [Basic Usage](#basic-usage)
-8. [Official Angular 22 Test Matrix](#official-angular-22-test-matrix)
-9. [Keyboard and ARIA Contract](#keyboard-and-aria-contract)
-10. [Custom Templates](#custom-templates)
-11. [Renderless State Helper](#renderless-state-helper)
-12. [Forms Integration](#forms-integration)
-13. [Lazy Loading and Remote Data](#lazy-loading-and-remote-data)
-14. [Dialogs and Overflow Containers](#dialogs-and-overflow-containers)
-15. [Events](#events)
-16. [Run Locally](#run-locally)
-17. [License](#license)
-
-## Rename Note
+### Rename Note
 
 - new package: `@stackline/angular-multiselect-dropdown`
 - previous package: `@stackline/angular2-multiselect-dropdown`
 - primary selector: `<angular-multiselect>`
 - legacy alias still accepted only for compatibility: `<angular2-multiselect>`
 
-## Angular Version Compatibility
+
+
+### Angular Version Compatibility
 
 Each package family only installs on its matching Angular family. Framework major and package major are not always the same package number, so use the package family column below.
 
@@ -108,48 +97,21 @@ Peer ranges are normally bounded to the tested Angular major. The Angular 22 lin
 | **4.x** | **Angular 4 only** | **`>=4.0.0 <5.0.0`** | **4.0.2 -> 4.4.7** | [Angular 4 family docs](https://alexandro.net/docs/angular/multiselect/angular-4/) |
 | **2.x** | **Angular 2 only** | **`>=2.0.0 <3.0.0`** | **compatible with 2.x; tested on 2.4.10** | [Angular 2 family docs](https://alexandro.net/docs/angular/multiselect/angular-2/) |
 
-## Angular 22 StackBlitz Playground
-
-The editable StackBlitz entry is one Angular 22 playground with isolated lazy routes. Official links use `stackblitz.com/github` against the maintained GitHub repository, so they stay tied to the latest pushed source instead of creating stale forked copies for every example. Each example has its own folder, Angular module, data object, and URL.
-
-| Example | StackBlitz |
-| :--- | :--- |
-| Basic example | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fbasic) |
-| Single selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsingle-selection) |
-| Search filter | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-filter) |
-| Custom Search from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fcustom-search-api) |
-| Search Filter By Property | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-filter-by-property) |
-| Search and Add New Item | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-add-new-item) |
-| Group By | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fgroup-by) |
-| Templating | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Ftemplating) |
-| Using in Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Ftemplate-driven-forms) |
-| Using in Reactive Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Freactive-forms) |
-| Virtual Scrolling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fvirtual-scrolling) |
-| Lazy Loading from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flazy-loading-api) |
-| Data from remote API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fremote-data) |
-| Using in List for loop | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flist-loop) |
-| Using Inside Dialog | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdialog) |
-| Multiple dropdowns | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fmultiple-dropdowns) |
-| Load dynamic data | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdynamic-data) |
-| Methods | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fmethods) |
-| Events | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fevents) |
-| Disabled mode | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdisabled) |
-| Limit selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flimit-selection) |
-| Limit badges | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flimit-badges) |
-| Custom placeholder | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fcustom-placeholder) |
-| Styling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fstyling) |
+<a id="install"></a>
 
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@22.1.0 --save-exact
+npm install @stackline/angular-multiselect-dropdown@22.1.1 --save-exact
 ```
 
-Install `22.1.0` for Angular 22.x applications. This release keeps the tested Angular behavior and the Angular 23-compatible peer range, updates the build and test baseline to Angular 22.1, ignores prototype-mutation keys in settings/template contexts, and makes headless `limitSelection` match the visual component. It keeps `<angular-multiselect>` as the documented selector and `<angular2-multiselect>` as a compatibility alias.
+Install `22.1.1` for Angular 22.x applications. This release keeps the tested Angular behavior and the Angular 23-compatible peer range, updates the build and test baseline to Angular 22.1, ignores prototype-mutation keys in settings/template contexts, and makes headless `limitSelection` match the visual component. It keeps `<angular-multiselect>` as the documented selector and `<angular2-multiselect>` as a compatibility alias.
 
-## Setup
+## Usage
 
-### 1. Import the module
+### Setup
+
+#### 1. Import the module
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -167,7 +129,7 @@ import { AngularMultiSelectModule } from '@stackline/angular-multiselect-dropdow
 export class AppModule {}
 ```
 
-### 2. Add the default theme
+#### 2. Add the default theme
 
 ```json
 "styles": [
@@ -175,27 +137,7 @@ export class AppModule {}
 ]
 ```
 
-## Custom CSS and SCSS Themes
-
-The package also ships a full custom starter theme in both formats:
-
-- `node_modules/@stackline/angular-multiselect-dropdown/themes/custom.theme.scss`
-- `node_modules/@stackline/angular-multiselect-dropdown/themes/custom.theme.css`
-
-Use the `scss` file when you want to take over the component styles completely and keep the theme in your app source:
-
-```json
-"styles": [
-  "src/styles.scss",
-  "src/styles/multiselect-dropdown.theme.scss"
-]
-```
-
-Start `src/styles/multiselect-dropdown.theme.scss` from the package file above and edit the selectors and tokens freely.
-
-Use the `css` file when you want a plain compiled starter that can be copied and adjusted without a Sass pipeline.
-
-## Basic Usage
+### Basic Usage
 
 ```ts
 dropdownList = [
@@ -239,9 +181,93 @@ dropdownSettings = {
 </angular-multiselect>
 ```
 
-## Official Angular 22 Test Matrix
+## Features
 
-The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.0`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
+| Feature | Supported |
+| :--- | :---: |
+| Angular 22 tested release line | ✅ |
+| Multi-select and single-select modes | ✅ |
+| Search and filter | ✅ |
+| Group by field | ✅ |
+| Custom item templates (`<c-item>`) with selected/ARIA context | ✅ |
+| Custom badge templates (`<c-badge>`) | ✅ |
+| Renderless Angular state helper for custom HTML | ✅ |
+| Template-driven forms (`ngModel`) | ✅ |
+| Reactive forms (`formControlName`) | ✅ |
+| Lazy loading and remote-data hooks | ✅ |
+| Theming via bundled CSS/SCSS | ✅ |
+| Accessibility-focused keyboard navigation, focus states, and ARIA labels | ✅ |
+| Matching `aria-selected` and `aria-checked` option state | ✅ |
+| Primary selector `<angular-multiselect>` | ✅ |
+| Legacy compatibility alias `<angular2-multiselect>` | ✅ |
+| Versioned docs builds per Angular line | ✅ |
+
+## Security
+
+See the [security policy](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/SECURITY.md) for supported release lines and private vulnerability reporting.
+
+Keep framework peers and application dependencies patched. Dependency audits cover known advisories; they do not establish that an application is secure.
+
+Option identifier normalization trims adversarial runs in linear time while preserving the existing identifier and selection contract.
+
+## API Surface
+
+### Angular 22 StackBlitz Playground
+
+The editable StackBlitz entry is one Angular 22 playground with isolated lazy routes. Official links use `stackblitz.com/github` against the maintained GitHub repository, so they stay tied to the latest pushed source instead of creating stale forked copies for every example. Each example has its own folder, Angular module, data object, and URL.
+
+| Example | StackBlitz |
+| :--- | :--- |
+| Basic example | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fbasic) |
+| Single selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsingle-selection) |
+| Search filter | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-filter) |
+| Custom Search from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fcustom-search-api) |
+| Search Filter By Property | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-filter-by-property) |
+| Search and Add New Item | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fsearch-add-new-item) |
+| Group By | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fgroup-by) |
+| Templating | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Ftemplating) |
+| Using in Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Ftemplate-driven-forms) |
+| Using in Reactive Forms | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Freactive-forms) |
+| Virtual Scrolling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fvirtual-scrolling) |
+| Lazy Loading from API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flazy-loading-api) |
+| Data from remote API | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fremote-data) |
+| Using in List for loop | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flist-loop) |
+| Using Inside Dialog | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdialog) |
+| Multiple dropdowns | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fmultiple-dropdowns) |
+| Load dynamic data | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdynamic-data) |
+| Methods | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fmethods) |
+| Events | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fevents) |
+| Disabled mode | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fdisabled) |
+| Limit selection | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flimit-selection) |
+| Limit badges | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Flimit-badges) |
+| Custom placeholder | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fcustom-placeholder) |
+| Styling | [Open](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fstyling) |
+
+
+### Custom CSS and SCSS Themes
+
+The package also ships a full custom starter theme in both formats:
+
+- `node_modules/@stackline/angular-multiselect-dropdown/themes/custom.theme.scss`
+- `node_modules/@stackline/angular-multiselect-dropdown/themes/custom.theme.css`
+
+Use the `scss` file when you want to take over the component styles completely and keep the theme in your app source:
+
+```json
+"styles": [
+  "src/styles.scss",
+  "src/styles/multiselect-dropdown.theme.scss"
+]
+```
+
+Start `src/styles/multiselect-dropdown.theme.scss` from the package file above and edit the selectors and tokens freely.
+
+Use the `css` file when you want a plain compiled starter that can be copied and adjusted without a Sass pipeline.
+
+
+### Official Angular 22 Test Matrix
+
+The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.1`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
 
 Switch between skins through the settings object:
 
@@ -276,7 +302,8 @@ The same twelve scenarios are validated for both `classic` and `material`:
 | 11 | Local lazy loading | `{ lazyLoading: true, maxHeight: 120, badgeShowLimit: 3 }` |
 | 12 | Item + chip template | `<c-badge>` and `<c-item>` custom templates |
 
-## Keyboard and ARIA Contract
+
+### Keyboard and ARIA Contract
 
 The Angular line follows the same combobox contract validated in the React 19.1.x work, but exposed through Angular settings:
 
@@ -308,7 +335,8 @@ Default behavior:
 - Focused badge/remove buttons can remove intentionally with Backspace/Delete.
 - Options expose matching `aria-selected` and `aria-checked` values.
 
-## Custom Templates
+
+### Custom Templates
 
 ```html
 <angular-multiselect
@@ -332,7 +360,8 @@ Default behavior:
 
 `<angular2-multiselect>` remains available only as a legacy compatibility alias for applications migrating from the old outdated plugin. New code and all current examples should use `<angular-multiselect>`.
 
-## Renderless State Helper
+
+### Renderless State Helper
 
 Use `AngularMultiselectState` when you want Stackline selection, filtering, item identity, object preservation, and ARIA state while owning all HTML yourself.
 
@@ -365,9 +394,10 @@ state = new AngularMultiselectState<CountryOption>({
 
 The docs include a `Headless + ARIA` route that binds the returned trigger, listbox, and option state into fully custom Angular HTML.
 
-## Forms Integration
 
-### Template-driven forms
+### Forms Integration
+
+#### Template-driven forms
 
 ```html
 <form #form="ngForm">
@@ -381,7 +411,7 @@ The docs include a `Headless + ARIA` route that binds the returned trigger, list
 </form>
 ```
 
-### Reactive forms
+#### Reactive forms
 
 ```html
 <form [formGroup]="userForm">
@@ -393,7 +423,8 @@ The docs include a `Headless + ARIA` route that binds the returned trigger, list
 </form>
 ```
 
-## Lazy Loading and Remote Data
+
+### Lazy Loading and Remote Data
 
 Enable lazy loading through the settings object and respond to the scroll event from your container logic:
 
@@ -411,7 +442,8 @@ The versioned docs include working examples for lazy loading, remote data, group
 
 For sticky cards, constrained containers, or dashboard layouts, keep `tagToBody: false` so the dropdown panel stays anchored to the field and does not jump across the page.
 
-## Dialogs and Overflow Containers
+
+### Dialogs and Overflow Containers
 
 Use `tagToBody: true` when the dropdown is inside Angular Material dialogs, modals, drawers, or containers that set `overflow: hidden` or `overflow: auto`.
 
@@ -426,7 +458,8 @@ settings = {
 
 In the current `22.1.x` line, `tagToBody: true` renders the open panel outside clipping containers, keeps it aligned to the original trigger, keeps the menu surface opaque, recalculates position on scroll and resize, and cleans it up on close or destroy. `appendToBody: true` is also accepted as an alias for teams that prefer that name.
 
-## Events
+
+### Events
 
 The classic output contract is preserved:
 
@@ -436,12 +469,38 @@ The classic output contract is preserved:
 - `(onDeSelectAll)`
 - `(onAddFilterNewItem)`
 
-## Run Locally
+<a id="run-locally"></a>
+<a id="development"></a>
+
+## Local Development
+
+Use Node `24.20.0` and npm `11.19.0` for reproducible release artifacts.
 
 ```bash
-npm install
+npm ci
 npm run docs:sync
 ```
+
+## Consumer Smoke Test
+
+`npm run check` builds the library and checks its public package contents and existing behavior. The existing `npm run test:ci` command runs application and library tests in headless Chrome.
+
+## Release Checklist
+
+- Run `npm ci`, `npm run check`, and the applicable browser or consumer checks.
+- Review `npm audit` and `npm audit --omit=dev` separately.
+- Review the packed README, declarations, exports, license, and compatibility metadata.
+- Publish through the [GitHub Actions workflow](https://github.com/alexandroit/angular-multiselect-dropdown/actions/workflows/publish.yml) using the tested artifact's SHA-512 digest.
+- Verify the exact npm tarball, version, and GitHub provenance after publication; never replace a published version.
+
+## Community and Support
+
+Report reproducible package issues in the [issue tracker](https://github.com/alexandroit/angular-multiselect-dropdown/issues). Use the [security policy](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/SECURITY.md) for security reports.
+
+- [Stackline / Alexandro.Net](https://alexandro.net/)
+- [GitHub](https://github.com/alexandroit)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+- [Reddit community: r/Stackline](https://www.reddit.com/r/Stackline/)
 
 ## License
 

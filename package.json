@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "22.1.0",
+  "version": "22.1.1",
   "scripts": {
     "test:fixtures": "node tools/stackline-run-release-smoke.mjs --catalog",
     "audit:docs": "npm audit --prefix docs-src/angular-22 --audit-level=low",
@@ -60,5 +60,6 @@
   "homepage": "https://alexandro.net/docs/angular/multiselect/",
   "peerDependencies": {
     "@angular/core": ">=22.0.0 <24.0.0"
-  }
+  },
+  "packageManager": "npm@11.19.0"
 }

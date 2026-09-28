@@ -208,7 +208,7 @@ function validateDistPackage(line) {
 }
 
 function publishDistPackage() {
-  run(npmCommand, ['publish', '--access', 'public'], { cwd: distDir });
+  throw new Error('Public npm releases use .github/workflows/publish.yml with the reviewed tarball SHA-512; this helper only prepares packages.');
 }
 
 function main() {

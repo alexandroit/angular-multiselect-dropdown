@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 22.1.1 - 2026-09-28
+
+- Organize package documentation, preserve examples and compatibility guidance, and add verified Stackline community links.
+- Add precise Stackline discovery metadata and standardize GitHub release tooling on Node 24.20.0 and npm 11.19.0.
+- Fail closed on registry lookup errors and use the reviewed GitHub artifact workflow for public npm releases.
+- Build the maintained documentation against the local candidate package before publication.
+- Patch vulnerable development and documentation dependencies within their existing compatible ranges.
+- Include the previously committed linear-time identifier normalization hardening without changing public APIs.
+
+
 - Replaced identifier and skin edge-trimming expressions with a shared linear
   normalizer, added adversarial-input tests, and removed no-op docs rewrites.
 - Classified the 24 superseded per-example Angular 21 StackBlitz projects as
