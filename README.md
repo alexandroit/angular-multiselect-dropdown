@@ -1,44 +1,18 @@
 # @stackline/angular-multiselect-dropdown
 
-> A maintained Angular multiselect dropdown for classic Angular forms workflows, with search, grouping, custom item and badge templates, lazy loading, custom CSS/SCSS theming, accessibility-focused and keyboard/ARIA tested support, and support for both template-driven and reactive forms.
+> Angular multiselect dropdown for Angular 22 with maintained release lines, accessibility-focused and keyboard/ARIA tested interactions, dialog-safe body overlays, Stackline skins, search, grouping, templates, headless helpers, and forms support.
 
 [![npm version](https://img.shields.io/npm/v/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
-[![npm monthly](https://img.shields.io/npm/dm/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)
-[![license](https://img.shields.io/npm/l/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/LICENSE)
-[![Angular 22](https://img.shields.io/badge/Angular-22.x-red?style=flat-square&logo=angular)](https://alexandro.net/docs/angular/multiselect/angular-22/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![license](https://img.shields.io/npm/l/@stackline/angular-multiselect-dropdown.svg?style=flat-square)](https://github.com/alexandroit/angular-multiselect-dropdown)
+[![GitHub repository](https://img.shields.io/badge/GitHub-alexandroit%2Fangular-multiselect-dropdown-181717?style=flat-square&logo=github)](https://github.com/alexandroit/angular-multiselect-dropdown)
+[![Docs](https://img.shields.io/badge/docs-alexandro.net-0f766e?style=flat-square)](https://alexandro.net/docs/angular/multiselect/)
 [![Reddit community](https://img.shields.io/badge/community-r%2FStackline-ff4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/r/Stackline/)
 
-**[Documentation & Live Demos](https://alexandro.net/docs/angular/multiselect/)** | **[Angular 22 Demo](https://alexandro.net/docs/angular/multiselect/angular-22/)** | **[Angular 22 StackBlitz](https://stackblitz.com/github/alexandroit/stackline-angular-multiselect-angular-22?startScript=start&initialpath=%2Fbasic)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)** | **[Community Discussions](https://www.reddit.com/r/Stackline/)**
+**[Documentation](https://alexandro.net/docs/angular/multiselect/)** | **[npm](https://www.npmjs.com/package/@stackline/angular-multiselect-dropdown)** | **[Issues](https://github.com/alexandroit/angular-multiselect-dropdown/issues)** | **[Repository](https://github.com/alexandroit/angular-multiselect-dropdown)**
 
-<p align="center">
-  <img src="https://alexandro.net/images/public/2026/06/dropdownlist.gif" alt="@stackline/angular-multiselect-dropdown live dropdown preview" width="420">
-</p>
-
-**Package version:** `22.1.2`
+**Current package version:** `22.1.3`
 
 ---
-
-> **Credits:** Original upstream copyright is preserved in the license. Current maintenance, Angular line stewardship, publishing, and documentation by [Alexandro Paixao Marques](https://github.com/alexandroit/angular-multiselect-dropdown).
-
----
-
-## Contents
-
-- [Why this package?](#why-this-package)
-- [Compatibility](#compatibility)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Security](#security)
-- [API Surface](#api-surface)
-- [Local Development](#local-development)
-- [Consumer Smoke Test](#consumer-smoke-test)
-- [Release Checklist](#release-checklist)
-- [Community and Support](#community-and-support)
-- [License](#license)
-
-<a id="why-this-library"></a>
 
 ## Why this package?
 
@@ -52,7 +26,7 @@ The Angular 22 package is compatible with Angular 22.x and was tested in a real 
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/angular-multiselect-dropdown@22.1.2` |
+| Package | `@stackline/angular-multiselect-dropdown@22.1.3` |
 | Peer: `@angular/common` | `>=22.0.0 <24.0.0` |
 | Peer: `@angular/core` | `>=22.0.0 <24.0.0` |
 | Peer: `@angular/forms` | `>=22.0.0 <24.0.0` |
@@ -102,7 +76,7 @@ Peer ranges are normally bounded to the tested Angular major. The Angular 22 lin
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@22.1.2 --save-exact
+npm install @stackline/angular-multiselect-dropdown@22.1.3 --save-exact
 ```
 
 Install `22.1.2` for Angular 22.x applications. This release keeps the tested Angular behavior and the Angular 23-compatible peer range, updates the build and test baseline to Angular 22.1, ignores prototype-mutation keys in settings/template contexts, and makes headless `limitSelection` match the visual component. It keeps `<angular-multiselect>` as the documented selector and `<angular2-multiselect>` as a compatibility alias.
@@ -267,7 +241,7 @@ Use the `css` file when you want a plain compiled starter that can be copied and
 
 ### Official Angular 22 Test Matrix
 
-The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.2`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
+The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.3`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
 
 Switch between skins through the settings object:
 
@@ -493,15 +467,24 @@ npm run docs:sync
 - Publish through the [GitHub Actions workflow](https://github.com/alexandroit/angular-multiselect-dropdown/actions/workflows/publish.yml) using the tested artifact's SHA-512 digest.
 - Verify the exact npm tarball, version, and GitHub provenance after publication; never replace a published version.
 
-## Community and Support
-
-Report reproducible package issues in the [issue tracker](https://github.com/alexandroit/angular-multiselect-dropdown/issues). Use the [security policy](https://github.com/alexandroit/angular-multiselect-dropdown/blob/master/SECURITY.md) for security reports.
-
-- [Stackline / Alexandro.Net](https://alexandro.net/)
-- [GitHub](https://github.com/alexandroit)
-- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
-- [Reddit community: r/Stackline](https://www.reddit.com/r/Stackline/)
-
 ## License
 
 MIT
+
+## Credits and original authors
+
+- Pradeep Terli.
+- Copyright (c) 2016 Cuppa Labs.
+- Stackline maintenance: [Alexandro Paixao Marques](https://www.linkedin.com/in/aleinfo/) and [Stackline contributors](https://github.com/alexandroit).
+
+Original copyright, license notices and contributor acknowledgements remain part of this distribution. Stackline maintenance does not replace authorship of the original work.
+
+## Community and Links
+
+- [Stackline website](https://alexandro.net/)
+- [GitHub projects](https://github.com/alexandroit)
+- [npm packages](https://www.npmjs.com/~alex360qc)
+- [Reddit community — r/Stackline](https://www.reddit.com/r/Stackline/)
+- [Maintainer LinkedIn](https://www.linkedin.com/in/aleinfo/)
+
+Use this repository's issue tracker for reproducible bugs and feature requests. Join r/Stackline for examples, usage questions and release discussions.

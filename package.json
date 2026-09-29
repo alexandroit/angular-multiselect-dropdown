@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "22.1.2",
+  "version": "22.1.3",
   "scripts": {
     "test:fixtures": "node tools/stackline-run-release-smoke.mjs --catalog",
     "audit:docs": "npm audit --prefix docs-src/angular-22 --audit-level=low",
@@ -66,5 +66,27 @@
     "karma": "$karma",
     "tslib": "$tslib",
     "karma-jasmine": "$karma-jasmine"
-  }
+  },
+  "keywords": [
+    "stackline",
+    "npm-package",
+    "angular-multiselect-dropdown",
+    "angular",
+    "typescript",
+    "nodejs",
+    "angular-library",
+    "angular-component",
+    "angular-multiselect",
+    "angular-select",
+    "angular-multi-select",
+    "multiselect",
+    "multiselect-dropdown",
+    "multi-select",
+    "dropdown",
+    "select",
+    "dropdown-search",
+    "checkbox-dropdown",
+    "checkbox-multiselect",
+    "searchable-dropdown"
+  ]
 }
