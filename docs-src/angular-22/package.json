@@ -14,10 +14,10 @@
     "@angular/forms": "22.1.3",
     "@angular/platform-browser": "22.1.3",
     "@angular/router": "22.1.3",
-    "@stackline/angular-multiselect-dropdown": "22.1.1",
-    "bootstrap": "^5.3.8",
+    "@stackline/angular-multiselect-dropdown": "file:../../dist/@stackline/angular-multiselect-dropdown",
+    "bootstrap": "npm:@stackline/bootstrap@1.0.0",
     "rxjs": "~7.8.2",
-    "tslib": "^2.8.1",
+    "tslib": "npm:@stackline/tslib@1.0.0",
     "zone.js": "~0.16.2"
   },
   "devDependencies": {
@@ -27,5 +27,8 @@
     "less": "^4.9.0",
     "sass": "^1.103.0",
     "typescript": "6.0.3"
+  },
+  "overrides": {
+    "tslib": "$tslib"
   }
 }

@@ -15,7 +15,7 @@
   <img src="https://alexandro.net/images/public/2026/06/dropdownlist.gif" alt="@stackline/angular-multiselect-dropdown live dropdown preview" width="420">
 </p>
 
-**Package version:** `22.1.1`
+**Package version:** `22.1.2`
 
 ---
 
@@ -44,7 +44,7 @@
 
 The original `angular2-multiselect-dropdown` package became difficult to keep current across multiple Angular generations. This maintained package keeps the classic API and template structure intact, introduces the new primary selector `<angular-multiselect>`, preserves the legacy alias `<angular2-multiselect>`, and publishes the project line by line so older applications can keep a predictable upgrade path.
 
-The repository contains the full documentation matrix from Angular 2 through Angular 22. The current tested package release is `22.1.1` for Angular 22.x applications.
+The repository contains the full documentation matrix from Angular 2 through Angular 22. The current tested package release is `22.1.2` for Angular 22.x applications.
 
 The Angular 22 package is compatible with Angular 22.x and was tested in a real Angular 22.1.3 application before publication. The 22.1.0 peer range is intentionally open through Angular 23.x (`>=22.0.0 <24.0.0`) so Angular 23 projects can install it while the Angular 23-specific validation line is prepared. The 22.1.x line keeps the Angular 21.2.x behavior baseline: accessibility-focused keyboard navigation, focus handling, and ARIA support for the dropdown trigger, clear-all action, selected chips, listbox, and lazy-loaded results. It carries the React 19.1.x combobox contract into Angular patterns: configurable keyboard behavior, matching `aria-selected` plus `aria-checked`, selected-object preservation across async data refreshes, richer template contexts, and renderless state helpers for custom Angular HTML.
 
@@ -52,7 +52,7 @@ The Angular 22 package is compatible with Angular 22.x and was tested in a real 
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/angular-multiselect-dropdown@22.1.1` |
+| Package | `@stackline/angular-multiselect-dropdown@22.1.2` |
 | Peer: `@angular/common` | `>=22.0.0 <24.0.0` |
 | Peer: `@angular/core` | `>=22.0.0 <24.0.0` |
 | Peer: `@angular/forms` | `>=22.0.0 <24.0.0` |
@@ -102,10 +102,10 @@ Peer ranges are normally bounded to the tested Angular major. The Angular 22 lin
 ## Installation
 
 ```bash
-npm install @stackline/angular-multiselect-dropdown@22.1.1 --save-exact
+npm install @stackline/angular-multiselect-dropdown@22.1.2 --save-exact
 ```
 
-Install `22.1.1` for Angular 22.x applications. This release keeps the tested Angular behavior and the Angular 23-compatible peer range, updates the build and test baseline to Angular 22.1, ignores prototype-mutation keys in settings/template contexts, and makes headless `limitSelection` match the visual component. It keeps `<angular-multiselect>` as the documented selector and `<angular2-multiselect>` as a compatibility alias.
+Install `22.1.2` for Angular 22.x applications. This release keeps the tested Angular behavior and the Angular 23-compatible peer range, updates the build and test baseline to Angular 22.1, ignores prototype-mutation keys in settings/template contexts, and makes headless `limitSelection` match the visual component. It keeps `<angular-multiselect>` as the documented selector and `<angular2-multiselect>` as a compatibility alias.
 
 ## Usage
 
@@ -267,7 +267,7 @@ Use the `css` file when you want a plain compiled starter that can be copied and
 
 ### Official Angular 22 Test Matrix
 
-The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.1`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
+The Angular 22 release was tested in a real Angular `22.1.3` application with `@stackline/angular-multiselect-dropdown@22.1.2`. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
 
 Switch between skins through the settings object:
 

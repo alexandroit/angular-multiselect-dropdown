@@ -39,6 +39,7 @@ jobs:
         run: |
           npm run docs:install:angular-22
           npm run build:docs:angular-22
+          npm ls --prefix docs-src/angular-22 --all --install-links
           npm run audit:docs
 
   release-artifact:
@@ -54,11 +55,15 @@ jobs:
       - run: npm ci
       - run: npm run build-package
       - run: npm run pack:check
+      - run: node --test scripts/registry-requests.test.mjs
+      - run: node scripts/check-artifact-manifest.mjs dist/@stackline/angular-multiselect-dropdown/package.json
       - name: Create package archive
         run: |
           mkdir -p release
           npm pack ./dist/@stackline/angular-multiselect-dropdown --ignore-scripts --pack-destination release
           (cd release && sha512sum *.tgz > SHA512SUMS)
+      - name: Test compiled package in direct and aliased consumers
+        run: node scripts/test-package.mjs release/*.tgz
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: stackline-angular-multiselect-${{ github.sha }}

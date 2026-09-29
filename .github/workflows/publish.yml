@@ -4,73 +4,126 @@ on:
   workflow_dispatch:
     inputs:
       expected_sha512:
-        description: SHA-512 hex digest of the tested release tarball
+        description: SHA-512 of the reviewed CI tarball
         required: true
+        type: string
+      ci_run_id:
+        description: Successful master-branch CI run containing the reviewed npm-package artifact
+        required: true
+        type: string
+      expected_source_commit:
+        description: For recovery only, the original 40-character commit from npm provenance
+        required: false
+        type: string
+      expected_publication_run:
+        description: For recovery only, the original GitHub Actions invocation URL from npm provenance
+        required: false
         type: string
 
 permissions:
   contents: read
-  id-token: write
+  actions: read
 
 concurrency:
-  group: npm-publish-${{ github.repository }}
+  group: npm-publish
   cancel-in-progress: false
 
 jobs:
   publish:
-    name: Verify and publish with provenance
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Require successful CI and CodeQL for this exact commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN_ID: ${{ inputs.ci_run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CI_RUN_ID" =~ ^[0-9]+$ ]]
+          test "$GITHUB_REPOSITORY" = alexandroit/angular-multiselect-dropdown
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CI_RUN_ID" > "$RUNNER_TEMP/ci.json"
+          jq -e --arg sha "$GITHUB_SHA" --arg repo "$GITHUB_REPOSITORY" '
+            .head_sha == $sha and .head_branch == "master" and .event == "push" and
+            .head_repository.full_name == $repo and .path == ".github/workflows/ci.yml" and
+            .status == "completed" and .conclusion == "success"
+          ' "$RUNNER_TEMP/ci.json"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$GITHUB_SHA&per_page=100" > "$RUNNER_TEMP/codeql.json"
+          jq -e --arg sha "$GITHUB_SHA" --arg repo "$GITHUB_REPOSITORY" '
+            [.workflow_runs[] | select(.path == "dynamic/github-code-scanning/codeql" and
+              .event == "dynamic" and .head_sha == $sha and .head_branch == "master" and
+              .head_repository.full_name == $repo and
+              .status == "completed" and .conclusion == "success")] | length > 0
+          ' "$RUNNER_TEMP/codeql.json"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24.20.0
-          package-manager-cache: false
           registry-url: https://registry.npmjs.org
-      - name: Require the default branch
-        run: test "$GITHUB_REF" = "refs/heads/master"
-      - run: npm install --global npm@11.19.0
-      - run: npm ci
-      - run: npm run check
-      - name: Reject an existing public version
-        shell: bash
-        run: |
-          package="$(node -p "require('./projects/@stackline/angular-multiselect-dropdown-lib/package.json').name")"
-          version="$(node -p "require('./projects/@stackline/angular-multiselect-dropdown-lib/package.json').version")"
-          if npm view "$package@$version" version --json --registry=https://registry.npmjs.org > "$RUNNER_TEMP/npm-version-check.json"; then
-            echo "$package@$version already exists" >&2
-            exit 1
-          fi
-          node -e 'const fs = require("node:fs"); const result = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + "/npm-version-check.json", "utf8")); if (result.error?.code !== "E404") throw new Error("Registry lookup did not confirm version absence");'
-      - name: Build and verify the immutable artifact
-        shell: bash
+          package-manager-cache: false
+      - name: Use the verified npm release toolchain
+        run: npm install --global npm@11.19.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: stackline-angular-multiselect-${{ github.sha }}
+          path: artifact
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.ci_run_id }}
+      - name: Check the CI artifact identity
         env:
           EXPECTED_SHA512: ${{ inputs.expected_sha512 }}
+        shell: bash
         run: |
-          mkdir artifact
-          npm pack ./dist/@stackline/angular-multiselect-dropdown --ignore-scripts --pack-destination artifact
-          expected="$(printf '%s' "$EXPECTED_SHA512" | tr '[:upper:]' '[:lower:]' | tr -d '[:space:]')"
-          actual="$(sha512sum artifact/*.tgz | awk '{print $1}')"
-          if [[ ! "$expected" =~ ^[0-9a-f]{128}$ ]]; then
-            echo "expected_sha512 must contain exactly 128 hexadecimal characters" >&2
-            exit 1
-          fi
-          if [ "$actual" != "$expected" ]; then
-            echo "Tarball digest mismatch: expected $expected, got $actual" >&2
-            exit 1
-          fi
-          (cd artifact && sha512sum *.tgz > SHA512SUMS)
-      - name: Prepare production SBOM
+          set -euo pipefail
+          archive="artifact/stackline-angular-multiselect-dropdown-$(node -p "require('./package.json').version").tgz"
+          test "$(find artifact -name '*.tgz' | wc -l)" -eq 1
+          tar -xOf "$archive" package/package.json > "$RUNNER_TEMP/packed-package.json"
+          node scripts/check-artifact-manifest.mjs "$RUNNER_TEMP/packed-package.json"
+          [[ "$EXPECTED_SHA512" =~ ^[0-9a-f]{128}$ ]]
+          test "$(sha512sum "$archive" | cut -d ' ' -f1)" = "$EXPECTED_SHA512"
+          sha256sum "$archive"
+          npm --version
+      - name: Check whether this exact artifact is already published
+        id: registry
+        run: node scripts/check-publish-status.mjs artifact/*.tgz
+      - name: Require explicit provenance identity during recovery
+        if: steps.registry.outputs.published == 'true'
+        env:
+          EXPECTED_SOURCE_COMMIT: ${{ inputs.expected_source_commit }}
+          EXPECTED_PUBLICATION_RUN: ${{ inputs.expected_publication_run }}
+        shell: bash
         run: |
-          npm sbom --omit=dev --sbom-format cyclonedx > artifact/sbom.cdx.json
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: npm-release
-          path: artifact/
-          if-no-files-found: error
-      - run: npm publish ./artifact/*.tgz --access public --provenance --ignore-scripts --registry=https://registry.npmjs.org
+          set -euo pipefail
+          [[ "$EXPECTED_SOURCE_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$EXPECTED_PUBLICATION_RUN" =~ ^https://github.com/alexandroit/angular-multiselect-dropdown/actions/runs/[0-9]+/attempts/[0-9]+$ ]]
+      - name: Publish the exact CI tarball with provenance
+        if: steps.registry.outputs.published == 'false'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.STACKLINE_NPM_PUBLISH_TOKEN }}
+        run: npm publish ./artifact/*.tgz --access public --provenance --ignore-scripts
+      - name: Verify npm bytes, normal installs, signatures, and provenance
+        env:
+          EXPECTED_SOURCE_COMMIT: ${{ steps.registry.outputs.published == 'true' && inputs.expected_source_commit || github.sha }}
+          EXPECTED_PUBLICATION_RUN: ${{ steps.registry.outputs.published == 'true' && inputs.expected_publication_run || format('https://github.com/{0}/actions/runs/{1}/attempts/{2}', github.repository, github.run_id, github.run_attempt) }}
+        run: node scripts/verify-registry.mjs artifact/*.tgz
+      - name: Assemble evidence for the verified artifact
+        env:
+          CI_RUN_ID: ${{ inputs.ci_run_id }}
+        run: node scripts/release-evidence.mjs artifact
+      - name: Publish and verify the immutable GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/publish-github-release.mjs artifact
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: published-package-evidence
+          path: artifact/*
+          if-no-files-found: error
+          retention-days: 90

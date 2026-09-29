@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 22.1.2 - 2026-09-28
+
+- Adopt verified Stackline forks for stale direct runtime and test dependencies.
+- Test aliased Karma and tslib with explicit peer resolution and the real Angular browser suites.
+- Refresh the build/docs lockfiles to fix the ip-address development advisory.
+
 ## Unreleased
 
 ## 22.1.1 - 2026-09-28
