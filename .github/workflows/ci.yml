@@ -55,7 +55,7 @@ jobs:
       - run: npm ci
       - run: npm run build-package
       - run: npm run pack:check
-      - run: node --test scripts/registry-requests.test.mjs
+      - run: node --test scripts/registry-requests.test.mjs scripts/docs-sync.test.mjs
       - run: node scripts/check-artifact-manifest.mjs dist/@stackline/angular-multiselect-dropdown/package.json
       - name: Create package archive
         run: |

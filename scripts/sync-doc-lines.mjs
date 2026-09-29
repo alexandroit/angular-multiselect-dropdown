@@ -92,13 +92,24 @@ function writeDocsMeta(targetDir, line) {
   fs.writeFileSync(docsMetaPath, content);
 }
 
-function updatePackageJson(targetDir, line) {
+export function updatePackageJson(targetDir, line, maintainedManifest, workspaceManifest) {
   const packageJsonPath = path.join(targetDir, 'package.json');
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+  const packageJson = maintainedManifest
+    ? structuredClone(maintainedManifest)
+    : JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
   const port = 4200 + line.angular;
 
   packageJson.name = `@stackline/angular-multiselect-dropdown-docs-angular${line.angular}`;
-  packageJson.scripts = {
+  if (maintainedManifest) {
+    // The current line uses its maintained manifest, not the older shared base.
+    for (const section of ['dependencies', 'devDependencies']) {
+      for (const name of Object.keys(packageJson[section] || {})) {
+        if (name === '@stackline/angular-multiselect-dropdown') continue;
+        const version = workspaceManifest?.dependencies?.[name] || workspaceManifest?.devDependencies?.[name];
+        if (version) packageJson[section][name] = version;
+      }
+    }
+  } else packageJson.scripts = {
     ng: 'ng',
     start: `ng serve --port ${port} --host 0.0.0.0`,
     build: 'ng build --configuration development --base-href ./'
@@ -111,9 +122,11 @@ function updatePackageJson(targetDir, line) {
   writeJson(packageJsonPath, packageJson);
 }
 
-function updateAngularJson(targetDir, line) {
+export function updateAngularJson(targetDir, line, maintainedConfig) {
   const angularJsonPath = path.join(targetDir, 'angular.json');
-  const angularJson = JSON.parse(fs.readFileSync(angularJsonPath, 'utf8'));
+  const angularJson = maintainedConfig
+    ? structuredClone(maintainedConfig)
+    : JSON.parse(fs.readFileSync(angularJsonPath, 'utf8'));
   const projectName = `@stackline/angular-multiselect-dropdown-docs-angular${line.angular}`;
   const currentProjectName = Object.keys(angularJson.projects)[0];
   const currentProject = angularJson.projects[currentProjectName];
@@ -152,11 +165,16 @@ function updateIndexFiles(targetDir, line) {
 
 function cleanGeneratedLine(line) {
   const targetDir = path.join(docsSrcDir, `angular-${line.angular}`);
-  resetDir(targetDir, line.angular === currentAngular);
+  // Read before reset: missing maintained metadata must fail without deleting it.
+  const maintained = line.angular === currentAngular;
+  const currentManifest = maintained ? JSON.parse(fs.readFileSync(path.join(targetDir, 'package.json'), 'utf8')) : undefined;
+  const currentConfig = maintained ? JSON.parse(fs.readFileSync(path.join(targetDir, 'angular.json'), 'utf8')) : undefined;
+  const workspaceManifest = maintained ? JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf8')) : undefined;
+  resetDir(targetDir, maintained);
   copyDir(baseDirs[line.base], targetDir);
 
-  updatePackageJson(targetDir, line);
-  updateAngularJson(targetDir, line);
+  updatePackageJson(targetDir, line, currentManifest, workspaceManifest);
+  updateAngularJson(targetDir, line, currentConfig);
   writeDocsMeta(targetDir, line);
   updateIndexFiles(targetDir, line);
 }
@@ -336,10 +354,10 @@ function writeDocsIndex(lines) {
   fs.writeFileSync(path.join(docsDir, 'index.html'), html);
 }
 
-for (const line of matrix.lines) {
-  cleanGeneratedLine(line);
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  for (const line of matrix.lines) {
+    cleanGeneratedLine(line);
+  }
+  writeDocsIndex(matrix.lines);
+  console.log(`Synced ${matrix.lines.length} Angular doc lines.`);
 }
-
-writeDocsIndex(matrix.lines);
-
-console.log(`Synced ${matrix.lines.length} Angular doc lines.`);
