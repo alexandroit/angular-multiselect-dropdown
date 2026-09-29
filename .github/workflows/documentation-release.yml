@@ -1,0 +1,39 @@
+name: Publish documentation update
+on:
+  push:
+    branches: ['documentation-release-20260929']
+permissions:
+  contents: read
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    environment: Prod
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 24.20.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@11.19.0
+      - name: Reproduce reviewed tarball and prove unchanged runtime bytes
+        run: python3 .github/documentation-artifact.py .github/documentation-release.json artifact
+      - name: Publish, verify provenance and create immutable release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOCUMENTATION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/publish-documentation.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: documentation-publication-evidence
+          path: artifact/*
+          retention-days: 90

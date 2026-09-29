@@ -1,0 +1,38 @@
+{
+  "repository": "alexandroit/angular-multiselect-dropdown",
+  "packages": [
+    {
+      "name": "@stackline/angular-multiselect-dropdown",
+      "path": "README.md",
+      "version": "22.1.3",
+      "baselineVersion": "22.1.2",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "angular-multiselect-dropdown",
+        "angular",
+        "typescript",
+        "nodejs",
+        "angular-library",
+        "angular-component",
+        "angular-multiselect",
+        "angular-select",
+        "angular-multi-select",
+        "multiselect",
+        "multiselect-dropdown",
+        "multi-select",
+        "dropdown",
+        "select",
+        "dropdown-search",
+        "checkbox-dropdown",
+        "checkbox-multiselect",
+        "searchable-dropdown"
+      ],
+      "homepage": "https://alexandro.net/docs/angular/multiselect/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/angular-multiselect-dropdown/-/angular-multiselect-dropdown-22.1.2.tgz",
+      "baselineIntegrity": "sha512-2WoLUZ4HwnNV898jryq4DdmdQ7GXvBw9jPO0BM+ACaN+kH7uytfs2Oi/JHuo1vwaS2Ommxo6EfquBD9eu/aH4Q==",
+      "expectedSha512": "5a568fef7355d313201b16942214073530f5ce040a6495a4508794e43d64890dfaaf912617ec199b57dd4474a9551f069cb1691c2bb173ec375095a8e9ca02f4",
+      "tag": "docs-stackline-angular-multiselect-dropdown-v22.1.3"
+    }
+  ]
+}
