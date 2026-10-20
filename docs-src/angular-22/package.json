@@ -13,7 +13,7 @@
     "@angular/core": "22.1.3",
     "@angular/forms": "22.1.3",
     "@angular/platform-browser": "22.1.3",
-    "@angular/router": "22.1.3",
+    "@angular/router": "22.2.1",
     "@stackline/angular-multiselect-dropdown": "22.1.2",
     "bootstrap": "npm:@stackline/bootstrap@1.0.0",
     "rxjs": "~7.8.2",
