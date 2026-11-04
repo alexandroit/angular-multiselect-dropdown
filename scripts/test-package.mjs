@@ -12,8 +12,8 @@ try {
     mkdirSync(cwd);
     writeFileSync(path.join(cwd, 'package.json'), JSON.stringify({
       private: true, type: 'module', dependencies: {
-        [key]: `file:${archive}`, '@angular/core': '22.1.3', '@angular/common': '22.1.3',
-        '@angular/forms': '22.1.3', '@angular/compiler': '22.1.3'
+        [key]: `file:${archive}`, '@angular/core': '22.2.4', '@angular/common': '22.2.4',
+        '@angular/forms': '22.2.4', '@angular/compiler': '22.2.4'
       }
     }));
     execFileSync('npm', ['install', '--ignore-scripts', '--no-fund'], {cwd, stdio: 'pipe'});
@@ -21,7 +21,7 @@ try {
     execFileSync('npm', ['audit', '--audit-level=low'], {cwd, stdio: 'pipe'});
     const manifest = JSON.parse(readFileSync(path.join(cwd, 'node_modules', key, 'package.json')));
     assert.equal(manifest.name, '@stackline/angular-multiselect-dropdown');
-    assert.equal(manifest.dependencies.tslib, 'npm:@stackline/tslib@1.0.0');
+    assert.equal(manifest.dependencies.tslib, 'npm:@stackline/tslib@1.0.2');
     writeFileSync(path.join(cwd, 'verify.mjs'), `
       import assert from 'node:assert/strict';
       import '@angular/compiler';

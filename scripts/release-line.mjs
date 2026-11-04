@@ -114,7 +114,7 @@ function getLineHomepage(line) {
 function getLineNodeRange(line) {
   const nodeRanges = {
     21: '^20.19.0 || ^22.12.0 || >=24.0.0',
-    22: '^22.22.3 || ^24.15.0 || >=26.0.0'
+    22: '^22.23.4 || ^24.22.2 || >=26.12.1'
   };
 
   return nodeRanges[line.angular] || null;

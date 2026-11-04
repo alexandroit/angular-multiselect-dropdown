@@ -15,7 +15,7 @@ const peerRange = line.peerRange || `>=${line.angular}.0.0 <${line.angular + 1}.
 assert.deepEqual(packed.peerDependencies, {'@angular/core': peerRange, '@angular/forms': peerRange, '@angular/common': peerRange});
 assert.equal(packed.homepage, `https://alexandro.net/docs/angular/multiselect/angular-${line.angular}/`);
 assert.equal(line.angular, 22, 'Review supported Node ranges before changing the current release line');
-assert.deepEqual(packed.engines, {node: '^22.22.3 || ^24.15.0 || >=26.0.0'});
+assert.deepEqual(packed.engines, {node: '^22.23.4 || ^24.22.2 || >=26.12.1'});
 assert.equal(packed.module, 'fesm2022/stackline-angular-multiselect-dropdown.mjs');
 assert.equal(packed.typings, 'types/stackline-angular-multiselect-dropdown.d.ts');
 assert.equal(packed.sideEffects, false);

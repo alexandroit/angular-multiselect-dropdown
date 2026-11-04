@@ -75,7 +75,7 @@ try {
       name: `stackline-registry-${kind}`,
       version: '1.0.0',
       private: true,
-      dependencies: { [key]: spec, '@angular/core': '22.1.3', '@angular/common': '22.1.3', '@angular/compiler': '22.1.3', '@angular/forms': '22.1.3' }
+      dependencies: { [key]: spec, '@angular/core': '22.2.4', '@angular/common': '22.2.4', '@angular/compiler': '22.2.4', '@angular/forms': '22.2.4' }
     }))
     const installed = await retryRegistryInstall(
       () => spawnSync('npm', ['install', '--omit=dev', '--no-fund', '--registry', registry], {
