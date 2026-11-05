@@ -1,5 +1,12 @@
 # Changelog
 
+## 22.1.5 - 2026-11-04
+
+- Refresh the current framework and compatible build/test dependencies.
+- Validate normal installs, updates, and the maintained documentation with zero known npm audit vulnerabilities.
+- Synchronize the current package documentation and release metadata.
+
+
 All notable changes to this project will be documented in this file.
 
 ## 22.1.2 - 2026-09-28

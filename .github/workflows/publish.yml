@@ -89,6 +89,8 @@ jobs:
           test "$(sha512sum "$archive" | cut -d ' ' -f1)" = "$EXPECTED_SHA512"
           sha256sum "$archive"
           npm --version
+      - name: Validate the exact npm README
+        run: python3 .github/scripts/check-release-readme.py artifact/*.tgz
       - name: Check whether this exact artifact is already published
         id: registry
         run: node scripts/check-publish-status.mjs artifact/*.tgz

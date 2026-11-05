@@ -15,17 +15,17 @@
     "@angular/platform-browser": "22.2.4",
     "@angular/router": "22.2.4",
     "@stackline/angular-multiselect-dropdown": "22.1.4",
-    "bootstrap": "npm:@stackline/bootstrap@1.0.2",
-    "rxjs": "~7.8.2",
+    "bootstrap": "npm:@stackline/bootstrap@1.0.5",
+    "rxjs": "7.8.2",
     "tslib": "npm:@stackline/tslib@1.0.2",
-    "zone.js": "~0.16.2"
+    "zone.js": "0.16.3"
   },
   "devDependencies": {
-    "@angular/build": "22.2.5",
-    "@angular/cli": "22.2.5",
+    "@angular/build": "22.2.6",
+    "@angular/cli": "22.2.6",
     "@angular/compiler-cli": "22.2.4",
-    "less": "^4.9.0",
-    "sass": "^1.103.0",
+    "less": "4.9.1",
+    "sass": "1.107.1",
     "typescript": "6.0.3"
   },
   "overrides": {
