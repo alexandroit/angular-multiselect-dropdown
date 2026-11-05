@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const archive = path.resolve(process.argv[2]);
+const sourceManifest = JSON.parse(readFileSync(new URL('../projects/@stackline/angular-multiselect-dropdown-lib/package.json', import.meta.url)));
 const workspace = mkdtempSync(path.join(tmpdir(), 'stackline-multiselect-packed-'));
 try {
   for (const key of ['@stackline/angular-multiselect-dropdown', 'angular2-multiselect-dropdown']) {
@@ -21,7 +22,7 @@ try {
     execFileSync('npm', ['audit', '--audit-level=low'], {cwd, stdio: 'pipe'});
     const manifest = JSON.parse(readFileSync(path.join(cwd, 'node_modules', key, 'package.json')));
     assert.equal(manifest.name, '@stackline/angular-multiselect-dropdown');
-    assert.equal(manifest.dependencies.tslib, 'npm:@stackline/tslib@1.0.2');
+    assert.deepEqual(manifest.dependencies, sourceManifest.dependencies);
     writeFileSync(path.join(cwd, 'verify.mjs'), `
       import assert from 'node:assert/strict';
       import '@angular/compiler';
