@@ -241,7 +241,7 @@ Use the `css` file when you want a plain compiled starter that can be copied and
 
 ### Official Angular 22 Test Matrix
 
-The Angular 22 toolchain and browser tests use Angular `22.2.4`. The docs install the already published `@stackline/angular-multiselect-dropdown@22.1.4`; the `22.1.5` candidate also passes direct and aliased packed-package consumers. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
+The Angular 22 toolchain and browser tests use Angular `22.2.4`. The current package is checked in direct and aliased packed-package consumers before publication. The maintained docs are then synchronized to the verified npm release. The docs use the same example pattern from the clean test app, including the accessibility-focused keyboard, focus, and ARIA behavior, responsive dropdown width handling, opaque menu surfaces, and dialog-safe positioning carried forward from the Angular 21.2.x line.
 
 Switch between skins through the settings object:
 
