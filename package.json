@@ -1,6 +1,6 @@
 {
   "name": "@stackline/angular-multiselect-dropdown",
-  "version": "22.1.5",
+  "version": "22.1.6",
   "scripts": {
     "test:fixtures": "node tools/stackline-run-release-smoke.mjs --catalog",
     "audit:docs": "npm audit --prefix docs-src/angular-22 --audit-level=low",
@@ -36,7 +36,7 @@
     "@angular/router": "22.2.4",
     "bootstrap": "npm:@stackline/bootstrap@1.0.5",
     "rxjs": "7.8.2",
-    "tslib": "npm:@stackline/tslib@1.0.2",
+    "tslib": "npm:@stackline/tslib@1.1.0",
     "zone.js": "0.16.3"
   },
   "devDependencies": {

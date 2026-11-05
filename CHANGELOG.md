@@ -1,5 +1,10 @@
 # Changelog
 
+## 22.1.6 - 2026-11-05
+
+- Update the runtime and current Angular 22 documentation to the published `@stackline/tslib@1.1.0`, based on upstream tslib 2.9.1.
+- Preserve Angular 22 peer compatibility and historical documentation lines.
+
 ## 22.1.5 - 2026-11-04
 
 - Refresh the current framework and compatible build/test dependencies.
